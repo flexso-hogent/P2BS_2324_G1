@@ -1,0 +1,21 @@
+evenementID;naam;beginDatum;eindDatum;beginUur;eindUur;locatie;maxAantalInschrijvingen;prijs
+000001;Python Programmering Workshop;2024-04-15;2024-04-15;09:00;17:00;Pythonstraat 123, Stad;50;25.00
+000002;Web Development Bootcamp;2024-05-10;2024-05-12;10:00;18:00;Webdevweg 45, Stad;100;50.00
+000003;Data Science Seminar;2024-06-20;2024-06-20;13:00;18:00;Datastraat 1, Stad;80;30.00
+000004;Cybersecurity Conference;2024-07-05;2024-07-05;09:30;16:30;Securityweg 7, Stad;120;40.00
+000005;Cloud Computing Summit;2024-08-25;2024-08-27;09:00;17:00;Cloudplein 10, Stad;150;60.00
+000006;Machine Learning Workshop;2024-09-14;2024-09-17;10:00;16:00;MLlaan 55, Stad;70;35.00
+000007;IT Project Management Training;2024-10-08;2024-10-08;11:00;15:00;PMplein 2, Stad;90;45.00
+000008;Agile Development Seminar;2024-11-18;2024-11-20;08:30;16:30;Agileweg 8, Stad;80;50.00
+000009;Blockchain Conference;2024-12-09;2024-12-09;09:00;18:00;Blockchainlaan 12, Stad;200;75.00
+000010;DevOps Bootcamp;2025-01-30;2025-01-30;10:00;16:00;DevOpsboulevard 3, Stad;100;55.00
+000011;IT Networking Workshop;2025-02-17;2025-02-17;13:00;17:00;Netwerkstraat 20, Stad;60;30.00
+000012;Software Testing Seminar;2025-03-05;2025-03-07;09:30;15:30;Teststraat 88, Stad;80;40.00
+000013;Artificial Intelligence Symposium;2025-04-18;2025-04-20;10:00;17:00;AIplein 5, Stad;150;70.00
+000014;Cyber Ethics Forum;2025-05-22;2025-05-24;09:00;16:00;Ethicsweg 15, Stad;70;35.00
+000015;IoT Workshop;2025-06-14;2025-06-16;11:00;15:00;IoTpark 30, Stad;120;60.00
+000016;Data Analytics Bootcamp;2025-07-09;2025-07-09;10:00;17:00;Analyticstraat 9, Stad;80;45.00
+000017;Cloud Security Conference;2025-08-05;2025-08-05;09:30;16:30;CloudSecuritylaan 2, Stad;100;50.00
+000018;Software Engineering Summit;2025-09-22;2025-09-22;09:00;17:00;Engineeringplein 18, Stad;120;55.00
+000019;Virtual Reality Workshop;2025-10-11;2025-10-11;10:00;15:00;VRstraat 6, Stad;80;40.00
+000020;Cyber Forensics Seminar;2025-11-05;2025-11-05;11:00;16:00;Forensicspad 7, Stad;70;35.00

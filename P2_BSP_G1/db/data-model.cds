@@ -1,7 +1,7 @@
 namespace P2_BSP_G1.db;
 
 entity Gebruikers {
-    key gebruikerID   : Integer;
+    key gebruikerID   : Int16;
         voornaam      : String;
         achternaam    : String;
         email         : String;
@@ -10,28 +10,28 @@ entity Gebruikers {
 }
 
 entity Evenementen {
-    key evenementID             : Integer;
+    key evenementID             : Int64;
         naam                    : String;
         beginDatum              : Date;
         eindDatum               : Date;
         beginUur                : Time;
         eindUur                 : Time;
         locatie                 : String;
-        MaxAantalInschrijvingen : Integer;
+        maxAantalInschrijvingen : Integer;
         prijs                   : Decimal(5, 2);
         sessies                 : Association to many Sessies
                                       on sessies.evenement = $self;
 }
 
 entity Sessies {
-    key sessieID       : Integer;
+    key sessieID       : Int64;
         naam           : String;
         datum          : Date;
         beginUur       : Time;
         eindUur        : Time;
         spreker        : String;
         korteInhoud    : String;
-        evenement      : Association to Evenementen;
+        evenement    : Association to Evenementen;
         inschrijvingen : Association to many Inschrijvingen
                              on inschrijvingen.sessieID = $self;
         scores         : Association to many Scores
@@ -39,13 +39,13 @@ entity Sessies {
 }
 
 entity Inschrijvingen {
-    key inschrijvingID : Integer;
+    key inschrijvingID : Int64;
         gebruikerID    : Association to Gebruikers;
         sessieID       : Association to Sessies;
 }
 
 entity Scores {
-    key scoreID       : Integer;
+    key scoreID       : Int64;
         gebruikerID   : Association to Gebruikers;
         sessieID      : Association to Sessies;
         aantalSterren : Decimal(5);

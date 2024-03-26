@@ -1,0 +1,21 @@
+gebruikerID;voornaam;achternaam;email;wachtwoord;geboortedatum
+000001;Jan;Jansen;jan@example.com;wachtwoord123;1985-07-15
+000002;Piet;Pietersen;piet@example.com;geheim456;1990-03-22
+000003;Marie;Janssen;marie@example.com;test789;1988-11-10
+000004;Anna;Bakker;anna@example.com;hallo123;1995-04-30
+000005;Erik;de Vries;erik@example.com;welkom321;1980-09-05
+000006;Lotte;van Dijk;lotte@example.com;123456;1992-12-18
+000007;Sven;Hendriks;sven@example.com;qwerty;1987-06-25
+000008;Laura;Smit;laura@example.com;password;1998-02-14
+000009;Thomas;de Boer;thomas@example.com;abcd1234;1983-10-20
+000010;Sophie;Mulder;sophie@example.com;letmein;1991-08-08
+000011;Ruben;Kok;ruben@example.com;pass123;1986-01-27
+000012;Emma;van der Meer;emma@example.com;password123;1996-07-03
+000013;Luuk;Visser;luuk@example.com;123abc;1989-09-12
+000014;Fleur;Koopman;fleur@example.com;abcdef;1994-05-29
+000015;Tim;Huisman;tim@example.com;qwerty123;1982-03-17
+000016;Lisa;Verhoeven;lisa@example.com;test1234;1984-11-08
+000017;Max;Bos;max@example.com;letmein123;1997-06-22
+000018;Nina;Mol;nina@example.com;passpass;1981-12-11
+000019;Daan;Kuipers;daan@example.com;password1;1993-04-26
+000020;Rosa;Willems;rosa@example.com;12345678;1988-08-03
