@@ -19,7 +19,6 @@ sessieID;naam;datum;beginUur;eindUur;spreker;korteInhoud;evenement
 000018;Continuous Integration en Continuous Deployment;2024-12-09;13:00;15:00;Sophie Anderson;Leer hoe je continuous integration en continuous deployment kunt implementeren in softwareontwikkelingspipelines.;000009
 000019;Introductie tot Cryptografie;2025-01-30;10:00;12:00;Lucas Garcia;Een inleiding tot cryptografische concepten en principes.;000010
 000020;Cryptography in Praktijk;2025-01-30;13:00;15:00;Isabella Martinez;Ontdek praktische toepassingen van cryptografie in cybersecurity en gegevensbescherming.;000010
-sessieID;naam;datum;beginUur;eindUur;spreker;korteInhoud;evenementID
 000021;Introductie tot Internet of Things;2025-02-17;10:00;12:00;David Smith;Een inleiding tot het Internet of Things (IoT) en zijn toepassingen.;000011
 000022;IoT Sensornetwerken;2025-02-17;13:00;15:00;Jennifer Taylor;Leer hoe je sensornetwerken kunt opzetten en beheren voor IoT-toepassingen.;000011
 000023;Software Testing Fundamentals;2025-03-05;10:00;12:00;Daniel Brown;Leer de basisprincipes van software testing en testmethodologieën.;000012
