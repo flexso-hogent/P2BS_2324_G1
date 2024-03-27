@@ -1,4 +1,4 @@
-sessieID;naam;datum;beginUur;eindUur;spreker;korteInhoud;evenement
+sessieID;naam;datum;beginUur;eindUur;spreker;korteInhoud;evenement_evenementID
 000001;Introductie tot Python;2024-04-15;10:00;12:00;John Doe;Leer de basisprincipes van Python programmeren.;000001
 000002;Geavanceerde Python Technieken;2024-04-15;13:00;15:00;Jane Smith;Ontdek geavanceerde concepten en toepassingen in Python.;000001
 000003;HTML5 en CSS3 Fundamentals;2024-05-10;10:00;12:00;Chris Johnson;Leer de basis van HTML5 en CSS3 voor webontwikkeling.;000002
