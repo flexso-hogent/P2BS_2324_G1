@@ -1,0 +1,101 @@
+scoreID;gebruikerID_gebruikerID;inschrijvingID_inschrijvingID;aantalSterren;feedback
+1;000001;1;4.5;Goede introductie, zou graag meer diepgang zien.
+2;000002;2;4.0;Interessante sessie, goed gepresenteerd.
+3;000003;3;3.5;Nuttige informatie, maar iets te snel gegaan.
+4;000004;4;4.0;Leerzaam en goed uitgelegd.
+5;000005;5;4.5;Geweldige presentatie, duidelijke uitleg.
+6;000006;6;4.0;Leerzaam, maar soms wat verwarrend.
+7;000007;7;3.0;Matige presentatie, had meer diepgang verwacht.
+8;000008;8;3.5;Oké, maar kan beter.
+9;000009;9;4.5;Zeer informatief, goed gepresenteerd.
+10;000010;10;4.0;Interessante sessie, zou wat interactiever kunnen zijn.
+11;000011;11;4.0;Praktische voorbeelden waren nuttig.
+12;000012;12;4.5;Goed gepresenteerd, maar zou meer interactie kunnen gebruiken.
+13;000013;13;3.0;Teleurstellend, had hogere verwachtingen.
+14;000014;14;3.5;Redelijk, maar miste diepgang.
+15;000015;15;4.5;Zeer goede presentatie, zou het aanbevelen.
+16;000016;16;4.0;Interessante onderwerpen behandeld, maar soms te snel.
+17;000017;17;4.5;Leerzaam en inspirerend.
+18;000018;18;4.0;Goed, maar iets te veel herhaling van basisinformatie.
+19;000019;19;4.5;Zeer interessant en goed gepresenteerd.
+20;000020;20;4.0;Leerzaam, maar soms wat saai.
+21;000001;21;4.0;Goede inzichten, maar had meer praktische voorbeelden gewild.
+22;000002;22;4.5;Interessante sessie, zou het zeker aanraden.
+23;000003;23;4.0;Leerzaam, maar had meer interactie verwacht.
+24;000004;24;4.5;Inspirerend, goede presentatie.
+25;000005;25;3.5;Oké, maar soms wat langdradig.
+26;000006;26;4.0;Interessante onderwerpen, maar presentatie kon beter.
+27;000007;27;3.5;Matig, had meer diepgang verwacht.
+28;000008;28;4.0;Leerzaam, maar miste praktische voorbeelden.
+29;000009;29;4.5;Zeer informatief, goede presentator.
+30;000010;30;4.0;Interessant onderwerp, had interactie gemist.
+31;000011;31;4.5;Goed gepresenteerd, nuttige informatie.
+32;000012;32;4.0;Leerzaam, maar had meer diepgang verwacht.
+33;000013;33;3.0;Teleurstellend, had hogere verwachtingen.
+34;000014;34;3.5;Gemiddeld, miste praktische voorbeelden.
+35;000015;35;4.5;Zeer goede presentatie, duidelijke uitleg.
+36;000016;36;4.0;Interessant, maar soms te snel gegaan.
+37;000017;37;4.5;Leerzaam en boeiend.
+38;000018;38;4.0;Goed gepresenteerd, maar had meer interactie gewild.
+39;000019;39;4.5;Zeer interessant en nuttig.
+40;000020;40;4.0;Leerzaam, maar had meer praktische voorbeelden verwacht.
+41;000001;41;4.0;Goed gepresenteerd, maar zou meer interactie willen zien.
+42;000002;42;4.5;Interessant onderwerp, nuttige informatie.
+43;000003;43;4.0;Leerzaam, maar had meer praktische voorbeelden verwacht.
+44;000004;44;4.5;Inspirerend, goed gepresenteerd.
+45;000005;45;3.5;Oké, maar miste diepgang.
+46;000006;46;4.0;Interessante onderwerpen, maar presentatie kon beter.
+47;000007;47;3.5;Matig, had meer diepgang verwacht.
+48;000008;48;4.0;Leerzaam, maar miste praktische voorbeelden.
+49;000009;49;4.5;Zeer informatief, goede presentator.
+50;000010;50;4.0;Interessant onderwerp, had interactie gemist.
+51;000011;51;4.5;Goed gepresenteerd, nuttige informatie.
+52;000012;52;4.0;Leerzaam, maar had meer diepgang verwacht.
+53;000013;53;3.0;Teleurstellend, had hogere verwachtingen.
+54;000014;54;3.5;Gemiddeld, miste praktische voorbeelden.
+55;000015;55;4.5;Zeer goede presentatie, duidelijke uitleg.
+56;000016;56;4.0;Interessant, maar soms te snel gegaan.
+57;000017;57;4.5;Leerzaam en boeiend.
+58;000018;58;4.0;Goed gepresenteerd, maar had meer interactie gewild.
+59;000019;59;4.5;Zeer interessant en nuttig.
+60;000020;60;4.0;Leerzaam, maar had meer praktische voorbeelden verwacht.
+61;000001;61;4.0;Goed gepresenteerd, maar zou meer interactie willen zien.
+62;000002;62;4.5;Interessant onderwerp, nuttige informatie.
+63;000003;63;4.0;Leerzaam, maar had meer praktische voorbeelden verwacht.
+64;000004;64;4.5;Inspirerend, goed gepresenteerd.
+65;000005;65;3.5;Oké, maar miste diepgang.
+66;000006;66;4.0;Interessante onderwerpen, maar presentatie kon beter.
+67;000007;67;3.5;Matig, had meer diepgang verwacht.
+68;000008;68;4.0;Leerzaam, maar miste praktische voorbeelden.
+69;000009;69;4.5;Zeer informatief, goede presentator.
+70;000010;70;4.0;Interessant onderwerp, had interactie gemist.
+71;000011;71;4.5;Goed gepresenteerd, nuttige informatie.
+72;000012;72;4.0;Leerzaam, maar had meer diepgang verwacht.
+73;000013;73;3.0;Teleurstellend, had hogere verwachtingen.
+74;000014;74;3.5;Gemiddeld, miste praktische voorbeelden.
+75;000015;75;4.5;Zeer goede presentatie, duidelijke uitleg.
+76;000016;76;4.0;Interessant, maar soms te snel gegaan.
+77;000017;77;4.5;Leerzaam en boeiend.
+78;000018;78;4.0;Goed gepresenteerd, maar had meer interactie gewild.
+79;000019;79;4.5;Zeer interessant en nuttig.
+80;000020;80;4.0;Leerzaam, maar had meer praktische voorbeelden verwacht.
+81;000001;81;4.0;Goed gepresenteerd, maar zou meer interactie willen zien.
+82;000002;82;4.5;Interessant onderwerp, nuttige informatie.
+83;000003;83;4.0;Leerzaam, maar had meer praktische voorbeelden verwacht.
+84;000004;84;4.5;Inspirerend, goed gepresenteerd.
+85;000005;85;3.5;Oké, maar miste diepgang.
+86;000006;86;4.0;Interessante onderwerpen, maar presentatie kon beter.
+87;000007;87;3.5;Matig, had meer diepgang verwacht.
+88;000008;88;4.0;Leerzaam, maar miste praktische voorbeelden.
+89;000009;89;4.5;Zeer informatief, goede presentator.
+90;000010;90;4.0;Interessant onderwerp, had interactie gemist.
+91;000011;91;4.5;Goed gepresenteerd, nuttige informatie.
+92;000012;92;4.0;Leerzaam, maar had meer diepgang verwacht.
+93;000013;93;3.0;Teleurstellend, had hogere verwachtingen.
+94;000014;94;3.5;Gemiddeld, miste praktische voorbeelden.
+95;000015;95;4.5;Zeer goede presentatie, duidelijke uitleg.
+96;000016;96;4.0;Interessant, maar soms te snel gegaan.
+97;000017;97;4.5;Leerzaam en boeiend.
+98;000018;98;4.0;Goed gepresenteerd, maar had meer interactie gewild.
+99;000019;99;4.5;Zeer interessant en nuttig.
+100;000020;100;4.0;Leerzaam, maar had meer praktische voorbeelden verwacht.

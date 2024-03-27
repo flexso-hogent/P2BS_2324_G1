@@ -31,23 +31,23 @@ entity Sessies {
         eindUur        : Time;
         spreker        : String;
         korteInhoud    : String;
-        evenement    : Association to Evenementen;
+        evenement      : Association to Evenementen;
         inschrijvingen : Association to many Inschrijvingen
                              on inschrijvingen.sessieID = $self;
-        scores         : Association to many Scores
-                             on scores.sessieID = $self;
 }
 
 entity Inschrijvingen {
     key inschrijvingID : Int64;
         gebruikerID    : Association to Gebruikers;
         sessieID       : Association to Sessies;
+        score          : Association to Scores
+                            on score.inschrijvingID = $self;
 }
 
 entity Scores {
-    key scoreID       : Int64;
-        gebruikerID   : Association to Gebruikers;
-        sessieID      : Association to Sessies;
-        aantalSterren : Decimal(5);
-        feedback      : String;
+    key scoreID        : Int64;
+        gebruikerID    : Association to Gebruikers;
+        inschrijvingID : Association to Inschrijvingen;
+        aantalSterren  : Decimal(5);
+        feedback       : String;
 }
