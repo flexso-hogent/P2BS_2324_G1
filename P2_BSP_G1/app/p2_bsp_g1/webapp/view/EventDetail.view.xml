@@ -1,7 +1,26 @@
 <mvc:View controllerName="p2bspg1.controller.EventDetail"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-<Page id="EventDetail" title="Details eventement">
-<Button id="testbutton"></Button>
-</Page>
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:m="sap.m" height="100%">
+    <ObjectPageLayout id="ObjectPageLayout" isChildPage="true" upperCaseAnchorBar="false">
+
+        <headerTitle>
+            <ObjectPageHeader id="headerForTest" objectTitle="Denise Smith" objectSubtitle="Example of a child page in ObjectPage terms">
+                <!-- <actions>
+                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton1" icon="sap-icon://action" text="action" tooltip="action"/>
+                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton2" icon="sap-icon://action-settings" text="settings" tooltip="action-settings"/>
+                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton3" icon="sap-icon://edit" text="edit" tooltip="edit"/>
+                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton4" icon="sap-icon://save" text="save" visible="false" tooltip="save"/>
+                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton5" icon="sap-icon://refresh" text="{buttons>/text}" tooltip="refresh"/>
+                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton6" icon="{buttons>/icon}" text="{path:'/text', model:'buttons', formatter:'.onFormat'}" tooltip="chain-link"/>
+                </actions> -->
+                <!-- <breadcrumbs>
+                    <m:Breadcrumbs id="_IDGenBreadcrumbs1">
+                        <m:Link id="_IDGenLink1" text="Page 2 long link" press="handleLink2Press"/>
+                    </m:Breadcrumbs>
+                </breadcrumbs> -->
+            </ObjectPageHeader>
+        </headerTitle>
+    </ObjectPageLayout>
 </mvc:View>
