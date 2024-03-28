@@ -1,0 +1,9 @@
+### Get All Gebruikers
+GET http://localhost:4004/odata/v4/overview/Gebruikers
+
+### Get Gebruiker By Id (1)
+GET http://localhost:4004/odata/v4/overview/Gebruikers/1
+
+### Get Gebruiker By Id + alle inschrijvingen
+
+GET http://localhost:4004/odata/v4/overview/Gebruikers/3?$expand=*

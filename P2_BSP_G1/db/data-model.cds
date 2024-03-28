@@ -5,8 +5,10 @@ entity Gebruikers {
         voornaam      : String;
         achternaam    : String;
         email         : String;
-        wachtwoord    : String;
+        wachtwoord    : String @UI.Hidden;
         geboortedatum : Date;
+        inschrijvingen: Association to many Inschrijvingen
+                            on inschrijvingen.gebruikerID = $self;
 }
 
 entity Evenementen {
@@ -41,7 +43,7 @@ entity Inschrijvingen {
         gebruikerID    : Association to Gebruikers;
         sessieID       : Association to Sessies;
         score          : Association to Scores
-                            on score.inschrijvingID = $self;
+                             on score.inschrijvingID = $self;
 }
 
 entity Scores {
