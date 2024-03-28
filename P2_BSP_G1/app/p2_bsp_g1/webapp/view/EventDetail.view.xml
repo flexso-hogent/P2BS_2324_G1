@@ -1,0 +1,5 @@
+<mvc:View controllerName="p2bspg1.controller.EventDetail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+<Page id="_IDGenPage1" title="Details eventement"></Page>
+</mvc:View>
