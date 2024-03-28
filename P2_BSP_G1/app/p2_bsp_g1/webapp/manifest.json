@@ -118,16 +118,17 @@
         {
           "name": "Home",
           "pattern": "",
-          "target": [
-            "Home"
-          ]
+          "target": ["Home"]
         },
         {
           "name": "EventDetail",
           "pattern": "EventDetail",
-          "target": [
-            "EventDetail"
-          ]
+          "target": ["EventDetail"]
+        },
+        {
+          "name": "Events",
+          "pattern": "Events",
+          "target": ["Events"]
         }
       ],
       "targets": {
@@ -138,12 +139,19 @@
           "viewId": "App",
           "viewName": "App"
         },
-        "EventDetail":{
+        "EventDetail": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
           "viewId": "EventDetail",
           "viewName": "EventDetail"
+        },
+        "Events": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Events",
+          "viewName": "Events"
         }
       }
     },

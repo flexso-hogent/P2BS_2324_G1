@@ -1,0 +1,136 @@
+<mvc:View controllerName="p2bspg1.controller.Events"
+        displayBlock="true"
+		height="100%"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:fb="sap.ui.comp.filterbar"
+		xmlns:svm="sap.ui.comp.smartvariants">
+<Page id="Events" title="Events">
+<f:DynamicPage headerExpanded="{/headerExpanded}">
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+					</f:heading>
+					<f:expandedContent>
+						<Label id="expandedLabel" text="Geen filters actief" />
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label id="snappedLabel" text="Geen filters actief" />
+					</f:snappedContent>
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="EventNaam" label="Event naam / nummer" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<SearchField
+                                            search=".onSearchNaam"
+                                            width="100%"
+                                            placeholder="Search for Event naam / nummer"
+                                        />
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="EventLocation" label="Event locatie" groupName="Group1" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <SearchField
+                                            name="EventLocation"
+                                            search=".onSearchLocation"
+                                            liveChange=".onSearchLocation"
+                                            width="100%"
+                                            placeholder="Zoek op Event locatie"
+                                        />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+
+								<fb:FilterGroupItem name="beginDatum" label="beginDatum" groupName="Group1" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <DatePicker
+                                            name="beginDatum"
+											value="{
+												'path':'/valueDP7',
+												'type':'sap.ui.model.type.Date'
+											}"
+											showCurrentDateButton="true"
+                                            displayFormat="short"
+                                            valueFormat="yyyy-MM-dd"
+                                            change=".onSearchBeginDate"
+                                        />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem name="EindDatum" label="Einddatum" groupName="Group1" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <DatePicker
+                                            name="EindDatum"
+                                            displayFormat="short"
+                                            valueFormat="yyyy-MM-dd"
+                                            change=".onSearchEndDate"
+                                        />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<Table
+					id="eventsTable"
+					selectionChange=".onSelectionChange"
+					inset="false"
+					items="{
+						path: '/Evenementen'
+					}"
+				>
+					<infoToolbar>
+						<OverflowToolbar visible="false" id="idInfoToolbar">
+							<Label id="idFilterLabel" />
+						</OverflowToolbar>
+					</infoToolbar>
+					<columns>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Event nummer"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Event naam"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Locatie"/>
+						</Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Begin datum"/>
+						</Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Eind datum"/>
+						</Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Maximum inschrijvingen"/>
+						</Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Prijs"/>
+						</Column>
+					</columns>
+
+					<items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<ObjectIdentifier title="{evenementID}" />
+								<Text text="{naam}" />
+								<Text text="{locatie}" />
+                                <Text text="{beginDatum} {beginUur}" />
+                                <Text text="{eindDatum} {eindUur}" />
+                                <Text text="{maxAantalInschrijvingen}" />
+                                <Text text="€{prijs}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:DynamicPage>
+</Page>
+</mvc:View>
