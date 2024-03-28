@@ -121,6 +121,13 @@
           "target": [
             "Home"
           ]
+        },
+        {
+          "name": "EventDetail",
+          "pattern": "EventDetail/{eventId}",
+          "target": [
+            "EventDetail"
+          ]
         }
       ],
       "targets": {
@@ -130,6 +137,13 @@
           "clearControlAggregation": false,
           "viewId": "App",
           "viewName": "App"
+        },
+        "EventDetail":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "EventDetail",
+          "viewName": "EventDetail"
         }
       }
     },
