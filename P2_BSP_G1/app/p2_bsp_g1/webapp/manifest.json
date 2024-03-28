@@ -116,6 +116,13 @@
       },
       "routes": [
         {
+          "name": "Home",
+          "pattern": "",
+          "target": [
+            "Home"
+          ]
+        },
+        {
           "name": "EventDetail",
           "pattern": "EventDetail",
           "target": [
@@ -124,6 +131,13 @@
         }
       ],
       "targets": {
+        "Home": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "App",
+          "viewName": "App"
+        },
         "EventDetail":{
           "viewType": "XML",
           "transition": "slide",
