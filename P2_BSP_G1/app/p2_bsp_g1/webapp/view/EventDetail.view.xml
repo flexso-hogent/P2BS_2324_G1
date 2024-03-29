@@ -1,26 +1,118 @@
 <mvc:View controllerName="p2bspg1.controller.EventDetail"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
     xmlns="sap.uxap"
     xmlns:layout="sap.ui.layout"
     xmlns:m="sap.m" height="100%">
     <ObjectPageLayout id="ObjectPageLayout" isChildPage="true" upperCaseAnchorBar="false">
 
         <headerTitle>
-            <ObjectPageHeader id="headerForTest" objectTitle="Denise Smith" objectSubtitle="Example of a child page in ObjectPage terms">
-                <!-- <actions>
-                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton1" icon="sap-icon://action" text="action" tooltip="action"/>
-                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton2" icon="sap-icon://action-settings" text="settings" tooltip="action-settings"/>
-                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton3" icon="sap-icon://edit" text="edit" tooltip="edit"/>
-                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton4" icon="sap-icon://save" text="save" visible="false" tooltip="save"/>
-                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton5" icon="sap-icon://refresh" text="{buttons>/text}" tooltip="refresh"/>
-                    <ObjectPageHeaderActionButton id="_IDGenObjectPageHeaderActionButton6" icon="{buttons>/icon}" text="{path:'/text', model:'buttons', formatter:'.onFormat'}" tooltip="chain-link"/>
-                </actions> -->
-                <!-- <breadcrumbs>
-                    <m:Breadcrumbs id="_IDGenBreadcrumbs1">
-                        <m:Link id="_IDGenLink1" text="Page 2 long link" press="handleLink2Press"/>
-                    </m:Breadcrumbs>
-                </breadcrumbs> -->
+            <ObjectPageHeader id="headerForTest" objectTitle="{naam}">
+                <actions>
+                    <m:Button id="_IDGenButton1" text="Registreer voor dit event" type="Emphasized" press="signUp" />
+                </actions>
+
             </ObjectPageHeader>
         </headerTitle>
+        <headerContent>
+
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection titleUppercase="false" id="goals" title="Info evenement">
+                <subSections>
+                    <ObjectPageSubSection id="goalsSS1" title="Info evenement" titleUppercase="false">
+                        <m:FlexBox wrap="Wrap" fitContainer="true">
+
+                            <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                <layout:HorizontalLayout>
+                                    <core:Icon src="sap-icon://map" class="size2">
+                                        <core:layoutData>
+                                            <m:FlexItemData growFactor="1" />
+                                        </core:layoutData>
+                                    </core:Icon>
+                                    <m:Label text="{locatie}" class="sapUiSmallMarginBeginEnd" />
+                                </layout:HorizontalLayout>
+                                <layout:HorizontalLayout>
+                                    <core:Icon src="sap-icon://calendar" class="size2">
+                                        <core:layoutData>
+                                            <m:FlexItemData growFactor="1" />
+                                        </core:layoutData>
+                                    </core:Icon>
+                                    <layout:VerticalLayout>
+                                        <m:Label text="{beginDatum} - {beginUur}" class="sapUiSmallMarginBeginEnd" />
+                                        <m:Label text="{eindDatum} - {eindUur}" class="sapUiSmallMarginBeginEnd" />
+                                    </layout:VerticalLayout>
+                                </layout:HorizontalLayout>
+                                <layout:HorizontalLayout>
+                                    <core:Icon src="sap-icon://group" class="size2">
+                                        <core:layoutData>
+                                            <m:FlexItemData growFactor="1" />
+                                        </core:layoutData>
+                                    </core:Icon>
+                                    <m:Label text="Max. {maxAantalInschrijvingen} deelnemers" class="sapUiSmallMarginBeginEnd" />
+                                </layout:HorizontalLayout>
+                                <layout:HorizontalLayout>
+                                    <core:Icon src="sap-icon://money-bills" class="size2">
+                                        <core:layoutData>
+                                            <m:FlexItemData growFactor="1" />
+                                        </core:layoutData>
+                                    </core:Icon>
+                                    <m:Label text="€ {prijs} inkom" class="sapUiSmallMarginBeginEnd" />
+                                </layout:HorizontalLayout>
+                            </layout:VerticalLayout>
+
+                        </m:FlexBox>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection titleUppercase="false" id="personal" title="Session">
+                <subSections>
+                    <ObjectPageSubSection id="personalSS1" title="Beschikbare sessies" titleUppercase="false">
+                        <m:Table id="idProductsTable" inset="false" items="{
+			path: '/Sessies',
+			sorter: {
+				path: 'datum'
+			}
+		}">
+                            <m:columns>
+                                <m:Column width="12em">
+                                    <m:Text text="Naam sessie" />
+                                </m:Column>
+                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                    <m:Text text="Korte inhoud" />
+                                </m:Column>
+                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                    <m:Text text="Datum" />
+                                </m:Column>
+                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                    <m:Text text="Tijdstip" />
+                                </m:Column>
+
+
+                            </m:columns>
+                            <m:items>
+                                <m:ColumnListItem vAlign="Middle">
+                                    <m:cells>
+                                        <m:ObjectIdentifier title="{naam}" text="Door {spreker}"/>
+                                        <m:Text text="{korteInhoud}" />
+                                        <m:Text text="{datum}" />
+                                        <m:Text text="{beginUur} - {eindUur}" />
+                                    </m:cells>
+                                </m:ColumnListItem>
+                            </m:items>
+                        </m:Table>
+                    </ObjectPageSubSection>
+
+                    <ObjectPageSubSection id="personalSS2" title="Payment information" titleUppercase="false">
+                        <blocks>
+                        </blocks>
+                        <moreBlocks>
+                        </moreBlocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
     </ObjectPageLayout>
 </mvc:View>
