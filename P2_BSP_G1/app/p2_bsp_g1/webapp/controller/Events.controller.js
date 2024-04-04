@@ -58,19 +58,34 @@ function (Controller, Filter, FilterOperator) {
             oBinding.filter(aFilters);
         },
 
-        onSearchBeginDate: function (oEvent) {
-            var sQuery = oEvent.getParameter("query");
+        onSearchBeginDate: function(oEvent) {
+            var sQuery = oEvent.getParameter("value");
             var oTable = this.byId("eventsTable");
             var oBinding = oTable.getBinding("items");
             var aFilters = [];
-
+        
             if (sQuery) {
-                var oFilter = new Filter("beginDatum", FilterOperator.Contains, sQuery);
+                var oFilter = new sap.ui.model.Filter("beginDatum", sap.ui.model.FilterOperator.EQ, sQuery);
                 aFilters.push(oFilter);
             }
-
+        
             oBinding.filter(aFilters);
         },
+
+        onSearchEndDate: function(oEvent) {
+            var sQuery = oEvent.getParameter("value");
+            var oTable = this.byId("eventsTable");
+            var oBinding = oTable.getBinding("items");
+            var aFilters = [];
+        
+            if (sQuery) {
+                var oFilter = new sap.ui.model.Filter("beginDatum", sap.ui.model.FilterOperator.EQ, sQuery);
+                aFilters.push(oFilter);
+            }
+        
+            oBinding.filter(aFilters);
+        },
+        
 
         onSelectionChange: function (oEvent) {
             var oTable = oEvent.getSource();
@@ -83,21 +98,5 @@ function (Controller, Filter, FilterOperator) {
             oInfoToolbar.setVisible(aSelectedItems.length > 0);
             oLabel.setText(aSelectedItems.length + " selected");
         },
-
-        handleChange: function (oEvent) {
-			var oText = this.byId("textResult"),
-				oDP = oEvent.getSource(),
-				sValue = oEvent.getParameter("value"),
-				bValid = oEvent.getParameter("valid");
-
-			this._iEvent++;
-			oText.setText("Change - Event " + this._iEvent + ": DatePicker " + oDP.getId() + ":" + sValue);
-
-			if (bValid) {
-				oDP.setValueState(ValueState.None);
-			} else {
-				oDP.setValueState(ValueState.Error);
-			}
-		},
     });
 });

@@ -38,15 +38,12 @@
 
 								<fb:FilterGroupItem name="beginDatum" label="beginDatum" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
-										<DatePicker name="beginDatum" value="{
-												'path':'/valueDP7',
-												'type':'sap.ui.model.type.Date'
-											}" showCurrentDateButton="true" displayFormat="short" valueFormat="yyyy-MM-dd" change=".onSearchBeginDate" />
+										<DatePicker name="beginDatum" showCurrentDateButton="true" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" change=".onSearchBeginDate" />
 									</fb:control>
 								</fb:FilterGroupItem>
 								<fb:FilterGroupItem name="EindDatum" label="Einddatum" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
-										<DatePicker name="EindDatum" displayFormat="short" valueFormat="yyyy-MM-dd" change=".onSearchEndDate" />
+										<DatePicker name="EindDatum" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" change=".onSearchEndDate" />
 									</fb:control>
 								</fb:FilterGroupItem>
 							</fb:filterGroupItems>
