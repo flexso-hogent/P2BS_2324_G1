@@ -98,5 +98,24 @@ function (Controller, Filter, FilterOperator) {
             oInfoToolbar.setVisible(aSelectedItems.length > 0);
             oLabel.setText(aSelectedItems.length + " selected");
         },
+
+        handleListItemPress: function (oEvent) {
+
+            var oSelectedItem = oEvent.getSource().getBindingContext();
+            //Retrieve the path of the selected item and strip the starting '/'
+            //to avoid an invalid URL
+
+            var sEventID = oSelectedItem.getProperty("evenementID");
+            console.log(sEventID);
+
+            var sFlightPath = oSelectedItem.getPath().substr(1);
+            console.log(sFlightPath);
+
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("Events", {
+                evenementID: sEventID,
+            });
+            console.log("Done");
+          },
     });
 });

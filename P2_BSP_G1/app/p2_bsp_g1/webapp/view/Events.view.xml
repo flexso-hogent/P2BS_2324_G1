@@ -85,7 +85,7 @@
 					</columns>
 
 					<items>
-						<ColumnListItem vAlign="Middle">
+						<ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
 							<cells>
 								<ObjectIdentifier title="{evenementID}" />
 								<Text text="{naam}" />
