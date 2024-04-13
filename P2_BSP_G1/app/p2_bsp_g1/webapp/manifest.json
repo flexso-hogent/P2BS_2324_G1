@@ -129,6 +129,11 @@
           "name": "Events",
           "pattern": "Events",
           "target": ["Events"]
+        },
+        {
+          "name": "Registreer",
+          "pattern": "Registreer",
+          "target": ["Registreer"]
         }
       ],
       "targets": {
@@ -152,6 +157,13 @@
           "clearControlAggregation": false,
           "viewId": "Events",
           "viewName": "Events"
+        },
+        "Registreer": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Registreer",
+          "viewName": "Registreer"
         }
       }
     },

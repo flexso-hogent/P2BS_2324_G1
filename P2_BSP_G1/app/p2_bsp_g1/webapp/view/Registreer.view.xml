@@ -1,0 +1,33 @@
+<mvc:View controllerName="p2bspg1.controller.Registreer"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page id="Registreer" title="Registreer">
+        <content>
+            <f:Form>
+                <content>
+                    <Panel>
+                        <VBox alignItems="Center">
+                            <Label text="Voornaam" LabelFor="voornaam" />
+                            <Input id="voornaam" width="100%"  placeholder="test" />
+                            <Label text="Achternaam" LabelFor="achternaam" />
+                            <Input id="achternaam" width="100%"  />
+                            <Label text="Email" LabelFor="email" />
+                            <Input id="email" width="100%"  />
+                            <Label text="Geboortedatum" LabelFor="geboortedatum" />
+                            <DatePicker id="geboortedatum" width="100%"  />
+                            <Label text="Wachtwoord" LabelFor="wachtwoord" />
+                            <Input id="wachtwoord" type="Password" width="100%"  />
+                            <Label text="Herhaal wachtwoord" LabelFor="herhaalWachtwoord" />
+                            <Input id="herhaalWachtwoord" type="Password" width="100%"  />
+                            <Button text="Registreer" press=".onRegister" />
+                        </VBox>
+                    </Panel>
+                </content>
+            </f:Form>
+        </content>
+    </Page>
+</mvc:View>
