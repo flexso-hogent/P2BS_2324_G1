@@ -21,7 +21,7 @@ sap.ui.define([
         }
     
         // Read the CSV file
-        var csvFilePath = "db/csv/P2_BSP_G1.db-Gebruikers.csv";
+        var csvFilePath = "http://localhost:4004/odata/v4/overview/Gebruikers";
     
         $.ajax({
             url: csvFilePath,
