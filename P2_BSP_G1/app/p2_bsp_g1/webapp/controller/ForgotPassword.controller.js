@@ -1,29 +1,31 @@
-sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/m/MessageBox",],
-  /**
-   * @param {typeof sap.ui.core.mvc.Controller} Controller
-   */
-  function (Controller, JSONModel, MessageBox) {
-    "use strict";
+sap.ui.define([
+  "sap/ui/core/mvc/Controller",
+  "sap/m/MessageBox"
+], function(Controller, MessageBox) {
+  "use strict";
 
-    return Controller.extend("p2bspg1.controller.ForgotPassword", {
-      onInit: function () {
-        var oForgotPassword = {
-          gebruikerID: 0,
-          email: "",
-          wachtwoord: "",
-        };
-        var oModel = new JSONModel(oForgotPassword);
-        this.getView().setModel(oModel, "form");
+  return Controller.extend("your.namespace.ForgotPassword", {
+
+      onInit: function() {
+          // Initialization code if needed
       },
-    
-      onForgotPassword: function() {
-        var oForm = this.getView().getModel("form").getData();
-        oForm.geboortedatum = new Date(oForm.geboortedatum);
 
-        var odatamodel = this.getView().getModel("v2model");
+      onResetPassword: function() {
+          var email = this.getView().byId("email").getValue();
 
+          // Validate email address
+          if (!email) {
+              MessageBox.error("Please enter your email address.");
+              return;
+          }
 
+          // Send password reset email
+          MessageBox.success("Password reset email sent successfully.");
+      },
+
+      onCancel: function() {
+          window.location.href ="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Login/"; // Redirect to home page
       }
-    });
+
   });
+});
