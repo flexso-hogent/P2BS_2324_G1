@@ -8,7 +8,7 @@
     <Page id="Registreer" title="Registreer">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
-                <Panel width="100%" backgroundDesign="Translucent">
+                <Panel width="40vw" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
                             <Title level="H3" text="Registreer" />

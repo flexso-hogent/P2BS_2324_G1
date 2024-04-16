@@ -9,6 +9,7 @@ sap.ui.define(
       return Controller.extend("p2bspg1.controller.Registreer", {
         onInit: function () {
           var oRegistreer = {
+            gebruikerID: 0,
             voornaam: "",
             achternaam: "",
             email: "",
@@ -21,12 +22,10 @@ sap.ui.define(
       
         onRegister: function() {
           var oForm = this.getView().getModel("form").getData();
-          // oForm.geboortedatum = new Date(oForm.geboortedatum);
+          oForm.geboortedatum = new Date(oForm.geboortedatum);
 
           var odatamodel = this.getView().getModel("v2model");
 
-          // var model = this.getView().getModel();
-          // var data = model.getData();
 
           console.log(oForm);
 
