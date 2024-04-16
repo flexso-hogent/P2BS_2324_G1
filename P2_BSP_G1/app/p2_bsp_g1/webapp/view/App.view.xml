@@ -9,6 +9,7 @@
                 <Link text="Overzicht evenementen" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/" />
                 <Link text="Registreer" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Registreer/" />
                 <Link text="Evenementdetailpagina" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/Evenementen(evenementID=1)" />
+                <Link text="Maak evenement aan" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new" />
             </l:content>
         </l:VerticalLayout>
     </App>
