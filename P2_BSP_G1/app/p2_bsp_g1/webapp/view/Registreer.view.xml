@@ -12,18 +12,24 @@
                     <content>
                         <VBox alignItems="Center">
                             <Title level="H3" text="Registreer" />
-                            <Label text="Voornaam" labelFor="voornaam" />
+                            <Label text="Voornaam" labelFor="voornaam" required="true"/>
                             <Input id="voornaam" width="100%" placeholder="" value="{form>/voornaam}" />
-                            <Label text="Achternaam" labelFor="achternaam" />
+                            <Label text="Achternaam" labelFor="achternaam" required="true"/>
                             <Input id="achternaam" width="100%" value="{form>/achternaam}"/>
-                            <Label text="Email" labelFor="email" />
+                            <Label text="Email" labelFor="email" required="true"/>
                             <Input id="email" width="100%" value="{form>/email}"/>
-                            <Label text="Geboortedatum" labelFor="geboortedatum" />
+                            <Label text="Geboortedatum" labelFor="geboortedatum" required="true"/>
                             <DatePicker id="geboortedatum" width="100%" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" />
-                            <Label text="Wachtwoord" labelFor="wachtwoord" />
-                            <Input id="wachtwoord" type="Password" width="100%" value="{form>/wachtwoord}"/>
-                            <Label text="Herhaal wachtwoord" labelFor="herhaalWachtwoord" />
-                            <Input id="herhaalWachtwoord" type="Password" width="100%" value="{form>/herhaalWachtwoord}"/>
+                            <Label text="Wachtwoord" labelFor="wachtwoord" required="true"/>
+                                <HBox >
+                                    <Input id="wachtwoord" type="Password" width="100%" value="{form>/wachtwoord}"/>
+                                    <Button text="See Password" press=".onSeePassword" />
+                                </HBox>
+                            <Label text="Herhaal wachtwoord" labelFor="herhaalWachtwoord" required="true"/>
+                                <HBox >
+                                    <Input id="herhaalWachtwoord" type="Password" width="100%" value="{form>/herhaalWachtwoord}"/>
+                                    <Button text="See Password" press=".onSeePasswordHerhaal" />
+                                </HBox>
                             <Button text="Registreer" type="Accept" press=".onRegister" />
                         </VBox>
                     </content>

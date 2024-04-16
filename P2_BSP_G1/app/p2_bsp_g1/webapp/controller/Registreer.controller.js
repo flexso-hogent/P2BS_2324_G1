@@ -65,6 +65,24 @@ sap.ui.define(
           //     MessageToast.show("Registration failed. Please try again later.");
           //   }
           // });
-        }
+        },
+        onSeePassword: function() {
+          var oPasswordInput = this.getView().byId("wachtwoord");
+          var sCurrentType = oPasswordInput.getType();
+          if (sCurrentType === "Password") {
+              oPasswordInput.setType("Text");
+          } else {
+              oPasswordInput.setType("Password");
+          }
+        },
+        onSeePasswordHerhaal: function() {
+          var oPasswordInput = this.getView().byId("herhaalWachtwoord");
+          var sCurrentType = oPasswordInput.getType();
+          if (sCurrentType === "Password") {
+              oPasswordInput.setType("Text");
+          } else {
+              oPasswordInput.setType("Password");
+          }
+      }  
       });
     });

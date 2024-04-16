@@ -117,7 +117,7 @@
       "routes": [
         {
           "name": "Home",
-          "pattern": "",
+          "pattern": "Home",
           "target": ["Home"]
         },
         {
