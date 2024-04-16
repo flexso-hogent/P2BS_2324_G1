@@ -126,6 +126,11 @@
           "target": ["EventDetail"]
         },
         {
+          "name": "CreateEvent",
+          "pattern": "Events#/new",
+          "target": ["CreateEvent"]
+        },
+        {
           "name": "Events",
           "pattern": "Events",
           "target": ["Events"]
@@ -164,6 +169,13 @@
           "clearControlAggregation": false,
           "viewId": "Registreer",
           "viewName": "Registreer"
+        },
+        "CreateEvent": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CreateEvent",
+          "viewName": "CreateEvent"
         }
       }
     },
