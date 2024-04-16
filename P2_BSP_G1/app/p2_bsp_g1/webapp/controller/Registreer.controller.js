@@ -1,29 +1,56 @@
 sap.ui.define(
-    ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/ui/model/json/JSONModel"],
+    ["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/m/MessageBox",],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast) {
+    function (Controller, JSONModel, MessageBox) {
       "use strict";
   
       return Controller.extend("p2bspg1.controller.Registreer", {
         onInit: function () {
+          var oRegistreer = {
+            voornaam: "",
+            achternaam: "",
+            email: "",
+            wachtwoord: "",
+            geboortedatum: null,
+          };
+          var oModel = new JSONModel(oRegistreer);
+          this.getView().setModel(oModel, "form");
         },
       
         onRegister: function() {
-          var model = this.getView().getModel();
-          var data = model.getData();
-    
+          var oForm = this.getView().getModel("form").getData();
+          // oForm.geboortedatum = new Date(oForm.geboortedatum);
+
+          var odatamodel = this.getView().getModel("v2model");
+
+          // var model = this.getView().getModel();
+          // var data = model.getData();
+
+          console.log(oForm);
+
+          odatamodel.create("/Gebruikers", oForm, {
+            success: function (data, response) {
+              console.log("gelukt");
+              MessageBox.success("Data was created successfully");
+            },
+            error: function (error) {
+              console.log("niet gelukt");
+              MessageBox.error("Error while creating the data");
+            },
+          });
+          console.log("eeee");
           // Validation
-          if (!data.voornaam || !data.email || !data.password || !data.confirmPassword) {
-            MessageToast.show("Please fill in all fields.");
-            return;
-          }
+          // if (!data.voornaam || !data.email || !data.password || !data.confirmPassword) {
+          //   MessageToast.show("Please fill in all fields.");
+          //   return;
+          // }
     
-          if (data.password !== data.confirmPassword) {
-            MessageToast.show("Passwords do not match.");
-            return;
-          }
+          // if (data.password !== data.confirmPassword) {
+          //   MessageToast.show("Passwords do not match.");
+          //   return;
+          // }
     
           // Perform registration
           // Here you can call your backend API to register the user
@@ -39,9 +66,6 @@ sap.ui.define(
           //     MessageToast.show("Registration failed. Please try again later.");
           //   }
           // });
-    
-          // For demonstration, just show a message
-          MessageToast.show("Registration successful!");
         }
       });
     });

@@ -7,23 +7,24 @@
 
     <Page id="Registreer" title="Registreer">
         <content>
-            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%" style="background-color: #f0f0f0;">
+            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
                 <Panel width="100%" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
+                            <Title level="H3" text="Registreer" />
                             <Label text="Voornaam" LabelFor="voornaam" />
-                            <Input id="voornaam" width="100%" placeholder="test" />
+                            <Input id="voornaam" width="100%" placeholder="" value="{form>/voornaam}" />
                             <Label text="Achternaam" LabelFor="achternaam" />
-                            <Input id="achternaam" width="100%" />
+                            <Input id="achternaam" width="100%" value="{form>/achternaam}"/>
                             <Label text="Email" LabelFor="email" />
-                            <Input id="email" width="100%" />
+                            <Input id="email" width="100%" value="{form>/email}"/>
                             <Label text="Geboortedatum" LabelFor="geboortedatum" />
-                            <DatePicker id="geboortedatum" width="100%" />
+                            <DatePicker id="geboortedatum" width="100%" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" />
                             <Label text="Wachtwoord" LabelFor="wachtwoord" />
-                            <Input id="wachtwoord" type="Password" width="100%" />
+                            <Input id="wachtwoord" type="Password" width="100%" value="{form>/wachtwoord}"/>
                             <Label text="Herhaal wachtwoord" LabelFor="herhaalWachtwoord" />
-                            <Input id="herhaalWachtwoord" type="Password" width="100%" />
-                            <Button text="Registreer" press=".onRegister" />
+                            <Input id="herhaalWachtwoord" type="Password" width="100%" value="{form>/herhaalWachtwoord}"/>
+                            <Button text="Registreer" type="Accept" press=".onRegister" />
                         </VBox>
                     </content>
                 </Panel>
