@@ -1,29 +1,48 @@
-sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/m/MessageBox",],
-  /**
-   * @param {typeof sap.ui.core.mvc.Controller} Controller
-   */
-  function (Controller, JSONModel, MessageBox) {
-    "use strict";
+sap.ui.define([
+  "sap/ui/core/mvc/Controller",
+  "sap/m/MessageBox"
+], function(Controller, MessageBox) {
+  "use strict";
 
-    return Controller.extend("p2bspg1.controller.Login", {
-      onInit: function () {
-        var oLogin = {
-          gebruikerID: 0,
-          email: "",
-          wachtwoord: "",
-        };
-        var oModel = new JSONModel(oLogin);
-        this.getView().setModel(oModel, "form");
+  return Controller.extend("your.namespace.Login", {
+      
+      onInit: function() {
+          // Initialization code if needed
       },
-    
+
       onLogin: function() {
-        var oForm = this.getView().getModel("form").getData();
-        oForm.geboortedatum = new Date(oForm.geboortedatum);
+          var email = this.getView().byId("email").getValue();
+          var password = this.getView().byId("wachtwoord").getValue();
+          var keepSignedIn = this.getView().byId("keepSignedIn").getSelected();
 
-        var odatamodel = this.getView().getModel("v2model");
+          // Validate email and password
+          if (!email || !password) {
+              MessageBox.error("Please enter both email and password.");
+              return;
+          }
 
+          MessageBox.success("Login successful.");
 
-      }
-    });
+          this.getOwnerComponent().getRouter().navTo("home");
+      },
+
+      onForgotPassword: function() {
+          // Redirect to Forgot Password page
+          window.location.href = "#/ForgotPassword/";
+      },
+
+      onRegister: function() {
+          // Redirect to Registration page
+          window.location.href = "#/Registreer/";
+      },
+      onSeePassword: function() {
+        var oPasswordInput = this.getView().byId("wachtwoord");
+        var sCurrentType = oPasswordInput.getType();
+        if (sCurrentType === "Password") {
+            oPasswordInput.setType("Text");
+        } else {
+            oPasswordInput.setType("Password");
+        }
+    }    
   });
+});

@@ -24,7 +24,7 @@ sap.ui.define([
       },
 
       onCancel: function() {
-          window.location.href ="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Login/"; // Redirect to home page
+          window.location.href ="#/Login/"; // Redirect to home page
       }
 
   });

@@ -16,6 +16,7 @@
                             <Input id="email" width="100%" value="{form>/email}"/>
                             <Label text="Wachtwoord" labelFor="wachtwoord" required="true" />
                             <Input id="wachtwoord" type="Password" width="100%" value="{form>/wachtwoord}"/>
+                            <Button text="See Password" press=".onSeePassword" />
                             <CheckBox id="keepSignedIn" selected="{form>/keepSignedIn}" text="Keep me signed in" ></CheckBox>
                             <Link text="Forgot Password" press=".onForgotPassword" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/ForgotPassword/"/>
                             <Link text="No account yet? Sign up here!" press=".onRegister" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Registreer/"/>
