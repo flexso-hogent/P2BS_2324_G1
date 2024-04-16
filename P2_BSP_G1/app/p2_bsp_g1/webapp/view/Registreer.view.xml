@@ -12,17 +12,17 @@
                     <content>
                         <VBox alignItems="Center">
                             <Title level="H3" text="Registreer" />
-                            <Label text="Voornaam" LabelFor="voornaam" />
+                            <Label text="Voornaam" labelFor="voornaam" />
                             <Input id="voornaam" width="100%" placeholder="" value="{form>/voornaam}" />
-                            <Label text="Achternaam" LabelFor="achternaam" />
+                            <Label text="Achternaam" labelFor="achternaam" />
                             <Input id="achternaam" width="100%" value="{form>/achternaam}"/>
-                            <Label text="Email" LabelFor="email" />
+                            <Label text="Email" labelFor="email" />
                             <Input id="email" width="100%" value="{form>/email}"/>
-                            <Label text="Geboortedatum" LabelFor="geboortedatum" />
+                            <Label text="Geboortedatum" labelFor="geboortedatum" />
                             <DatePicker id="geboortedatum" width="100%" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" />
-                            <Label text="Wachtwoord" LabelFor="wachtwoord" />
+                            <Label text="Wachtwoord" labelFor="wachtwoord" />
                             <Input id="wachtwoord" type="Password" width="100%" value="{form>/wachtwoord}"/>
-                            <Label text="Herhaal wachtwoord" LabelFor="herhaalWachtwoord" />
+                            <Label text="Herhaal wachtwoord" labelFor="herhaalWachtwoord" />
                             <Input id="herhaalWachtwoord" type="Password" width="100%" value="{form>/herhaalWachtwoord}"/>
                             <Button text="Registreer" type="Accept" press=".onRegister" />
                         </VBox>

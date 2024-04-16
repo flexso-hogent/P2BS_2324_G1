@@ -1,0 +1,28 @@
+<mvc:View controllerName="p2bspg1.controller.Login"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page id="Login" title="Login">
+        <content>
+            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+                <Panel width="40vw" backgroundDesign="Translucent">
+                    <content>
+                        <VBox alignItems="Center">
+                            <Title level="H3" text="Login" />
+                            <Label text="Email" labelFor="email" required="true"/>
+                            <Input id="email" width="100%" value="{form>/email}"/>
+                            <Label text="Wachtwoord" labelFor="wachtwoord" required="true" />
+                            <Input id="wachtwoord" type="Password" width="100%" value="{form>/wachtwoord}"/>
+                            <Link text="Forgot Password" press=".onForgotPassword" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/ForgotPassword/"/>
+                            <Link text="No account yet? Sign up here!" press=".onRegister" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Registreer/"/>
+                            <Button text="Login" type="Accept" press=".onLogin" />
+                        </VBox>
+                    </content>
+                </Panel>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>

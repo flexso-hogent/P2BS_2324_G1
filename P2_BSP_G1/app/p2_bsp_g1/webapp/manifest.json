@@ -139,6 +139,16 @@
           "name": "Registreer",
           "pattern": "Registreer",
           "target": ["Registreer"]
+        },
+        {
+          "name": "Login",
+          "pattern": "Login",
+          "target": ["Login"]
+        },
+        {
+          "name": "ForgotPassword",
+          "pattern": "ForgotPassword",
+          "target": ["ForgotPassword"]
         }
       ],
       "targets": {
@@ -176,6 +186,20 @@
           "clearControlAggregation": false,
           "viewId": "CreateEvent",
           "viewName": "CreateEvent"
+        },
+        "Login": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Login",
+          "viewName": "Login"
+        },
+        "ForgotPassword": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "ForgotPassword",
+          "viewName": "ForgotPassword"
         }
       }
     },
