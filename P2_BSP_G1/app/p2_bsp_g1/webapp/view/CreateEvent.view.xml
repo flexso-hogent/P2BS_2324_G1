@@ -1,8 +1,36 @@
 <mvc:View controllerName="p2bspg1.controller.CreateEvent"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m" displayBlock="true">
 
-    <App id="app">
-    </App>
-
+    <Page id="Registreer" title="Registreer">
+        <content>
+            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+                <Panel width="100%" backgroundDesign="Translucent">
+                    <content>
+                        <VBox alignItems="Center">
+                            <Label text="Naam evenement" labelFor="naam" />
+                            <Input id="naam" width="100%" placeholder="test" />
+                            <Label text="Locatie" labelFor="locatie" />
+                            <Input id="locatie" width="100%" />
+                            <Label text="Startdatum" labelFor="startDatum" />
+                            <DatePicker id="startDatum" width="100%" />
+                            <Label text="Einddatum" labelFor="eindDatum" />
+                            <DatePicker id="eindDatum" width="100%" />
+                            <Label text="Startuur" labelFor="startUur" />
+                            <TimePicker id="startUur" width="100%" />
+                            <Label text="Einduur" labelFor="eindUur" />
+                            <TimePicker id="eindUur" width="100%" />
+                            <Label text="Maximum aantal deelnemers" labelFor="maxAantalInschrijvingen" />
+                            <Input id="maxAantalInschrijvingen" width="100%" />
+                            <Label text="Prijs" labelFor="prijs" />
+                            <Input id="prijs" width="100%" />
+                        </VBox>
+                    </content>
+                </Panel>
+            </FlexBox>
+        </content>
+    </Page>
 </mvc:View>
+

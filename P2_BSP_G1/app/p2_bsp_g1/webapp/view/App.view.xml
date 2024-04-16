@@ -1,8 +1,16 @@
 <mvc:View controllerName="p2bspg1.controller.App"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout"
     xmlns="sap.m">
 
     <App id="app">
+        <l:VerticalLayout class="sapUiContentPadding" width="100%">
+            <l:content>
+                <Link text="Overzicht evenementen" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/" />
+                <Link text="Registreer" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Registreer/" />
+                <Link text="Evenementdetailpagina" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/Evenementen(evenementID=1)" />
+            </l:content>
+        </l:VerticalLayout>
     </App>
 
 </mvc:View>
