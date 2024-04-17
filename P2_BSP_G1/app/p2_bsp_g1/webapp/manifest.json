@@ -154,6 +154,11 @@
           "name": "StartScreen",
           "pattern": "StartScreen",
           "target": ["StartScreen"]
+        },
+        {
+          "name": "SessieDetail",
+          "pattern": "Sessies/{sessieID}",
+          "target": ["SessieDetail"]
         }
       ],
       "targets": {
@@ -212,6 +217,13 @@
           "clearControlAggregation": false,
           "viewId": "StartScreen",
           "viewName": "StartScreen"
+        },
+        "SessieDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "SessieDetail",
+          "viewName": "SessieDetail"
         }
       }
     },
