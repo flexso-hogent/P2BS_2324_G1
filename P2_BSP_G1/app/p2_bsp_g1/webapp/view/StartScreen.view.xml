@@ -4,11 +4,14 @@
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m"
     displayBlock="true">
-
-    <Page id="StartScreen" title="StartScreen">	
+	
+    <Page id="StartScreen" title="StartScreen" class="customHeader">	
 				<headerContent>
-						<Button icon="sap-icon://menu2" press=".onOpenDialog" />
+						<SearchField width="50%" placeholder="Search..." search=".onSearch" />
+						<Button icon="sap-icon://bell" press=".onNotificationPress" />
+						<Avatar initials="JD" displaySize="XS" press=".onProfilePress" />
 				</headerContent>
+
 				<content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
                 <Panel width="40vw" backgroundDesign="Translucent">
@@ -18,7 +21,6 @@
 
 														<FlexBox wrap="Wrap" justifyContent="SpaceAround" alignItems="Start" width="100%">
 																<GenericTile 
-																	imageDescription="sap-icon://business-objects-explorer"
 																	header="Overzicht evenementen"
 																	press=".onEvents">
 																	<TileContent footer="Navigation"/>
@@ -40,5 +42,21 @@
                 </Panel>
             </FlexBox>
         </content>
+
+				<footer> 
+						<Bar>
+								<contentLeft>
+										<Title level="H4" text="Flexso"></Title>
+										<Label text="Powered by SAP Cloud Platform"/>
+								</contentLeft>
+								<contentRight>
+										<Label text="Copyright"/>
+										<Label text="Privacy"/>
+										<Label text="Legal Disclosure"/>
+										<Button icon="sap-icon://home" press=".onHomePress" />
+										<Button icon="sap-icon://log" press=".onLogoutPress" />
+								</contentRight>
+						</Bar>
+				</footer>
     </Page>
 </mvc:View>

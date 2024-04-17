@@ -24,7 +24,46 @@ sap.ui.define([
 			},
 			onOpenDialog: function() {
 				MessageBox.success("Op de knop gedrukt");
-			}
+			},
+			onHomePress: function() {
+				window.location.href = "#/StartScreen/"
+			},
+			onLogoutPress: function() {
+				window.location.href = "#/Login/"
+			},
+			onProfilePress: function() {
+				var oAvatar = oEvent.getSource();
+				
+				var csvData = "http://localhost:4004/odata/v4/overview/Gebruikers";
+				var lines = csvData.split('\n');
+				
+				
+				for (var i = 1; i < lines.length; i++) {
+						var columns = lines[i].split(';'); 
+						
+						var firstName = columns[1];
+						var lastName = columns[2];
+						var email = columns[3];
+						var fullName = firstName + ' ' + lastName; 
 
-    });
+				var oPopover = new Popover({
+						title: "Profiel",
+						contentWidth: "200px",
+						content: [
+								new Text({ text: "Naam: " + fullName }),
+								new Text({ text: "Email: " + email }),
+								new Button({
+										text: "Uitloggen",
+										press: function() {
+												window.location.href = "#/Login/";
+												MessageBox.success("U bent uitgelogd.");
+										}
+								})
+						]
+				});
+
+				oPopover.openBy(oAvatar);
+			}
+		}
+  });
 });
