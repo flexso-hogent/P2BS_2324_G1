@@ -7,6 +7,7 @@ entity Gebruikers {
         email         : String;
         wachtwoord    : String @UI.Hidden;
         geboortedatum : Date;
+        rol           : String;
         inschrijvingen: Association to many Inschrijvingen
                             on inschrijvingen.gebruikerID = $self;
 }
