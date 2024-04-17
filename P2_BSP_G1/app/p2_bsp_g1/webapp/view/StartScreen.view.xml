@@ -5,7 +5,10 @@
     xmlns="sap.m"
     displayBlock="true">
 
-    <Page id="StartScreen" title="StartScreen">				
+    <Page id="StartScreen" title="StartScreen">	
+				<headerContent>
+						<Button icon="sap-icon://menu2" press=".onOpenDialog" />
+				</headerContent>
 				<content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
                 <Panel width="40vw" backgroundDesign="Translucent">

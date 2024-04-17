@@ -1,7 +1,8 @@
 sap.ui.define([
-  "sap/ui/core/mvc/Controller"
+  "sap/ui/core/mvc/Controller",
+	"sap/m/MessageBox"
 
-], function(Controller, ) {
+], function(Controller, MessageBox) {
   "use strict";
 
   return Controller.extend("your.namespace.StartScreen", {
@@ -20,6 +21,9 @@ sap.ui.define([
 			onEventsNew: function() {
 				// Redirect to Event page
 				window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new";
+			},
+			onOpenDialog: function() {
+				MessageBox.success("Op de knop gedrukt");
 			}
 
     });
