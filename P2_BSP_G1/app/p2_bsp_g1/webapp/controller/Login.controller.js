@@ -20,41 +20,37 @@ sap.ui.define([
             MessageBox.error("Please enter both email and password.");
             return;
         }
-        else if (email === "mats" && password === "123") {
-            MessageBox.success("Login successful. Redirecting to home screen.");
-            // Set a timer for 2 seconds before redirecting to the home screen
-            setTimeout(function() {
-                window.location.href = "#/StartScreen/";
-            }, 2000); // 2000 milliseconds = 2 seconds
-            return;
-        }
         
-        else if (email !== "mats" || password !== "123") {
-            MessageBox.error("Invalid email or password.");
-            return;
-        }
-    
         //Lukt nog niet helemaal
-        // Read the CSV file
-        /*var csvFilePath = "http://localhost:4004/odata/v4/overview/Gebruikers";
+        var csvFilePath = "http://localhost:4004/odata/v4/overview/Gebruikers";
     
         $.ajax({
             url: csvFilePath,
             dataType: "text",
             success: function(data) {
                 var lines = data.split('\n');
-    
+                
+                console.log("CSV Data:");
+                console.log(data);
+                console.log("Entered email: " + email);
+                console.log("Entered password: " + password)
+
+
                 // Iterate through each line of the CSV file
                 for (var i = 0; i < lines.length; i++) {
                     var columns = lines[i].split(';');
                     var storedEmail = columns[3];
                     var storedPassword = columns[4];
     
+                    console.log("Stored email: " + storedEmail);
+                    console.log("Stored password: " + storedPassword);
+
                     // Check if the entered email and password match
                     if (email === storedEmail && password === storedPassword) {
-                        MessageBox.success("Login successful.");
-                        // Redirect to home screen or perform other actions upon successful login
-                        // this.getOwnerComponent().getRouter().navTo("#/Home");
+                        MessageBox.success("Login successful. Redirecting to home screen.");
+                        setTimeout(function() {
+                            window.location.href = "#/StartScreen/";
+                        }, 2000);
                         return;
                     }
                 }
@@ -65,7 +61,7 @@ sap.ui.define([
             error: function() {
                 MessageBox.error("Failed to read user data.");
             }
-        });*/
+        });
     },
 
       onForgotPassword: function() {
