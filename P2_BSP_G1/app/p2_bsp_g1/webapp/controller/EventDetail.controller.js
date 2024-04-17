@@ -13,7 +13,7 @@ sap.ui.define(
         this.oRouter.attachRouteMatched(this._onRouteMatched, this);
       },
       signUp: function (evt) {
-        MessageToast.show("U bent succesvol ingeschreven voor dit evenement!");
+        MessageToast.show("U bent succesvol ingeschreven voor deze sessie!");
       },
       _onRouteMatched: function (oEvent) {
         var oArgs = oEvent.getParameter("arguments");
@@ -24,17 +24,17 @@ sap.ui.define(
         oView.bindElement({ path: urlPath });
       },
       handleListItemPress: function (oEvent) {
-        // var oSelectedItem = oEvent.getSource().getBindingContext();
+        var oSelectedItem = oEvent.getSource().getBindingContext();
         //Retrieve the path of the selected item and strip the starting '/'
         //to avoid an invalid URL
 
-        // var sEventID = oSelectedItem.getProperty("evenementID");
-        // console.log(sEventID);
+        var sSessieID = oSelectedItem.getProperty("sessieID");
+        console.log(sSessieID);
 
-        // var oRouter = this.getOwnerComponent().getRouter();
-        // oRouter.navTo("EventDetail", {
-        //   evenementID: sEventID,
-        // });
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("SessieDetail", {
+            sessieID: sSessieID,
+        });
         console.log("Done");
       },
     });

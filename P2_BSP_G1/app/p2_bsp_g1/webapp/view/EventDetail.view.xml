@@ -7,11 +7,7 @@
     <ObjectPageLayout id="ObjectPageLayout" isChildPage="true" upperCaseAnchorBar="false">
 
         <headerTitle>
-            <ObjectPageHeader id="headerForTest" objectTitle="{naam}">
-                <actions>
-                    <m:Button id="_IDGenButton1" text="Registreer voor dit event" type="Emphasized" press="signUp" />
-                </actions>
-
+            <ObjectPageHeader id="header" objectTitle="{naam}">
             </ObjectPageHeader>
         </headerTitle>
         <headerContent>
@@ -82,6 +78,8 @@
                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
                                     <m:Text text="Tijdstip" />
                                 </m:Column>
+                                <m:Column  demandPopin="true">
+                                </m:Column>
 
 
                             </m:columns>
@@ -92,6 +90,7 @@
                                         <m:Text text="{korteInhoud}" />
                                         <m:Text text="{datum}" />
                                         <m:Text text="{beginUur} - {eindUur}" />
+                                        <m:Button id="_IDGenButton1" text="Registreer voor dit event" type="Emphasized" press="signUp" />
                                     </m:cells>
                                 </m:ColumnListItem>
                             </m:items>
