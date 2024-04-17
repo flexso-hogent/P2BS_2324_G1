@@ -1,22 +1,22 @@
-gebruikerID;voornaam;achternaam;email;wachtwoord;geboortedatum,rol
-000001;Jan;Jansen;jan@example.com;wachtwoord123;1985-07-15,admin
-000002;Piet;Pietersen;piet@example.com;geheim456;1990-03-22,admin
-000003;Marie;Janssen;marie@example.com;test789;1988-11-10,user
-000004;Anna;Bakker;anna@example.com;hallo123;1995-04-30,user
-000005;Erik;de Vries;erik@example.com;welkom321;1980-09-05,user
-000006;Lotte;van Dijk;lotte@example.com;123456;1992-12-18,user
-000007;Sven;Hendriks;sven@example.com;qwerty;1987-06-25,user
-000008;Laura;Smit;laura@example.com;password;1998-02-14,user
-000009;Thomas;de Boer;thomas@example.com;abcd1234;1983-10-20,user
-000010;Sophie;Mulder;sophie@example.com;letmein;1991-08-08,user
-000011;Ruben;Kok;ruben@example.com;pass123;1986-01-27,user
-000012;Emma;van der Meer;emma@example.com;password123;1996-07-03,user
-000013;Luuk;Visser;luuk@example.com;123abc;1989-09-12,user
-000014;Fleur;Koopman;fleur@example.com;abcdef;1994-05-29,user
-000015;Tim;Huisman;tim@example.com;qwerty123;1982-03-17,user
-000016;Lisa;Verhoeven;lisa@example.com;test1234;1984-11-08,user
-000017;Max;Bos;max@example.com;letmein123;1997-06-22,user
-000018;Nina;Mol;nina@example.com;passpass;1981-12-11,user
-000019;Daan;Kuipers;daan@example.com;password1;1993-04-26,user
-000020;Rosa;Willems;rosa@example.com;12345678;1988-08-03,user
-000021;Mats;Claerhout;mats;123;2002-01-01,user
+gebruikerID;voornaam;achternaam;email;wachtwoord;geboortedatum;rol
+000001;Jan;Jansen;jan@example.com;wachtwoord123;1985-07-15;admin
+000002;Piet;Pietersen;piet@example.com;geheim456;1990-03-22;admin
+000003;Marie;Janssen;marie@example.com;test789;1988-11-10;user
+000004;Anna;Bakker;anna@example.com;hallo123;1995-04-30;user
+000005;Erik;de Vries;erik@example.com;welkom321;1980-09-05;user
+000006;Lotte;van Dijk;lotte@example.com;123456;1992-12-18;user
+000007;Sven;Hendriks;sven@example.com;qwerty;1987-06-25;user
+000008;Laura;Smit;laura@example.com;password;1998-02-14;user
+000009;Thomas;de Boer;thomas@example.com;abcd1234;1983-10-20;user
+000010;Sophie;Mulder;sophie@example.com;letmein;1991-08-08;user
+000011;Ruben;Kok;ruben@example.com;pass123;1986-01-27;user
+000012;Emma;van der Meer;emma@example.com;password123;1996-07-03;user
+000013;Luuk;Visser;luuk@example.com;123abc;1989-09-12;user
+000014;Fleur;Koopman;fleur@example.com;abcdef;1994-05-29;user
+000015;Tim;Huisman;tim@example.com;qwerty123;1982-03-17;user
+000016;Lisa;Verhoeven;lisa@example.com;test1234;1984-11-08;user
+000017;Max;Bos;max@example.com;letmein123;1997-06-22;user
+000018;Nina;Mol;nina@example.com;passpass;1981-12-11;user
+000019;Daan;Kuipers;daan@example.com;password1;1993-04-26;user
+000020;Rosa;Willems;rosa@example.com;12345678;1988-08-03;user
+000021;Mats;Claerhout;mats;123;2002-01-01;user
