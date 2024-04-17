@@ -18,9 +18,24 @@ sap.ui.define(
       _onRouteMatched: function (oEvent) {
         var oArgs = oEvent.getParameter("arguments");
         var oView = this.getView();
-        var urlPath = "/" + oArgs.evenementID;
+        var urlPath =
+          "/" + "Evenementen(evenementID=" + oArgs.evenementID + ")";
 
         oView.bindElement({ path: urlPath });
+      },
+      handleListItemPress: function (oEvent) {
+        // var oSelectedItem = oEvent.getSource().getBindingContext();
+        //Retrieve the path of the selected item and strip the starting '/'
+        //to avoid an invalid URL
+
+        // var sEventID = oSelectedItem.getProperty("evenementID");
+        // console.log(sEventID);
+
+        // var oRouter = this.getOwnerComponent().getRouter();
+        // oRouter.navTo("EventDetail", {
+        //   evenementID: sEventID,
+        // });
+        console.log("Done");
       },
     });
   }

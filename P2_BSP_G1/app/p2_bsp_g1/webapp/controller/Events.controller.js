@@ -108,11 +108,8 @@ function (Controller, Filter, FilterOperator) {
             var sEventID = oSelectedItem.getProperty("evenementID");
             console.log(sEventID);
 
-            var sFlightPath = oSelectedItem.getPath().substr(1);
-            console.log(sFlightPath);
-
             var oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("Events", {
+            oRouter.navTo("EventDetail", {
                 evenementID: sEventID,
             });
             console.log("Done");

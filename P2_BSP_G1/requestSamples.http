@@ -7,3 +7,6 @@ GET http://localhost:4004/odata/v4/overview/Gebruikers/1
 ### Get Gebruiker By Id + alle inschrijvingen
 
 GET http://localhost:4004/odata/v4/overview/Gebruikers/3?$expand=*
+
+###
+GET http://localhost:4004/odata/v4/overview/Evenementen/1?$expand=*

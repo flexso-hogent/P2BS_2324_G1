@@ -15,14 +15,7 @@
             </ObjectPageHeader>
         </headerTitle>
         <headerContent>
-
-        </headerContent>
-
-        <sections>
-            <ObjectPageSection titleUppercase="false" id="goals" title="Info evenement">
-                <subSections>
-                    <ObjectPageSubSection id="goalsSS1" title="Info evenement" titleUppercase="false">
-                        <m:FlexBox wrap="Wrap" fitContainer="true">
+<m:FlexBox wrap="Wrap" fitContainer="true">
 
                             <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                 <layout:HorizontalLayout>
@@ -63,17 +56,17 @@
                             </layout:VerticalLayout>
 
                         </m:FlexBox>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
+        </headerContent>
 
+        <sections>
             <ObjectPageSection titleUppercase="false" id="personal" title="Session">
                 <subSections>
                     <ObjectPageSubSection id="personalSS1" title="Beschikbare sessies" titleUppercase="false">
-                        <m:Table id="idProductsTable" inset="false" items="{
-			path: '/Sessies',
+                        <m:Table id="sessiestable" selectionChange=".onSelectionChange" inset="false" items="{
+			path: 'sessies',
 			sorter: {
 				path: 'datum'
+
 			}
 		}">
                             <m:columns>
@@ -93,7 +86,7 @@
 
                             </m:columns>
                             <m:items>
-                                <m:ColumnListItem vAlign="Middle">
+                                <m:ColumnListItem vAlign="Middle" press="handleListItemPress" type="Navigation">
                                     <m:cells>
                                         <m:ObjectIdentifier title="{naam}" text="Door {spreker}"/>
                                         <m:Text text="{korteInhoud}" />
