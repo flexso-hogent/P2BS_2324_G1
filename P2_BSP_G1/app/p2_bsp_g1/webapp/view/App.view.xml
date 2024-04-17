@@ -11,7 +11,7 @@
                 <Link text="Evenementdetailpagina" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/Evenementen(evenementID=1)" />
                 <Link text="Maak evenement aan" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new" />
                 <Link text="Login" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Login/" />
-                <Link text="Home" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Home/" />
+                <Link text="Start scherm" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/StartScreen/" />
             </l:content>
         </l:VerticalLayout>
     </App>

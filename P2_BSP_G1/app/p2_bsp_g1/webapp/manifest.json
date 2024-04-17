@@ -117,7 +117,7 @@
       "routes": [
         {
           "name": "Home",
-          "pattern": "Home",
+          "pattern": "",
           "target": ["Home"]
         },
         {
@@ -149,6 +149,11 @@
           "name": "ForgotPassword",
           "pattern": "ForgotPassword",
           "target": ["ForgotPassword"]
+        },
+        {
+          "name": "StartScreen",
+          "pattern": "StartScreen",
+          "target": ["StartScreen"]
         }
       ],
       "targets": {
@@ -200,6 +205,13 @@
           "clearControlAggregation": false,
           "viewId": "ForgotPassword",
           "viewName": "ForgotPassword"
+        },
+        "StartScreen": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "StartScreen",
+          "viewName": "StartScreen"
         }
       }
     },

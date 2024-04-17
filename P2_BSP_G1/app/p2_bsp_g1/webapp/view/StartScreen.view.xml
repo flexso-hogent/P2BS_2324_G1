@@ -1,0 +1,41 @@
+<mvc:View controllerName="p2bspg1.controller.StartScreen"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page id="StartScreen" title="StartScreen">				
+				<content>
+            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+                <Panel width="40vw" backgroundDesign="Translucent">
+                    <content>
+                        <VBox alignItems="Center">
+                            <Title level="H3" text="StartScreen" />
+
+														<FlexBox wrap="Wrap" justifyContent="SpaceAround" alignItems="Start" width="100%">
+																<GenericTile 
+																	imageDescription="sap-icon://business-objects-explorer"
+																	header="Overzicht evenementen"
+																	press=".onEvents">
+																	<TileContent footer="Navigation"/>
+																</GenericTile>
+																<GenericTile 
+																	header="Event details"
+																	press=".onEventsDetails">
+																	<TileContent footer="Navigation"/>
+																</GenericTile>
+																<GenericTile 
+																	header="Nieuw event aanmaken"
+																	press=".onEventsNew">
+																	<TileContent footer="Navigation"/>
+																</GenericTile>
+														</FlexBox>
+
+                        </VBox>
+                    </content>
+                </Panel>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>
