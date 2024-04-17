@@ -27,7 +27,7 @@
                                 </HBox>
                             <Label text="Herhaal wachtwoord" labelFor="herhaalWachtwoord" required="true"/>
                                 <HBox >
-                                    <Input id="herhaalWachtwoord" type="Password" width="100%" value="{form>/herhaalWachtwoord}"/>
+                                    <Input id="herhaalWachtwoord" type="Password" width="100%" value="{herhaalWachtwoord}"/>
                                     <Button text="See Password" press=".onSeePasswordHerhaal" />
                                 </HBox>
                             <Button text="Registreer" type="Accept" press=".onRegister" />

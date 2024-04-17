@@ -1,7 +1,7 @@
 namespace P2_BSP_G1.db;
 
 entity Gebruikers {
-    key gebruikerID   : Int16;
+    key gebruikerID   : UUID @key;
         voornaam      : String;
         achternaam    : String;
         email         : String;

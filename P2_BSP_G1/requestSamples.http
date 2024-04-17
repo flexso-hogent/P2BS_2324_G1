@@ -10,3 +10,9 @@ GET http://localhost:4004/odata/v4/overview/Gebruikers/3?$expand=*
 
 ###
 GET http://localhost:4004/odata/v4/overview/Evenementen/1?$expand=*
+### POST Gebruiker
+
+POST http://localhost:4004/odata/v2/overview/Gebruikers
+Content-Type: application/json
+
+{"achternaam": "test", "email": "tom@gmail.com", "geboortedatum": "2024-04-05", "voornaam": "tom", "wachtwoord": "test"}

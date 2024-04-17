@@ -1,1 +1,5 @@
-{}
+{
+  "cov2ap": {
+    "plugin": true
+  }
+}
