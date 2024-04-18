@@ -1,8 +1,34 @@
 <mvc:View controllerName="p2bspg1.controller.App"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:l="sap.ui.layout"
-    xmlns="sap.m">
+    xmlns="sap.m"
+	xmlns:tnt="sap.tnt">
+<tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin">
+			<Button icon="sap-icon://menu2" type="Transparent" tooltip="Menu">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow"/>
+				</layoutData>
+			</Button>
+			<Image src="../image/LogoFlexso.jpg" decorative="false" press="onLogoPressed">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow"/>
+				</layoutData>
+			</Image>
+			<Title text="Prоduct Name" wrapping="false" id="productName">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="Disappear"/>
+				</layoutData>
+			</Title>
+			<ToolbarSpacer />
 
+			<tnt:ToolHeaderUtilitySeparator/>
+			<ToolbarSpacer width="1.125rem"/>
+			<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press=".onAvatarPressed" tooltip="Profile">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow"/>
+				</layoutData>
+			</Avatar>
+		</tnt:ToolHeader>
     <App id="app">
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
             <l:content>
