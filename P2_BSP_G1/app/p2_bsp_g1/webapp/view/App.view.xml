@@ -1,45 +1,81 @@
 <mvc:View controllerName="p2bspg1.controller.App"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns:l="sap.ui.layout"
-    xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns="sap.m"
 	xmlns:tnt="sap.tnt">
-<tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin">
-			<Button icon="sap-icon://menu2" type="Transparent" tooltip="Menu">
-				<layoutData>
-					<OverflowToolbarLayoutData priority="NeverOverflow"/>
-				</layoutData>
-			</Button>
-			<Image src="../image/LogoFlexso.jpg" decorative="false" press="onLogoPressed">
-				<layoutData>
-					<OverflowToolbarLayoutData priority="NeverOverflow"/>
-				</layoutData>
-			</Image>
-			<Title text="Prоduct Name" wrapping="false" id="productName">
-				<layoutData>
-					<OverflowToolbarLayoutData priority="Disappear"/>
-				</layoutData>
-			</Title>
-			<ToolbarSpacer />
+	<tnt:ToolPage id="appg" class="sapUiDemoToolPage">
+		<tnt:header>
+			<tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin">
+				<Button icon="sap-icon://menu2" type="Transparent" tooltip="Menu" press="onCollapseExpandPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<Image src="../image/LogoFlexso.jpg" decorative="false" press="onLogoPressed">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Image>
+				<ToolbarSpacer />
+				<Title text="Flexso events" wrapping="false" id="productName">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Disappear"/>
+					</layoutData>
+				</Title>
+				<ToolbarSpacer />
 
-			<tnt:ToolHeaderUtilitySeparator/>
-			<ToolbarSpacer width="1.125rem"/>
-			<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press=".onAvatarPressed" tooltip="Profile">
-				<layoutData>
-					<OverflowToolbarLayoutData priority="NeverOverflow"/>
-				</layoutData>
-			</Avatar>
-		</tnt:ToolHeader>
-    <App id="app">
-        <l:VerticalLayout class="sapUiContentPadding" width="100%">
-            <l:content>
-                <Link text="Overzicht evenementen" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/" />
-                <Link text="Registreer" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Registreer/" />
-                <Link text="Evenementdetailpagina" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/1" />
-                <Link text="Maak evenement aan" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new" />
-                <Link text="Login" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Login/" />
-                <Link text="Start scherm" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/StartScreen/" />
-            </l:content>
-        </l:VerticalLayout>
-    </App>
+				<tnt:ToolHeaderUtilitySeparator/>
+				<ToolbarSpacer width="1.125rem"/>
+				<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press=".onAvatarPressed" tooltip="Profile">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Avatar>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation id="sideNavigation" selectedKey="walked" expanded="false">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Home" icon="sap-icon://home" />
+					<tnt:NavigationListGroup text="Evenementen">
+						<tnt:NavigationListItem text="Overzicht evenementen" icon="sap-icon://legend" href="#/Events"/>
+						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" />
+					</tnt:NavigationListGroup>
+					<tnt:NavigationListGroup text="Feedback">
+						<tnt:NavigationListItem text="Alle feedback" icon="sap-icon://discussion" />
+
+					</tnt:NavigationListGroup>
+
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList>
+						<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" />
+						<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" />
+						<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" href="#/login" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<App id="app">
+				<l:VerticalLayout class="sapUiContentPadding" width="100%">
+					<l:content>
+						<Link text="Overzicht evenementen" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/" />
+						<Link text="Registreer" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Registreer/" />
+						<Link text="Evenementdetailpagina" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/1" />
+						<Link text="Maak evenement aan" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new" />
+						<Link text="Login" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Login/" />
+						<Link text="Start scherm" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/StartScreen/" />
+						<Image src="../image/LogoFlexso.jpg" decorative="false" press="onLogoPressed">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Image>
+
+					</l:content>
+				</l:VerticalLayout>
+			</App>
+		</tnt:mainContents>
+	</tnt:ToolPage>
 
 </mvc:View>

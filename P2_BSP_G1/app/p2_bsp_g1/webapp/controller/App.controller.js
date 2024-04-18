@@ -9,7 +9,12 @@ sap.ui.define([
 
         return Controller.extend("p2bspg1.controller.App", {
             onInit: function () {
-
+            },
+            onCollapseExpandPress() {
+                const oSideNavigation = this.byId("sideNavigation"),
+                    bExpanded = oSideNavigation.getExpanded();
+    
+                oSideNavigation.setExpanded(!bExpanded);
             }
         });
     });
