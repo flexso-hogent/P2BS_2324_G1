@@ -25,6 +25,13 @@ sap.ui.define([
 
       onCancel: function() {
           window.location.href ="#/Login/"; // Redirect to home page
+      },
+      onRequest: function() {
+        if (!email) {
+            MessageBox.error("Please enter your email address.");
+            return;
+        }  
+        MessageBox.success("An email is sent to your mailbox.");
       }
 
   });

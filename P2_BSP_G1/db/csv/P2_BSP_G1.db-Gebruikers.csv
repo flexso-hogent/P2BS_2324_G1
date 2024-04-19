@@ -19,4 +19,5 @@ gebruikerID;voornaam;achternaam;email;wachtwoord;geboortedatum;rol
 000018;Nina;Mol;nina@example.com;passpass;1981-12-11;user
 000019;Daan;Kuipers;daan@example.com;password1;1993-04-26;user
 000020;Rosa;Willems;rosa@example.com;12345678;1988-08-03;user
-000021;Mats;Claerhout;mats;123;2002-01-01;user
+000021;Mats;Claerhout;mats;123;2002-07-21;user
+000022;Jits;Bulcaen;jits@bulcaen.com;1235;2002-07-26;LeuksteLiefjeOoit

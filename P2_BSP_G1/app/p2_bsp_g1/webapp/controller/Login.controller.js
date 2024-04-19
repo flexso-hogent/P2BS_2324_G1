@@ -36,7 +36,6 @@ sap.ui.define([
                 console.log("Entered email: " + email);
                 console.log("Entered password: " + password);
 
-
                 // Iterate through each line of the CSV file
                 // Hier is de fout, hij itereert niet door de csv file
                 for (var i = 1; i < lines.length; i++) {
