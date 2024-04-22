@@ -88,7 +88,6 @@ sap.ui.define(
         } else {
             oPasswordInput.setType("Password");
         }
-<<<<<<< Updated upstream
         var oCurrentIcon = this.getView().byId("icon2");
         console.log(oCurrentIcon);
         var sCurrentIcon = oCurrentIcon.getIcon();
@@ -97,12 +96,9 @@ sap.ui.define(
         } else {
             oCurrentIcon.setIcon("sap-icon://show");
         }
-      }  
-=======
       },
       onTerug: function() {
         window.location.href = "#/Login/";
       }
->>>>>>> Stashed changes
     });
   });
