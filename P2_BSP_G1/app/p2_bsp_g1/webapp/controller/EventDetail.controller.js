@@ -6,6 +6,8 @@ sap.ui.define(
   function (Controller, MessageToast) {
     "use strict";
 
+    var geregistreerdeSessies = [];
+
     return Controller.extend("p2bspg1.controller.EventDetail", {
       onInit: function () {
         this.oOwnerComponent = this.getOwnerComponent();
@@ -15,16 +17,23 @@ sap.ui.define(
       signUp: function (evt) {
         var button = evt.getSource();
         var buttonText = button.getText();
+        var sessionID = button.getBindingContext().getProperty("sessieID")
         
-        if (buttonText === "Registreer voor deze sessie") {
-            MessageToast.show("U bent succesvol ingeschreven voor deze sessie!");
-            button.setText("Uitschrijven voor deze sessie");
-            button.setType("Reject");
-        } else {
+        if (buttonText === "Uitschrijven voor deze sessie") {
+            var index = geregistreerdeSessies.indexOf(sessionID);
+            if (index !== -1) {
+              geregistreerdeSessies.splice(index, 1);
+            }
             MessageToast.show("U bent succesvol uitgeschreven voor deze sessie!");
             button.setText("Registreer voor deze sessie");
             button.setType("Emphasized");
+        } else {
+            geregistreerdeSessies.push(sessionID);
+            MessageToast.show("U bent succesvol ingeschreven voor deze sessie!");
+            button.setText("Uitschrijven voor deze sessie");
+            button.setType("Reject");
         }
+        console.log("Registered sessions:", geregistreerdeSessies);
       },
       _onRouteMatched: function (oEvent) {
         var oArgs = oEvent.getParameter("arguments");

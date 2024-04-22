@@ -10,7 +10,7 @@
 .inputBig {
   color: #007287;
   width: 20vw !important;
-  min-height: 4rem;
+  min-height: 4rem !important; 
 }
 
 .btncreate{

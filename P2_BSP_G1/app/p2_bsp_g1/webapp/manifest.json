@@ -164,6 +164,11 @@
           "name": "FeedbackGeven",
           "pattern": "FeedbackGeven",
           "target": ["FeedbackGeven"]
+        }        ,
+        {
+          "name": "MijnEvents",
+          "pattern": "MijnEvents",
+          "target": ["MijnEvents"]
         }
       ],
       "targets": {
@@ -236,6 +241,13 @@
           "clearControlAggregation": false,
           "viewId": "FeedbackGeven",
           "viewName": "FeedbackGeven"
+        },
+        "MijnEvents": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "MijnEvents",
+          "viewName": "MijnEvents"
         }
       }
     },

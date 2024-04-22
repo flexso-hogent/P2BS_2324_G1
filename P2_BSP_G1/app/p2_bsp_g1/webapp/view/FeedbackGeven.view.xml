@@ -14,7 +14,7 @@
                             <Title level="H3" text="Geef feedback" />
                             <Label text="Number of Stars" labelFor="stars" class="input" required="true"/>
                             <RatingIndicator value="3" id='ratingIndicator' iconSize="32px"/>
-                            <Label text="Feedback" class="input" labelFor="feedback" required="true" />
+                            <Label text="Feedback" class="input" required="true" />
                             <Input id="feedback" class="inputBig" placeholder="Schrijf hier je feedback."/>                          
                             <HBox >
                               <Button text="Cancel" type="Transparent" press=".onCancel" class="ButtonStyle"/>

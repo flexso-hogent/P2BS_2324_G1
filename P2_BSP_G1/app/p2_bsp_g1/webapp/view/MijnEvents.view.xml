@@ -1,0 +1,24 @@
+<mvc:View controllerName="p2bspg1.controller.MijnEvents" displayBlock="true" height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <Page id="MijnEvents" title="Mijn Evenementen">
+        <List id="eventsList" items="{
+            path: '/MijnEvenementen',
+            sorter: {
+                path: 'beginDatum',
+                descending: false
+            }
+        }" >
+            <items>
+                <StandardListItem title="{naam}" description="{locatie}">
+                    <customData>
+                        <core:CustomData key="beschikbareSessies" value="{beschikbareSessies}" />
+                    </customData>
+                </StandardListItem>
+            </items>
+        </List>
+    </Page>
+
+</mvc:View>

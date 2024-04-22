@@ -50,7 +50,7 @@
 				<tnt:fixedItem>
 					<tnt:NavigationList>
 						<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" />
-						<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" />
+						<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" href="#/MijnEvents" />
 						<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" href="#/login" />
 					</tnt:NavigationList>
 				</tnt:fixedItem>

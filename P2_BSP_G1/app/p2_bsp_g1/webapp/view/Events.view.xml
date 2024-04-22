@@ -32,7 +32,7 @@
 								</fb:FilterGroupItem>
 								<fb:FilterGroupItem name="EventLocation" label="Event locatie" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
-										<SearchField name="EventLocation" search=".onSearchLocation" liveChange=".onSearchLocation" width="100%" placeholder="Zoek op Event locatie" />
+										<SearchField search=".onSearchLocation" liveChange=".onSearchLocation" width="100%" placeholder="Zoek op Event locatie" />
 									</fb:control>
 								</fb:FilterGroupItem>
 
