@@ -1,5 +1,15 @@
 .customHeader > header {
   background-color: rgb(000, 178, 221); /* Adjust RGB values as needed */
 }
+.input{
+  color: #007287;
+  width: 20vw !important;
+}
 
-
+.btncreate{
+  display: flex !important;
+  justify-content: space-between !important;
+  padding-top: 4vh;
+  padding-bottom: 2vh;
+}
+  

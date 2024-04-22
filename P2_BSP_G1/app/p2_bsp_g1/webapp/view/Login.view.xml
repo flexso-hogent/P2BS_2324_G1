@@ -12,12 +12,12 @@
                     <content>
                         <VBox alignItems="Center">
                             <Title level="H3" text="Login" />
-                            <Label text="Email" labelFor="email" required="true"/>
-                            <Input id="email" width="100%" value="{form>/email}"/>
-                            <Label text="Wachtwoord" labelFor="wachtwoord" required="true" />
-                                <HBox >
-                                    <Input id="wachtwoord" type="Password" width="100%" value="{form>/wachtwoord}"/>
-                                    <Button text="See Password" press=".onSeePassword" />
+                            <Label text="Email" labelFor="email" class="input" required="true"/>
+                            <Input id="email" class="input" value="{form>/email}"/>
+                            <Label text="Wachtwoord" class="input" labelFor="wachtwoord" required="true" />
+                                <HBox class="input">
+                                    <Input id="wachtwoord" type="Password" class="input" value="{form>/wachtwoord}"/>
+                                    <Button icon="sap-icon://show" press=".onSeePassword" />
                                 </HBox>
                             <CheckBox id="keepSignedIn" selected="{form>/keepSignedIn}" text="Keep me signed in" ></CheckBox>
                             <Link text="Forgot Password" press=".onForgotPassword" />

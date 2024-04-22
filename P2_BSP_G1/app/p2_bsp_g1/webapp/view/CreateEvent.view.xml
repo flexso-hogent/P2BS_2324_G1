@@ -10,27 +10,27 @@
                 <Panel width="50vw" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
-                            <Label text="Naam evenement" labelFor="naam" />
-                            <Input id="naam" width="100%" placeholder="test" />
-                            <Label text="Locatie" labelFor="locatie" />
-                            <Input id="locatie" width="100%" />
-                            <Label text="Startdatum" labelFor="startDatum" />
-                            <DatePicker id="startDatum" width="100%" />
-                            <Label text="Einddatum" labelFor="eindDatum" />
-                            <DatePicker id="eindDatum" width="100%" />
-                            <Label text="Startuur" labelFor="startUur" />
-                            <TimePicker id="startUur" width="100%" />
-                            <Label text="Einduur" labelFor="eindUur" />
-                            <TimePicker id="eindUur" width="100%" />
-                            <Label text="Maximum aantal deelnemers" labelFor="maxAantalInschrijvingen" />
-                            <Input id="maxAantalInschrijvingen" width="100%" />
-                            <Label text="Prijs" labelFor="prijs" />
-                            <Input id="prijs" width="100%" />
+                            <Label text="Naam evenement" class="input" labelFor="naam" />
+                            <Input id="naam" class="input" width="100%" placeholder="Naam event" />
+                            <Label text="Locatie" class="input" labelFor="locatie" />
+                            <Input id="locatie" class="input" width="100%" placeholder="Locatie event" />
+                            <Label text="Startdatum" class="input" labelFor="startDatum" />
+                            <DatePicker id="startDatum" class="input" width="100%" />
+                            <Label text="Einddatum" class="input" labelFor="eindDatum" />
+                            <DatePicker id="eindDatum" class="input" width="100%" />
+                            <Label text="Startuur" class="input" labelFor="startUur" />
+                            <TimePicker id="startUur" class="input" width="100%" />
+                            <Label text="Einduur" class="input" labelFor="eindUur" />
+                            <TimePicker id="eindUur" class="input" width="100%" />
+                            <Label text="Maximum aantal deelnemers" class="input" labelFor="maxAantalInschrijvingen" />
+                            <Input id="maxAantalInschrijvingen" class="input" width="100%" />
+                            <Label text="Prijs" class="input" labelFor="prijs" />
+                            <Input id="prijs" class="input" width="100%" />
                         </VBox>
                     </content>
-                    <l:HorizontalLayout  >
-                        <Button text="Annuleer" />
-                        <Button text="Creëer evenement" />
+                    <l:HorizontalLayout class="btncreate" >
+                        <Button text="Annuleer" type="Transparent" />
+                        <Button text="Creëer evenement" class="create" type="Emphasized"/>
                     </l:HorizontalLayout>
                 </Panel>
             </FlexBox>
