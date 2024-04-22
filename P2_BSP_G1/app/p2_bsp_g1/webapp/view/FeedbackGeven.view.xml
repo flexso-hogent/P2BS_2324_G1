@@ -1,0 +1,30 @@
+<mvc:View controllerName="p2bspg1.controller.FeedbackGeven"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page id="FeedbackGeven" title="Geef feedback">
+        <content>
+            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+                <Panel width="40vw" backgroundDesign="Translucent">
+                    <content>
+                        <VBox alignItems="Center">
+                            <Title level="H3" text="Geef feedback" />
+                            <Label text="Number of Stars" labelFor="stars" class="input" required="true"/>
+                            <RatingIndicator value="3" change="handleChange" id='ratingIndicator'></RatingIndicator>
+                            <Label text="Feedback" class="input" labelFor="feedback" required="true" />
+                            <Input id="feedback" class="inputBig" placeholder="Schrijf hier je feedback."/>                          
+                            <HBox >
+                              <Button text="Cancel" type="Transparent" press=".onCancel" class="ButtonStyle"/>
+                              <Button text="Sent Feedback" type="Accept" press=".onSent" class="ButtonStyle"/>
+                            </HBox>
+                            
+                        </VBox>
+                    </content>
+                </Panel>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>

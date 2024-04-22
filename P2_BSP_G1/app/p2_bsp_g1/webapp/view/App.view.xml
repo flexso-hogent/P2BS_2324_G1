@@ -36,13 +36,13 @@
 		<tnt:sideContent>
 			<tnt:SideNavigation id="sideNavigation" selectedKey="walked" expanded="false">
 				<tnt:NavigationList>
-					<tnt:NavigationListItem text="Home" icon="sap-icon://home" />
+					<tnt:NavigationListItem text="Home" icon="sap-icon://home" href="#/StartScreen"/>
 					<tnt:NavigationListGroup text="Evenementen">
 						<tnt:NavigationListItem text="Overzicht evenementen" icon="sap-icon://legend" href="#/Events"/>
 						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" />
 					</tnt:NavigationListGroup>
 					<tnt:NavigationListGroup text="Feedback">
-						<tnt:NavigationListItem text="Alle feedback" icon="sap-icon://discussion" />
+						<tnt:NavigationListItem text="Alle feedback" icon="sap-icon://discussion" href="#/FeedbackGeven"/>
 
 					</tnt:NavigationListGroup>
 

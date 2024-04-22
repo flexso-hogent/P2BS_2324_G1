@@ -5,12 +5,12 @@
     xmlns="sap.m"
     displayBlock="true">
 	
-    <Page id="StartScreen" title="StartScreen" class="customHeader">	
-				<headerContent>
+    <Page id="StartScreen" title="Home" class="customHeader">	
+				<!-- <headerContent>
 						<SearchField width="50%" placeholder="Search..." search=".onSearch" />
 						<Button icon="sap-icon://bell" press=".onNotificationPress" />
 						<Avatar initials="JD" displaySize="XS" press=".onProfilePress" />
-				</headerContent>
+				</headerContent> -->
 
 				<content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">

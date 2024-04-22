@@ -24,7 +24,7 @@ sap.ui.define([
       },
 
       onCancel: function() {
-          window.location.href ="#/Login/"; // Redirect to home page
+          window.location.href ="#/Login/"; // Redirect to login page
       },
       onRequest: function() {
         if (!email) {

@@ -4,6 +4,13 @@
 .input{
   color: #007287;
   width: 20vw !important;
+  /* margin-top: 1em; */
+}
+
+.inputBig {
+  color: #007287;
+  width: 20vw !important;
+  min-height: 4rem;
 }
 
 .btncreate{
@@ -11,5 +18,10 @@
   justify-content: space-between !important;
   padding-top: 4vh;
   padding-bottom: 2vh;
+}
+
+.ButtonStyle {
+  margin-right: 50px;
+  margin-left: 50px; 
 }
   

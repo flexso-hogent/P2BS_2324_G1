@@ -159,6 +159,11 @@
           "name": "SessieDetail",
           "pattern": "Sessies/{sessieID}",
           "target": ["SessieDetail"]
+        },
+        {
+          "name": "FeedbackGeven",
+          "pattern": "FeedbackGeven",
+          "target": ["FeedbackGeven"]
         }
       ],
       "targets": {
@@ -224,6 +229,13 @@
           "clearControlAggregation": false,
           "viewId": "SessieDetail",
           "viewName": "SessieDetail"
+        },
+        "FeedbackGeven": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "FeedbackGeven",
+          "viewName": "FeedbackGeven"
         }
       }
     },

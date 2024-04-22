@@ -9,7 +9,11 @@ sap.ui.define([
 
         return Controller.extend("p2bspg1.controller.App", {
             onInit: function () {
-
-            }
+                // Initialization code if needed
+            },
+            onCancel: function() {
+                window.location.href ="#/StartScreen/"; // Redirect to home page
+            },
         });
+        
     });

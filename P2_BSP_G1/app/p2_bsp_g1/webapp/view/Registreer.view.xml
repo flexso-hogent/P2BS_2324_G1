@@ -11,14 +11,15 @@
                     <content>
                         <VBox alignItems="Center">
                             <Title level="H3" text="Registreer" />
-                            <Label text="Voornaam" labelFor="voornaam" required="true"/>
+                            <Label text="Voornaam" labelFor="voornaam" required="true" class="input"/>
                             <Input id="voornaam" width="100%" class="input" placeholder="" value="{form>/voornaam}" />
-                            <Label text="Achternaam" labelFor="achternaam" required="true"/>
+                            <Label text="Achternaam" labelFor="achternaam" required="true" class="input"/>
                             <Input id="achternaam" width="100%" class="input" value="{form>/achternaam}"/>
-                            <Label text="Email" labelFor="email" required="true"/>
+                            <Label text="Email" labelFor="email" required="true" class="input"/>
                             <Input id="email" width="100%" class="input" value="{form>/email}"/>
-                            <Label text="Geboortedatum" labelFor="geboortedatum" required="true"/>
+                            <Label text="Geboortedatum" labelFor="geboortedatum" required="true" class="input"/>
                             <DatePicker id="geboortedatum" width="100%" class="input" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" />
+<<<<<<< Updated upstream
                             <Label text="Wachtwoord" labelFor="wachtwoord" required="true"/>
                             <HBox class="input">
                                 <Input id="wachtwoord" type="Password" width="100%" class="input" value="{form>/wachtwoord}"/>
@@ -30,6 +31,22 @@
                                 <Button icon="sap-icon://show" id="icon2" press=".onSeePasswordHerhaal" />
                             </HBox>
                             <Button text="Registreer" type="Accept" press=".onRegister" />
+=======
+                            <Label text="Wachtwoord" labelFor="wachtwoord" required="true" class="input"/>
+                                <HBox class="input">
+                                    <Input id="wachtwoord" type="Password" width="100%" class="input" value="{form>/wachtwoord}"/>
+                                    <Button icon="sap-icon://show" press=".onSeePassword" />
+                                </HBox>
+                            <Label text="Herhaal wachtwoord" labelFor="herhaalWachtwoord" required="true" class="input"/>
+                                <HBox class="input">
+                                    <Input id="herhaalWachtwoord" type="Password" class="input" width="100%" value="{herhaalWachtwoord}"/>
+                                    <Button icon="sap-icon://show" press=".onSeePasswordHerhaal" />
+                                </HBox>
+                            <HBox >
+                                <Button text="Terug" type="Default" press=".onTerug" class="ButtonStyle"/>
+                                <Button text="Registreer" type="Accept" press=".onRegister" class="ButtonStyle" />
+                            </HBox>
+>>>>>>> Stashed changes
                         </VBox>
                     </content>
                 </Panel>
