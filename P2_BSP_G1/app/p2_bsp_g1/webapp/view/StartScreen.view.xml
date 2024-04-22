@@ -17,7 +17,7 @@
                 <Panel width="40vw" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
-                            <Title level="H3" text="StartScreen" />
+                            <Title level="H3" text="Welkom" />
 
 														<FlexBox wrap="Wrap" justifyContent="SpaceAround" alignItems="Start" width="100%">
 																<GenericTile 
