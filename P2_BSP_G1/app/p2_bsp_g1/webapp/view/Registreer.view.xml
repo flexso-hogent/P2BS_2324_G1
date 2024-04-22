@@ -2,8 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
     xmlns:f="sap.ui.layout.form"
-    xmlns="sap.m"
-    displayBlock="true">
+    xmlns="sap.m" displayBlock="true">
 
     <Page id="Registreer" title="Registreer">
         <content>
@@ -21,15 +20,15 @@
                             <Label text="Geboortedatum" labelFor="geboortedatum" required="true"/>
                             <DatePicker id="geboortedatum" width="100%" class="input" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" />
                             <Label text="Wachtwoord" labelFor="wachtwoord" required="true"/>
-                                <HBox class="input">
-                                    <Input id="wachtwoord" type="Password" width="100%" class="input" value="{form>/wachtwoord}"/>
-                                    <Button icon="sap-icon://show" press=".onSeePassword" />
-                                </HBox>
+                            <HBox class="input">
+                                <Input id="wachtwoord" type="Password" width="100%" class="input" value="{form>/wachtwoord}"/>
+                                <Button icon="sap-icon://show" id="icon" press=".onSeePassword" />
+                            </HBox>
                             <Label text="Herhaal wachtwoord" labelFor="herhaalWachtwoord" required="true"/>
-                                <HBox class="input">
-                                    <Input id="herhaalWachtwoord" type="Password" class="input" width="100%" value="{herhaalWachtwoord}"/>
-                                    <Button icon="sap-icon://show" press=".onSeePasswordHerhaal" />
-                                </HBox>
+                            <HBox class="input">
+                                <Input id="herhaalWachtwoord" type="Password" class="input" width="100%" value="{herhaalWachtwoord}"/>
+                                <Button icon="sap-icon://show" id="icon2" press=".onSeePasswordHerhaal" />
+                            </HBox>
                             <Button text="Registreer" type="Accept" press=".onRegister" />
                         </VBox>
                     </content>

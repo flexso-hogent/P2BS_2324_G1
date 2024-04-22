@@ -71,6 +71,14 @@ sap.ui.define(
         } else {
             oPasswordInput.setType("Password");
         }
+        var oCurrentIcon = this.getView().byId("icon");
+        console.log(oCurrentIcon);
+        var sCurrentIcon = oCurrentIcon.getIcon();
+        if (sCurrentIcon === "sap-icon://show") {
+            oCurrentIcon.setIcon("sap-icon://hide");
+        } else {
+            oCurrentIcon.setIcon("sap-icon://show");
+        }
       },
       onSeePasswordHerhaal: function() {
         var oPasswordInput = this.getView().byId("herhaalWachtwoord");
@@ -79,6 +87,14 @@ sap.ui.define(
             oPasswordInput.setType("Text");
         } else {
             oPasswordInput.setType("Password");
+        }
+        var oCurrentIcon = this.getView().byId("icon2");
+        console.log(oCurrentIcon);
+        var sCurrentIcon = oCurrentIcon.getIcon();
+        if (sCurrentIcon === "sap-icon://show") {
+            oCurrentIcon.setIcon("sap-icon://hide");
+        } else {
+            oCurrentIcon.setIcon("sap-icon://show");
         }
       }  
     });
