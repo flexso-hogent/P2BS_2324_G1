@@ -13,7 +13,18 @@ sap.ui.define(
         this.oRouter.attachRouteMatched(this._onRouteMatched, this);
       },
       signUp: function (evt) {
-        MessageToast.show("U bent succesvol ingeschreven voor deze sessie!");
+        var button = evt.getSource();
+        var buttonText = button.getText();
+        
+        if (buttonText === "Registreer voor deze sessie") {
+            MessageToast.show("U bent succesvol ingeschreven voor deze sessie!");
+            button.setText("Uitschrijven voor deze sessie");
+            button.setType("Reject");
+        } else {
+            MessageToast.show("U bent succesvol uitgeschreven voor deze sessie!");
+            button.setText("Registreer voor deze sessie");
+            button.setType("Emphasized");
+        }
       },
       _onRouteMatched: function (oEvent) {
         var oArgs = oEvent.getParameter("arguments");
