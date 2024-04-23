@@ -18,6 +18,9 @@ sap.ui.define([
             },
             onLogoPressed(){
                 this.getOwnerComponent().getRouter().navTo("StartScreen");
+            },
+            onAvatarPressed: function(){
+                window.location.href = "#/Profiel";
             }
         });
     });
