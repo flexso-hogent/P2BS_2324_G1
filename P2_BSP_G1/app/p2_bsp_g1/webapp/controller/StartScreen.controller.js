@@ -33,6 +33,9 @@ sap.ui.define([
 			},
 			onMyEvents: function() {
 				window.location.href = "#/MijnEvents/"
+			},
+			onNewSessie: function() {
+				window.location.href = "#/Sessies#/new"
 			}
 			/*onProfilePress: function() {
 				var oAvatar = oEvent.getSource();

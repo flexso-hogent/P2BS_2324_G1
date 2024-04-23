@@ -48,20 +48,21 @@
 			</FlexBox>
 		</content>
 
-		<footer >
-			<Bar class="customFooter">
-				<contentLeft>
-					<Image src="image/LogoFlexso.jpg" width="100px" height="auto"/>
-					<Label text="Powered by SAP Cloud Platform"/>
-				</contentLeft>
-				<contentRight>
-					<Link text="Legal Disclosure" href="https://www.sap.com/corporate/en/legal/impressum.html"/>
-					<Link text="Privacy" href="https://www.sap.com/corporate/en/legal/privacy.html"/>
-					<Link text="Terms of Use" href="https://www.sap.com/corporate/en/legal/terms-of-use.html"/>
-					<Button icon="sap-icon://home" press=".onHomePress" />
-					<Button icon="sap-icon://log" press=".onLogoutPress" />
-				</contentRight>
-			</Bar>
-		</footer>
-	</Page>
+				<footer > 
+						<Bar class="customFooter">
+								<contentLeft>
+										<Image src="image/LogoSAP.png" class="logoStyle" width="100px" height="auto"/>
+										<Label text="Powered by SAP Cloud Platform"/>
+								</contentLeft>
+								<contentRight>
+										<Link text="Legal Disclosure" href="https://www.sap.com/corporate/en/legal/impressum.html"/>
+										<Link text="Privacy" href="https://www.sap.com/corporate/en/legal/privacy.html"/>
+										<Link text="Terms of Use" href="https://www.sap.com/corporate/en/legal/terms-of-use.html"/>
+										<!-- Geen plaats voor beide icons, alleen de eerste wordt meegegeven -->
+										<Button icon="sap-icon://home" press=".onHomePress" />
+										<!-- <Button icon="sap-icon://log" press=".onLogoutPress" /> -->
+								</contentRight>
+						</Bar>
+				</footer>
+    </Page>
 </mvc:View>

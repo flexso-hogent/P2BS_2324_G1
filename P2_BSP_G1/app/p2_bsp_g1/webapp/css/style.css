@@ -26,5 +26,12 @@
 }
 
 .customFooter {
-  padding: 25px;
+  padding: 10px;
+}
+
+/* Misschien kunnen we via deze weg het logootje stylen en wel pasbaar maken */
+.logoStyle {
+  width: 15px;
+  height: 8px;
+  margin-left: 0px;
 }
