@@ -18,7 +18,8 @@ sap.ui.define([
                 MessageBox.error("Please enter both email and password.");
                 return;
             }
-            
+            email = '"email":"' + email + '"';
+            password = '"wachtwoord":"' + password + '"';
             //Lukt nog niet helemaal
             var csvFilePath = "http://localhost:4004/odata/v4/overview/Gebruikers";
         
@@ -36,10 +37,10 @@ sap.ui.define([
 
                     // Iterate through each line of the CSV file
                     // Hier is de fout, hij itereert niet door de csv file
-                    for (var i = 1; i < lines.length; i++) {
-                        var columns = lines[i].split(';');
-                        var storedEmail = columns[3];
-                        var storedPassword = columns[4];
+                    for (var i = 0; i < lines.length; i++) {
+                        var columns = lines[i].split(',');
+                        var storedEmail = columns[4];
+                        var storedPassword = columns[5];
                         // Zieje niet meer in de console
                         console.log(i);
                         console.log("Stored email: " + storedEmail);
