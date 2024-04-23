@@ -1,19 +1,19 @@
 .customHeader > header {
   background-color: rgb(000, 178, 221); /* Adjust RGB values as needed */
 }
-.input{
+.input {
   color: #007287;
   width: 20vw !important;
   /* margin-top: 1em; */
 }
 
-.multilineInput{
+.multilineInput {
   height: auto;
   min-height: 80px !important;
   width: 20vw !important;
 }
 
-.btncreate{
+.btncreate {
   display: flex !important;
   justify-content: space-between !important;
   padding-top: 4vh;
@@ -22,11 +22,9 @@
 
 .ButtonStyle {
   margin-right: 50px;
-  margin-left: 50px; 
+  margin-left: 50px;
 }
 
 .customFooter {
-  height: 150px;
+  padding: 25px;
 }
-
-  

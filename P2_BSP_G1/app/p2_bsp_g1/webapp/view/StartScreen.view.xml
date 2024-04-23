@@ -57,8 +57,8 @@
             </FlexBox>
         </content>
 
-				<footer class="customFooter"> 
-						<Bar>
+				<footer > 
+						<Bar class="customFooter">
 								<contentLeft>
 										<Image src="image/LogoFlexso.jpg" width="100px" height="auto"/>
 										<Label text="Powered by SAP Cloud Platform"/>
