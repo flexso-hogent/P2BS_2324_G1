@@ -27,7 +27,7 @@ sap.ui.define([
                 url: csvFilePath,
                 dataType: "text",
                 success: function(data) {
-                    var lines = data.split('\n');
+                    var lines = data.split('},');
                     
                     // Zieje in de consolse nog
                     console.log("CSV Data:");
@@ -39,10 +39,11 @@ sap.ui.define([
                     // Hier is de fout, hij itereert niet door de csv file
                     for (var i = 0; i < lines.length; i++) {
                         var columns = lines[i].split(',');
-                        var storedEmail = columns[4];
-                        var storedPassword = columns[5];
+                        var storedEmail = columns[3];
+                        var storedPassword = columns[4];
                         // Zieje niet meer in de console
                         console.log(i);
+                        console.log("Lines: " + lines.length);
                         console.log("Stored email: " + storedEmail);
                         console.log("Stored password: " + storedPassword);
                          // Check if the entered email and password match
