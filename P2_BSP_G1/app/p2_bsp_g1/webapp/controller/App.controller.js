@@ -15,6 +15,9 @@ sap.ui.define([
                     bExpanded = oSideNavigation.getExpanded();
     
                 oSideNavigation.setExpanded(!bExpanded);
+            },
+            onLogoPressed(){
+                this.getOwnerComponent().getRouter().navTo("StartScreen");
             }
         });
     });
