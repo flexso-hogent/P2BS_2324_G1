@@ -12,26 +12,28 @@ sap.ui.define(
       onInit: function () {
         this.oOwnerComponent = this.getOwnerComponent();
         this.oRouter = this.oOwnerComponent.getRouter();
-        this.oRouter.attachRouteMatched(this._onRouteMatched, this);
+        this.oRouter
+          .getRoute("EventDetail")
+          .attachPatternMatched(this._onRouteMatched, this);
       },
       signUp: function (evt) {
         var button = evt.getSource();
         var buttonText = button.getText();
-        var sessionID = button.getBindingContext().getProperty("sessieID")
-        
+        var sessionID = button.getBindingContext().getProperty("sessieID");
+
         if (buttonText === "Uitschrijven voor deze sessie") {
-            var index = geregistreerdeSessies.indexOf(sessionID);
-            if (index !== -1) {
-              geregistreerdeSessies.splice(index, 1);
-            }
-            MessageToast.show("U bent succesvol uitgeschreven voor deze sessie!");
-            button.setText("Registreer voor deze sessie");
-            button.setType("Emphasized");
+          var index = geregistreerdeSessies.indexOf(sessionID);
+          if (index !== -1) {
+            geregistreerdeSessies.splice(index, 1);
+          }
+          MessageToast.show("U bent succesvol uitgeschreven voor deze sessie!");
+          button.setText("Registreer voor deze sessie");
+          button.setType("Emphasized");
         } else {
-            geregistreerdeSessies.push(sessionID);
-            MessageToast.show("U bent succesvol ingeschreven voor deze sessie!");
-            button.setText("Uitschrijven voor deze sessie");
-            button.setType("Reject");
+          geregistreerdeSessies.push(sessionID);
+          MessageToast.show("U bent succesvol ingeschreven voor deze sessie!");
+          button.setText("Uitschrijven voor deze sessie");
+          button.setType("Reject");
         }
         console.log("Registered sessions:", geregistreerdeSessies);
       },
@@ -53,7 +55,7 @@ sap.ui.define(
 
         var oRouter = this.getOwnerComponent().getRouter();
         oRouter.navTo("SessieDetail", {
-            sessieID: sSessieID,
+          sessieID: sSessieID,
         });
         console.log("Done");
       },
