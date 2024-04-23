@@ -54,9 +54,9 @@
 				<tnt:fixedItem>
 					<tnt:NavigationList>
 						<tnt:NavigationListGroup text="Terms and services">
-							<tnt:NavigationListItem text="Legal" icon="sap-icon://compare-2" href="https://www.sap.com/corporate/en/legal/impressum.html"/>
-							<tnt:NavigationListItem text="Privacy" icon="sap-icon://locked" href="https://www.sap.com/corporate/en/legal/privacy.html"/>
-							<tnt:NavigationListItem text="Terms" icon="sap-icon://document" href="https://www.sap.com/corporate/en/legal/terms-of-use.html"/>
+							<tnt:NavigationListItem text="Legal" icon="sap-icon://compare-2" target="_blank" href="https://www.sap.com/corporate/en/legal/impressum.html"/>
+							<tnt:NavigationListItem text="Privacy" icon="sap-icon://locked" target="_blank" href="https://www.sap.com/corporate/en/legal/privacy.html"/>
+							<tnt:NavigationListItem text="Terms" icon="sap-icon://document" target="_blank" href="https://www.sap.com/corporate/en/legal/terms-of-use.html"/>
 
 						</tnt:NavigationListGroup>
 						<tnt:NavigationListGroup text="Mijn profiel">
