@@ -53,13 +53,18 @@
 				</tnt:NavigationList>
 				<tnt:fixedItem>
 					<tnt:NavigationList>
-						<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" />
-						<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" href="#/MijnEvents" />
-						<tnt:NavigationListItem text="Legal" icon="sap-icon://compare-2" href="https://www.sap.com/corporate/en/legal/impressum.html"/>
-						<tnt:NavigationListItem text="Privacy" icon="sap-icon://locked" href="https://www.sap.com/corporate/en/legal/privacy.html"/>
-						<tnt:NavigationListItem text="Terms" icon="sap-icon://document" href="https://www.sap.com/corporate/en/legal/terms-of-use.html"/>
+						<tnt:NavigationListGroup text="Terms and services">
+							<tnt:NavigationListItem text="Legal" icon="sap-icon://compare-2" href="https://www.sap.com/corporate/en/legal/impressum.html"/>
+							<tnt:NavigationListItem text="Privacy" icon="sap-icon://locked" href="https://www.sap.com/corporate/en/legal/privacy.html"/>
+							<tnt:NavigationListItem text="Terms" icon="sap-icon://document" href="https://www.sap.com/corporate/en/legal/terms-of-use.html"/>
 
-						<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" href="#/login" />
+						</tnt:NavigationListGroup>
+						<tnt:NavigationListGroup text="Mijn profiel">
+							<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" />
+							<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" href="#/MijnEvents" />
+
+							<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" href="#/login" />
+						</tnt:NavigationListGroup>
 					</tnt:NavigationList>
 				</tnt:fixedItem>
 			</tnt:SideNavigation>
@@ -85,7 +90,7 @@
 			</App>
 
 		</tnt:mainContents>
-		
+
 	</tnt:ToolPage>
 
 </mvc:View>
