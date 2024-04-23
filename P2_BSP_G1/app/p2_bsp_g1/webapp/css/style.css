@@ -7,10 +7,10 @@
   /* margin-top: 1em; */
 }
 
-.inputBig {
-  color: #007287;
+.multilineInput{
+  height: auto;
+  min-height: 80px !important;
   width: 20vw !important;
-  min-height: 4rem !important; 
 }
 
 .btncreate{

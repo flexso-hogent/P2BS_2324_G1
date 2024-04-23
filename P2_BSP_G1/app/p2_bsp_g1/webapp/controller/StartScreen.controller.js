@@ -31,7 +31,10 @@ sap.ui.define([
 			onLogoutPress: function() {
 				window.location.href = "#/Login/"
 			},
-			onProfilePress: function() {
+			onMyEvents: function() {
+				window.location.href = "#/MijnEvents/"
+			}
+			/*onProfilePress: function() {
 				var oAvatar = oEvent.getSource();
 				
 				var csvData = "http://localhost:4004/odata/v4/overview/Gebruikers";
@@ -64,6 +67,6 @@ sap.ui.define([
 
 				oPopover.openBy(oAvatar);
 			}
-		}
+		}*/
   });
 });
