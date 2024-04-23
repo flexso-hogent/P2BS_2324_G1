@@ -40,6 +40,11 @@
 										<ImageContent src="sap-icon://activities"/>
 									</TileContent>
 								</GenericTile>
+								<GenericTile header="Nieuwe sessie aanmaken" press=".onNewSessie">
+									<TileContent footer="">
+										<ImageContent src="sap-icon://create-session"/>
+									</TileContent>
+								</GenericTile>
 							</FlexBox>
 
 						</VBox>
