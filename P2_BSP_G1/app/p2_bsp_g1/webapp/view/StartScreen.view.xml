@@ -22,7 +22,7 @@
 							<FlexBox wrap="Wrap" justifyContent="SpaceAround" alignItems="Start" width="100%">
 								<GenericTile header="Overzicht evenementen" press=".onEvents">
 									<TileContent footer="">
-										<ImageContent src="sap-icon://customer-view"/>
+										<ImageContent src="sap-icon://legend"/>
 									</TileContent>
 								</GenericTile>
 								<GenericTile header="Event details" press=".onEventsDetails">
@@ -32,12 +32,12 @@
 								</GenericTile>
 								<GenericTile header="Nieuw event aanmaken" press=".onEventsNew">
 									<TileContent footer="">
-										<ImageContent src="sap-icon://create"/>
+										<ImageContent src="sap-icon://add-calendar"/>
 									</TileContent>
 								</GenericTile>
 								<GenericTile header="Mijn Evenementen" press=".onMyEvents">
 									<TileContent footer="">
-										<ImageContent src="sap-icon://activities"/>
+										<ImageContent src="sap-icon://notes"/>
 									</TileContent>
 								</GenericTile>
 								<GenericTile header="Nieuwe sessie aanmaken" press=".onNewSessie">
