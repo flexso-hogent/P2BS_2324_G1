@@ -6,6 +6,8 @@ sap.ui.define(
     return Controller.extend("p2bspg1.controller.Login", {
       onInit: function () {
         // Initialization code if needed
+        if(localStorage.getItem("user"))
+          localStorage.removeItem("user");
       },
 
       onLogin: function () {
