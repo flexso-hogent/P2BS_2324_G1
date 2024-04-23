@@ -47,7 +47,12 @@ sap.ui.define(
         odatamodel.create("/Gebruikers", oForm, {
           success: function (data, response) {
             console.log("gelukt");
-            MessageBox.success("Uw account is aangemaakt!");
+            MessageBox.success("Uw account is aangemaakt!", {
+              onClose: function() {
+                window.location.href = "#/Login/";
+              }
+            });
+            
           },
           error: function (error) {
             console.log("niet gelukt");
