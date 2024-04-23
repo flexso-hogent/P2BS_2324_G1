@@ -30,6 +30,12 @@ sap.ui.define(
           return;
         }
 
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(oForm.email)) {
+          MessageBox.error("Please enter a valid email address");
+          return;
+        }
+
         // Check if password and repeat password match
         if (oForm.wachtwoord !== sHerhaalWachtwoord) {
           MessageBox.error("Passwords do not match");

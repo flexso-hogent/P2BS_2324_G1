@@ -12,13 +12,13 @@
                         <VBox alignItems="Center">
                             <Title level="H3" text="Registreer" />
                             <Label text="Voornaam" labelFor="voornaam" required="true" class="input"/>
-                            <Input id="voornaam" width="100%" class="input" placeholder="" value="{form>/voornaam}" />
+                            <Input id="voornaam" width="100%" class="input" placeholder="voornaam" value="{form>/voornaam}" />
                             <Label text="Achternaam" labelFor="achternaam" required="true" class="input"/>
-                            <Input id="achternaam" width="100%" class="input" value="{form>/achternaam}"/>
+                            <Input id="achternaam" width="100%" class="input" value="{form>/achternaam}" placeholder="achternaam"/>
                             <Label text="Email" labelFor="email" required="true" class="input"/>
-                            <Input id="email" width="100%" class="input" value="{form>/email}"/>
+                            <Input id="email" width="100%" class="input" value="{form>/email}" placeholder="bv. tom@gmail.com"/>
                             <Label text="Geboortedatum" labelFor="geboortedatum" required="true" class="input"/>
-                            <DatePicker id="geboortedatum" width="100%" class="input" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" />
+                            <DatePicker id="geboortedatum" width="100%" class="input" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" placeholder="bv. 1995-06-05"/>
                             <Label text="Wachtwoord" labelFor="wachtwoord" required="true" class="input"/>
                                 <HBox class="input">
                                     <Input id="wachtwoord" type="Password" width="100%" class="input" value="{form>/wachtwoord}"/>
