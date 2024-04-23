@@ -21,6 +21,11 @@ sap.ui.define([
             },
             onAvatarPressed: function(){
                 window.location.href = "#/Profiel";
+            },
+            onLogOut: function() {
+                localStorage.removeItem("user");
+                window.location.href = "#/Login";
+                window.location.reload();
             }
         });
     });

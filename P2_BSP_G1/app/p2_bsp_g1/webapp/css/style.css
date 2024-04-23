@@ -7,12 +7,6 @@
   /* margin-top: 1em; */
 }
 
-.multilineInput {
-  height: auto;
-  min-height: 80px !important;
-  width: 20vw !important;
-}
-
 .btncreate {
   display: flex !important;
   justify-content: space-between !important;

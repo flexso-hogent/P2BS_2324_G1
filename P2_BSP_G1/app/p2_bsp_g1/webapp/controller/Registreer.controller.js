@@ -19,6 +19,18 @@ sap.ui.define(
         var oModel = new JSONModel(oRegistreer);
         this.getView().setModel(oModel, "form");
       },
+
+      // Function to validate form fields
+      validateForm: function(formData) {
+        for (var key in formData) {
+          if (formData.hasOwnProperty(key)) {
+            if (!formData[key] && key !== "herhaalWachtwoord") {
+              return false;
+            }
+          }
+        }
+        return true;
+      },
     
       onRegister: function() {
         var oForm = this.getView().getModel("form").getData();
@@ -32,14 +44,21 @@ sap.ui.define(
 
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(oForm.email)) {
-          MessageBox.error("Please enter a valid email address");
+          MessageBox.error("Please enter a valid email address. Example: jan@example.com");
           return;
         }
 
         // Check if password and repeat password match
         if (oForm.wachtwoord !== sHerhaalWachtwoord) {
-          MessageBox.error("Passwords do not match");
+          MessageBox.error("Passwords do not match! Please try again.");
           return;
+        }
+
+        var birthdate = new Date(oForm.geboortedatum);
+        var currentDate = new Date();
+        if (birthdate > currentDate) {
+            MessageBox.error("Please enter a valid birthdate.");
+            return;
         }
 
         var odatamodel = this.getView().getModel("v2model");
@@ -60,18 +79,6 @@ sap.ui.define(
           },
         });
         console.log("done");
-      },
-
-      // Function to validate form fields
-      validateForm: function(formData) {
-        for (var key in formData) {
-          if (formData.hasOwnProperty(key)) {
-            if (!formData[key] && key !== "herhaalWachtwoord") {
-              return false;
-            }
-          }
-        }
-        return true;
       },
 
       onSeePassword: function() {

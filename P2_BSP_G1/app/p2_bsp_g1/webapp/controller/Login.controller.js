@@ -3,6 +3,11 @@ sap.ui.define(
   function (Controller, MessageBox) {
     "use strict";
 
+    // Refreshen van pagina als er naar gegaan wordt
+    window.onload = function() {
+      window.location.reload();
+    };
+
     return Controller.extend("p2bspg1.controller.Login", {
       onInit: function () {
         // Initialization code if needed
