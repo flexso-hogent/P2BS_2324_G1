@@ -41,6 +41,9 @@
 						<tnt:NavigationListItem text="Overzicht evenementen" icon="sap-icon://legend" href="#/Events"/>
 						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" />
 					</tnt:NavigationListGroup>
+					<tnt:NavigationListGroup text="Sessies">
+						<tnt:NavigationListItem text="Nieuwe sessie" icon="sap-icon://add-document" href="#/Sessies#/new" />
+					</tnt:NavigationListGroup>
 					<tnt:NavigationListGroup text="Feedback">
 						<tnt:NavigationListItem text="Alle feedback" icon="sap-icon://discussion" href="#/FeedbackGeven"/>
 

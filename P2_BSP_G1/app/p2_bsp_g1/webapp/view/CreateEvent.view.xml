@@ -4,7 +4,7 @@
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m" displayBlock="true">
 
-    <Page id="Registreer" title="Registreer evenement">
+    <Page id="createEvent" title="Nieuw evenement aanmaken" >
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
                 <Panel width="50vw" backgroundDesign="Translucent" >

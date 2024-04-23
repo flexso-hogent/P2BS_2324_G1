@@ -164,11 +164,16 @@
           "name": "FeedbackGeven",
           "pattern": "FeedbackGeven",
           "target": ["FeedbackGeven"]
-        }        ,
+        },
         {
           "name": "MijnEvents",
           "pattern": "MijnEvents",
           "target": ["MijnEvents"]
+        },
+        {
+          "name": "CreateSessie",
+          "pattern": "Sessies#/new",
+          "target": ["CreateSessie"]
         }
       ],
       "targets": {
@@ -235,6 +240,7 @@
           "viewId": "SessieDetail",
           "viewName": "SessieDetail"
         },
+
         "FeedbackGeven": {
           "viewType": "XML",
           "transition": "slide",
@@ -248,6 +254,13 @@
           "clearControlAggregation": false,
           "viewId": "MijnEvents",
           "viewName": "MijnEvents"
+        },
+        "CreateSessie": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CreateSessie",
+          "viewName": "CreateSessie"
         }
       }
     },

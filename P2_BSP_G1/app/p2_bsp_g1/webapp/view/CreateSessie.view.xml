@@ -1,0 +1,36 @@
+<mvc:View controllerName="p2bspg1.controller.CreateSessie"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m" displayBlock="true">
+
+    <Page id="createSessie" title="Nieuwe sessie aanmaken">
+        <content>
+            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+                <Panel width="50vw" backgroundDesign="Translucent">
+                    <content >
+                        <VBox alignItems="Center">
+                            <Label text="Naam Sessie" class="input" labelFor="naam" />
+                            <Input id="naam" class="input" width="100%" placeholder="Naam sessie" />
+                            <Label text="Datum" class="input" labelFor="datum" />
+                            <DatePicker id="datum" class="input" width="100%" />
+                            <Label text="Beginuur" class="input" labelFor="beginUur" />
+                            <TimePicker id="beginUur" class="input" width="100%" />
+                            <Label text="Einduur" class="input" labelFor="eindUur" />
+                            <TimePicker id="eindUur" class="input" width="100%" />
+                            <Label text="Spreker" class="input" labelFor="spreker" />
+                            <Input id="spreker" class="input" width="100%" />
+                            <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" />
+                            <TextArea id="korteInhoud" value="{/value}" class="input" showExceededText="true" maxLength="500" width="100%" valueState="{= ${/value}.length > 500 ? 'Warning' : 'None' }" valueLiveUpdate="false" liveChange="handleLiveChange" />
+                        </VBox>
+                    </content>
+                    <l:HorizontalLayout class="btncreate">
+                        <Button text="Annuleer" type="Transparent" press="annuleer" />
+                        <Button text="Creëer evenement" class="create" type="Emphasized" press="createEvent"/>
+                    </l:HorizontalLayout>
+                </Panel>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>
+
