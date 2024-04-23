@@ -43,6 +43,7 @@ sap.ui.define(
               if (email === storedEmail && password === storedPassword) {
                 console.log("Login successful.");
                 passwordCorrect = true;
+                localStorage.setItem("user", JSON.stringify(user));
                 MessageBox.success(
                   "Login successful. Redirecting to home screen."
                 );
