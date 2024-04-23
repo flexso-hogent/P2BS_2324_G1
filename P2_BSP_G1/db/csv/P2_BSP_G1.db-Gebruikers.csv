@@ -20,3 +20,4 @@ gebruikerID;voornaam;achternaam;email;wachtwoord;geboortedatum;rol
 000019;Daan;Kuipers;daan@example.com;password1;1993-04-26;user
 000020;Rosa;Willems;rosa@example.com;12345678;1988-08-03;user
 000021;Mats;Claerhout;mats;123;2002-07-21;user
+000022;Jits;Bulcaen;jits;1235;2002-07-26;user
