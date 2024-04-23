@@ -2,6 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
 	xmlns:l="sap.ui.layout"
 	xmlns="sap.m"
+	xmlns:f="sap.f"
 	xmlns:tnt="sap.tnt">
 	<tnt:ToolPage id="appg" class="sapUiDemoToolPage">
 		<tnt:header>
@@ -54,6 +55,10 @@
 					<tnt:NavigationList>
 						<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" />
 						<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" href="#/MijnEvents" />
+						<tnt:NavigationListItem text="Legal" icon="sap-icon://compare-2" href="https://www.sap.com/corporate/en/legal/impressum.html"/>
+						<tnt:NavigationListItem text="Privacy" icon="sap-icon://locked" href="https://www.sap.com/corporate/en/legal/privacy.html"/>
+						<tnt:NavigationListItem text="Terms" icon="sap-icon://document" href="https://www.sap.com/corporate/en/legal/terms-of-use.html"/>
+
 						<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" href="#/login" />
 					</tnt:NavigationList>
 				</tnt:fixedItem>
@@ -78,7 +83,9 @@
 					</l:content>
 				</l:VerticalLayout>
 			</App>
+
 		</tnt:mainContents>
+		
 	</tnt:ToolPage>
 
 </mvc:View>
