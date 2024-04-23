@@ -6,11 +6,12 @@
 
     <Page id="Registreer" title="Registreer">
         <content>
-            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
-                <Panel width="40vw" backgroundDesign="Translucent">
+            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%" >
+                <Panel width="35vw" backgroundDesign="Translucent" class="flexboxRegistreer">
                     <content>
                         <VBox alignItems="Center">
                             <Title level="H3" text="Registreer" />
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" ></Image>
                             <Label text="Voornaam" labelFor="voornaam" required="true" class="input"/>
                             <Input id="voornaam" width="100%" class="input" placeholder="voornaam" value="{form>/voornaam}" />
                             <Label text="Achternaam" labelFor="achternaam" required="true" class="input"/>
