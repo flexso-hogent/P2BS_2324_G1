@@ -7,8 +7,8 @@
     <Page id="Registreer" title="Registreer evenement">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
-                <Panel width="50vw" backgroundDesign="Translucent">
-                    <content>
+                <Panel width="50vw" backgroundDesign="Translucent" >
+                    <content >
                         <VBox alignItems="Center">
                             <Label text="Naam evenement" class="input" labelFor="naam" required="true"/>
                             <Input id="naam" class="input" width="100%" placeholder="Naam event" />
@@ -29,8 +29,8 @@
                         </VBox>
                     </content>
                     <l:HorizontalLayout class="btncreate" >
-                        <Button text="Annuleer" type="Transparent" press=".onCancel"/>
-                        <Button text="Creëer evenement" class="create" type="Emphasized"/>
+                        <Button text="Annuleer" type="Transparent" press="annuleer" />
+                        <Button text="Creëer evenement" class="create" type="Emphasized" press="createEvent"/>
                     </l:HorizontalLayout>
                 </Panel>
             </FlexBox>
