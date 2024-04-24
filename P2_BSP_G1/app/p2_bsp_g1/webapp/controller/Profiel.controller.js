@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(Controller, MessageBox) {
   "use strict";
 
-  return Controller.extend("your.namespace.Profiel", {
+  return Controller.extend("p2bspg1.controller.Profiel", {
 
       onInit: function() {
           // Initialization code if needed

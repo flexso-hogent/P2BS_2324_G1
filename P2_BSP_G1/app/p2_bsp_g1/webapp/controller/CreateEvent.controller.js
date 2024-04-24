@@ -7,7 +7,14 @@ sap.ui.define(
     "use strict";
 
     return Controller.extend("p2bspg1.controller.App", {
-      onInit: function () {},
+      onInit: function () {
+        if (
+          localStorage.getItem("user") == null ||
+          !localStorage.getItem("user").includes('"rol":"admin"')
+        ) {
+          this.getOwnerComponent().getRouter().navTo("NotFound");
+        }
+      },
       annuleer() {
         history.back();
       },
