@@ -11,6 +11,12 @@ sap.ui.define([
 		onInit: function() {
 			var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/products.json"));
 			this.getView().setModel(oModel);
+      if (
+        localStorage.getItem("user") == null ||
+        !localStorage.getItem("user").includes('"rol":"user"')
+      ) {
+        this.getOwnerComponent().getRouter().navTo("NotFound");
+      }
 		},
 		handleChange: function(oEvent) {
 			var demoToast = this.getView().byId("demoToast");

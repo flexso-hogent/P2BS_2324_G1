@@ -7,7 +7,12 @@ sap.ui.define([
   return Controller.extend("p2bspg1.controller.Profiel", {
 
       onInit: function() {
-          // Initialization code if needed
+        if (
+          localStorage.getItem("user") == null ||
+          !localStorage.getItem("user").includes('"rol":"user"')
+        ) {
+          this.getOwnerComponent().getRouter().navTo("NotFound");
+        }
       }
   });
 });

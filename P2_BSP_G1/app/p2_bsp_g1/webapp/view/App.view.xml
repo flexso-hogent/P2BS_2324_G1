@@ -40,13 +40,13 @@
 					<tnt:NavigationListItem text="Home" icon="sap-icon://home" href="#/StartScreen"/>
 					<tnt:NavigationListGroup text="Evenementen">
 						<tnt:NavigationListItem text="Overzicht evenementen" icon="sap-icon://legend" href="#/Events"/>
-						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" />
+						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" visible="false" id="av1" />
 					</tnt:NavigationListGroup>
-					<tnt:NavigationListGroup text="Sessies">
+					<tnt:NavigationListGroup text="Sessies" visible="false" id="av2">
 						<tnt:NavigationListItem text="Nieuwe sessie" icon="sap-icon://create-session" href="#/Sessies#/new" />
 					</tnt:NavigationListGroup>
-					<tnt:NavigationListGroup text="Feedback">
-						<tnt:NavigationListItem text="Alle feedback" icon="sap-icon://discussion" href="#/FeedbackGeven"/>
+					<tnt:NavigationListGroup text="Feedback" visible="false" id="av3">
+						<tnt:NavigationListItem text="Alle feedback" icon="sap-icon://discussion" href="#/FeedbackGeven" />
 
 					</tnt:NavigationListGroup>
 
@@ -59,12 +59,13 @@
 							<tnt:NavigationListItem text="Terms" icon="sap-icon://document" target="_blank" href="https://www.sap.com/corporate/en/legal/terms-of-use.html"/>
 
 						</tnt:NavigationListGroup>
-						<tnt:NavigationListGroup text="Mijn profiel">
-							<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" href="#/Profiel"/>
+						<tnt:NavigationListGroup text="Mijn profiel" visible="false" id="uv1">
+							<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" href="#/Profiel" />
 							<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" href="#/MijnEvents" />
-
-							<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" select="onLogOut" />
+							<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" select="onLogOut" visible="false" id="uv2" />
 						</tnt:NavigationListGroup>
+
+						<tnt:NavigationListItem text="Inloggen" icon="sap-icon://log" select="onLogOut" visible="false" id="loginView" />
 					</tnt:NavigationList>
 				</tnt:fixedItem>
 			</tnt:SideNavigation>

@@ -56,7 +56,8 @@ sap.ui.define(
                 );
                 setTimeout(function () {
                   window.location.href = "#/StartScreen/";
-                }, 2000);
+                  window.location.reload();
+                }, 1000);
                 return;
               }
             });

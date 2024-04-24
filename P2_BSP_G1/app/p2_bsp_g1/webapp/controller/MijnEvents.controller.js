@@ -7,7 +7,12 @@ sap.ui.define([
     return Controller.extend("p2bspg1.controller.MijnEvents", {
         
         onInit: function () {
-            // Implementeer hier de logica om de evenementen en sessies voor de gebruiker op te halen
+            if (
+                localStorage.getItem("user") == null ||
+                !localStorage.getItem("user").includes('"rol":"user"')
+              ) {
+                this.getOwnerComponent().getRouter().navTo("NotFound");
+              }
         },
         
         handleListPress: function(oEvent) {

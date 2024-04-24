@@ -11,6 +11,12 @@ sap.ui.define(
 
     return Controller.extend("p2bspg1.controller.CreateSessie", {
       onInit: function () {
+        if (
+          localStorage.getItem("user") == null ||
+          !localStorage.getItem("user").includes('"rol":"admin"')
+        ) {
+          this.getOwnerComponent().getRouter().navTo("NotFound");
+        }
       },
       handleLiveChange: function (oEvent) {
         var oTextArea = oEvent.getSource(),
