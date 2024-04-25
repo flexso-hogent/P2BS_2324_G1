@@ -5,14 +5,35 @@ GET http://localhost:4004/odata/v4/overview/Gebruikers
 GET http://localhost:4004/odata/v4/overview/Gebruikers/1
 
 ### Get Gebruiker By Id + alle inschrijvingen
-
 GET http://localhost:4004/odata/v4/overview/Gebruikers/3?$expand=*
 
 ###
-GET http://localhost:4004/odata/v4/overview/Evenementen/1?$expand=*
-### POST Gebruiker
 
+GET http://localhost:4004/odata/v4/overview/Evenementen/1?$expand=*
+
+### POST Gebruiker
 POST http://localhost:4004/odata/v2/overview/Gebruikers
 Content-Type: application/json
 
-{"achternaam": "test", "email": "tom@gmail.com", "geboortedatum": "2024-04-05", "voornaam": "tom", "wachtwoord": "test"}
+{
+    "achternaam": "test",
+    "email": "tom@gmail.com",
+    "geboortedatum": "2024-04-05",
+    "voornaam": "tom",
+    "wachtwoord": "test"
+}
+
+### POST Evenement
+POST http://localhost:4004/odata/v2/overview/Evenementen
+Content-Type: application/json
+
+{
+    "eindDatum": "2024-04-26",
+    "eindUur": "21:34",
+    "locatie": "Event",
+    "maxAantalInschrijvingen": "40",
+    "naam": "Test",
+    "prijs": "30",
+    "beginDatum": "2024-04-26",
+    "beginUur": "20:34"
+}

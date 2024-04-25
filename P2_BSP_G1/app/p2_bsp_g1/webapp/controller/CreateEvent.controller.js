@@ -22,9 +22,9 @@ sap.ui.define(
         var oRegistreer = {
           naam: "",
           locatie: "",
-          startDatum: null,
+          beginDatum: null,
           eindDatum: null,
-          startUur: "",
+          beginUur: "",
           eindUur: "",
           maxAantalInschrijvingen: null,
           prijs: null,
@@ -56,14 +56,14 @@ sap.ui.define(
           return;
         }
 
-        var startDate = new Date(oForm.startDatum);
+        var startDate = new Date(oForm.beginDatum);
         var endDate = new Date(oForm.eindDatum);
         var currentDate = new Date();
         if (startDate > endDate) {
           MessageBox.error("Startdatum moet voor of op de einddatum liggen.");
           return;
         }
-        console.log(oForm.startUur);
+        console.log(oForm.beginUur);
         console.log(oForm.eindUur);
         if (startDate <= currentDate || endDate <= currentDate) {
           MessageBox.error("Data moeten in de toekomst liggen.");
@@ -88,7 +88,7 @@ sap.ui.define(
         odatamodel.create("/Evenementen", oForm, {
           success: function (data, response) {
             console.log("gelukt");
-            MessageBox.success("Uw account is aangemaakt!", {
+            MessageBox.success("Uw Evenement is aangemaakt!", {
               onClose: function() {
                 window.location.href = "#/Events/";
               }
@@ -97,7 +97,7 @@ sap.ui.define(
           },
           error: function (error) {
             console.log("niet gelukt");
-            MessageBox.error("Het is niet gelukt om uw account aan te maken, probeer opnieuw!");
+            MessageBox.error("Het is niet gelukt om uw evenement aan te maken, probeer opnieuw!");
           },
         });
         console.log("done");

@@ -13,7 +13,7 @@ entity Gebruikers {
 }
 
 entity Evenementen {
-    key evenementID             : Int64;
+    key evenementID             : Integer @cds.autoinc;
         naam                    : String;
         beginDatum              : Date;
         eindDatum               : Date;
