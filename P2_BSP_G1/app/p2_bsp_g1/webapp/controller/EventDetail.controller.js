@@ -17,12 +17,19 @@ sap.ui.define(
           .getRoute("EventDetail")
           .attachPatternMatched(this._onRouteMatched, this);
 
-        var oAv1 = this.byId("av1");
+        var oAv1 = this.byId("av1"),
+          oAv2 = this.byId("av2"),
+          oAv3 = this.byId("av3"),
+          oAv4 = this.byId("av4");
         if (
           !localStorage.getItem("user") === null ||
           localStorage.getItem("user").includes('"rol":"admin"')
-        )
+        ) {
           oAv1.setVisible(true);
+          oAv2.setVisible(true);
+          oAv3.setVisible(true);
+          oAv4.setVisible(true);
+        }
       },
       signUp: function (evt) {
         var button = evt.getSource();
@@ -70,6 +77,12 @@ sap.ui.define(
       },
       addSessie: function () {
         window.location.href = "#/Sessies#/new/" + evenementID;
+      },
+      seeFeedback: function () {
+      },
+      editEvent: function () {
+      },
+      deleteEvent: function () {
       },
     });
   }

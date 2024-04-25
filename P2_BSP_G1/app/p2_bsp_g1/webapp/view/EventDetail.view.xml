@@ -11,8 +11,7 @@
             </ObjectPageHeader>
         </headerTitle>
         <headerContent>
-            <m:FlexBox wrap="Wrap" fitContainer="true">
-                <layout:HorizontalLayout >
+            <m:FlexBox wrap="Wrap" fitContainer="true" class="horizontalLayout">
                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                         <layout:HorizontalLayout>
                             <core:Icon src="sap-icon://map" class="size2">
@@ -52,8 +51,11 @@
                     </layout:VerticalLayout>
                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                         <m:Button text="Voeg een sessie toe" type="Emphasized" press="addSessie" visible="false" id="av1" />
+                        <m:Button text="Bekijk feedback" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
+                        <m:Button text="Pas evenement aan" type="Attention" press="editEvent" visible="false" id="av3" class="buttons" />
+                        <m:Button text="Verwijder evenement" type="Reject" press="deleteEvent" visible="false" id="av4" />
                     </layout:VerticalLayout>
-                </layout:HorizontalLayout>
+
 
             </m:FlexBox>
         </headerContent>
