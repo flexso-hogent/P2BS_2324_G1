@@ -34,7 +34,7 @@ sap.ui.define(
         oView.bindElement({ path: urlPath });
       },
       editSessie: function () {
-        // window.location.href = "#Sessies#/edit/" + evenementID;
+        // window.location.href = "#Sessies#/edit/" +sessieID;
       },
       deleteSessie: function () {
         var odatamodel = this.getView().getModel("v2model");
@@ -51,7 +51,7 @@ sap.ui.define(
           error: function (error) {
             console.log("niet gelukt");
             MessageBox.error(
-              "Het is niet gelukt om het evenement te verwijderen. Probeer het opnieuw!"
+              "Het is niet gelukt om de sessie te verwijderen. Probeer het opnieuw!"
             );
           },
         });
