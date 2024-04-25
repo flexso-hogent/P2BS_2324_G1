@@ -10,6 +10,8 @@
                 <Panel width="50vw" backgroundDesign="Translucent">
                     <content >
                         <VBox alignItems="Center">
+                            <Title level="H3" text="Creeër sessie" />
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw"></Image>
                             <Label text="Naam Sessie" class="input" labelFor="naam" />
                             <Input id="naam" class="input" width="100%" placeholder="Naam sessie" value="{form>/naam}" />
                             <Label text="Datum" class="input" labelFor="datum" />
@@ -21,7 +23,7 @@
                             <Label text="Spreker" class="input" labelFor="spreker" />
                             <Input id="spreker" class="input" width="100%" value="{form>/spreker}" />
                             <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" />
-                            <TextArea id="korteInhoud" value="{form>/korteInhoud}" class="input" showExceededText="true" maxLength="500" width="100%" valueLiveUpdate="false" liveChange="handleLiveChange"  />
+                            <TextArea id="korteInhoud" value="{form>/korteInhoud}" class="input" showExceededText="true" maxLength="500" width="100%" valueLiveUpdate="false" liveChange="handleLiveChange" />
                         </VBox>
                     </content>
                     <l:HorizontalLayout class="btncreate">

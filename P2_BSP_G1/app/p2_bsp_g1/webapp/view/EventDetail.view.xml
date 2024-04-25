@@ -11,47 +11,51 @@
             </ObjectPageHeader>
         </headerTitle>
         <headerContent>
-<m:FlexBox wrap="Wrap" fitContainer="true">
-
-                            <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                                <layout:HorizontalLayout>
-                                    <core:Icon src="sap-icon://map" class="size2">
-                                        <core:layoutData>
-                                            <m:FlexItemData growFactor="1" />
-                                        </core:layoutData>
-                                    </core:Icon>
-                                    <m:Label text="{locatie}" class="sapUiSmallMarginBeginEnd" />
-                                </layout:HorizontalLayout>
-                                <layout:HorizontalLayout>
-                                    <core:Icon src="sap-icon://calendar" class="size2">
-                                        <core:layoutData>
-                                            <m:FlexItemData growFactor="1" />
-                                        </core:layoutData>
-                                    </core:Icon>
-                                    <layout:VerticalLayout>
-                                        <m:Label text="{beginDatum} - {beginUur}" class="sapUiSmallMarginBeginEnd" />
-                                        <m:Label text="{eindDatum} - {eindUur}" class="sapUiSmallMarginBeginEnd" />
-                                    </layout:VerticalLayout>
-                                </layout:HorizontalLayout>
-                                <layout:HorizontalLayout>
-                                    <core:Icon src="sap-icon://group" class="size2">
-                                        <core:layoutData>
-                                            <m:FlexItemData growFactor="1" />
-                                        </core:layoutData>
-                                    </core:Icon>
-                                    <m:Label text="Max. {maxAantalInschrijvingen} deelnemers" class="sapUiSmallMarginBeginEnd" />
-                                </layout:HorizontalLayout>
-                                <layout:HorizontalLayout>
-                                    <core:Icon src="sap-icon://money-bills" class="size2">
-                                        <core:layoutData>
-                                            <m:FlexItemData growFactor="1" />
-                                        </core:layoutData>
-                                    </core:Icon>
-                                    <m:Label text="€ {prijs} inkom" class="sapUiSmallMarginBeginEnd" />
-                                </layout:HorizontalLayout>
+            <m:FlexBox wrap="Wrap" fitContainer="true">
+                <layout:HorizontalLayout >
+                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                        <layout:HorizontalLayout>
+                            <core:Icon src="sap-icon://map" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:Label text="{locatie}" class="sapUiSmallMarginBeginEnd" />
+                        </layout:HorizontalLayout>
+                        <layout:HorizontalLayout>
+                            <core:Icon src="sap-icon://calendar" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <layout:VerticalLayout>
+                                <m:Label text="{beginDatum} - {beginUur}" class="sapUiSmallMarginBeginEnd" />
+                                <m:Label text="{eindDatum} - {eindUur}" class="sapUiSmallMarginBeginEnd" />
                             </layout:VerticalLayout>
+                        </layout:HorizontalLayout>
+                        <layout:HorizontalLayout>
+                            <core:Icon src="sap-icon://group" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:Label text="Max. {maxAantalInschrijvingen} deelnemers" class="sapUiSmallMarginBeginEnd" />
+                        </layout:HorizontalLayout>
+                        <layout:HorizontalLayout>
+                            <core:Icon src="sap-icon://money-bills" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:Label text="€ {prijs} inkom" class="sapUiSmallMarginBeginEnd" />
+                        </layout:HorizontalLayout>
+                    </layout:VerticalLayout>
+                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                        <m:Button text="Voeg een sessie toe" type="Emphasized" press="addSessie" visible="false" id="av1" />
+                    </layout:VerticalLayout>
+                </layout:HorizontalLayout>
 
-                        </m:FlexBox>
+            </m:FlexBox>
         </headerContent>
 
         <sections>
@@ -78,7 +82,7 @@
                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
                                     <m:Text text="Tijdstip" />
                                 </m:Column>
-                                <m:Column  demandPopin="true">
+                                <m:Column demandPopin="true">
                                 </m:Column>
 
 

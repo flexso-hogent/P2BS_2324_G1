@@ -7,6 +7,7 @@ sap.ui.define(
     "use strict";
 
     var geregistreerdeSessies = [];
+    var evenementID = 0;
 
     return Controller.extend("p2bspg1.controller.EventDetail", {
       onInit: function () {
@@ -15,6 +16,13 @@ sap.ui.define(
         this.oRouter
           .getRoute("EventDetail")
           .attachPatternMatched(this._onRouteMatched, this);
+
+        var oAv1 = this.byId("av1");
+        if (
+          !localStorage.getItem("user") === null ||
+          localStorage.getItem("user").includes('"rol":"admin"')
+        )
+          oAv1.setVisible(true);
       },
       signUp: function (evt) {
         var button = evt.getSource();
@@ -40,6 +48,7 @@ sap.ui.define(
       _onRouteMatched: function (oEvent) {
         var oArgs = oEvent.getParameter("arguments");
         var oView = this.getView();
+        evenementID = oArgs.evenementID;
         var urlPath =
           "/" + "Evenementen(evenementID=" + oArgs.evenementID + ")";
 
@@ -58,6 +67,9 @@ sap.ui.define(
           sessieID: sSessieID,
         });
         console.log("Done");
+      },
+      addSessie: function () {
+        window.location.href = "#/Sessies#/new/" + evenementID;
       },
     });
   }
