@@ -172,7 +172,7 @@
         },
         {
           "name": "CreateSessie",
-          "pattern": "Sessies#/new",
+          "pattern": "Sessies#/new/{evenementID}",
           "target": ["CreateSessie"]
         },
         {

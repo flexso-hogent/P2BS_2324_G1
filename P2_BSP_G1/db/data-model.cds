@@ -27,7 +27,7 @@ entity Evenementen {
 }
 
 entity Sessies {
-    key sessieID       : Int64;
+    key sessieID       : Integer @cds.autoinc;
         naam           : String;
         datum          : Date;
         beginUur       : Time;
@@ -40,7 +40,7 @@ entity Sessies {
 }
 
 entity Inschrijvingen {
-    key inschrijvingID : Int64;
+    key inschrijvingID : Int64 @cds.autoinc;
         gebruikerID    : Association to Gebruikers;
         sessieID       : Association to Sessies;
         score          : Association to Scores

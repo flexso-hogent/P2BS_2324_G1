@@ -37,3 +37,19 @@ Content-Type: application/json
     "beginDatum": "2024-04-26",
     "beginUur": "20:34"
 }
+
+### POST Sessie
+POST http://localhost:4004/odata/v4/overview/Sessies
+Content-Type: application/json
+
+{
+    "naam":"Test",
+    "datum":"2024-04-26",
+    "beginUur":"20:34",
+    "eindUur":"21:34",
+    "spreker":"Test",
+    "korteInhoud":"Test",
+    "evenement": {
+        "evenementID": 1
+    }
+}
