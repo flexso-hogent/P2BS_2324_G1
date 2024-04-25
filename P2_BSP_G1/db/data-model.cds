@@ -1,7 +1,7 @@
 namespace P2_BSP_G1.db;
 
 entity Gebruikers {
-    key gebruikerID   : UUID @key;
+    key gebruikerID   : Integer @cds.autoinc;
         voornaam      : String;
         achternaam    : String;
         email         : String;
@@ -40,7 +40,7 @@ entity Sessies {
 }
 
 entity Inschrijvingen {
-    key inschrijvingID : Int64 @cds.autoinc;
+    key inschrijvingID : Integer @cds.autoinc;
         gebruikerID    : Association to Gebruikers;
         sessieID       : Association to Sessies;
         score          : Association to Scores
@@ -48,7 +48,7 @@ entity Inschrijvingen {
 }
 
 entity Scores {
-    key scoreID        : Int64;
+    key scoreID        : Integer @cds.autoinc;
         gebruikerID    : Association to Gebruikers;
         inschrijvingID : Association to Inschrijvingen;
         aantalSterren  : Decimal(5);

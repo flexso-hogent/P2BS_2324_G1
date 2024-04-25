@@ -39,7 +39,7 @@ Content-Type: application/json
 }
 
 ### POST Sessie
-POST http://localhost:4004/odata/v4/overview/Sessies
+POST http://localhost:4004/odata/v2/overview/Sessies
 Content-Type: application/json
 
 {
@@ -53,3 +53,19 @@ Content-Type: application/json
         "evenementID": 1
     }
 }
+
+### POST Inschrijving
+POST http://localhost:4004/odata/v2/overview/Inschrijvingen
+Content-Type: application/json
+
+{
+    "gebruikerID": {
+        "gebruikerID": "5379ef91-b23a-436b-92a0-ddeb4b48c0ca"
+    },
+    "sessieID": {
+        "sessieID": 1
+    }
+}
+
+### DELETE Inschrijving by GebruikerId and SessieId
+DELETE http://localhost:4004/odata/v2/overview/Inschrijvingen(gebruikerID_gebruikerID=21,sessieID_sessieID=1)
