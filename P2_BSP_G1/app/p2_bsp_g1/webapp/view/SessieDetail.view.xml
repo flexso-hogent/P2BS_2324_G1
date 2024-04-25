@@ -7,15 +7,36 @@
     <ObjectPageLayout id="ObjectPageLayout" isChildPage="true" upperCaseAnchorBar="false">
 
         <headerTitle>
-            <ObjectPageHeader id="header" objectTitle="{naam}">
+            <ObjectPageHeader id="header" objectTitle="{naam}" objectSubtitle="{evenement/naam}">
             </ObjectPageHeader>
         </headerTitle>
         <headerContent>
             <m:FlexBox wrap="Wrap" fitContainer="true">
                 <m:items>
-                    <m:Text text="{spreker}" />
-                    <m:Text text="{datum}" />
-                    <m:Text text="{beginUur} - {eindUur}" />
+                    <layout:HorizontalLayout >
+                        <core:Icon src="sap-icon://employee" class="size2">
+                            <core:layoutData>
+                                <m:FlexItemData growFactor="1" />
+                            </core:layoutData>
+                        </core:Icon>
+                        <m:Text text="{spreker}" />
+                    </layout:HorizontalLayout>
+                    <layout:HorizontalLayout >
+                        <core:Icon src="sap-icon://calendar" class="size2">
+                            <core:layoutData>
+                                <m:FlexItemData growFactor="1" />
+                            </core:layoutData>
+                        </core:Icon>
+                        <m:Text text="{datum}" />
+                    </layout:HorizontalLayout>
+                    <layout:HorizontalLayout >
+                        <core:Icon src="sap-icon://away" class="size2">
+                            <core:layoutData>
+                                <m:FlexItemData growFactor="1" />
+                            </core:layoutData>
+                        </core:Icon>
+                        <m:Text text="{beginUur} - {eindUur}" />
+                    </layout:HorizontalLayout>
                 </m:items>
             </m:FlexBox>
         </headerContent>
