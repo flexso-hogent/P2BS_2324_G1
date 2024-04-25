@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast"],
+  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox"],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, MessageToast) {
+  function (Controller, MessageToast, MessageBox) {
     "use strict";
 
     var geregistreerdeSessies = [];
@@ -79,10 +79,33 @@ sap.ui.define(
         window.location.href = "#/Sessies#/new/" + evenementID;
       },
       seeFeedback: function () {
+        // window.location.href = "#/Feedback#/" + evenementID;
       },
       editEvent: function () {
+        // window.location.href = "#/Evenementen#/edit/" + evenementID;
       },
       deleteEvent: function () {
+        var odatamodel = this.getView().getModel("v2model");
+        var evenementID = this.getView()
+          .getBindingContext()
+          .getProperty("evenementID");
+
+        odatamodel.remove("/Evenementen(" + evenementID + ")", {
+          success: function (data, response) {
+            console.log("gelukt");
+            MessageBox.success("Het evenement is succesvol verwijderd!", {
+              onClose: function () {
+                window.location.href = "#/Events";
+              },
+            });
+          },
+          error: function (error) {
+            console.log("niet gelukt");
+            MessageBox.error(
+              "Het is niet gelukt om het evenement te verwijderen. Probeer het opnieuw!"
+            );
+          },
+        });
       },
     });
   }

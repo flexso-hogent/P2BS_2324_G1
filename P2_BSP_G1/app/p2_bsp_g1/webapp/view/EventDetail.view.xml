@@ -12,49 +12,49 @@
         </headerTitle>
         <headerContent>
             <m:FlexBox wrap="Wrap" fitContainer="true" class="horizontalLayout">
-                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                        <layout:HorizontalLayout>
-                            <core:Icon src="sap-icon://map" class="size2">
-                                <core:layoutData>
-                                    <m:FlexItemData growFactor="1" />
-                                </core:layoutData>
-                            </core:Icon>
-                            <m:Label text="{locatie}" class="sapUiSmallMarginBeginEnd" />
-                        </layout:HorizontalLayout>
-                        <layout:HorizontalLayout>
-                            <core:Icon src="sap-icon://calendar" class="size2">
-                                <core:layoutData>
-                                    <m:FlexItemData growFactor="1" />
-                                </core:layoutData>
-                            </core:Icon>
-                            <layout:VerticalLayout>
-                                <m:Label text="{beginDatum} - {beginUur}" class="sapUiSmallMarginBeginEnd" />
-                                <m:Label text="{eindDatum} - {eindUur}" class="sapUiSmallMarginBeginEnd" />
-                            </layout:VerticalLayout>
-                        </layout:HorizontalLayout>
-                        <layout:HorizontalLayout>
-                            <core:Icon src="sap-icon://group" class="size2">
-                                <core:layoutData>
-                                    <m:FlexItemData growFactor="1" />
-                                </core:layoutData>
-                            </core:Icon>
-                            <m:Label text="Max. {maxAantalInschrijvingen} deelnemers" class="sapUiSmallMarginBeginEnd" />
-                        </layout:HorizontalLayout>
-                        <layout:HorizontalLayout>
-                            <core:Icon src="sap-icon://money-bills" class="size2">
-                                <core:layoutData>
-                                    <m:FlexItemData growFactor="1" />
-                                </core:layoutData>
-                            </core:Icon>
-                            <m:Label text="€ {prijs} inkom" class="sapUiSmallMarginBeginEnd" />
-                        </layout:HorizontalLayout>
-                    </layout:VerticalLayout>
-                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                        <m:Button text="Voeg een sessie toe" type="Emphasized" press="addSessie" visible="false" id="av1" />
-                        <m:Button text="Bekijk feedback" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
-                        <m:Button text="Pas evenement aan" type="Attention" press="editEvent" visible="false" id="av3" class="buttons" />
-                        <m:Button text="Verwijder evenement" type="Reject" press="deleteEvent" visible="false" id="av4" />
-                    </layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <layout:HorizontalLayout>
+                        <core:Icon src="sap-icon://map" class="size2">
+                            <core:layoutData>
+                                <m:FlexItemData growFactor="1" />
+                            </core:layoutData>
+                        </core:Icon>
+                        <m:Label text="{locatie}" class="sapUiSmallMarginBeginEnd" />
+                    </layout:HorizontalLayout>
+                    <layout:HorizontalLayout>
+                        <core:Icon src="sap-icon://calendar" class="size2">
+                            <core:layoutData>
+                                <m:FlexItemData growFactor="1" />
+                            </core:layoutData>
+                        </core:Icon>
+                        <layout:VerticalLayout>
+                            <m:Label text="{beginDatum} - {beginUur}" class="sapUiSmallMarginBeginEnd" />
+                            <m:Label text="{eindDatum} - {eindUur}" class="sapUiSmallMarginBeginEnd" />
+                        </layout:VerticalLayout>
+                    </layout:HorizontalLayout>
+                    <layout:HorizontalLayout>
+                        <core:Icon src="sap-icon://group" class="size2">
+                            <core:layoutData>
+                                <m:FlexItemData growFactor="1" />
+                            </core:layoutData>
+                        </core:Icon>
+                        <m:Label text="Max. {maxAantalInschrijvingen} deelnemers" class="sapUiSmallMarginBeginEnd" />
+                    </layout:HorizontalLayout>
+                    <layout:HorizontalLayout>
+                        <core:Icon src="sap-icon://money-bills" class="size2">
+                            <core:layoutData>
+                                <m:FlexItemData growFactor="1" />
+                            </core:layoutData>
+                        </core:Icon>
+                        <m:Label text="€ {prijs} inkom" class="sapUiSmallMarginBeginEnd" />
+                    </layout:HorizontalLayout>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Button text="Voeg een sessie toe" type="Emphasized" press="addSessie" visible="false" id="av1" />
+                    <m:Button text="Bekijk feedback" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
+                    <m:Button text="Pas evenement aan" type="Attention" press="editEvent" visible="false" id="av3" class="buttons" />
+                    <m:Button text="Verwijder evenement" type="Reject" press="deleteEvent" visible="false" id="av4" />
+                </layout:VerticalLayout>
 
 
             </m:FlexBox>
@@ -101,13 +101,6 @@
                                 </m:ColumnListItem>
                             </m:items>
                         </m:Table>
-                    </ObjectPageSubSection>
-
-                    <ObjectPageSubSection id="personalSS2" title="Payment information" titleUppercase="false">
-                        <blocks>
-                        </blocks>
-                        <moreBlocks>
-                        </moreBlocks>
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>

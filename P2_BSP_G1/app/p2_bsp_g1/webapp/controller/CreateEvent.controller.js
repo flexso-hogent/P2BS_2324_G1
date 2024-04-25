@@ -88,7 +88,7 @@ sap.ui.define(
         odatamodel.create("/Evenementen", oForm, {
           success: function (data, response) {
             console.log("gelukt");
-            MessageBox.success("Uw Evenement is aangemaakt!", {
+            MessageBox.success("Evenement succesvol verwijderd!", {
               onClose: function() {
                 window.location.href = "#/Events/";
               }

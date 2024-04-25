@@ -11,15 +11,13 @@ sap.ui.define(
         var oUv1 = this.byId("uv1"),
           oUv2 = this.byId("uv2"),
           oAv1 = this.byId("av1"),
-          oAv2 = this.byId("av2"),
           oAv3 = this.byId("av3"),
           oLoggedOut = this.byId("loginView");
 
         if (localStorage.getItem("user") == null) {
-            oLoggedOut.setVisible(true);
+          oLoggedOut.setVisible(true);
         } else if (localStorage.getItem("user").includes('"rol":"admin"')) {
           oAv1.setVisible(true);
-          oAv2.setVisible(true);
           oAv3.setVisible(true);
 
           oUv1.setVisible(true);
@@ -27,8 +25,6 @@ sap.ui.define(
         } else if (localStorage.getItem("user").includes('"rol":"user"')) {
           oUv1.setVisible(true);
           oUv2.setVisible(true);
-
-
         }
       },
       onCollapseExpandPress() {

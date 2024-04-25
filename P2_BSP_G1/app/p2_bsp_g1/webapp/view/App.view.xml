@@ -42,12 +42,8 @@
 						<tnt:NavigationListItem text="Overzicht evenementen" icon="sap-icon://legend" href="#/Events"/>
 						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" visible="false" id="av1" />
 					</tnt:NavigationListGroup>
-					<tnt:NavigationListGroup text="Sessies" visible="false" id="av2">
-						<tnt:NavigationListItem text="Nieuwe sessie" icon="sap-icon://create-session" href="#/Sessies#/new" />
-					</tnt:NavigationListGroup>
 					<tnt:NavigationListGroup text="Feedback" visible="false" id="av3">
 						<tnt:NavigationListItem text="Alle feedback" icon="sap-icon://discussion" href="#/FeedbackGeven" />
-
 					</tnt:NavigationListGroup>
 
 				</tnt:NavigationList>
