@@ -4,31 +4,33 @@
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m" displayBlock="true">
 
-    <Page id="createEvent" title="Nieuw evenement aanmaken" >
+    <Page id="createEvent" title="Nieuw evenement aanmaken">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
-                <Panel width="50vw" backgroundDesign="Translucent" >
+                <Panel width="50vw" backgroundDesign="Translucent">
                     <content >
                         <VBox alignItems="Center">
+                            <Title level="H3" text="Creeër evenement" />
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw"></Image>
                             <Label text="Naam evenement" class="input" labelFor="naam" required="true"/>
-                            <Input id="naam" class="input" width="100%" placeholder="Naam event" />
+                            <Input id="naam" class="input" width="100%" placeholder="Naam event" value="{form>/naam}" />
                             <Label text="Locatie" class="input" labelFor="locatie" required="true"/>
-                            <Input id="locatie" class="input" width="100%" placeholder="Locatie event" />
+                            <Input id="locatie" class="input" width="100%" placeholder="Locatie event" value="{form>/locatie}" />
                             <Label text="Startdatum" class="input" labelFor="startDatum" required="true"/>
-                            <DatePicker id="startDatum" class="input" width="100%" />
+                            <DatePicker id="startDatum" class="input" width="100%" value="{form>/startDatum}" />
                             <Label text="Einddatum" class="input" labelFor="eindDatum" required="true"/>
-                            <DatePicker id="eindDatum" class="input" width="100%" />
+                            <DatePicker id="eindDatum" class="input" width="100%" value="{form>/eindDatum}" />
                             <Label text="Startuur" class="input" labelFor="startUur" required="true"/>
-                            <TimePicker id="startUur" class="input" width="100%" />
+                            <TimePicker id="startUur" class="input" width="100%" value="{form>/startUur}"/>
                             <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
-                            <TimePicker id="eindUur" class="input" width="100%" />
+                            <TimePicker id="eindUur" class="input" width="100%" value="{form>/eindUur}" />
                             <Label text="Maximum aantal deelnemers" class="input" labelFor="maxAantalInschrijvingen" required="true"/>
-                            <Input id="maxAantalInschrijvingen" class="input" width="100%" />
+                            <Input id="maxAantalInschrijvingen" class="input" width="100%" value="{form>/maxAantalInschrijvingen}" />
                             <Label text="Prijs" class="input" labelFor="prijs" required="true"/>
-                            <Input id="prijs" class="input" width="100%" />
+                            <Input id="prijs" class="input" width="100%" value="{form>/prijs}"/>
                         </VBox>
                     </content>
-                    <l:HorizontalLayout class="btncreate" >
+                    <l:HorizontalLayout class="btncreate">
                         <Button text="Annuleer" type="Transparent" press="annuleer" />
                         <Button text="Creëer evenement" class="create" type="Emphasized" press="createEvent"/>
                     </l:HorizontalLayout>
