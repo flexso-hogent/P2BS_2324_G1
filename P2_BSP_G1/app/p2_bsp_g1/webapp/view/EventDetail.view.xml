@@ -52,7 +52,7 @@
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                     <m:Button text="Voeg een sessie toe" type="Emphasized" press="addSessie" visible="false" id="av1" />
                     <m:Button text="Bekijk feedback" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
-                    <m:Button text="Pas evenement aan" type="Attention" press="editEvent" visible="false" id="av3" class="buttons" />
+                    <m:Button text="Pas evenement aan" type="Attention" press="editEvent" visible="false" id="av3"/>
                     <m:Button text="Verwijder evenement" type="Reject" press="deleteEvent" visible="false" id="av4" />
                 </layout:VerticalLayout>
 

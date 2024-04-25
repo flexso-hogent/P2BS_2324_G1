@@ -11,33 +11,40 @@
             </ObjectPageHeader>
         </headerTitle>
         <headerContent>
-            <m:FlexBox wrap="Wrap" fitContainer="true">
+            <m:FlexBox wrap="Wrap" fitContainer="true" class="horizontalLayout">
                 <m:items>
-                    <layout:HorizontalLayout >
-                        <core:Icon src="sap-icon://employee" class="size2">
-                            <core:layoutData>
-                                <m:FlexItemData growFactor="1" />
-                            </core:layoutData>
-                        </core:Icon>
-                        <m:Text text="{spreker}" />
-                    </layout:HorizontalLayout>
-                    <layout:HorizontalLayout >
-                        <core:Icon src="sap-icon://calendar" class="size2">
-                            <core:layoutData>
-                                <m:FlexItemData growFactor="1" />
-                            </core:layoutData>
-                        </core:Icon>
-                        <m:Text text="{datum}" />
-                    </layout:HorizontalLayout>
-                    <layout:HorizontalLayout >
-                        <core:Icon src="sap-icon://away" class="size2">
-                            <core:layoutData>
-                                <m:FlexItemData growFactor="1" />
-                            </core:layoutData>
-                        </core:Icon>
-                        <m:Text text="{beginUur} - {eindUur}" />
-                    </layout:HorizontalLayout>
+                    <layout:VerticalLayout >
+                        <layout:HorizontalLayout >
+                            <core:Icon src="sap-icon://employee" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:Text text="{spreker}" />
+                        </layout:HorizontalLayout>
+                        <layout:HorizontalLayout >
+                            <core:Icon src="sap-icon://calendar" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:Text text="{datum}" />
+                        </layout:HorizontalLayout>
+                        <layout:HorizontalLayout >
+                            <core:Icon src="sap-icon://away" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:Text text="{beginUur} - {eindUur}" />
+                        </layout:HorizontalLayout>
+                    </layout:VerticalLayout>
+
                 </m:items>
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Button text="Pas sessie aan" type="Attention" press="editSessie" visible="false" id="av3"/>
+                    <m:Button text="Verwijder sessie" type="Reject" press="deleteSessie" visible="false" id="av4" />
+                </layout:VerticalLayout>
             </m:FlexBox>
         </headerContent>
 
