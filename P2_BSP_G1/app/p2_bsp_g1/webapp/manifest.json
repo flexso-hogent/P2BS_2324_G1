@@ -181,6 +181,11 @@
           "target": ["Profiel"]
         },
         {
+          "name": "Feedback",
+          "pattern": "Feedback/{evenementID}",
+          "target": ["Feedback"]
+        },
+        {
           "name": "NotFound",
           "pattern": "NotFound",
           "target": ["NotFound"]
@@ -278,6 +283,13 @@
           "clearControlAggregation": false,
           "viewId": "Profiel",
           "viewName": "Profiel"
+        },
+        "Feedback": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Feedback",
+          "viewName": "Feedback"
         },
         "NotFound": {
           "viewType": "XML",
