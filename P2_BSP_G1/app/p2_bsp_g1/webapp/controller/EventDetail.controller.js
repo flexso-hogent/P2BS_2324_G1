@@ -12,6 +12,17 @@ sap.ui.define(
         this.oRouter
           .getRoute("EventDetail")
           .attachPatternMatched(this._onRouteMatched, this);
+        
+          var oAv1 = this.byId("av1"),
+          oAv2 = this.byId("av2"),
+          oAv3 = this.byId("av3"),
+          oAv4 = this.byId("av4");
+        if(!user == null || user.rol == "admin"){
+          oAv1.setVisible(true);
+          oAv2.setVisible(true);
+          oAv3.setVisible(true);
+          oAv4.setVisible(true);
+        }
       },
 
       signUp: function (evt) {
