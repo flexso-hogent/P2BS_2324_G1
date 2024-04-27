@@ -102,6 +102,60 @@ sap.ui.define(
         });
         console.log("done");
       },
+      onEditEvent: function () {
+        var oForm = this.getView().getModel("form").getData();
+    
+        // Validate form data (similar to createEvent validation)
+        if (!this.validateForm(oForm)) {
+          MessageBox.error("Please fill in all fields");
+          return;
+        }
+
+        var startDate = new Date(oForm.beginDatum);
+        var endDate = new Date(oForm.eindDatum);
+        var currentDate = new Date();
+        if (startDate > endDate) {
+          MessageBox.error("Startdatum moet voor of op de einddatum liggen.");
+          return;
+        }
+        console.log(oForm.beginUur);
+        console.log(oForm.eindUur);
+        if (startDate <= currentDate || endDate <= currentDate) {
+          MessageBox.error("Data moeten in de toekomst liggen.");
+          return;
+        }
+
+
+
+        if (oForm.maxAantalDeelnemers > 1) {
+          MessageBox.error("Maximaal aantal deelnemers moet minimaal 1 zijn.");
+          return;
+        }
+
+        if (oForm.prijs < 0) {
+          MessageBox.error("Prijs moet groter of gelijk zijn dan/aan 0.");
+          return;
+        }
+    
+        // Assuming you have an event ID (e.g., from the route parameter)
+        var eventId = "your_event_id_here"; // Replace with actual event ID
+    
+        var odatamodel = this.getView().getModel("v2model");
+    
+        odatamodel.update("/Evenementen('" + eventId + "')", oForm, {
+            success: function (data, response) {
+                MessageBox.success("Event updated successfully!", {
+                    onClose: function () {
+                        // Navigate back to the event detail page
+                        this.getOwnerComponent().getRouter().navTo("EventDetail", { eventId: eventId });
+                    }
+                });
+            },
+            error: function (error) {
+                MessageBox.error("Failed to update event. Please try again.");
+            }
+        });
+    },
     });
   }
 );

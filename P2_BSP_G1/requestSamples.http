@@ -69,3 +69,17 @@ Content-Type: application/json
 
 ### DELETE Inschrijving by GebruikerId and SessieId
 DELETE http://localhost:4004/odata/v2/overview/Inschrijvingen(gebruikerID_gebruikerID=21,sessieID_sessieID=1)
+### PUT Evenement
+PUT http://localhost:4004/odata/v2/overview/Evenementen/1
+Content-Type: application/json
+
+{
+    "eindDatum": "2024-04-26",
+    "eindUur": "21:34",
+    "locatie": "Event",
+    "maxAantalInschrijvingen": 40,
+    "naam": "Test",
+    "prijs": 30,
+    "beginDatum": "2024-04-26",
+    "beginUur": "20:34"
+}
