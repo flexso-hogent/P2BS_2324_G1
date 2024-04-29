@@ -131,7 +131,7 @@
           "target": ["CreateEvent"]
         },
         {
-          "name": "CreateEvent",
+          "name": "EditEvent",
           "pattern": "Events/{EvenementID}/edit",
           "target": ["CreateEvent"]
         },

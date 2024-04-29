@@ -217,6 +217,7 @@ sap.ui.define(
 
         var aHashParts = sHash.split("/");
         var sEventId = aHashParts[aHashParts.length - 1];
+        console.log(sEventId);
         this.getOwnerComponent().getRouter().navTo("EditEvent", {
             EvenementID: sEventId
         });

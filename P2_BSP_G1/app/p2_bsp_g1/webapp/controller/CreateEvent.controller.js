@@ -11,7 +11,7 @@ sap.ui.define(
     "use strict";
 
     return Controller.extend("p2bspg1.controller.App", {
-      onInit: function () {
+      onInit: async function () {
         if (
           localStorage.getItem("user") == null ||
           !localStorage.getItem("user").includes('"rol":"admin"')
@@ -33,6 +33,9 @@ sap.ui.define(
         var oModel = new JSONModel(oRegistreer);
         this.getView().setModel(oModel, "form");
 
+        var sEventId = this.getOwnerComponent().getRouter().getHashChanger().getHash().split("/").slice(-2, -1)[0];
+
+        await this.getEventData(sEventId);
       },
       annuleer() {
         history.back();
@@ -45,6 +48,23 @@ sap.ui.define(
         }
         return false;
       },
+
+      getEventData: function (eventId) {
+        // Assuming you have a service to fetch event data
+        var odatamodel = this.getView().getModel("v2model");
+        console.log(eventId);
+    
+        odatamodel.read("/Evenementen('" + eventId + "')", {
+            success: function (oData) {
+                // Set the retrieved data to the form model
+                this.getView().getModel("form").setData(oData);
+            }.bind(this),
+            error: function (error) {
+                // Handle error
+                MessageBox.error("Failed to fetch event data.");
+            }
+        });
+    },
 
       createEvent() {
         var oForm = this.getView().getModel("form").getData();
