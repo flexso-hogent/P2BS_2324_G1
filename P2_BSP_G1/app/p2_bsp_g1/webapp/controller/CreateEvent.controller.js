@@ -57,15 +57,10 @@ sap.ui.define(
         console.log("Form: ", oForm);
         console.log(eventId);
     
-<<<<<<< Updated upstream
-        odatamodel.read("/Evenementen('" + eventId + "')", {
-            success: function (oData) { 
-=======
         odatamodel.read("/Evenementen(" + eventId + ")", {
             success: function (oData) {
                 MessageBox.success("Gelukt!");
                 console.log(oData);
->>>>>>> Stashed changes
                 // Set the retrieved data to the form model
                 this.getView().getModel("form").setData(oData);
             }.bind(this),
