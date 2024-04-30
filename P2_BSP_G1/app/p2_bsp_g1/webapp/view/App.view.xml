@@ -37,7 +37,7 @@
 		<tnt:sideContent>
 			<tnt:SideNavigation id="sideNavigation" selectedKey="walked" expanded="false">
 				<tnt:NavigationList>
-					<tnt:NavigationListItem text="Home" icon="sap-icon://home" href="#/"/>
+					<tnt:NavigationListItem text="Home" icon="sap-icon://home" href="/p2_bsp_g1/webapp/index.html" />
 					<tnt:NavigationListGroup text="Evenementen">
 						<tnt:NavigationListItem text="Overzicht evenementen" icon="sap-icon://legend" href="#/Events"/>
 						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" visible="false" id="av1" />
