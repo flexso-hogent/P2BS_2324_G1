@@ -36,12 +36,13 @@
                                     <m:FlexItemData growFactor="1" />
                                 </core:layoutData>
                             </core:Icon>
-                            <m:Text text="{beginUur} - {eindUur}"  />
+                            <m:Text text="{beginUur} - {eindUur}" />
                         </layout:HorizontalLayout>
                     </layout:VerticalLayout>
 
                 </m:items>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Button text="Terug" type="Default" press=".onTerug"/>
                     <m:Button text="Pas sessie aan" type="Attention" press="editSessie" visible="false" id="av3"/>
                     <m:Button text="Verwijder sessie" type="Reject" press="deleteSessie" visible="false" id="av4" />
                 </layout:VerticalLayout>
@@ -55,13 +56,7 @@
                         <blocks>
                             <m:Text text="{korteInhoud}" />
                         </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-                <subSections>
-                    <ObjectPageSubSection title="Overzicht event" titleUppercase="false">
-                        <blocks>
-                            <m:Button text="Terug" type="Default" press=".onTerug"/>
-                        </blocks>
+
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>

@@ -11,7 +11,7 @@
                 <Table id="eventsTable" selectionChange=".onSelectionChange" inset="false" items="{
 						path: '/Scores',
                         sorter: {
-                            path: 'inschrijvingID/sessieID/evenement_evenementID',
+                            path: 'inschrijvingID/sessieID/evenement_naam',
                             descending: false
                         }
 					}">

@@ -7,17 +7,24 @@ sap.ui.define(
 
     return Controller.extend("p2bspg1.controller.EventDetail", {
       onInit: function () {
+        if (!user) {
+          MessageBox.error("U moet ingelogd zijn om deze pagina te bekijken", {
+            onClose: function () {
+              window.location.href = "#/Login";
+            },
+          });
+        }
         this.oOwnerComponent = this.getOwnerComponent();
         this.oRouter = this.oOwnerComponent.getRouter();
         this.oRouter
           .getRoute("EventDetail")
           .attachPatternMatched(this._onRouteMatched, this);
-        
-          var oAv1 = this.byId("av1"),
+
+        var oAv1 = this.byId("av1"),
           oAv2 = this.byId("av2"),
           oAv3 = this.byId("av3"),
           oAv4 = this.byId("av4");
-        if(!user == null || user.rol == "admin"){
+        if (!user == null || user.rol == "admin") {
           oAv1.setVisible(true);
           oAv2.setVisible(true);
           oAv3.setVisible(true);
@@ -56,7 +63,7 @@ sap.ui.define(
         odatamodel.read("/Inschrijvingen", {
           filters: [filter],
           success: function (oData) {
-            oData.results.forEach(e => {
+            oData.results.forEach((e) => {
               if (e.gebruikerID_gebruikerID == user.gebruikerID) {
                 alreadysignedup = true;
               }
@@ -99,8 +106,6 @@ sap.ui.define(
             MessageBox.error("Niet gelukt om inschrijvingen op te halen.");
           },
         });
-
-        
       },
 
       cancelSignUp: function (sessionID, button) {
@@ -124,7 +129,7 @@ sap.ui.define(
           filters: [filter],
           success: function (oData) {
             var inschrijvingID = 0;
-            oData.results.forEach(e => {
+            oData.results.forEach((e) => {
               if (e.gebruikerID_gebruikerID == user.gebruikerID) {
                 inschrijvingID = e.inschrijvingID;
               }
@@ -183,8 +188,8 @@ sap.ui.define(
 
       seeFeedback: function () {
         var evenementID = this.getView()
-        .getBindingContext()
-        .getProperty("evenementID");
+          .getBindingContext()
+          .getProperty("evenementID");
         window.location.href = "#/Feedback/" + evenementID;
       },
 
@@ -222,8 +227,11 @@ sap.ui.define(
         var sEventId = aHashParts[aHashParts.length - 1];
         console.log(sEventId);
         this.getOwnerComponent().getRouter().navTo("EditEvent", {
-            EvenementID: sEventId
+          EvenementID: sEventId,
         });
+      },
+      onTerug: function () {
+        history.back();
       },
     });
   }
