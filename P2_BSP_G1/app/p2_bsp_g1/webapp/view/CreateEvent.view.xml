@@ -21,9 +21,9 @@
                             <Label text="Einddatum" class="input" labelFor="eindDatum" required="true"/>
                             <DatePicker id="eindDatum" class="input" width="100%" value="{form>/eindDatum}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
                             <Label text="Startuur" class="input" labelFor="beginUur" required="true"/>
-                            <TimePicker id="beginUur" class="input" width="100%" value="{form>/beginUur}" valueFormat="hh:mm" displayFormat="hh:mm"/>
+                            <TimePicker id="beginUur" class="input" width="100%" value="{form>/beginUur}" valueFormat="HH:mm" displayFormat="HH:mm"/>
                             <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
-                            <TimePicker id="eindUur" class="input" width="100%" value="{form>/eindUur}" valueFormat="hh:mm" displayFormat="hh:mm"/>
+                            <TimePicker id="eindUur" class="input" width="100%" value="{form>/eindUur}" valueFormat="HH:mm" displayFormat="HH:mm"/>
                             <Label text="Maximum aantal deelnemers" class="input" labelFor="maxAantalInschrijvingen" required="true"/>
                             <Input id="maxAantalInschrijvingen" class="input" width="100%" value="{form>/maxAantalInschrijvingen}" />
                             <Label text="Prijs in €" class="input" labelFor="prijs" required="true"/>

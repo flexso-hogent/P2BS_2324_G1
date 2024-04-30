@@ -36,7 +36,7 @@
                                     <m:FlexItemData growFactor="1" />
                                 </core:layoutData>
                             </core:Icon>
-                            <m:Text text="{beginUur} - {eindUur}" />
+                            <m:Text text="{beginUur} - {eindUur}"  />
                         </layout:HorizontalLayout>
                     </layout:VerticalLayout>
 
@@ -54,6 +54,13 @@
                     <ObjectPageSubSection id="personalSS1" title="Meer info" titleUppercase="false">
                         <blocks>
                             <m:Text text="{korteInhoud}" />
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+                <subSections>
+                    <ObjectPageSubSection title="Overzicht event" titleUppercase="false">
+                        <blocks>
+                            <m:Button text="Terug" type="Default" press=".onTerug"/>
                         </blocks>
                     </ObjectPageSubSection>
                 </subSections>

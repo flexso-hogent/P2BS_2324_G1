@@ -12,17 +12,17 @@
                         <VBox alignItems="Center">
                             <Title level="H3" text="Creeër sessie" />
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw"></Image>
-                            <Label text="Naam Sessie" class="input" labelFor="naam" />
+                            <Label text="Naam Sessie" class="input" labelFor="naam" required="true"/>
                             <Input id="naam" class="input" width="100%" placeholder="Naam sessie" value="{form>/naam}" />
-                            <Label text="Datum" class="input" labelFor="datum" />
+                            <Label text="Datum" class="input" labelFor="datum" required="true"/>
                             <DatePicker id="datum" class="input" width="100%" value="{form>/datum}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
-                            <Label text="Beginuur" class="input" labelFor="beginUur" />
-                            <TimePicker id="beginUur" class="input" width="100%" value="{form>/beginUur}" valueFormat="hh:mm" displayFormat="hh:mm" />
-                            <Label text="Einduur" class="input" labelFor="eindUur" />
-                            <TimePicker id="eindUur" class="input" width="100%" value="{form>/eindUur}" valueFormat="hh:mm" displayFormat="hh:mm" />
-                            <Label text="Spreker" class="input" labelFor="spreker" />
+                            <Label text="Beginuur" class="input" labelFor="beginUur" required="true"/>
+                            <TimePicker id="beginUur" class="input" width="100%" value="{form>/beginUur}" valueFormat="HH:mm" displayFormat="HH:mm" />
+                            <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
+                            <TimePicker id="eindUur" class="input" width="100%" value="{form>/eindUur}" valueFormat="HH:mm" displayFormat="HH:mm" />
+                            <Label text="Spreker" class="input" labelFor="spreker" required="true" />
                             <Input id="spreker" class="input" width="100%" value="{form>/spreker}" />
-                            <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" />
+                            <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" required="true"/>
                             <TextArea id="korteInhoud" value="{form>/korteInhoud}" class="input" showExceededText="true" maxLength="500" width="100%" valueLiveUpdate="false" liveChange="handleLiveChange" />
                         </VBox>
                     </content>

@@ -34,7 +34,7 @@ sap.ui.define(
         oView.bindElement({ path: urlPath });
       },
       editSessie: function () {
-        // window.location.href = "#Sessies#/edit/" +sessieID;
+        window.location.href = "#Sessies#/edit/" + sessieID;
       },
       deleteSessie: function () {
         var odatamodel = this.getView().getModel("v2model");
@@ -56,6 +56,9 @@ sap.ui.define(
           },
         });
       },
+      onTerug: function () {
+        history.back();
+      }
     });
   }
 );

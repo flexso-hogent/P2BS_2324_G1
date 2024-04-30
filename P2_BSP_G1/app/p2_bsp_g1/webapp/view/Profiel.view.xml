@@ -11,7 +11,13 @@
                 <Panel width="40vw" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
-                            <Title level="H3" text="Under construction" />
+                            <!-- Avatar -->
+                            <Avatar id="avatar" displaySize="L" initials="{= ${userModel>/0/voornaam}.charAt(0) + ${userModel>/0/achternaam}.charAt(0)}" />
+                            
+                            <!-- Gebruikersgegevens -->
+                            <Text id="naam" text="Naam: {= ${userModel>/20/voornaam} + ' ' + ${userModel>/0/achternaam}}" />
+                            <Text id="email" text="Email: {userModel>/0/email}" />
+                            <Text id="geboortedatum" text="Geboortedatum: {path: 'userModel>/0/geboortedatum', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium'}}" />
                         </VBox>
                     </content>
                 </Panel>
