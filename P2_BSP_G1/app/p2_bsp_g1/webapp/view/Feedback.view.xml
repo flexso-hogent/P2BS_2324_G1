@@ -3,18 +3,59 @@
     xmlns:l="sap.ui.layout"
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m"
-    displayBlock="true">
+    xmlns:t="sap.ui.table" displayBlock="true">
 
     <Page id="Feedback">
         <content>
-            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
-                <Panel width="40vw" backgroundDesign="Translucent">
-                    <content>
-                        <VBox alignItems="Center">
-                            <Title level="H3" text="Under construction" />
-                        </VBox>
-                    </content>
-                </Panel>
+            <FlexBox justifyContent="Center" alignItems="Center" width="100%">
+                <Table id="eventsTable" selectionChange=".onSelectionChange" inset="false" items="{
+						path: '/Scores',
+                        sorter: {
+                            path: 'inschrijvingID/sessieID/evenement_evenementID',
+                            descending: false
+                        }
+					}">
+                    <infoToolbar>
+                        <OverflowToolbar visible="false" id="idInfoToolbar">
+                            <Label id="idFilterLabel" />
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Event nummer"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Event naam"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Locatie"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Begin datum"/>
+                        </Column>
+                        
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Maximum inschrijvingen"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Prijs"/>
+                        </Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
+                            <cells>
+                                <ObjectIdentifier text="{inschrijvingID/sessieID/evenement/evenementID}" />
+                                <Text text="{scoreID}" />
+                                <Text text="{gebruikerID_gebruikerID}" />
+                                <Text text="{inschrijvingID_inschrijvingID}" />
+
+                                <Text text="{aantalSterren}" />
+                                <Text text="{feedback}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
             </FlexBox>
         </content>
     </Page>
