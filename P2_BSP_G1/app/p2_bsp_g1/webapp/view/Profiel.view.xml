@@ -10,9 +10,8 @@
     <Page id="Gebruiker" title="Gebruiker">
         <f:DynamicPage>
             <f:content>
-                <Table id="gebruikerTable" items="{
-                    path: '/Gebruikers'
-                }">
+
+                <Table id="gebruikerTable">
                     <columns>
                         <Column>
                             <Text text="Gebruiker ID" />
@@ -33,11 +32,11 @@
                     <items>
                         <ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
 							<cells>
-								<ObjectIdentifier title="{loggedInUserModel>/gebruikerID}" />
-								<Text text="{loggedInUserModel>/voornaam}"/>
-                                <Text text="{loggedInUserModel>/achternaam}"/>
-								<Text text="{loggedInUserModel>/email}" />
-								<Text text="{loggedInUserModel>/geboortedatum}" />
+								<ObjectIdentifier title="{gebruikerID}" />
+								<Text text="{voornaam}"/>
+                                <Text text="{achternaam}"/>
+								<Text text="{email}" />
+								<Text text="{geboortedatum}" />
 							</cells>
 						</ColumnListItem>
                     </items>

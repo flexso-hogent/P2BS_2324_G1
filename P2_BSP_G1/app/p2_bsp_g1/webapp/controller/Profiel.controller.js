@@ -5,7 +5,8 @@ sap.ui.define([
    */ 
   function(Controller, MessageBox, JSONModel) {
   "use strict";
-  var gebruikerID = 20;
+
+  var loggedInUser = JSON.parse(localStorage.getItem("user"))
 
   return Controller.extend("p2bspg1.controller.Profiel", {
     onInit: function() {
@@ -16,29 +17,25 @@ sap.ui.define([
         .attachPatternMatched(this._onRouteMatched, this);
       
 
-      var loggedInUser = JSON.parse(localStorage.getItem("user"))
       var userDataModel = new JSONModel(loggedInUser);
       this.getView().setModel(userDataModel, "userDataModel");
       console.log("logged in user: ", loggedInUser);
 
-      var voornaam = loggedInUser.voornaam;
-      var achternaam = loggedInUser.achternaam;
-      var geboortedatum = loggedInUser.geboortedatum;
-      var email = loggedInUser.email;
-      var gebruikerID = loggedInUser.gebruikerID;
+      // var voornaam = loggedInUser.voornaam;
+      // var achternaam = loggedInUser.achternaam;
+      // var geboortedatum = loggedInUser.geboortedatum;
+      // var email = loggedInUser.email;
+      // var gebruikerID = loggedInUser.gebruikerID;
       
-      console.log("voornaam: ", voornaam);
-      console.log("achternaam: ", achternaam);
-      console.log("geboortedatum: ", geboortedatum);
-      console.log("email: ", email);
-      console.log("gebruikerID: ", gebruikerID);
+      // console.log("voornaam: ", voornaam);
+      // console.log("achternaam: ", achternaam);
+      // console.log("geboortedatum: ", geboortedatum);
+      // console.log("email: ", email);
+      // console.log("gebruikerID: ", gebruikerID);
     },
     _onRouteMatched: function(oEvent) {
-      var oArgs = oEvent.getParameter("arguments");
       var oView = this.getView();
-      var urlPath = "/" + "Gebruikers(gebruikerID=" + oArgs.gebruikerID + ")";
-      gebruikerID = oArgs.gebruikerID;
-
+      var urlPath = "/" + "Gebruikers(gebruikerID=" + loggedInUser.gebruikerID + ")";
       oView.bindElement({ path: urlPath });
     },
     terug: function() {

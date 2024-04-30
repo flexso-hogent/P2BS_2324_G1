@@ -35,7 +35,6 @@
 										<SearchField search=".onSearchLocation" liveChange=".onSearchLocation" width="100%" placeholder="Zoek op Event locatie" />
 									</fb:control>
 								</fb:FilterGroupItem>
-
 								<fb:FilterGroupItem name="beginDatum" label="beginDatum" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<DatePicker name="beginDatum" showCurrentDateButton="true" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" change=".onSearchBeginDate" />
@@ -85,12 +84,21 @@
 					</columns>
 
 					<items>
-						    <items>
-                        
-                    </items>
+						<ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
+							<cells>
+								<ObjectIdentifier title="{evenementID}" />
+								<Text text="{naam}" />
+								<Text text="{locatie}" />
+								<Text text="{beginDatum} {beginUur}" />
+								<Text text="{eindDatum} {eindUur}" />
+								<Text text="{maxAantalInschrijvingen}" />
+								<Text text="€{prijs}" />
+							</cells>
+						</ColumnListItem>
 					</items>
 				</Table>
 			</f:content>
+
 		</f:DynamicPage>
 	</Page>
 </mvc:View>
