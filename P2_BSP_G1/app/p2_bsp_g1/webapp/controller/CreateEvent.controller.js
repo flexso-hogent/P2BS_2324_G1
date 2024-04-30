@@ -63,6 +63,7 @@ sap.ui.define(
                 console.log(oData);
                 // Set the retrieved data to the form model
                 this.getView().getModel("form").setData(oData);
+                this.getView().getModel("form").setProperty("naam", "test");
             }.bind(this),
             error: function (error) {
                 // Handle error
