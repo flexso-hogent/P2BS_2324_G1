@@ -85,17 +85,9 @@
 					</columns>
 
 					<items>
-						<ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
-							<cells>
-								<ObjectIdentifier title="{evenementID}" />
-								<Text text="{naam}" />
-								<Text text="{locatie}" />
-								<Text text="{beginDatum} {beginUur}" />
-								<Text text="{eindDatum} {eindUur}" />
-								<Text text="{maxAantalInschrijvingen}" />
-								<Text text="€{prijs}" />
-							</cells>
-						</ColumnListItem>
+						    <items>
+                        
+                    </items>
 					</items>
 				</Table>
 			</f:content>

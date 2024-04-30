@@ -56,7 +56,7 @@
 
 						</tnt:NavigationListGroup>
 						<tnt:NavigationListGroup text="Mijn profiel" visible="false" id="uv1">
-							<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" href="#/Profiel" />
+							<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" href="#/Profiel/{gebruikerID}" />
 							<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" href="#/MijnEvents" />
 							<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" select="onLogOut" visible="false" id="uv2" />
 						</tnt:NavigationListGroup>
@@ -73,7 +73,7 @@
 						<Link text="Overzicht evenementen" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/" />
 						<Link text="Registreer" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Registreer/" />
 						<Link text="Evenementdetailpagina" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/1" />
-						<Link text="Maak evenement aan" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new" />
+						<Link text="Maak evenement aan" target="_blank" href="#/Events#/new" />
 						<Link text="Login" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Login/" />
 						<Link text="Start scherm" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/StartScreen/" />
 						<Image src="../image/LogoFlexso.jpg" decorative="false" press="onLogoPressed">

@@ -34,7 +34,7 @@ sap.ui.define(
         this.getView().setModel(oModel, "form");
 
         var sEventId = this.getOwnerComponent().getRouter().getHashChanger().getHash().split("/").slice(-2, -1)[0];
-
+        console.log("Event Id: ", sEventId);
         await this.getEventData(sEventId);
       },
       annuleer() {
@@ -47,15 +47,18 @@ sap.ui.define(
           }
         }
         return false;
-      },
+      },    
 
       getEventData: function (eventId) {
         // Assuming you have a service to fetch event data
         var odatamodel = this.getView().getModel("v2model");
+        var oForm = this.getView().getModel("form").getData();
+        console.log("OdataModel: ", odatamodel);
+        console.log("Form: ", oForm);
         console.log(eventId);
     
         odatamodel.read("/Evenementen('" + eventId + "')", {
-            success: function (oData) {
+            success: function (oData) { 
                 // Set the retrieved data to the form model
                 this.getView().getModel("form").setData(oData);
             }.bind(this),
@@ -64,13 +67,13 @@ sap.ui.define(
                 MessageBox.error("Failed to fetch event data.");
             }
         });
-    },
+      },
 
       createEvent() {
         var oForm = this.getView().getModel("form").getData();
-
         console.log(oForm);
 
+        // Controlestructuren
         if (!this.validateForm(oForm)) {
           MessageBox.error("Please fill in all fields");
           return;
@@ -83,14 +86,11 @@ sap.ui.define(
           MessageBox.error("Startdatum moet voor of op de einddatum liggen.");
           return;
         }
-        console.log(oForm.beginUur);
-        console.log(oForm.eindUur);
+
         if (startDate <= currentDate || endDate <= currentDate) {
           MessageBox.error("Data moeten in de toekomst liggen.");
           return;
         }
-
-
 
         if (oForm.maxAantalDeelnemers > 1) {
           MessageBox.error("Maximaal aantal deelnemers moet minimaal 1 zijn.");
@@ -104,18 +104,22 @@ sap.ui.define(
 
         var odatamodel = this.getView().getModel("v2model");
 
-        console.log('ehre' + odatamodel);
+        //console.log('oDataModel: ' + odatamodel);
+        writeToCSV(oForm);
+        console.log("Data is:", csvLine);
         odatamodel.create("/Evenementen", oForm, {
           success: function (data, response) {
-            console.log("gelukt");
-            MessageBox.success("Evenement succesvol verwijderd!", {
+            console.log("gelukt", data, response);
+            MessageBox.success("Evenement succesvol aangemaakt!", {
               onClose: function() {
-                window.location.href = "#/Events/";
+                writeToCSV(oForm);
+                window.location.href = "#/Events/" // Naar event + eventID
               }
             });
             
           },
           error: function (error) {
+            console.error("Error creting event", error)
             console.log("niet gelukt");
             MessageBox.error("Het is niet gelukt om uw evenement aan te maken, probeer opnieuw!");
           },

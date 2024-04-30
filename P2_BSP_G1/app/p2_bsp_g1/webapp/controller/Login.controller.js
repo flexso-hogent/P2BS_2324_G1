@@ -25,9 +25,7 @@ sap.ui.define(
           MessageBox.error("Please enter both email and password.");
           return;
         }
-        // email = '"email":"' + email + '"';
-        // password = '"wachtwoord":"' + password + '"';
-        //Lukt nog niet helemaal
+
         var csvFilePath = "http://localhost:4004/odata/v4/overview/Gebruikers";
 
         $.ajax({

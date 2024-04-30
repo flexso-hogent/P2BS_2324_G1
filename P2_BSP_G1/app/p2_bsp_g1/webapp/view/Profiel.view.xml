@@ -1,27 +1,49 @@
 <mvc:View controllerName="p2bspg1.controller.Profiel"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:l="sap.ui.layout"
-    xmlns:f="sap.ui.layout.form"
-    xmlns="sap.m"
-    displayBlock="true">
-
-    <Page id="Profiel" title="Profiel">
-        <content>
-            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
-                <Panel width="40vw" backgroundDesign="Translucent">
-                    <content>
-                        <VBox alignItems="Center">
-                            <!-- Avatar -->
-                            <Avatar id="avatar" displaySize="L" initials="{= ${userModel>/0/voornaam}.charAt(0) + ${userModel>/0/achternaam}.charAt(0)}" />
-                            
-                            <!-- Gebruikersgegevens -->
-                            <Text id="naam" text="Naam: {= ${userModel>/20/voornaam} + ' ' + ${userModel>/0/achternaam}}" />
-                            <Text id="email" text="Email: {userModel>/0/email}" />
-                            <Text id="geboortedatum" text="Geboortedatum: {path: 'userModel>/0/geboortedatum', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium'}}" />
-                        </VBox>
-                    </content>
-                </Panel>
-            </FlexBox>
-        </content>
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:svm="sap.ui.comp.smartvariants"
+    xmlns:m="sap.m" height="100%">
+    
+    <Page id="Gebruiker" title="Gebruiker">
+        <f:DynamicPage>
+            <f:content>
+                <Table id="gebruikerTable" items="{
+                    path: '/Gebruikers'
+                }">
+                    <columns>
+                        <Column>
+                            <Text text="Gebruiker ID" />
+                        </Column>
+                        <Column>
+                            <Text text="Voornaam" />
+                        </Column>
+                        <Column >
+                            <Text text="Achternaam" />
+                        </Column>
+                        <Column>
+                            <Text text="Email" />
+                        </Column>
+                        <Column>
+                            <Text text="Geboortedatum" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
+							<cells>
+								<ObjectIdentifier title="{loggedInUserModel>/gebruikerID}" />
+								<Text text="{loggedInUserModel>/voornaam}"/>
+                                <Text text="{loggedInUserModel>/achternaam}"/>
+								<Text text="{loggedInUserModel>/email}" />
+								<Text text="{loggedInUserModel>/geboortedatum}" />
+							</cells>
+						</ColumnListItem>
+                    </items>
+                </Table>
+            </f:content>
+        </f:DynamicPage>
     </Page>
+
 </mvc:View>

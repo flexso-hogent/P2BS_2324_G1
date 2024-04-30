@@ -1,55 +1,49 @@
 sap.ui.define([
-  "sap/ui/core/mvc/Controller",
-  "sap/m/MessageBox",
-  "sap/ui/model/json/JSONModel"
-], function(Controller, MessageBox, JSONModel) {
+  "sap/ui/core/mvc/Controller", "sap/m/MessageBox", "sap/ui/model/json/JSONModel"],
+  /**
+   * @param {typeof sap.ui.core.mvc.Controller} Controller
+   */ 
+  function(Controller, MessageBox, JSONModel) {
   "use strict";
+  var gebruikerID = 20;
 
   return Controller.extend("p2bspg1.controller.Profiel", {
-
     onInit: function() {
-      var csvFilePath = "http://localhost:4004/odata/v4/overview/Gebruikers";
-      var that = this;
-  
-      var loggedInUser = JSON.parse(localStorage.getItem("user"));
-  
-      $.ajax({
-          url: csvFilePath,
-          dataType: "json",
-          success: function (data) {
-              var userModel = new sap.ui.model.json.JSONModel(data.value);
-              that.getView().setModel(userModel, "userModel");
-              
-              // Iterate over the array of users
-              data.value.forEach(function (user) {
-              var storedFirstName = user.voornaam;
-              var storedLastName = user.achternaam;
-              var storedBirthdate = user.geboortedatum;
-              var storedEmail = user.email;
-              var storedPassword = user.wachtwoord;
-              console.log("Stored first name: " + storedFirstName);
-              console.log("Stored last name: " + storedLastName);
-              console.log("Stored birthdate: " + storedBirthdate);
-              console.log("Stored email: " + storedEmail);
-              console.log("Stored password: " + storedPassword);
+      this.oOwnerComponent = this.getOwnerComponent();
+      this.oRouter = this.oOwnerComponent.getRouter();
+      this.oRouter
+        .getRoute("Profiel")
+        .attachPatternMatched(this._onRouteMatched, this);
+      
 
-  
-                if (loggedInUser) {
-                    var currentUser = data.value.find(function(user) {
-                        return user.gebruikerID === loggedInUser.gebruikerID;
-                    });
-                    if (currentUser) {
-                        var userModel = new sap.ui.model.json.JSONModel(currentUser);
-                        that.getView().setModel(userModel, "currentUser");
-                    }
-                }
-              });  
+      var loggedInUser = JSON.parse(localStorage.getItem("user"))
+      var userDataModel = new JSONModel(loggedInUser);
+      this.getView().setModel(userDataModel, "userDataModel");
+      console.log("logged in user: ", loggedInUser);
 
-          },
-          error: function () {
-              MessageBox.error("Kon geen gebruikersgegevens ophalen.");
-          }
-        });
+      var voornaam = loggedInUser.voornaam;
+      var achternaam = loggedInUser.achternaam;
+      var geboortedatum = loggedInUser.geboortedatum;
+      var email = loggedInUser.email;
+      var gebruikerID = loggedInUser.gebruikerID;
+      
+      console.log("voornaam: ", voornaam);
+      console.log("achternaam: ", achternaam);
+      console.log("geboortedatum: ", geboortedatum);
+      console.log("email: ", email);
+      console.log("gebruikerID: ", gebruikerID);
+    },
+    _onRouteMatched: function(oEvent) {
+      var oArgs = oEvent.getParameter("arguments");
+      var oView = this.getView();
+      var urlPath = "/" + "Gebruikers(gebruikerID=" + oArgs.gebruikerID + ")";
+      gebruikerID = oArgs.gebruikerID;
+
+      oView.bindElement({ path: urlPath });
+    },
+    terug: function() {
+      history.back();
     }
+
   });
-});
+}); 
