@@ -182,7 +182,10 @@ sap.ui.define(
       },
 
       seeFeedback: function () {
-        // window.location.href = "#/Feedback#/" + evenementID;
+        var evenementID = this.getView()
+        .getBindingContext()
+        .getProperty("evenementID");
+        window.location.href = "#/Feedback/" + evenementID;
       },
 
       editEvent: function () {
