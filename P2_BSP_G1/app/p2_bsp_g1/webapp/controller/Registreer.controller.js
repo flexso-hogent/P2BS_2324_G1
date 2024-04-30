@@ -61,24 +61,35 @@ sap.ui.define(
             return;
         }
 
-        var odatamodel = this.getView().getModel("v2model");
-
-        odatamodel.create("/Gebruikers", oForm, {
-          success: function (data, response) {
-            console.log("gelukt");
-            MessageBox.success("Uw account is aangemaakt!", {
-              onClose: function() {
-                window.location.href = "#/Login/";
-              }
-            });
-            
-          },
-          error: function (error) {
-            console.log("niet gelukt");
-            MessageBox.error("Het is niet gelukt om uw account aan te maken, probeer opnieuw!");
-          },
+        var csvData = [
+          this.getNextUserID(),
+          oForm.voornaam,
+          oForm.achternaam,
+          oForm.email,
+          oForm.wachtwoord,
+          oForm.geboortedatum,
+          "user" 
+        ].join(";");
+        console.log("Data die gefixt is: ", csvData);
+    
+        jQuery.ajax({
+            url: "http://localhost:4004/odata/v4/overview/Gebruikers",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(userData),
+            success: function(response) {
+                MessageBox.success("User registered successfully!");
+            },
+            error: function(xhr, status, error) {
+                MessageBox.error("Failed to register user. Please try again later.");
+            }
         });
-        console.log("done");
+        console.log("melding meegegeven");
+      },
+      getNextUserID: function() {
+        var lastUserID = "000022";
+        var nextUserID = parseInt(lastUserID.slice(1)) + 1; 
+        return "000" + nextUserID.toString().slice(-5);
       },
 
       onSeePassword: function() {
