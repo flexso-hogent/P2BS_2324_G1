@@ -34,7 +34,8 @@ sap.ui.define(
         oSideNavigation.setExpanded(!bExpanded);
       },
       onLogoPressed() {
-        this.getOwnerComponent().getRouter().navTo("StartScreen");
+        window.location.href = "#/";
+        window.location.reload();
       },
       onAvatarPressed: function () {
         window.location.href = "#/Profiel";
@@ -44,6 +45,35 @@ sap.ui.define(
         window.location.href = "#/Login";
         window.location.reload();
       },
+      onEvents: function() {
+				// Redirect to Event page
+				window.location.href = "#/Events/";
+			},
+			onEventsDetails: function() {
+				// Redirect to Event page
+				window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/1";
+			}			,
+			onEventsNew: function() {
+				// Redirect to Event page
+				window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new";
+			},
+			onOpenDialog: function() {
+				MessageBox.success("Op de knop gedrukt");
+			},
+			onHomePress: function() {
+        console.log("reee");
+        window.location.href = "#/";
+        window.location.reload();
+			},
+			onLogoutPress: function() {
+				window.location.href = "#/Login/"
+			},
+			onMyEvents: function() {
+				window.location.href = "#/MijnEvents/"
+			},
+			onNewSessie: function() {
+				window.location.href = "#/Sessies#/new"
+			}
     });
   }
 );

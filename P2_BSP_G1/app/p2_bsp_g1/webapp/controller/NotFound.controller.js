@@ -17,7 +17,7 @@ sap.ui.define([
                 oSideNavigation.setExpanded(!bExpanded);
             },
             onLogoPressed(){
-                this.getOwnerComponent().getRouter().navTo("StartScreen");
+                window.location.href = "#/";
             },
             onAvatarPressed: function(){
                 window.location.href = "#/Profiel";

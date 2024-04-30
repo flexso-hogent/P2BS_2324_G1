@@ -25,7 +25,7 @@ sap.ui.define([
 		},
     onCancel: function() {
       // Redirect to Home page
-      window.location.href = "#/StartScreen/";
+      window.location.href = "#/";
     },
 
     onSent: function() {
@@ -43,7 +43,7 @@ sap.ui.define([
         } else {
           MessageBox.success("Feedback met " + stars + " sterren is verzonden.");
           setTimeout(function() {
-            window.location.href = "#/StartScreen/";
+            window.location.href = "#/";
           }, 2000);
         }
         

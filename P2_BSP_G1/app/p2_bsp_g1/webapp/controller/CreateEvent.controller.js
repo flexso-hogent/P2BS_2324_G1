@@ -62,8 +62,10 @@ sap.ui.define(
                 MessageBox.success("Gelukt!");
                 console.log(oData);
                 // Set the retrieved data to the form model
-                this.getView().getModel("form").setData(oData);
-                this.getView().getModel("form").setProperty("naam", "test");
+                this.getView().setModel(oData, "form");
+                console.log("success");
+                // this.getView().getModel("form").setData(oModel);
+                // this.getView().getModel("form").setProperty("naam", "test");
             }.bind(this),
             error: function (error) {
                 // Handle error

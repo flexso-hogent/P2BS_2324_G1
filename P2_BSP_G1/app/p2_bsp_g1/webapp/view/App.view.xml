@@ -37,7 +37,7 @@
 		<tnt:sideContent>
 			<tnt:SideNavigation id="sideNavigation" selectedKey="walked" expanded="false">
 				<tnt:NavigationList>
-					<tnt:NavigationListItem text="Home" icon="sap-icon://home" href="#/StartScreen"/>
+					<tnt:NavigationListItem text="Home" icon="sap-icon://home" href="#/"/>
 					<tnt:NavigationListGroup text="Evenementen">
 						<tnt:NavigationListItem text="Overzicht evenementen" icon="sap-icon://legend" href="#/Events"/>
 						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" visible="false" id="av1" />
@@ -68,22 +68,53 @@
 		</tnt:sideContent>
 		<tnt:mainContents>
 			<App id="app">
-				<l:VerticalLayout class="sapUiContentPadding" width="100%">
-					<l:content>
-						<Link text="Overzicht evenementen" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/" />
-						<Link text="Registreer" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Registreer/" />
-						<Link text="Evenementdetailpagina" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/1" />
-						<Link text="Maak evenement aan" target="_blank" href="#/Events#/new" />
-						<Link text="Login" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/Login/" />
-						<Link text="Start scherm" target="_blank" href="http://localhost:4004/p2_bsp_g1/webapp/index.html#/StartScreen/" />
-						<Image src="../image/LogoFlexso.jpg" decorative="false" press="onLogoPressed">
-							<layoutData>
-								<OverflowToolbarLayoutData priority="NeverOverflow"/>
-							</layoutData>
-						</Image>
+				<Page id="StartScreen" title="HomeScreen" class="customHeader">
+					<!-- <headerContent>
+									<SearchField width="50%" placeholder="Search..." search=".onSearch" />
+									<Button icon="sap-icon://bell" press=".onNotificationPress" />
+									<Avatar initials="JD" displaySize="XS" press=".onProfilePress" />
+							</headerContent> -->
+					<content>
+						<FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+							<Panel width="40vw" backgroundDesign="Translucent">
+								<content>
+									<VBox alignItems="Center">
+										<Title level="H3" text="Welkom" />
 
-					</l:content>
-				</l:VerticalLayout>
+										<FlexBox wrap="Wrap" justifyContent="SpaceAround" alignItems="Start" width="100%"  >
+											<GenericTile header="Overzicht evenementen" press=".onEvents" class="flexBoxStart">
+												<TileContent footer="">
+													<ImageContent src="sap-icon://legend"/>
+												</TileContent>
+											</GenericTile>
+											<GenericTile header="Event details" press=".onEventsDetails">
+												<TileContent footer="">
+													<ImageContent src="sap-icon://detail-view"/>
+												</TileContent>
+											</GenericTile>
+											<GenericTile header="Nieuw event aanmaken" press=".onEventsNew">
+												<TileContent footer="">
+													<ImageContent src="sap-icon://add-calendar"/>
+												</TileContent>
+											</GenericTile>
+											<GenericTile header="Mijn Evenementen" press=".onMyEvents">
+												<TileContent footer="">
+													<ImageContent src="sap-icon://notes"/>
+												</TileContent>
+											</GenericTile>
+											<GenericTile header="Nieuwe sessie aanmaken" press=".onNewSessie">
+												<TileContent footer="">
+													<ImageContent src="sap-icon://create-session"/>
+												</TileContent>
+											</GenericTile>
+										</FlexBox>
+
+									</VBox>
+								</content>
+							</Panel>
+						</FlexBox>
+					</content>
+				</Page>
 			</App>
 
 		</tnt:mainContents>

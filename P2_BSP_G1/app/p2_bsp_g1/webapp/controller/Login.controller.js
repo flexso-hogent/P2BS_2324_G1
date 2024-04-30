@@ -53,7 +53,7 @@ sap.ui.define(
                   "Login successful. Redirecting to home screen."
                 );
                 setTimeout(function () {
-                  window.location.href = "#/StartScreen/";
+                  window.location.href = "#/";
                   window.location.reload();
                 }, 1000);
                 return;
