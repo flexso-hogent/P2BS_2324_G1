@@ -32,9 +32,48 @@ sap.ui.define(
 
         var oModel = new JSONModel(oRegistreer);
         this.getView().setModel(oModel, "form");
+
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter
+          .getRoute("EditSessie")
+          .attachPatternMatched(this._onRouteMatched, this);
       },
-      handleLiveChange: function (oEvent) {
-        var oTextArea = oEvent.getSource(),
+
+      _onRouteMatched: function (oSessie) {
+        var oArgs = oSessie.getParameter("arguments");
+        var oName = oSessie.getParameter("name");
+
+        if ((oName = "EditSessie")) {
+          this.getSessieData(oArgs.sessieID);
+        }
+      },
+
+      getSessieData: function (sessieID) {
+        var button = this.byId("creeerEditButton");
+        button.setText("Bewerk sessie");
+        var title = this.byId("titleCreateEdit");
+        title.setText("Bewerk evenement");
+        this.getView().byId("createSessie").setTitle("Sessie bewerken");
+        // Assuming you have a service to fetch event data
+        var odatamodel = this.getView().getModel("v2model");
+        var oForm = this.getView().getModel("form").getData();
+
+        odatamodel.read("/Sessies(" + sessieID + ")", {
+          success: function (oData) {
+            // Set the retrieved data to the form model
+            var oModel = new JSONModel(oData);
+            
+            this.getView().setModel(oModel, "form");
+          }.bind(this),
+          error: function (error) {
+            // Handle error
+            MessageBox.error("Failed to fetch event data.");
+          },
+        });
+      },
+
+      handleLiveChange: function (oSessie) {
+        var oTextArea = oSessie.getSource(),
           iValueLength = oTextArea.getValue().length,
           iMaxLength = oTextArea.getMaxLength(),
           sState =
@@ -43,30 +82,6 @@ sap.ui.define(
         oTextArea.setValueState(sState);
       },
 
-      handleSimpleExceeding: function (oEvent) {
-        var oTA = oEvent.getSource();
-        oEvent.getParameter("exceeded")
-          ? oTA.setValueState(ValueState.Error)
-          : oTA.setValueState(ValueState.Success);
-      },
-
-      buttonSetShortValuePress: function () {
-        this.byId("textAreaWithBinding2").setValue("Small Text");
-        this.byId("textAreaWithoutBinding").setValue("Small Text");
-      },
-
-      buttonSetLongValuePress: function () {
-        var sText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-        this.byId("textAreaWithBinding").setValue(sText);
-        this.byId("textAreaWithBinding2").setValue(sText);
-      },
-
-      buttonToggleShowExceededTextPress: function () {
-        var oTA = this.byId("textAreaWithBinding2");
-        oTA.setShowExceededText(!oTA.getShowExceededText());
-        var oTA = this.byId("textAreaWithoutBinding");
-        oTA.setShowExceededText(!oTA.getShowExceededText());
-      },
       annuleer() {
         history.back();
       },
@@ -131,16 +146,71 @@ sap.ui.define(
           },
         });
         console.log("done");
-    },
+      },
+
+      editSessie: function () {
+        var oForm = this.getView().getModel("form").getData();
+
+        // Validate form data (similar to createEvent validation)
+        if (!this.validateForm(oForm)) {
+          MessageBox.error("Please fill in all fields");
+          return;
+        }
+
+        var date = new Date(oForm.datum);
+        var currentDate = new Date();
     
-    _getEvenementIDFromURL: function() {
-        var oComponent = this.getOwnerComponent();
-        var oRouter = oComponent.getRouter();
-        var oArgs = oRouter.getHashChanger().getHash().split("/");
-        console.log(oArgs);
-        return oArgs[oArgs.length - 1]; // Assuming evenementID is the last segment of the URL
-    },
+        if (date <= currentDate) {
+          MessageBox.error("Datum moeten in de toekomst liggen.");
+          return;
+        }
     
+        var beginUur = new Date(oForm.beginUur);
+        var eindUur = new Date(oForm.eindUur);
+    
+        if (beginUur >= eindUur) {
+          MessageBox.error("Beginuur moet voor einduur liggen.");
+          return;
+        }
+
+        // Assuming you have an event ID (e.g., from the route parameter)
+        var sessieID = oForm.sessieID; // Replace with actual event ID
+
+        var odatamodel = this.getView().getModel("v2model");
+
+        odatamodel.update("/Sessies(" + sessieID + ")", oForm, {
+          success: function (data, response) {
+            MessageBox.success(
+              "Sessie updated successfully! Redirecting to event page.",
+            {
+              onClose: function () {
+                window.location.href = "#/Sessies/" + sessieID;
+              },
+            }); 
+          },
+          error: function (error) {
+            MessageBox.error("De sessie is niet bijgewerkt. Probeer het opnieuw.");
+          },
+        });
+      },
+    
+      _getEvenementIDFromURL: function() {
+          var oComponent = this.getOwnerComponent();
+          var oRouter = oComponent.getRouter();
+          var oArgs = oRouter.getHashChanger().getHash().split("/");
+          console.log(oArgs);
+          return oArgs[oArgs.length - 1]; // Assuming evenementID is the last segment of the URL
+      },
+      handleEditCreate: function () {
+        var oForm = this.getView().getModel("form").getData();
+
+        if(oForm.sessieID){
+          this.editSessie();
+        }
+        else{
+          this.createSessie();
+        }
+      }
     });
   }
 );

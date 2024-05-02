@@ -10,16 +10,16 @@
                 <Panel width="50vw" backgroundDesign="Translucent">
                     <content >
                         <VBox alignItems="Center">
-                            <Title level="H3" text="Creeër sessie" />
+                            <Title id="titleCreateEdit" level="H3" text="Creeër sessie" />
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw"></Image>
                             <Label text="Naam Sessie" class="input" labelFor="naam" required="true"/>
                             <Input id="naam" class="input" width="100%" placeholder="Naam sessie" value="{form>/naam}" />
                             <Label text="Datum" class="input" labelFor="datum" required="true"/>
-                            <DatePicker id="datum" class="input" width="100%" value="{form>/datum}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+                            <DatePicker id="datum" class="input" width="100%" value="{path: 'form>/datum', type: 'sap.ui.model.odata.type.Date' }" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
                             <Label text="Beginuur" class="input" labelFor="beginUur" required="true"/>
-                            <TimePicker id="beginUur" class="input" width="100%" value="{form>/beginUur}" valueFormat="HH:mm" displayFormat="HH:mm" />
+                            <TimePicker id="beginUur" class="input" width="100%" value="{path: 'form>/beginUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm" />
                             <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
-                            <TimePicker id="eindUur" class="input" width="100%" value="{form>/eindUur}" valueFormat="HH:mm" displayFormat="HH:mm" />
+                            <TimePicker id="eindUur" class="input" width="100%" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm" />
                             <Label text="Spreker" class="input" labelFor="spreker" required="true" />
                             <Input id="spreker" class="input" width="100%" value="{form>/spreker}" />
                             <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" required="true"/>
@@ -28,7 +28,7 @@
                     </content>
                     <l:HorizontalLayout class="btncreate">
                         <Button text="Annuleer" type="Transparent" press="annuleer" />
-                        <Button text="Creëer evenement" class="create" type="Emphasized" press="createSessie"/>
+                        <Button id="creeerEditButton" text="Creëer sessie" class="create" type="Emphasized" press="handleEditCreate"/>
                     </l:HorizontalLayout>
                 </Panel>
             </FlexBox>

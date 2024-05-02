@@ -181,6 +181,11 @@
           "target": ["CreateSessie"]
         },
         {
+          "name": "EditSessie",
+          "pattern": "Sessies/{sessieID}/edit",
+          "target": ["CreateSessie"]
+        },
+        {
           "name": "Profiel",
           "pattern": "Profiel",
           "target": ["Profiel"]
