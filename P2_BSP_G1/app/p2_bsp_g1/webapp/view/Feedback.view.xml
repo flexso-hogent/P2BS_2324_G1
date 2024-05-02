@@ -8,10 +8,10 @@
     <Page id="Feedback">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
-                <Table id="eventsTable" selectionChange=".onSelectionChange" inset="false" items="{
+                <Table id="feedbackTable" selectionChange=".onSelectionChange" inset="false" items="{
 						path: '/Scores',
                         sorter: {
-                            path: 'inschrijvingID/sessieID/evenement_naam',
+                            path: 'inschrijvingID/sessieID_sessieID',
                             descending: false
                         }
 					}">
@@ -22,30 +22,30 @@
                     </infoToolbar>
                     <columns>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Event nummer"/>
+                            <Text text="EvenementID"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Event naam"/>
+                            <Text text="ScoreID"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Locatie"/>
+                            <Text text="GebruikerID"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Begin datum"/>
+                            <Text text="InschrijvingID"/>
                         </Column>
                         
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Maximum inschrijvingen"/>
+                            <Text text="Aantal sterren"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Prijs"/>
+                            <Text text="feedback"/>
                         </Column>
                     </columns>
 
                     <items>
                         <ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
                             <cells>
-                                <ObjectIdentifier text="{inschrijvingID/sessieID/evenement/evenementID}" />
+                                <ObjectIdentifier title="{inschrijvingID/sessieID/evenement/naam}" text="{inschrijvingID/sessieID/naam}" />
                                 <Text text="{scoreID}" />
                                 <Text text="{gebruikerID_gebruikerID}" />
                                 <Text text="{inschrijvingID_inschrijvingID}" />

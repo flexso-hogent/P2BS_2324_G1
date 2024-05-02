@@ -1,6 +1,6 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/m/MessageBox"],
-  function (Controller, MessageBox) {
+  ["sap/ui/core/mvc/Controller", "sap/m/MessageBox", "sap/ui/model/Filter"],
+  function (Controller, MessageBox, Filter) {
     "use strict";
     var user = localStorage.getItem("user");
 
@@ -10,20 +10,19 @@ sap.ui.define(
           this.getOwnerComponent().getRouter().navTo("NotFound");
         }
 
-        // this.oOwnerComponent = this.getOwnerComponent();
-        // this.oRouter = this.oOwnerComponent.getRouter();
-        // this.oRouter
-        //   .getRoute("Feedback")
-        //   .attachPatternMatched(this._onRouteMatched, this);
-      },
-      // _onRouteMatched: function (oEvent) {
-      //   var oArgs = oEvent.getParameter("arguments");
-      //   evenementID = oArgs.evenementID;
-      //   var oView = this.getView();
-      //   var urlPath = "/" + "Score(evenementID=" + oArgs.evenementID + ")";
+        this.oOwnerComponent = this.getOwnerComponent();
+        this.oRouter = this.oOwnerComponent.getRouter();
+        this.oRouter
+          .getRoute("Feedback")
+          .attachPatternMatched(this._onRouteMatched, this);
 
-      //   oView.bindElement({ path: urlPath });
-      // },
+      },
+      _onRouteMatched: function (oEvent) {
+        var oArgs = oEvent.getParameter("arguments");
+        var evenementID = oArgs.evenementID;
+        var oFilter = new Filter("inschrijvingID/sessieID/evenement_evenementID", sap.ui.model.FilterOperator.EQ, evenementID);
+        this.getView().byId("feedbackTable").getBinding("items").filter([oFilter]);
+      },
     });
   }
 );
