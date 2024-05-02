@@ -21,26 +21,25 @@ sap.ui.define([
       this.getView().setModel(userDataModel, "userDataModel");
       console.log("logged in user: ", loggedInUser);
 
-      // var voornaam = loggedInUser.voornaam;
-      // var achternaam = loggedInUser.achternaam;
-      // var geboortedatum = loggedInUser.geboortedatum;
-      // var email = loggedInUser.email;
-      // var gebruikerID = loggedInUser.gebruikerID;
-      
-      // console.log("voornaam: ", voornaam);
-      // console.log("achternaam: ", achternaam);
-      // console.log("geboortedatum: ", geboortedatum);
-      // console.log("email: ", email);
-      // console.log("gebruikerID: ", gebruikerID);
     },
     _onRouteMatched: function(oEvent) {
       var oView = this.getView();
       var urlPath = "/" + "Gebruikers(gebruikerID=" + loggedInUser.gebruikerID + ")";
       oView.bindElement({ path: urlPath });
     },
-    terug: function() {
+    onTerug: function() {
       history.back();
-    }
+    },
+    onWijzig: function() {
+      MessageBox.confirm("Wilt u uw gegevens wijzigen?", {
+        actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+        onClose: function(sAction) {
+          if (sAction === MessageBox.Action.YES) {
+            this.oRouter.navTo("WijzigProfiel");
+          }
+        }.bind(this),
+      });
+    },
 
   });
 }); 

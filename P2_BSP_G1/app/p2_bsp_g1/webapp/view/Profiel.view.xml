@@ -8,41 +8,25 @@
     xmlns:m="sap.m" height="100%">
     
     <Page id="Gebruiker" title="Gebruiker">
-        <f:DynamicPage>
-            <f:content>
-
-                <Table id="gebruikerTable">
-                    <columns>
-                        <Column>
-                            <Text text="Gebruiker ID" />
-                        </Column>
-                        <Column>
-                            <Text text="Voornaam" />
-                        </Column>
-                        <Column >
-                            <Text text="Achternaam" />
-                        </Column>
-                        <Column>
-                            <Text text="Email" />
-                        </Column>
-                        <Column>
-                            <Text text="Geboortedatum" />
-                        </Column>
-                    </columns>
-                    <items>
-                        <ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
-							<cells>
-								<ObjectIdentifier title="{gebruikerID}" />
-								<Text text="{voornaam}"/>
-                                <Text text="{achternaam}"/>
+            <content>
+                <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+                    <Panel width="40vw" backgroundDesign="Translucent">
+                        <content>
+                            <VBox alignItems="Center">
+                                <Title level="H3" text="Mijn profiel" />
+                                <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" ></Image>
+                                <Text text="{voornaam} {naam}" />
 								<Text text="{email}" />
 								<Text text="{geboortedatum}" />
-							</cells>
-						</ColumnListItem>
-                    </items>
-                </Table>
-            </f:content>
-        </f:DynamicPage>
+                                <HBox >
+                                    <Button text="Terug" type="Default" press=".onTerug" class="ButtonStyle"/>
+                                    <Button text="Wijzig" type="Accept" press=".onWijzig" class="ButtonStyle" />
+                                </HBox>                              
+                            </VBox>
+                        </content>
+                    </Panel>
+                </FlexBox>
+            </content>
     </Page>
 
 </mvc:View>
