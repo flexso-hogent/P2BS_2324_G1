@@ -11,7 +11,7 @@ sap.ui.define(
     "use strict";
 
     return Controller.extend("p2bspg1.controller.App", {
-      onInit: async function () {
+      onInit: function () {
         if (
           localStorage.getItem("user") == null ||
           !localStorage.getItem("user").includes('"rol":"admin"')
@@ -33,13 +33,21 @@ sap.ui.define(
         var oModel = new JSONModel(oRegistreer);
         this.getView().setModel(oModel, "form");
 
-        var sEventId = this.getOwnerComponent().getRouter().getHashChanger().getHash().split("/").slice(-2, -1)[0];
-        console.log("Event Id: ", sEventId);
-        await this.getEventData(sEventId);
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter
+          .getRoute("EditEvent")
+          .attachPatternMatched(this._onRouteMatched, this);
       },
-      annuleer() {
-        history.back();
+
+      _onRouteMatched: function (oEvent) {
+        var oArgs = oEvent.getParameter("arguments");
+        var oName = oEvent.getParameter("name");
+
+        if ((oName = "EditEvent")) {
+          this.getEventData(oArgs.EvenementID);
+        }
       },
+
       validateForm: function (formData) {
         for (var key in formData) {
           if (formData.hasOwnProperty(key)) {
@@ -47,7 +55,7 @@ sap.ui.define(
           }
         }
         return false;
-      },    
+      },
 
       getEventData: function (eventId) {
         // Assuming you have a service to fetch event data
@@ -56,21 +64,21 @@ sap.ui.define(
         console.log("OdataModel: ", odatamodel);
         console.log("Form: ", oForm);
         console.log(eventId);
-    
+
         odatamodel.read("/Evenementen(" + eventId + ")", {
-            success: function (oData) {
-                MessageBox.success("Gelukt!");
-                console.log(oData);
-                // Set the retrieved data to the form model
-                this.getView().setModel(oData, "form");
-                console.log("success");
-                // this.getView().getModel("form").setData(oModel);
-                // this.getView().getModel("form").setProperty("naam", "test");
-            }.bind(this),
-            error: function (error) {
-                // Handle error
-                MessageBox.error("Failed to fetch event data.");
-            }
+          success: function (oData) {
+            MessageBox.success("Gelukt!");
+            console.log(oData);
+            // Set the retrieved data to the form model
+            this.getView().setModel(oData, "form");
+            console.log("success");
+            // this.getView().getModel("form").setData(oModel);
+            // this.getView().getModel("form").setProperty("naam", "test");
+          }.bind(this),
+          error: function (error) {
+            // Handle error
+            MessageBox.error("Failed to fetch event data.");
+          },
         });
       },
 
@@ -116,24 +124,25 @@ sap.ui.define(
           success: function (data, response) {
             console.log("gelukt", data, response);
             MessageBox.success("Evenement succesvol aangemaakt!", {
-              onClose: function() {
+              onClose: function () {
                 writeToCSV(oForm);
-                window.location.href = "#/Events/" // Naar event + eventID
-              }
+                window.location.href = "#/Events/"; // Naar event + eventID
+              },
             });
-            
           },
           error: function (error) {
-            console.error("Error creting event", error)
+            console.error("Error creting event", error);
             console.log("niet gelukt");
-            MessageBox.error("Het is niet gelukt om uw evenement aan te maken, probeer opnieuw!");
+            MessageBox.error(
+              "Het is niet gelukt om uw evenement aan te maken, probeer opnieuw!"
+            );
           },
         });
         console.log("done");
       },
       onEditEvent: function () {
         var oForm = this.getView().getModel("form").getData();
-    
+
         // Validate form data (similar to createEvent validation)
         if (!this.validateForm(oForm)) {
           MessageBox.error("Please fill in all fields");
@@ -154,8 +163,6 @@ sap.ui.define(
           return;
         }
 
-
-
         if (oForm.maxAantalDeelnemers > 1) {
           MessageBox.error("Maximaal aantal deelnemers moet minimaal 1 zijn.");
           return;
@@ -165,26 +172,28 @@ sap.ui.define(
           MessageBox.error("Prijs moet groter of gelijk zijn dan/aan 0.");
           return;
         }
-    
+
         // Assuming you have an event ID (e.g., from the route parameter)
         var eventId = "your_event_id_here"; // Replace with actual event ID
-    
+
         var odatamodel = this.getView().getModel("v2model");
-    
+
         odatamodel.update("/Evenementen('" + eventId + "')", oForm, {
-            success: function (data, response) {
-                MessageBox.success("Event updated successfully!", {
-                    onClose: function () {
-                        // Navigate back to the event detail page
-                        this.getOwnerComponent().getRouter().navTo("EventDetail", { eventId: eventId });
-                    }
-                });
-            },
-            error: function (error) {
-                MessageBox.error("Failed to update event. Please try again.");
-            }
+          success: function (data, response) {
+            MessageBox.success("Event updated successfully!", {
+              onClose: function () {
+                // Navigate back to the event detail page
+                this.getOwnerComponent()
+                  .getRouter()
+                  .navTo("EventDetail", { eventId: eventId });
+              },
+            });
+          },
+          error: function (error) {
+            MessageBox.error("Failed to update event. Please try again.");
+          },
         });
-    },
+      },
     });
   }
 );
