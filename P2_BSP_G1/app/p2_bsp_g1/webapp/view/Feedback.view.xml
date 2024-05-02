@@ -11,7 +11,7 @@
                 <Table id="feedbackTable" selectionChange=".onSelectionChange" inset="false" items="{
 						path: '/Scores',
                         sorter: {
-                            path: 'inschrijvingID/sessieID_sessieID',
+                            path: 'inschrijvingID/sessieID/naam',
                             descending: false
                         }
 					}">
@@ -22,34 +22,24 @@
                     </infoToolbar>
                     <columns>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="EvenementID"/>
+                            <Text text="Naam sessie"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="ScoreID"/>
+                            <Text text="Naam gebruiker"/>
                         </Column>
-                        <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="GebruikerID"/>
-                        </Column>
-                        <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="InschrijvingID"/>
-                        </Column>
-                        
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="Aantal sterren"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="feedback"/>
+                            <Text text="Feedback"/>
                         </Column>
                     </columns>
 
                     <items>
-                        <ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
+                        <ColumnListItem vAlign="Middle" type="Active">
                             <cells>
-                                <ObjectIdentifier title="{inschrijvingID/sessieID/evenement/naam}" text="{inschrijvingID/sessieID/naam}" />
-                                <Text text="{scoreID}" />
-                                <Text text="{gebruikerID_gebruikerID}" />
-                                <Text text="{inschrijvingID_inschrijvingID}" />
-
+                                <ObjectIdentifier title="{inschrijvingID/sessieID/naam}" text="{inschrijvingID/sessieID/spreker}" />
+                                <Text text="{gebruikerID/voornaam} {gebruikerID/achternaam}" />
                                 <Text text="{aantalSterren}" />
                                 <Text text="{feedback}" />
                             </cells>
