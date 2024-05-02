@@ -67,20 +67,12 @@ sap.ui.define(
         var odatamodel = this.getView().getModel("v2model");
         var oForm = this.getView().getModel("form").getData();
 
-        console.log("OdataModel: ", odatamodel);
-        console.log("Form: ", oForm);
-        console.log(eventId);
-
         odatamodel.read("/Evenementen(" + eventId + ")", {
           success: function (oData) {
-            console.log(oData);
             // Set the retrieved data to the form model
             var oModel = new JSONModel(oData);
             
             this.getView().setModel(oModel, "form");
-            console.log("Form: ", this.getView().getModel("form").getData());
-            // this.getView().getModel("form").setData(oModel);
-            // this.getView().getModel("form").setProperty("naam", "test");
           }.bind(this),
           error: function (error) {
             // Handle error
@@ -91,7 +83,6 @@ sap.ui.define(
 
       createEvent() {
         var oForm = this.getView().getModel("form").getData();
-        console.log(oForm);
 
         // Controlestructuren
         if (!this.validateForm(oForm)) {
@@ -124,29 +115,22 @@ sap.ui.define(
 
         var odatamodel = this.getView().getModel("v2model");
 
-        //console.log('oDataModel: ' + odatamodel);
         odatamodel.create("/Evenementen", oForm, {
           success: function (data, response) {
-            console.log("gelukt", data, response);
             MessageBox.success("Evenement succesvol aangemaakt!", {
               onClose: function () {
-                // writeToCSV(oForm);
                 window.location.href = "#/Events/"; // Naar event + eventID
               },
             });
           },
           error: function (error) {
-            console.error("Error creting event", error);
-            console.log("niet gelukt");
             MessageBox.error(
               "Het is niet gelukt om uw evenement aan te maken, probeer opnieuw!"
             );
           },
         });
-        console.log("done");
       },
       onEditEvent: function () {
-        console.log('Edit event start');
         var oForm = this.getView().getModel("form").getData();
 
         // Validate form data (similar to createEvent validation)
@@ -162,8 +146,6 @@ sap.ui.define(
           MessageBox.error("Startdatum moet voor of op de einddatum liggen.");
           return;
         }
-        console.log(oForm.beginUur);
-        console.log(oForm.eindUur);
         if (startDate <= currentDate || endDate <= currentDate) {
           MessageBox.error("Data moeten in de toekomst liggen.");
           return;
@@ -196,7 +178,7 @@ sap.ui.define(
             });
           },
           error: function (error) {
-            MessageBox.error("Failed to update event. Please try again.");
+            MessageBox.error("Het evenement is niet bijgewerkt. Probeer het opnieuw.");
           },
         });
       },
@@ -210,6 +192,9 @@ sap.ui.define(
           this.createEvent();
         }
       },
+      annuleer() {
+        history.back();
+      }
     });
   }
 );
