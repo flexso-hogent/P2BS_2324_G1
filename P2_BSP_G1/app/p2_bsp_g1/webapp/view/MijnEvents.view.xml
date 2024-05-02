@@ -25,6 +25,12 @@
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="Locatie"/>
                         </Column>
+                                                <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Open qr code"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Geef feedback"/>
+                        </Column>
                     </columns>
 
                     <items>
@@ -34,6 +40,8 @@
                                 <Text text="{sessieID/datum}" />
                                 <Text text="{sessieID/beginUur} - {sessieID/eindUur}" />
                                 <Text text="{sessieID/evenement/locatie}" />
+                                <core:Icon src="sap-icon://qr-code" press="openQR"/>
+                                <Button text="Geef feedback" press="geefFeedback" />
                             </cells>
                         </ColumnListItem>
                     </items>

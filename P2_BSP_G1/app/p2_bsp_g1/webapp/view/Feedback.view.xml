@@ -12,7 +12,8 @@
 						path: '/Scores',
                         sorter: {
                             path: 'inschrijvingID/sessieID/naam',
-                            descending: false
+                            descending: false,
+                            group: true
                         }
 					}">
                     <infoToolbar>
@@ -22,7 +23,7 @@
                     </infoToolbar>
                     <columns>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Naam sessie"/>
+                            <ObjectIdentifier title="Naam sessie" text="Spreker"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="Naam gebruiker"/>
