@@ -1,24 +1,36 @@
 <mvc:View controllerName="p2bspg1.controller.MijnEvents" displayBlock="true" height="100%"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core"
-    xmlns="sap.m">
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:svm="sap.ui.comp.smartvariants">
+    
+    <Page> 
+        <f:DynamicPage> 
+            <f:content>
+				<Table id="mijnEventsTable" inset="false" items="{
+						path: '/Sessie'
+					}">
+					<columns>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Sessie naam"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Datum"/>
+						</Column>
+					</columns>
 
-    <Page id="MijnEvents" title="Mijn Evenementen">
-        <List id="eventsList" items="{
-            path: '/MijnEvenementen',
-            sorter: {
-                path: 'beginDatum',
-                descending: false
-            }
-        }" >
-            <items>
-                <StandardListItem title="{naam}" description="{locatie}">
-                    <customData>
-                        <core:CustomData key="beschikbareSessies" value="{beschikbareSessies}" />
-                    </customData>
-                </StandardListItem>
-            </items>
-        </List>
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
+							<cells>
+								<Text text="{naam}" />
+								<Text text="{datum}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+        </f:DynamicPage>
     </Page>
-
 </mvc:View>

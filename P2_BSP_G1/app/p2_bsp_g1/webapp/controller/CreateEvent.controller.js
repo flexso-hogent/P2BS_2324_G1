@@ -168,14 +168,13 @@ sap.ui.define(
 
         odatamodel.update("/Evenementen(" + eventId + ")", oForm, {
           success: function (data, response) {
-            MessageBox.success("Event updated successfully!", {
-              onClose: function () {
-                // Navigate back to the event detail page
-                this.getOwnerComponent()
-                  .getRouter()
-                  .navTo("EventDetail", { eventId: eventId });
-              },
-            });
+            MessageBox.success(
+              "Event updated successfully! Redirecting to event page."
+            ); 
+            setTimeout(function () {
+              window.location.href = "#/Events/" + eventId;
+              window.location.reload();
+            }, 1000);
           },
           error: function (error) {
             MessageBox.error("Het evenement is niet bijgewerkt. Probeer het opnieuw.");

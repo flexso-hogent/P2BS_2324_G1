@@ -4,6 +4,9 @@ sap.ui.define([
 ], function(Controller, MessageBox) {
     "use strict";
 
+    var loggedInUser = JSON.parse(localStorage.getItem("user"))
+    console.log("Logged in userID: ", loggedInUser.gebruikerID);
+   
     return Controller.extend("p2bspg1.controller.MijnEvents", {
         
         onInit: function () {
@@ -13,30 +16,37 @@ sap.ui.define([
               ) {
                 this.getOwnerComponent().getRouter().navTo("NotFound");
               }
+            this.oOwnerComponent = this.getOwnerComponent();
+            this.oRouter = this.oOwnerComponent.getRouter();
+            this.oRouter
+                .getRoute("MijnEvents")
+                .attachPatternMatched(this._onRouteMatched, this);
+            console.log("gelukt");
         },
         
-        handleListPress: function(oEvent) {
-            var oSelectedItem = oEvent.getParameter("listItem");
-            var oContext = oSelectedItem.getBindingContext();
-            var sEventNaam = oContext.getProperty("naam");
-            var sEventLocatie = oContext.getProperty("locatie");
-            var sBeschikbareSessies = oContext.getProperty("beschikbareSessies");
-
-            // Toon een dialoogvenster met de details van het geselecteerde evenement
-            MessageBox.show("Geselecteerd Evenement:\n" +
-                            "Naam: " + sEventNaam + "\n" +
-                            "Locatie: " + sEventLocatie + "\n" +
-                            "Beschikbare Sessies: " + sBeschikbareSessies, {
-                title: "Evenement Details",
-                actions: [MessageBox.Action.OK]
-            });
+        _onRouteMatched: function(oSessie) {
+            var sRouteName = oSessie.getParameter("name");
+            if (sRouteName === "MijnEvents") {
+                this.refreshPage();
+            }
         },
 
-        formatBeschikbareSessies: function(sessies) {
-            // Implementeer hier de logica om de beschikbare sessies te formatteren
-            // bijvoorbeeld: sessies.join(", ")
-            return sessies;
-        }
+        refreshPage: function() {
+            var oTable = this.byId("mijnEventsTable");
+            if (oTable) {
+                oTable.getBinding("items").refresh();
+            }
+        },
 
+        handleListPress: function(oEvent) {
+            //Naar tablat gaan met sessieDetails
+            var oSelectedItem = oEvent.getSource().getBindingContext();
+            var sSessieID = oSelectedItem.getProperty("sessieID");
+    
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("SessieDetail", {
+              sessieID: sSessieID,
+            });
+        }            
     });
 });
