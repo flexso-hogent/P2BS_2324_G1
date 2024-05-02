@@ -10,20 +10,20 @@
                 <Panel width="50vw" backgroundDesign="Translucent">
                     <content >
                         <VBox alignItems="Center">
-                            <Title level="H3" text="Creeër evenement" />
+                            <Title id="titleCreateEdit" level="H3" text="Creeër evenement" />
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw"></Image>
                             <Label text="Naam evenement" class="input" labelFor="naam" required="true"/>
                             <Input id="naam" class="input" width="100%" placeholder="Naam event" value="{form>/naam}" />
                             <Label text="Locatie" class="input" labelFor="locatie" required="true"/>
                             <Input id="locatie" class="input" width="100%" placeholder="Locatie event" value="{form>/locatie}" />
                             <Label text="Startdatum" class="input" labelFor="beginDatum" required="true"/>
-                            <DatePicker id="beginDatum" class="input" width="100%" value="{form>/beginDatum}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+                            <DatePicker id="beginDatum" class="input" width="100%" value="{path: 'form>/beginDatum', type: 'sap.ui.model.odata.type.Date' }" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
                             <Label text="Einddatum" class="input" labelFor="eindDatum" required="true"/>
-                            <DatePicker id="eindDatum" class="input" width="100%" value="{form>/eindDatum}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+                            <DatePicker id="eindDatum" class="input" width="100%" value="{path: 'form>/eindDatum', type: 'sap.ui.model.odata.type.Date' }" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
                             <Label text="Startuur" class="input" labelFor="beginUur" required="true"/>
-                            <TimePicker id="beginUur" class="input" width="100%" value="{form>/beginUur}" valueFormat="HH:mm" displayFormat="HH:mm"/>
+                            <TimePicker id="beginUur" class="input" width="100%" value="{path: 'form>/beginUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm"/>
                             <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
-                            <TimePicker id="eindUur" class="input" width="100%" value="{form>/eindUur}" valueFormat="HH:mm" displayFormat="HH:mm"/>
+                            <TimePicker id="eindUur" class="input" width="100%" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm"/>
                             <Label text="Maximum aantal deelnemers" class="input" labelFor="maxAantalInschrijvingen" required="true"/>
                             <Input id="maxAantalInschrijvingen" class="input" width="100%" value="{form>/maxAantalInschrijvingen}" />
                             <Label text="Prijs in €" class="input" labelFor="prijs" required="true"/>
@@ -32,7 +32,7 @@
                     </content>
                     <l:HorizontalLayout class="btncreate">
                         <Button text="Annuleer" type="Transparent" press="annuleer" />
-                        <Button text="Creëer evenement" class="create" type="Emphasized" press="createEvent"/>
+                        <Button id="createEditButton" text="Creëer evenement" class="create" type="Emphasized" press="handleEvent"/>
                     </l:HorizontalLayout>
                 </Panel>
             </FlexBox>
