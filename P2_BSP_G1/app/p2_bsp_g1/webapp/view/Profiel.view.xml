@@ -15,7 +15,8 @@
                             <VBox alignItems="Center">
                                 <Title level="H3" text="Mijn profiel" />
                                 <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" ></Image>
-                                <Text text="{voornaam} {naam}" />
+                                <Avatar id="avatar" displaySize="L" initials="{voornaam}.charAt(0) + {achternaam}.charAt(0)" />
+                                <Text text="{voornaam} {naam}"/>
 								<Text text="{email}" />
 								<Text text="{geboortedatum}" />
                                 <HBox >

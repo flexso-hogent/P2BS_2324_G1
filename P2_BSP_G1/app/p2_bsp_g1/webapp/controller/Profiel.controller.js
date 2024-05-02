@@ -17,13 +17,14 @@ sap.ui.define([
         .attachPatternMatched(this._onRouteMatched, this);
       
 
-      var userDataModel = new JSONModel(loggedInUser);
-      this.getView().setModel(userDataModel, "userDataModel");
-      console.log("logged in user: ", loggedInUser);
+      // var userDataModel = new JSONModel(loggedInUser);
+      // this.getView().setModel(userDataModel, "userDataModel");
+      // console.log("logged in user: ", loggedInUser);
 
     },
     _onRouteMatched: function(oEvent) {
       var oView = this.getView();
+      console.log("logged in user: ", loggedInUser.gebruikerID);
       var urlPath = "/" + "Gebruikers(gebruikerID=" + loggedInUser.gebruikerID + ")";
       oView.bindElement({ path: urlPath });
     },
