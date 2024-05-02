@@ -1,36 +1,44 @@
 <mvc:View controllerName="p2bspg1.controller.MijnEvents" displayBlock="true" height="100%"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	xmlns="sap.m"
-	xmlns:f="sap.f"
-	xmlns:fb="sap.ui.comp.filterbar"
-	xmlns:svm="sap.ui.comp.smartvariants">
-    
-    <Page> 
-        <f:DynamicPage> 
-            <f:content>
-				<Table id="mijnEventsTable" inset="false" items="{
-						path: '/Sessie'
-					}">
-					<columns>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Sessie naam"/>
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Datum"/>
-						</Column>
-					</columns>
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
 
-					<items>
-						<ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
-							<cells>
-								<Text text="{naam}" />
-								<Text text="{datum}" />
-							</cells>
-						</ColumnListItem>
-					</items>
-				</Table>
-			</f:content>
-        </f:DynamicPage>
+    <Page id="MijnEvents" title="Mijn Evenementen">
+        <content>
+            <FlexBox justifyContent="Center" alignItems="Center" width="100%">
+                <Table id="InschrijvingTable" selectionChange=".onSelectionChange" inset="false" items="{ path: '/Inschrijvingen'}">
+                    <infoToolbar>
+                        <OverflowToolbar visible="false" id="idInfoToolbar">
+                            <Label id="idFilterLabel" />
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Naam sessie"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Datum"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Tijdstip"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Locatie"/>
+                        </Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem vAlign="Middle" type="Navigation" press="handleListPress">
+                            <cells>
+                                <ObjectIdentifier title="{sessieID/naam}" text="{sessieID/evenement/naam} - {sessieID/evenement/beginDatum}" />
+                                <Text text="{sessieID/datum}" />
+                                <Text text="{sessieID/beginUur} - {sessieID/eindUur}" />
+                                <Text text="{sessieID/evenement/locatie}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </FlexBox>
+        </content>
     </Page>
 </mvc:View>

@@ -1,6 +1,6 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox"],
-  function (Controller, MessageToast, MessageBox) {
+  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox", "sap/ui/model/Filter"],
+  function (Controller, MessageToast, MessageBox, Filter) {
     "use strict";
 
     var user = JSON.parse(localStorage.getItem("user"));
@@ -36,6 +36,7 @@ sap.ui.define(
         var button = evt.getSource();
         var buttonText = button.getText();
         var sessionID = button.getBindingContext().getProperty("sessieID");
+        console.log(sessionID);
 
         if (buttonText === "Uitschrijven voor deze sessie") {
           this.cancelSignUp(sessionID, button);
@@ -50,21 +51,23 @@ sap.ui.define(
 
         var filter = new sap.ui.model.Filter([
           new sap.ui.model.Filter(
-            "gebruikerID/gebruikerID",
+            "gebruikerID_gebruikerID",
             sap.ui.model.FilterOperator.EQ,
             user.gebruikerID
           ),
           new sap.ui.model.Filter(
-            "sessieID/sessieID",
+            "sessieID_sessieID",
             sap.ui.model.FilterOperator.EQ,
             sessionID
           ),
         ]);
+
         odatamodel.read("/Inschrijvingen", {
           filters: [filter],
           success: function (oData) {
+            console.log(oData.results);
             oData.results.forEach((e) => {
-              if (e.gebruikerID_gebruikerID == user.gebruikerID) {
+              if (e.gebruikerID_gebruikerID == user.gebruikerID && e.sessieID_sessieID == sessionID) {
                 alreadysignedup = true;
               }
             });
