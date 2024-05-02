@@ -16,9 +16,9 @@
                                 <Title level="H3" text="Mijn profiel" />
                                 <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" ></Image>
                                 <Avatar id="avatar" displaySize="L" initials="{voornaam}.charAt(0) + {achternaam}.charAt(0)" />
-                                <Text text="{voornaam} {naam}"/>
-								<Text text="{email}" />
-								<Text text="{geboortedatum}" />
+                                <Text text="Naam: {voornaam} {achternaam}"/>
+								<Text text="Email: {email}" />
+								<Text text="Geboortedatum: {geboortedatum}" />
                                 <HBox >
                                     <Button text="Terug" type="Default" press=".onTerug" class="ButtonStyle"/>
                                     <Button text="Wijzig" type="Accept" press=".onWijzig" class="ButtonStyle" />

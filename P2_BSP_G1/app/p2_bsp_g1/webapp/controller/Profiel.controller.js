@@ -15,6 +15,7 @@ sap.ui.define([
       this.oRouter
         .getRoute("Profiel")
         .attachPatternMatched(this._onRouteMatched, this);
+      console.log("gelukt");
       
 
       // var userDataModel = new JSONModel(loggedInUser);
