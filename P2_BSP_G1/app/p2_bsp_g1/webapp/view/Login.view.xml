@@ -11,7 +11,7 @@
                 <Panel width="40vw" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
-                            <Title level="H3" text="Login" />
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
                             <Label text="Email" labelFor="email" class="input" required="true"/>
                             <Input id="email" class="input" value="{form>/email}"/>
                             <Label text="Wachtwoord" class="input" labelFor="wachtwoord" required="true" />

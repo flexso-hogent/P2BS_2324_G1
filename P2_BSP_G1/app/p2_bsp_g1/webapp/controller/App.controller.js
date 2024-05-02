@@ -71,7 +71,7 @@ sap.ui.define(
 				window.location.href = "#/MijnEvents/"
 			},
 			onNewSessie: function() {
-				window.location.href = "#/Sessies#/new"
+				window.location.href = "#/Sessies#/new/1";
 			}
     });
   }

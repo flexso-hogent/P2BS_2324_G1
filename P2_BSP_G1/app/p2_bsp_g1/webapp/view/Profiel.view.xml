@@ -7,18 +7,19 @@
 	xmlns:svm="sap.ui.comp.smartvariants"
     xmlns:m="sap.m" height="100%">
     
-    <Page id="Gebruiker" title="Gebruiker">
+    <Page id="Gebruiker" title="Mijn profiel">
             <content>
                 <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
                     <Panel width="40vw" backgroundDesign="Translucent">
                         <content>
                             <VBox alignItems="Center">
-                                <Title level="H3" text="Mijn profiel" />
-                                <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" ></Image>
+                                <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg" ></Image>
                                 <Avatar id="avatar" displaySize="L" initials="{voornaam}.charAt(0) + {achternaam}.charAt(0)" />
+                                <Text text=" " />
                                 <Text text="Naam: {voornaam} {achternaam}"/>
 								<Text text="Email: {email}" />
 								<Text text="Geboortedatum: {geboortedatum}" />
+                                <Text text=" " />
                                 <HBox >
                                     <Button text="Terug" type="Default" press=".onTerug" class="ButtonStyle"/>
                                     <Button text="Wijzig" type="Accept" press=".onWijzig" class="ButtonStyle" />

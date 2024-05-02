@@ -37,3 +37,8 @@
   flex-wrap: wrap !important;
   justify-content: space-between !important;
 }
+
+.flexsoImg {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}

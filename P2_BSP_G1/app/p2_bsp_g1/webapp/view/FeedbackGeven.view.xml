@@ -11,7 +11,7 @@
                 <Panel width="40vw" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
-                            <Title level="H3" text="Geef feedback" />
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
                             <Label text="Number of Stars" labelFor="stars" class="input" required="true"/>
                             <RatingIndicator value="3" id='ratingIndicator' iconSize="32px"/>
                             <Label text="Feedback" class="input" required="true" />

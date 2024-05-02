@@ -10,8 +10,7 @@
                 <Panel width="50vw" backgroundDesign="Translucent">
                     <content >
                         <VBox alignItems="Center">
-                            <Title id="titleCreateEdit" level="H3" text="Creeër evenement" />
-                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw"></Image>
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
                             <Label text="Naam evenement" class="input" labelFor="naam" required="true"/>
                             <Input id="naam" class="input" width="100%" placeholder="Naam event" value="{form>/naam}" />
                             <Label text="Locatie" class="input" labelFor="locatie" required="true"/>

@@ -66,13 +66,12 @@
 		</tnt:sideContent>
 		<tnt:mainContents>
 			<App id="app">
-				<Page id="StartScreen" title="HomeScreen" class="customHeader">
+				<Page id="StartScreen" title="Welkom" class="customHeader">
 					<content>
 						<FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
 							<Panel width="40vw" backgroundDesign="Translucent">
 								<content>
 									<VBox alignItems="Center">
-										<Title level="H3" text="Welkom" />
 
 										<FlexBox wrap="Wrap" justifyContent="SpaceAround" alignItems="Start" width="100%">
 											<GenericTile header="Overzicht evenementen" press=".onEvents" class="flexBoxStart">

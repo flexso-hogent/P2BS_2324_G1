@@ -5,7 +5,7 @@
 	xmlns:f="sap.f"
 	xmlns:fb="sap.ui.comp.filterbar"
 	xmlns:svm="sap.ui.comp.smartvariants">
-	<Page id="Events" title="Events">
+	<Page id="Events" title="Alle events">
 		<f:DynamicPage headerExpanded="{/headerExpanded}">
 			<f:title>
 				<f:DynamicPageTitle>

@@ -10,8 +10,7 @@
                 <Panel width="35vw" backgroundDesign="Translucent" class="flexboxRegistreer">
                     <content>
                         <VBox alignItems="Center">
-                            <Title level="H3" text="Registreer" />
-                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" ></Image>
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
                             <Label text="Voornaam" labelFor="voornaam" required="true" class="input"/>
                             <Input id="voornaam" width="100%" class="input" placeholder="voornaam" value="{form>/voornaam}" />
                             <Label text="Achternaam" labelFor="achternaam" required="true" class="input"/>

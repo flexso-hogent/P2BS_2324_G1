@@ -181,12 +181,13 @@ sap.ui.define(
         odatamodel.update("/Sessies(" + sessieID + ")", oForm, {
           success: function (data, response) {
             MessageBox.success(
-              "Sessie updated successfully! Redirecting to event page.",
-            {
-              onClose: function () {
-                window.location.href = "#/Sessies/" + sessieID;
-              },
-            }); 
+              "Sessie edited. Redirecting to sessie page."
+            );
+            setTimeout(function () {
+              window.location.href = "#/";
+              window.location.reload();
+            }, 1000);                  
+            return;
           },
           error: function (error) {
             MessageBox.error("De sessie is niet bijgewerkt. Probeer het opnieuw.");
