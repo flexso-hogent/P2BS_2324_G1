@@ -170,12 +170,11 @@ sap.ui.define(
           success: function (data, response) {
             MessageBox.success(
               "Event updated successfully! Redirecting to event page."
-              ,
-              {
-                onClose: function () {
-                  window.location.href = "#/Events/" + eventId;
-                },
-              }); 
+            ); 
+            setTimeout(function () {
+              window.location.href = "#/Events/" + eventId;
+              window.location.reload();
+            }, 1000); 
           },
           error: function (error) {
             MessageBox.error("Het evenement is niet bijgewerkt. Probeer het opnieuw.");
