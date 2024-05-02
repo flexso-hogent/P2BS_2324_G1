@@ -41,10 +41,12 @@ sap.ui.define([
           MessageBox.error("Feedback is niet verzonden. Vul feedback in.");
           return;
         } else {
-          MessageBox.success("Feedback met " + stars + " sterren is verzonden.");
-          setTimeout(function() {
-            window.location.href = "#/";
-          }, 2000);
+          MessageBox.success("Feedback met " + stars + " sterren is verzonden.",
+            {
+              onClose: function () {
+                window.location.href = "#/";
+              },
+            }); 
         }
         
     }

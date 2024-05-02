@@ -61,7 +61,6 @@ sap.ui.define(
 				MessageBox.success("Op de knop gedrukt");
 			},
 			onHomePress: function() {
-        console.log("reee");
         window.location.href = "#/";
         window.location.reload();
 			},

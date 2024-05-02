@@ -51,11 +51,12 @@ sap.ui.define(
                 localStorage.setItem("user", JSON.stringify(user));
                 MessageBox.success(
                   "Login successful. Redirecting to home screen."
-                );
-                setTimeout(function () {
-                  window.location.href = "#/";
-                  window.location.reload();
-                }, 1000);
+                  ,
+                  {
+                    onClose: function () {
+                      window.location.href = "#/";
+                    },
+                  }); 
                 return;
               }
             });

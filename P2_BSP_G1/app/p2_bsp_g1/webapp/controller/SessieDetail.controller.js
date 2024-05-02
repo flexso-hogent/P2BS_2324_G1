@@ -34,7 +34,9 @@ sap.ui.define(
         oView.bindElement({ path: urlPath });
       },
       editSessie: function () {
-        window.location.href = "#Sessies#/edit/" + sessieID;
+        this.getOwnerComponent().getRouter().navTo("EditSessie", {
+          sessieID,
+        });
       },
       deleteSessie: function () {
         var odatamodel = this.getView().getModel("v2model");
