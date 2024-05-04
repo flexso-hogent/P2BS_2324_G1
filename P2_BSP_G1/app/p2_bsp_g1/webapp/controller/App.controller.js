@@ -6,6 +6,8 @@ sap.ui.define(
   function (Controller) {
     "use strict";
 
+    var user = JSON.parse(localStorage.getItem("user"));
+
     return Controller.extend("p2bspg1.controller.App", {
       onInit: function () {
         var oUv1 = this.byId("uv1"),
@@ -15,15 +17,15 @@ sap.ui.define(
           oAv4 = this.byId("av4"),
           oLoggedOut = this.byId("loginView");
 
-        if (localStorage.getItem("user") == null) {
+        if (user == null) {
           oLoggedOut.setVisible(true);
-        } else if (localStorage.getItem("user").includes('"rol":"admin"')) {
+        } else if (user.rol === "admin") {
           oAv1.setVisible(true);
           oAv4.setVisible(true);
           oUv1.setVisible(true);
           oUv2.setVisible(true);
           oUv3.setVisible(true);
-        } else if (localStorage.getItem("user").includes('"rol":"user"')) {
+        } else if (user.rol === "user") {
           oUv1.setVisible(true);
           oUv2.setVisible(true);
           oUv3.setVisible(true);
