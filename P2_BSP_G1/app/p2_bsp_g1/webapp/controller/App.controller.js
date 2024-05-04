@@ -10,8 +10,10 @@ sap.ui.define(
       onInit: function () {
         var oUv1 = this.byId("uv1"),
           oUv2 = this.byId("uv2"),
+          oUv3 = this.byId("uv3"),
           oAv1 = this.byId("av1"),
           oAv3 = this.byId("av3"),
+          oAv4 = this.byId("av4"),
           oLoggedOut = this.byId("loginView");
 
         if (localStorage.getItem("user") == null) {
@@ -19,12 +21,14 @@ sap.ui.define(
         } else if (localStorage.getItem("user").includes('"rol":"admin"')) {
           oAv1.setVisible(true);
           oAv3.setVisible(true);
-
+          oAv4.setVisible(true);
           oUv1.setVisible(true);
           oUv2.setVisible(true);
+          oUv3.setVisible(true);
         } else if (localStorage.getItem("user").includes('"rol":"user"')) {
           oUv1.setVisible(true);
           oUv2.setVisible(true);
+          oUv3.setVisible(true);
         }
       },
       onCollapseExpandPress() {

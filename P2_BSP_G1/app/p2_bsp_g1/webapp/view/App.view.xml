@@ -42,9 +42,6 @@
 						<tnt:NavigationListItem text="Overzicht evenementen" icon="sap-icon://legend" href="#/Events"/>
 						<tnt:NavigationListItem text="Nieuw evenement" icon="sap-icon://add-calendar" href="#/Events#/new" visible="false" id="av1" />
 					</tnt:NavigationListGroup>
-					<tnt:NavigationListGroup text="Feedback" visible="false" id="av3">
-						<tnt:NavigationListItem text="Alle feedback" icon="sap-icon://discussion" href="#/FeedbackGeven" />
-					</tnt:NavigationListGroup>
 
 				</tnt:NavigationList>
 				<tnt:fixedItem >
@@ -79,26 +76,17 @@
 													<ImageContent src="sap-icon://legend"/>
 												</TileContent>
 											</GenericTile>
-											<GenericTile header="Event details" press=".onEventsDetails">
-												<TileContent footer="">
-													<ImageContent src="sap-icon://detail-view"/>
-												</TileContent>
-											</GenericTile>
-											<GenericTile header="Nieuw event aanmaken" press=".onEventsNew">
+											<GenericTile header="Nieuw event aanmaken" press=".onEventsNew" id="av4" visible="false">
 												<TileContent footer="">
 													<ImageContent src="sap-icon://add-calendar"/>
 												</TileContent>
 											</GenericTile>
-											<GenericTile header="Mijn Evenementen" press=".onMyEvents">
+											<GenericTile header="Mijn Evenementen" press=".onMyEvents" id="uv3" visible="false">
 												<TileContent footer="">
 													<ImageContent src="sap-icon://notes"/>
 												</TileContent>
 											</GenericTile>
-											<GenericTile header="Nieuwe sessie aanmaken" press=".onNewSessie">
-												<TileContent footer="">
-													<ImageContent src="sap-icon://create-session"/>
-												</TileContent>
-											</GenericTile>
+
 										</FlexBox>
 
 									</VBox>
