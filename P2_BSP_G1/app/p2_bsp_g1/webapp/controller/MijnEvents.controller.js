@@ -47,27 +47,27 @@ sap.ui.define([
           });
       },
 
-      openQR: function (oEvent) {
-          var oSelectedItem = oEvent.getSource().getBindingContext();
-          var sInschrijvingsID = oSelectedItem.getProperty("inschrijvingsID");
-          var sGebruikerID = oSelectedItem.getProperty("gebruikerID");
-          var sSessieID = oSelectedItem.getProperty("sessieID");
+    //   openQR: function (oEvent) {
+    //       var oSelectedItem = oEvent.getSource().getBindingContext();
+    //       var sInschrijvingsID = oSelectedItem.getProperty("inschrijvingsID");
+    //       var sGebruikerID = oSelectedItem.getProperty("gebruikerID");
+    //       var sSessieID = oSelectedItem.getProperty("sessieID");
 
-          var qrData = sInschrijvingsID + '-' + sGebruikerID + '-' + sSessieID;
-          var typeNumber = 4; // Change according to your requirement
-          var errorCorrectionLevel = 'L'; // Change according to your requirement
+    //       var qrData = sInschrijvingsID + '-' + sGebruikerID + '-' + sSessieID;
+    //       var typeNumber = 4; // Change according to your requirement
+    //       var errorCorrectionLevel = 'L'; // Change according to your requirement
 
-          // Create QR Code
-          var qr = QRCodeGenerator(typeNumber, errorCorrectionLevel);
-          qr.addData(qrData);
-          qr.make();
+    //       // Create QR Code
+    //       var qr = QRCodeGenerator(typeNumber, errorCorrectionLevel);
+    //       qr.addData(qrData);
+    //       qr.make();
 
-          // Get QR Code SVG
-          var svg = qr.createSvgTag();
+    //       // Get QR Code SVG
+    //       var svg = qr.createSvgTag();
 
-          // Render QR Code in UI
-          var oQRCodeContainer = this.getView().byId("qrCodeContainer");
-          oQRCodeContainer.setContent(svg);
-      }
+    //       // Render QR Code in UI
+    //       var oQRCodeContainer = this.getView().byId("qrCodeContainer");
+    //       oQRCodeContainer.setContent(svg);
+    //   }
   });
 });
