@@ -3,10 +3,13 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m">
 
-    <Page id="MijnEvents" title="Mijn Evenementen">
+    <Page id="MijnEvents" title="Mijn sessies">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
-                <Table id="InschrijvingTable" selectionChange=".onSelectionChange" inset="false" noDataText="U heeft op dit momement nog geen inschrijvingen." items="{ path: '/Inschrijvingen'}">
+                <Table id="InschrijvingTable" selectionChange=".onSelectionChange" inset="false" noDataText="U heeft op dit momement nog geen inschrijvingen." items="{ path: '/Inschrijvingen',
+                                        sorter: {
+                            path: 'datum'
+                        }}">
                     <infoToolbar>
                         <OverflowToolbar visible="false" id="idInfoToolbar">
                             <Label id="idFilterLabel" />
@@ -29,14 +32,14 @@
                             <Text text="Open qr code"/>
                         </Column> -->
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Geef feedback"/>
+                            <Text text="Geef feedback" id="feedback" visible="true"/>
                         </Column>
                     </columns>
 
                     <items>
                         <ColumnListItem vAlign="Middle" type="Navigation" press="handleListPress">
                             <cells>
-                                <ObjectIdentifier title="{sessieID/naam}" text="{sessieID/evenement/naam} - {sessieID/evenement/beginDatum}" />
+                                <ObjectIdentifier title="{sessieID/naam}" text="{sessieID/evenement/naam}: {sessieID/evenement/beginDatum} - {sessieID/evenement/eindDatum}" />
                                 <Text text="{sessieID/datum}" />
                                 <Text text="{sessieID/beginUur} - {sessieID/eindUur}" />
                                 <Text text="{sessieID/evenement/locatie}" />
