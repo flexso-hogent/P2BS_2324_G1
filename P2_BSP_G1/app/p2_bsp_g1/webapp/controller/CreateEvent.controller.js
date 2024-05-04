@@ -60,8 +60,8 @@ sap.ui.define(
       getEventData: function (eventId) {
         var button = this.byId("createEditButton");
         button.setText("Bewerk evenement");
-        var title = this.byId("titleCreateEdit");
-        title.setText("Bewerk evenement");
+        var title = this.byId("createEvent");
+        title.setTitle("Bewerk evenement");
         this.getView().byId("createEvent").setTitle("Evenement bewerken");
         // Assuming you have a service to fetch event data
         var odatamodel = this.getView().getModel("v2model");

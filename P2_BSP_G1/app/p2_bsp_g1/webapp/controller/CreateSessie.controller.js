@@ -51,8 +51,8 @@ sap.ui.define(
       getSessieData: function (sessieID) {
         var button = this.byId("creeerEditButton");
         button.setText("Bewerk sessie");
-        var title = this.byId("titleCreateEdit");
-        title.setText("Bewerk evenement");
+        var title = this.byId("createSessie");
+        title.setTitle("Bewerk evenement");
         this.getView().byId("createSessie").setTitle("Sessie bewerken");
         // Assuming you have a service to fetch event data
         var odatamodel = this.getView().getModel("v2model");
