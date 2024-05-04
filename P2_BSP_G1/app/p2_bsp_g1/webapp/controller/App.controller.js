@@ -12,7 +12,6 @@ sap.ui.define(
           oUv2 = this.byId("uv2"),
           oUv3 = this.byId("uv3"),
           oAv1 = this.byId("av1"),
-          oAv3 = this.byId("av3"),
           oAv4 = this.byId("av4"),
           oLoggedOut = this.byId("loginView");
 
@@ -20,7 +19,6 @@ sap.ui.define(
           oLoggedOut.setVisible(true);
         } else if (localStorage.getItem("user").includes('"rol":"admin"')) {
           oAv1.setVisible(true);
-          oAv3.setVisible(true);
           oAv4.setVisible(true);
           oUv1.setVisible(true);
           oUv2.setVisible(true);
