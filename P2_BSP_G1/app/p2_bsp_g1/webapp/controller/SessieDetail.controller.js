@@ -1,12 +1,16 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox"],
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/m/MessageToast",
+    "sap/m/MessageBox",
+    "sap/ui/model/Filter",
+  ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, MessageToast, MessageBox) {
+  function (Controller, MessageToast, MessageBox, Filter) {
     "use strict";
-    var sessieID = 0;
-
+    var sessieID;
     return Controller.extend("p2bspg1.controller.SessieDetail", {
       onInit: function () {
         this.oOwnerComponent = this.getOwnerComponent();
@@ -32,10 +36,11 @@ sap.ui.define(
         sessieID = oArgs.sessieID;
 
         oView.bindElement({ path: urlPath });
+        this.setRating();
       },
       editSessie: function () {
         this.getOwnerComponent().getRouter().navTo("EditSessie", {
-          sessieID,
+          sessieID: sessieID,
         });
       },
       deleteSessie: function () {
@@ -60,7 +65,51 @@ sap.ui.define(
       },
       onTerug: function () {
         history.back();
-      }
+      },
+      setRating: function () {
+        var that = this;
+        var odatamodel = this.getView().getModel("v2model");
+        var oFilter = new Filter(
+          "inschrijvingID/sessieID_sessieID",
+          sap.ui.model.FilterOperator.EQ,
+          sessieID
+        );
+
+        odatamodel.read("/Scores", {
+          filters: [oFilter],
+          success: function (oData) {
+            console.log(oData);
+            var avrRating = 0;
+            oData.results.forEach((e) => {
+              avrRating += e.aantalSterren;
+            });
+            var length = oData.results.length;
+            if (length != 0) {
+              avrRating = avrRating / oData.results.length;
+            } else{
+              that.byId("rating2").setVisible(false);
+              that.byId("geenRecensies").setVisible(true);
+            }
+
+            that.byId("rating").setValue(avrRating); // Use that instead of this
+            that
+              .byId("rating")
+              .setTooltip(
+                "Een gemiddelde rating van " +
+                  avrRating +
+                  " op 5 sterren" +
+                  " gebaseerd op " +
+                  length +
+                  " beoordelingen"
+              );
+          },
+          error: function (error) {
+            MessageBox.error(
+              "Er is een fout opgetreden bij het ophalen van de recensies. Laad de pagina opnieuw!"
+            );
+          },
+        });
+      },
     });
   }
 );

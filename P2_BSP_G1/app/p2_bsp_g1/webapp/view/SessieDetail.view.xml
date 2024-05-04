@@ -38,6 +38,23 @@
                             </core:Icon>
                             <m:Text text="{beginUur} - {eindUur}" />
                         </layout:HorizontalLayout>
+                        <layout:HorizontalLayout id="rating2" visible="true">
+                            <core:Icon src="sap-icon://feedback" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:RatingIndicator value="" iconSize="24px" id="rating" editable="false" visible="true" tooltip=""/>
+                        </layout:HorizontalLayout>
+                        <layout:HorizontalLayout id="geenRecensies" visible="false">
+                            <core:Icon src="sap-icon://feedback" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:Text text="Nog geen recensies gevonden voor deze sessie"/>
+
+                        </layout:HorizontalLayout>
                     </layout:VerticalLayout>
 
                 </m:items>
