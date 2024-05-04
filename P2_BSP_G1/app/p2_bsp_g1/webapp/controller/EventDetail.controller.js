@@ -20,11 +20,13 @@ sap.ui.define(
           .getRoute("EventDetail")
           .attachPatternMatched(this._onRouteMatched, this);
 
-        var oAv1 = this.byId("av1"),
+        var oAv0 = this.byId("av0"),
+          oAv1 = this.byId("av1"),
           oAv2 = this.byId("av2"),
           oAv3 = this.byId("av3"),
           oAv4 = this.byId("av4");
         if (!user == null || user.rol == "admin") {
+          oAv0.setVisible(true);
           oAv1.setVisible(true);
           oAv2.setVisible(true);
           oAv3.setVisible(true);
@@ -236,6 +238,20 @@ sap.ui.define(
       onTerug: function () {
         history.back();
       },
+      onDeactivate: function(button) {
+        var button = this.getView().byId("av0");
+        var beschikbareSessies = this.getView().byId("personalSS1");
+        if (button.getText() === "Deactiveer evenement") {
+          button.setText("Activeer evenement"); 
+          button.setType("Accept");
+          beschikbareSessies.setVisible(false);
+        }
+        else {
+          button.setText("Deactiveer evenement");
+          button.setType("Reject");
+          beschikbareSessies.setVisible(true);
+        }
+      }
     });
   }
 );

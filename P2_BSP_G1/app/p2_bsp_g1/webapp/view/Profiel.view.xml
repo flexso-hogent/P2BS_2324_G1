@@ -14,7 +14,7 @@
                         <content>
                             <VBox alignItems="Center">
                                 <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg" ></Image>
-                                <Avatar id="avatar" displaySize="L" initials="{voornaam}.charAt(0) + {achternaam}.charAt(0)" />
+                                <Avatar id="avatar" displaySize="L" initials="{= ${voornaam}.charAt(0) + ${achternaam}.charAt(0)}" />
                                 <Text text=" " />
                                 <Text text="Naam: {voornaam} {achternaam}"/>
 								<Text text="Email: {email}" />
