@@ -51,7 +51,7 @@
 				</f:DynamicPageHeader>
 			</f:header>
 			<f:content>
-				<Table id="eventsTable" selectionChange=".onSelectionChange" inset="false" items="{
+				<Table id="eventsTable" selectionChange=".onSelectionChange" noDataText="Op dit moment zijn er nog geen evenementen waarop u kunt inschrijven. " inset="false" items="{
 						path: '/Evenementen'
 					}">
 					<infoToolbar>

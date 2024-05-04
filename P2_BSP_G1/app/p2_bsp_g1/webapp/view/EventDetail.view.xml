@@ -66,7 +66,7 @@
             <ObjectPageSection titleUppercase="false" id="personal" title="Session">
                 <subSections>
                     <ObjectPageSubSection id="personalSS1" title="Beschikbare sessies" titleUppercase="false">
-                        <m:Table id="sessiestable" selectionChange=".onSelectionChange" inset="false" items="{
+                        <m:Table id="sessiestable" selectionChange=".onSelectionChange" noDataText="Dit evenement heeft op dit moment nog geen sessies." inset="false" items="{
 			path: 'sessies',
 			sorter: {
 				path: 'datum'

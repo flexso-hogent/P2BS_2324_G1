@@ -6,7 +6,7 @@
     <Page id="MijnEvents" title="Mijn Evenementen">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
-                <Table id="InschrijvingTable" selectionChange=".onSelectionChange" inset="false" items="{ path: '/Inschrijvingen'}">
+                <Table id="InschrijvingTable" selectionChange=".onSelectionChange" inset="false" noDataText="U heeft op dit momement nog geen inschrijvingen." items="{ path: '/Inschrijvingen'}">
                     <infoToolbar>
                         <OverflowToolbar visible="false" id="idInfoToolbar">
                             <Label id="idFilterLabel" />

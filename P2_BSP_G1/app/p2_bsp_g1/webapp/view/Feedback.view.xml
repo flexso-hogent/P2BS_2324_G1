@@ -8,7 +8,7 @@
     <Page id="Feedback">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
-                <Table id="feedbackTable" selectionChange=".onSelectionChange" inset="false" items="{
+                <Table id="feedbackTable" selectionChange=".onSelectionChange" noDataText="Er is nog geen feedback gegeven op de sessies van dit evenement." inset="false" items="{
 						path: '/Scores',
                         sorter: {
                             path: 'inschrijvingID/sessieID/naam',
