@@ -41,12 +41,17 @@
                             <cells>
                                 <ObjectIdentifier title="{inschrijvingID/sessieID/naam}" text="{inschrijvingID/sessieID/spreker}" />
                                 <Text text="{gebruikerID/voornaam} {gebruikerID/achternaam}" />
-                                <Text text="{aantalSterren}" />
+                                <RatingIndicator value="{aantalSterren}" iconSize="24px" editable="false"/>
                                 <Text text="{feedback}" />
                             </cells>
                         </ColumnListItem>
-                    </items>
+                    </items>  
                 </Table>
+            </FlexBox>
+            <FlexBox>
+                <VBox>
+                    <Button text="Terug" press=".onTerug" class="ButtonStyle"/>
+                </VBox>
             </FlexBox>
         </content>
     </Page>

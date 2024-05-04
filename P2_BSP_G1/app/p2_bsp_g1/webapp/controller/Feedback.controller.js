@@ -23,6 +23,9 @@ sap.ui.define(
         var oFilter = new Filter("inschrijvingID/sessieID/evenement_evenementID", sap.ui.model.FilterOperator.EQ, evenementID);
         this.getView().byId("feedbackTable").getBinding("items").filter([oFilter]);
       },
+      onTerug: function() {
+        history.back();
+      }
     });
   }
 );
