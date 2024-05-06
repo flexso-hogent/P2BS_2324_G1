@@ -4,9 +4,9 @@
 	xmlns="sap.m"
 	xmlns:f="sap.f"
 	xmlns:tnt="sap.tnt">
-	<tnt:ToolPage id="appg" class="sapUiDemoToolPage">
+	<tnt:ToolPage id="appg" class="body" >
 		<tnt:header>
-			<tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin">
+			<tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin border">
 				<Button icon="sap-icon://menu2" type="Transparent" tooltip="Menu" press="onCollapseExpandPress">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow"/>
@@ -54,7 +54,7 @@
 						<tnt:NavigationListGroup text="Mijn profiel" visible="false" id="uv1">
 							<tnt:NavigationListItem text="Mijn profiel" icon="sap-icon://key-user-settings" href="#/Profiel/{gebruikerID}" />
 							<tnt:NavigationListItem text="Mijn inschrijvingen" icon="sap-icon://notes" href="#/MijnEvents" />
-							<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" select="onLogOut" visible="false" id="uv2" />
+							<tnt:NavigationListItem text="Uitloggen" icon="sap-icon://log" select="onLogOut" visible="false" id="uv2" class="nav" />
 						</tnt:NavigationListGroup>
 						<tnt:NavigationListItem text="Inloggen" icon="sap-icon://log" select="onLogOut" visible="false" id="loginView" />
 					</tnt:NavigationList>
@@ -62,7 +62,7 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<App id="app">
+			<App id="app" class="border">
 				<Page id="StartScreen" title="Welkom" class="customHeader">
 					<content>
 						<FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">

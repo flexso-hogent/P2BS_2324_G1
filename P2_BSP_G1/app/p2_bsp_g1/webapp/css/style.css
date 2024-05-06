@@ -42,3 +42,11 @@
   padding-bottom: 20px;
   padding-top: 20px;
 }
+
+.border{
+  border: 1px solid rgba(000, 178, 221, 0.2) !important;
+}
+
+.body{
+  background-color: rgba(000, 178, 221, 0.1) !important;
+}
