@@ -9,12 +9,13 @@ sap.ui.define(
    */
   function (Controller, MessageBox, JSONModel) {
     "use strict";
+    var user = JSON.parse(localStorage.getItem("user"));
 
     return Controller.extend("p2bspg1.controller.App", {
       onInit: function () {
         if (
-          localStorage.getItem("user") == null ||
-          !localStorage.getItem("user").includes('"rol":"admin"')
+          !user ||
+          !user.rol === "admin"
         ) {
           this.getOwnerComponent().getRouter().navTo("NotFound");
         }
