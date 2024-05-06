@@ -11,6 +11,7 @@ sap.ui.define(
   function (Controller, MessageToast, MessageBox, Filter) {
     "use strict";
     var sessieID;
+    var user = JSON.parse(localStorage.getItem("user"));
     return Controller.extend("p2bspg1.controller.SessieDetail", {
       onInit: function () {
         this.oOwnerComponent = this.getOwnerComponent();
@@ -21,10 +22,13 @@ sap.ui.define(
 
         var oAv3 = this.byId("av3"),
           oAv4 = this.byId("av4");
-        if (
-          !localStorage.getItem("user") === null ||
-          localStorage.getItem("user").includes('"rol":"admin"')
-        ) {
+        if (user === null) {
+          MessageBox.error("U moet ingelogd zijn om deze pagina te bekijken", {
+            onClose: function () {
+              window.location.href = "#/Login";
+            },
+          });
+        } else if (user.rol === "admin") {
           oAv3.setVisible(true);
           oAv4.setVisible(true);
         }
@@ -86,7 +90,7 @@ sap.ui.define(
             var length = oData.results.length;
             if (length != 0) {
               avrRating = avrRating / oData.results.length;
-            } else{
+            } else {
               that.byId("rating2").setVisible(false);
               that.byId("geenRecensies").setVisible(true);
             }
