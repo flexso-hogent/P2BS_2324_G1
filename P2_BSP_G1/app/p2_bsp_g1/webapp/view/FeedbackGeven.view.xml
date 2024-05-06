@@ -13,7 +13,7 @@
                         <VBox alignItems="Center">
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
                             <Label text="Number of Stars" labelFor="stars" class="input" required="true"/>
-                            <RatingIndicator value="3" iconSize="32px"/>
+                            <RatingIndicator id="ratingIndicator" value="3" iconSize="32px"/>
                             <Label text="Feedback" class="input" required="true" />
                             <TextArea id="feedback" class="input" placeholder="Schrijf hier je feedback." rows="5" height="100%"/>                          
                             <HBox >
