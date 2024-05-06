@@ -52,6 +52,15 @@ sap.ui.define(
           sessieID: sEventID,
         });
       },
+
+      geefFeedback: function (oEvent) {
+        var oSelectedItem = oEvent.getSource().getBindingContext();
+        var sinschrijvingID = oSelectedItem.getProperty("inschrijvingID");
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("FeedbackGeven", {
+          inschrijvingID: sinschrijvingID,
+        });
+      },
      
 
       //   openQR: function (oEvent) {

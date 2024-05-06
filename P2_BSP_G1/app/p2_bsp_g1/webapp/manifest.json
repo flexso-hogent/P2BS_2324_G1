@@ -167,7 +167,7 @@
         },
         {
           "name": "FeedbackGeven",
-          "pattern": "FeedbackGeven",
+          "pattern": "FeedbackGeven/{inschrijvingID}",
           "target": ["FeedbackGeven"]
         },
         {
