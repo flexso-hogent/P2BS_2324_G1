@@ -10,17 +10,8 @@ sap.ui.define([
         return Controller.extend("p2bspg1.controller.NotFound", {
             onInit: function () {
             },
-            onCollapseExpandPress() {
-                const oSideNavigation = this.byId("sideNavigation"),
-                    bExpanded = oSideNavigation.getExpanded();
-    
-                oSideNavigation.setExpanded(!bExpanded);
-            },
-            onLogoPressed(){
-                window.location.href = "#/";
-            },
-            onAvatarPressed: function(){
-                window.location.href = "#/Profiel";
+            onHome: function () {
+                window.location.href = "";
             }
         });
     });

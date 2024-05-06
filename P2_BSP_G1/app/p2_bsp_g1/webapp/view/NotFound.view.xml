@@ -12,6 +12,8 @@
                     <content>
                         <VBox alignItems="Center">
                             <Title level="H3" text="404: Page not found" />
+                            <Text text="Het lijkt erop dat we deze pagina niet kunnen vinden." />
+                            <Button text="Terug naar home" press=".onHome" />
                         </VBox>
                     </content>
                 </Panel>
