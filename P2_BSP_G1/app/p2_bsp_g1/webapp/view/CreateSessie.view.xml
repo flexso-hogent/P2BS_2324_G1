@@ -6,23 +6,35 @@
 
     <Page id="createSessie" title="Nieuwe sessie aanmaken">
         <content>
-            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+            <FlexBox justifyContent="Center" alignItems="Center" width="100%" class="panel">
                 <Panel width="50vw" backgroundDesign="Translucent">
                     <content >
                         <VBox alignItems="Center">
-                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="10vw" class="flexsoImg"></Image>
+                            <l:VerticalLayout class="inputGroup">
                             <Label text="Naam Sessie" class="input" labelFor="naam" required="true"/>
                             <Input id="naam" class="input" width="100%" placeholder="Naam sessie" value="{form>/naam}" />
+                            </l:VerticalLayout>
+                            <l:VerticalLayout class="inputGroup">
                             <Label text="Datum" class="input" labelFor="datum" required="true"/>
                             <DatePicker id="datum" class="input" width="100%" value="{path: 'form>/datum', type: 'sap.ui.model.odata.type.Date' }" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+                            </l:VerticalLayout>
+                            <l:VerticalLayout class="inputGroup">
                             <Label text="Beginuur" class="input" labelFor="beginUur" required="true"/>
                             <TimePicker id="beginUur" class="input" width="100%" value="{path: 'form>/beginUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm" />
+                            </l:VerticalLayout>
+                            <l:VerticalLayout class="inputGroup">
                             <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
                             <TimePicker id="eindUur" class="input" width="100%" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm" />
+                            </l:VerticalLayout>
+                            <l:VerticalLayout class="inputGroup">
                             <Label text="Spreker" class="input" labelFor="spreker" required="true" />
                             <Input id="spreker" class="input" width="100%" value="{form>/spreker}" />
+                            </l:VerticalLayout>
+                            <l:VerticalLayout class="inputGroup">
                             <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" required="true"/>
-                            <TextArea id="korteInhoud" value="{form>/korteInhoud}" class="input" showExceededText="true" maxLength="500" width="100%" valueLiveUpdate="false" liveChange="handleLiveChange" />
+                            <TextArea id="korteInhoud" value="{form>/korteInhoud}" class="input" growing="true" showExceededText="true" maxLength="500" width="100%" valueLiveUpdate="false" liveChange="handleLiveChange" />
+                            </l:VerticalLayout>
                         </VBox>
                     </content>
                     <l:HorizontalLayout class="btncreate">

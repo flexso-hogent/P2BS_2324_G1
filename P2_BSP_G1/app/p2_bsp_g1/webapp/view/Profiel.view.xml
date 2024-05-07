@@ -1,34 +1,34 @@
-<mvc:View controllerName="p2bspg1.controller.Profiel"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	xmlns="sap.m"
-	xmlns:f="sap.f"
-	xmlns:fb="sap.ui.comp.filterbar"
-	xmlns:svm="sap.ui.comp.smartvariants"
+<mvc:View xmlns:layout="sap.ui.layout" controllerName="p2bspg1.controller.Profiel"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants"
     xmlns:m="sap.m" height="100%">
-    
+
     <Page id="Gebruiker" title="Mijn profiel">
-            <content>
-                <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
-                    <Panel width="40vw" backgroundDesign="Translucent">
-                        <content>
-                            <VBox alignItems="Center">
-                                <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg" ></Image>
-                                <Avatar id="avatar" displaySize="L" initials="{= ${voornaam}.charAt(0) + ${achternaam}.charAt(0)}" />
-                                <Text text=" " />
-                                <Text text="Naam: {voornaam} {achternaam}"/>
-								<Text text="Email: {email}" />
-								<Text text="Geboortedatum: {geboortedatum}" />
-                                <Text text=" " />
-                                <HBox >
-                                    <Button text="Terug" type="Default" press=".onTerug" class="ButtonStyle"/>
-                                    <Button text="Wijzig" type="Attention" press=".onWijzig" class="ButtonStyle" />
-                                </HBox>                              
-                            </VBox>
-                        </content>
-                    </Panel>
-                </FlexBox>
-            </content>
+        <content>
+            <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
+                <Panel width="40vw" backgroundDesign="Translucent">
+                    <content>
+                        <VBox alignItems="Center">
+                            <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
+                            <Avatar id="avatar" displaySize="L" initials="{= ${voornaam}.charAt(0) + ${achternaam}.charAt(0)}" />
+                            <layout:VerticalLayout class="profiel">
+                                <Text text="Naam: {voornaam} {achternaam}" class="profielText" />
+                                <Text text="Email: {email}" class="profielText" />
+                                <Text text="Geboortedatum: {geboortedatum}" class="profielText" />
+                            </layout:VerticalLayout>
+                            <HBox class="btncreate ">
+                                <Button text="Terug" type="Default" press=".onTerug" class="ButtonStyle"/>
+                                <Button text="Wijzig" type="Attention" press=".onWijzig" class="ButtonStyle" />
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Panel>
+            </FlexBox>
+        </content>
     </Page>
 
 </mvc:View>

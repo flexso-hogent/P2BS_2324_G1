@@ -4,7 +4,10 @@
 .input {
   color: #007287;
   width: 20vw !important;
-  /* margin-top: 1em; */
+  
+}
+.inputGroup{
+  padding-bottom: 2em;
 }
 
 .btncreate {
@@ -49,4 +52,26 @@
 
 .body{
   background-color: rgba(000, 178, 221, 0.1) !important;
+}
+.profiel{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.profielText {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+
+}
+.panel{
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+.box{
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.buttonWidth Button{
+  width: 100%;
 }

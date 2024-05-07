@@ -49,7 +49,7 @@
                         <m:Label text="€ {prijs} inkom" class="sapUiSmallMarginBeginEnd" />
                     </layout:HorizontalLayout>
                 </layout:VerticalLayout>
-                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd buttonWidth">
                     <m:Button text="Terug" type="Default" press=".onTerug"/>
                     <m:Button text="Voeg een sessie toe" type="Emphasized" press="addSessie" visible="false" id="av1" />
                     <m:Button text="Bekijk feedback" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
