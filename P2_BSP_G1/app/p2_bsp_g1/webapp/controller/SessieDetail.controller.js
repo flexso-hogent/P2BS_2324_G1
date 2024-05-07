@@ -85,11 +85,11 @@ sap.ui.define(
             console.log(oData);
             var avrRating = 0;
             oData.results.forEach((e) => {
-              avrRating += e.aantalSterren;
+              avrRating += parseInt(e.aantalSterren);
             });
             var length = oData.results.length;
             if (length != 0) {
-              avrRating = avrRating / oData.results.length;
+              avrRating = avrRating / length;
             } else {
               that.byId("rating2").setVisible(false);
               that.byId("geenRecensies").setVisible(true);
