@@ -32,6 +32,49 @@ sap.ui.define(
           oAv3.setVisible(true);
           oAv4.setVisible(true);
         }
+
+        // this.checkUserSignUp();
+      },
+
+      checkUserSignUp: function () {
+        var that = this;
+        var sessionID = this.getView().getBindingContext().getProperty("sessieID");
+        var button = this.getView().byId("av0"); // ID van de knop die moet worden gecontroleerd
+    
+        var odatamodel = this.getView().getModel("v2model");
+    
+        // Filter om te controleren of de gebruiker al is ingeschreven voor deze sessie
+        var filter = new sap.ui.model.Filter([
+            new sap.ui.model.Filter(
+                "gebruikerID_gebruikerID",
+                sap.ui.model.FilterOperator.EQ,
+                user.gebruikerID
+            ),
+            new sap.ui.model.Filter(
+                "sessieID_sessieID",
+                sap.ui.model.FilterOperator.EQ,
+                sessionID
+            ),
+        ]);
+    
+        odatamodel.read("/Inschrijvingen", {
+            filters: [filter],
+            success: function (oData) {
+                if (oData.results.length > 0) {
+                    // Gebruiker is al ingeschreven, wijzig knopinstellingen
+                    button.setText("Uitschrijven voor deze sessie");
+                    button.setType("Reject");
+                } else {
+                    // Gebruiker is nog niet ingeschreven, houd de knopinstellingen hetzelfde
+                }
+            },
+            error: function (error) {
+                console.log("Error fetching inschrijvingen:", error);
+                MessageBox.error(
+                    "Er is een fout opgetreden bij het controleren van uw inschrijving. Probeer het opnieuw!"
+                );
+            },
+        });
       },
 
       signUp: function (evt) {
