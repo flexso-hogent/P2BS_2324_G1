@@ -19,9 +19,9 @@
                                     <Input id="wachtwoord" type="Password" class="input" value="{form>/wachtwoord}"/>
                                     <Button icon="sap-icon://show" id="icon" press=".onSeePassword" />
                                 </HBox>
-                            <CheckBox id="keepSignedIn" selected="{form>/keepSignedIn}" text="Aangemeld blijven" ></CheckBox>
-                            <Link text="Wachtwoord vergeten?" press=".onForgotPassword" />
+                            <Text text=" "/>
                             <Link text="Geen account? Registreer u hier!" press=".onRegister" />
+                            <Text text=" "/>
                             <Button text="Aanmelden" type="Accept" press=".onLogin" />
                         </VBox>
                     </content>

@@ -13,6 +13,14 @@ sap.ui.define(
         // Initialization code if needed
         if(localStorage.getItem("user"))
           localStorage.removeItem("user");
+        
+        document.addEventListener("keydown", this.onKeyPress.bind(this));
+      },
+
+      onKeyPress: function (event) {
+        if (event.key === "Enter") {
+          this.onLogin();
+        }
       },
 
       onLogin: function () {
@@ -83,13 +91,9 @@ sap.ui.define(
         }
       },
 
-      onForgotPassword: function () {
-        window.location.href = "#/ForgotPassword/";
-      },
-
       onRegister: function () {
         window.location.href = "#/Registreer/";
-      },
+      }
     });
   }
 );
