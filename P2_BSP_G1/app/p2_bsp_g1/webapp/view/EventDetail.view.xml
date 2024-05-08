@@ -38,16 +38,16 @@
                                 <m:FlexItemData growFactor="1" />
                             </core:layoutData>
                         </core:Icon>
-                        <m:Label text="€ {prijs} inkom" class="sapUiSmallMarginBeginEnd" />
+                        <m:Label text="€ {prijs} {i18n>inkom}" class="sapUiSmallMarginBeginEnd" />
                     </layout:HorizontalLayout>
                 </layout:VerticalLayout>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd buttonWidth">
                     <m:Button text="{i18n>terug}" type="Default" press=".onTerug"/>
-                    <m:Button text="Voeg een sessie toe" type="Emphasized" press="addSessie" visible="false" id="av1" />
-                    <m:Button text="Bekijk feedback" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
-                    <m:Button text="Pas evenement aan" type="Attention" press="onEventPressEdit" visible="false" id="av3"/>
-                    <m:Button text="Verwijder evenement" type="Reject" press="deleteEvent" visible="false" id="av4" />
-                    <m:Button text="Deactiveer evenement" type="Reject" press=".onDeactivate" visible="false" id="av0" />
+                    <m:Button text="{i18n>voegSessieToeButton}" type="Emphasized" press="addSessie" visible="false" id="av1" />
+                    <m:Button text="{i18n>bekijkFeedbackButton}" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
+                <m:Button text="{i18n>pasEventAanButton}" type="Attention" press="onEventPressEdit" visible="false" id="av3"/>
+                    <m:Button text="{i18n>verwijderEventButton}" type="Reject" press="deleteEvent" visible="false" id="av4" />
+                    <m:Button text="{i18n>deactiveerEventButton}" type="Reject" press=".onDeactivate" visible="false" id="av0" />
                 </layout:VerticalLayout>
 
 
@@ -57,8 +57,8 @@
         <sections>
             <ObjectPageSection titleUppercase="false" id="personal" title="Session">
                 <subSections>
-                    <ObjectPageSubSection id="personalSS1" title="Beschikbare sessies" titleUppercase="false">
-                        <m:Table id="sessiestable" selectionChange=".onSelectionChange" noDataText="Dit evenement heeft op dit moment nog geen sessies." inset="false" items="{
+                    <ObjectPageSubSection id="personalSS1" title="{i18n>beschikbareSessies}" titleUppercase="false">
+                        <m:Table id="sessiestable" selectionChange=".onSelectionChange" noDataText="{i18n>geenSessiesEventDetail}" inset="false" items="{
 			path: 'sessies',
 			sorter: {
 				path: 'datum'
@@ -67,16 +67,16 @@
 		}">
                             <m:columns>
                                 <m:Column width="12em">
-                                    <m:Text text="Naam sessie" />
+                                    <m:Text text="{i18n>eventDetailNaamSessie}" />
                                 </m:Column>
                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
-                                    <m:Text text="Korte inhoud" />
+                                    <m:Text text="{i18n>eventDetailKorteInhoud}" />
                                 </m:Column>
                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
-                                    <m:Text text="Datum" />
+                                    <m:Text text="{i18n>eventDetailDatum}" />
                                 </m:Column>
                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
-                                    <m:Text text="Tijdstip" />
+                                    <m:Text text="{i18n>eventDetailTijdstip}" />
                                 </m:Column>
                                 <m:Column demandPopin="true">
                                 </m:Column>
@@ -86,11 +86,11 @@
                             <m:items>
                                 <m:ColumnListItem vAlign="Middle" press="handleListItemPress" type="Navigation">
                                     <m:cells>
-                                        <m:ObjectIdentifier title="{naam}" text="Door {spreker}"/>
+                                        <m:ObjectIdentifier title="{naam}" text="{i18n>eventDetailSpreker} {spreker}"/>
                                         <m:Text text="{korteInhoud}" />
                                         <m:Text text="{datum}" />
                                         <m:Text text="{beginUur} - {eindUur}" />
-                                        <m:Button id="_IDGenButton1" text="Registreer voor deze sessie" type="Emphasized" press="signUp" />
+                                        <m:Button id="_IDGenButton1" text="{i18n>eventDetailRegistreerSessie}" type="Emphasized" press="signUp" />
                                     </m:cells>
                                 </m:ColumnListItem>
                             </m:items>
