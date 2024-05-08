@@ -67,7 +67,7 @@
 
                 </m:items>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd buttonWidth">
-                    <m:Button text="Terug" type="Default" press=".onTerug"/>
+                    <m:Button text="{i18n>terug}" type="Default" press=".onTerug"/>
                     <m:Button text="Pas sessie aan" type="Attention" press="editSessie" visible="false" id="av3"/>
                     <m:Button text="Verwijder sessie" type="Reject" press="deleteSessie" visible="false" id="av4" />
                 </layout:VerticalLayout>

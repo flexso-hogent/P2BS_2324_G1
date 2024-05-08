@@ -43,7 +43,7 @@
                             </l:VerticalLayout>
                            
                         </VBox> <l:HorizontalLayout class="btncreate">
-                                <Button text="Terug" type="Default" press=".onTerug" class="btncreate"/>
+                                <Button text="{i18n>terug}" type="Default" press=".onTerug" class="btncreate"/>
                                 <Button text="Registreer" type="Accept" press=".onRegister" class="btncreate" />
                             </l:HorizontalLayout>
                     </content>

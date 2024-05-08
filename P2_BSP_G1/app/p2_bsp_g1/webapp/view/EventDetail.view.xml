@@ -42,7 +42,7 @@
                     </layout:HorizontalLayout>
                 </layout:VerticalLayout>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd buttonWidth">
-                    <m:Button text="Terug" type="Default" press=".onTerug"/>
+                    <m:Button text="{i18n>terug}" type="Default" press=".onTerug"/>
                     <m:Button text="Voeg een sessie toe" type="Emphasized" press="addSessie" visible="false" id="av1" />
                     <m:Button text="Bekijk feedback" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
                     <m:Button text="Pas evenement aan" type="Attention" press="onEventPressEdit" visible="false" id="av3"/>

@@ -21,7 +21,7 @@
                                 <Text text="Geboortedatum: {geboortedatum}" class="profielText" />
                             </layout:VerticalLayout>
                             <HBox class="btncreate ">
-                                <Button text="Terug" type="Default" press=".onTerug" class="ButtonStyle"/>
+                                <Button text="{i18n>terug}" type="Default" press=".onTerug" class="ButtonStyle"/>
                                 <Button text="Wijzig" type="Attention" press=".onWijzig" class="ButtonStyle" />
                             </HBox>
                         </VBox>

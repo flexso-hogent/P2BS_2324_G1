@@ -50,7 +50,7 @@
             </FlexBox>
             <FlexBox>
                 <VBox>
-                    <Button text="Terug" press=".onTerug" class="ButtonStyle"/>
+                    <Button text="{i18n>terug}" press=".onTerug" class="ButtonStyle"/>
                 </VBox>
             </FlexBox>
         </content>
