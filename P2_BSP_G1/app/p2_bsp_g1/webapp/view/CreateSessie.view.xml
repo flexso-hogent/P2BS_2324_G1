@@ -17,15 +17,15 @@
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
                             <Label text="Datum" class="input" labelFor="datum" required="true"/>
-                            <DatePicker id="datum" class="input" width="100%" value="{path: 'form>/datum', type: 'sap.ui.model.odata.type.Date' }" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+                            <DatePicker id="datum" class="input" width="100%" value="{path: 'form>/datum', type: 'sap.ui.model.odata.type.Date', formatOptions: {pattern: 'yyyy-MM-dd'}}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
                             <Label text="Beginuur" class="input" labelFor="beginUur" required="true"/>
-                            <TimePicker id="beginUur" class="input" width="100%" value="{path: 'form>/beginUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm" />
+                            <TimePicker id="beginUur" class="input" width="100%" value="{path: 'form>/beginUur', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm'}}" valueFormat="HH:mm" displayFormat="HH:mm" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
                             <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
-                            <TimePicker id="eindUur" class="input" width="100%" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm" />
+                            <TimePicker id="eindUur" class="input" width="100%" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm'}}" valueFormat="HH:mm" displayFormat="HH:mm" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
                             <Label text="Spreker" class="input" labelFor="spreker" required="true" />
