@@ -30,6 +30,14 @@ sap.ui.define(
           oUv2.setVisible(true);
           oUv3.setVisible(true);
         }
+        var language = localStorage.getItem("language");
+        if (language == null) {
+          this.onLanguageSwitchToDutch();
+        } else if(language == "en") {
+          this.onLanguageSwitchToEnglish();
+        } else {
+          this.onLanguageSwitchToDutch();
+        }
       },
       onCollapseExpandPress() {
         const oSideNavigation = this.byId("sideNavigation"),
@@ -79,33 +87,26 @@ sap.ui.define(
 			},
       onHandleLanguage: function() {
         var oResoureceModel = this.getView().getModel("i18n");
-        if (oResoureceModel.sLocale = null){
-          oResoureceModel.sLocale = "nl";
-          sap.ui.getCore().getConfiguration().setLanguage("nl");
-          this.getView().getModel("i18n").refresh();
-        }
-        else if (oResoureceModel.sLocale == "nl") {
+        if (oResoureceModel.sLocale == "nl") {
           this.onLanguageSwitchToEnglish();
         } else {
           this.onLanguageSwitchToDutch();
         }
-        console.log(oResoureceModel.sLocale);
       },
       onLanguageSwitchToEnglish: function() {
         var oResoureceModel = this.getView().getModel("i18n");
         oResoureceModel.sLocale = "en";
         sap.ui.getCore().getConfiguration().setLanguage("en");
+        localStorage.setItem("language", "en");
         this.getView().getModel("i18n").refresh();
       },
       onLanguageSwitchToDutch: function() {
         var oResoureceModel = this.getView().getModel("i18n");
         oResoureceModel.sLocale = "nl";
         sap.ui.getCore().getConfiguration().setLanguage("nl");
+        localStorage.setItem("language", "nl");
         this.getView().getModel("i18n").refresh();
       },
-      onHandle:function(){
-
-      }
     });
   }
 );
