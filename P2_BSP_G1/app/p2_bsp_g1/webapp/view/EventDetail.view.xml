@@ -38,7 +38,6 @@
                                 <m:FlexItemData growFactor="1" />
                             </core:layoutData>
                         </core:Icon>
-                        <m:Label text="Max. {maxAantalInschrijvingen} deelnemers" class="sapUiSmallMarginBeginEnd" />
                     </layout:HorizontalLayout>
                     <layout:HorizontalLayout>
                         <core:Icon src="sap-icon://money-bills" class="size2">

@@ -44,7 +44,7 @@
                                     <m:FlexItemData growFactor="1" />
                                 </core:layoutData>
                             </core:Icon>
-                            <m:Text text="Hier komen de inschrijvingen" />
+                            <m:Text text="Maximaal aantal inschrijvingen: {maxAantalInschrijvingen}" />
                         </layout:HorizontalLayout>
                         <layout:HorizontalLayout id="rating2" visible="true">
                             <core:Icon src="sap-icon://feedback" class="size2">
