@@ -28,6 +28,7 @@ sap.ui.define(
           eindUur: "",
           spreker: "",
           korteInhoud: "",
+          maxAaantalInschrijvingen: null,
         };
 
         var oModel = new JSONModel(oRegistreer);

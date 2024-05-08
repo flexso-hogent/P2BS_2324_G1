@@ -38,6 +38,14 @@
                             </core:Icon>
                             <m:Text text="{beginUur} - {eindUur}" />
                         </layout:HorizontalLayout>
+                        <layout:HorizontalLayout >
+                            <core:Icon src="sap-icon://group" class="size2">
+                                <core:layoutData>
+                                    <m:FlexItemData growFactor="1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <m:Text text="Hier komen de inschrijvingen" />
+                        </layout:HorizontalLayout>
                         <layout:HorizontalLayout id="rating2" visible="true">
                             <core:Icon src="sap-icon://feedback" class="size2">
                                 <core:layoutData>

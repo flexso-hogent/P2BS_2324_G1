@@ -20,7 +20,6 @@ entity Evenementen {
         beginUur                : Time;
         eindUur                 : Time;
         locatie                 : String;
-        maxAantalInschrijvingen : Integer;
         prijs                   : Decimal(5, 2);
         sessies                 : Association to many Sessies
                                       on sessies.evenement = $self;
@@ -34,6 +33,7 @@ entity Sessies {
         eindUur        : Time;
         spreker        : String;
         korteInhoud    : String;
+        maxAantalInschrijvingen : Integer;
         evenement      : Association to Evenementen;
         inschrijvingen : Association to many Inschrijvingen
                              on inschrijvingen.sessieID = $self;

@@ -36,10 +36,6 @@
                             <TimePicker id="eindUur" class="input" width="100%" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time' }" valueFormat="HH:mm" displayFormat="HH:mm"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Maximum aantal deelnemers" class="input" labelFor="maxAantalInschrijvingen" required="true"/>
-                            <Input id="maxAantalInschrijvingen" class="input" width="100%" value="{form>/maxAantalInschrijvingen}" />
-                            </l:VerticalLayout>
-                            <l:VerticalLayout class="inputGroup">
                             <Label text="Prijs in €" class="input" labelFor="prijs" required="true"/>
                             <Input id="prijs" class="input" width="100%" value="{form>/prijs}"/>
                             </l:VerticalLayout>

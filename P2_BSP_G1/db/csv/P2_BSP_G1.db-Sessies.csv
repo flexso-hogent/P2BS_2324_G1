@@ -1,42 +1,41 @@
-sessieID;naam;datum;beginUur;eindUur;spreker;korteInhoud;evenement_evenementID
-000001;Introductie tot Python;2024-04-15;10:00;12:00;John Doe;Leer de basisprincipes van Python programmeren.;000001
-000002;Geavanceerde Python Technieken;2024-04-15;13:00;15:00;Jane Smith;Ontdek geavanceerde concepten en toepassingen in Python.;000001
-000003;HTML5 en CSS3 Fundamentals;2024-05-10;10:00;12:00;Chris Johnson;Leer de basis van HTML5 en CSS3 voor webontwikkeling.;000002
-000004;Responsieve Web Design;2024-05-10;13:00;15:00;Emily Brown;Ontdek hoe je responsieve websites kunt ontwerpen met HTML en CSS.;000002
-000005;Introductie tot Data Science;2024-06-20;13:00;15:00;Michael Williams;Een inleiding tot data science en zijn toepassingen in verschillende domeinen.;000003
-000006;Machine Learning Fundamentals;2024-06-20;15:30;17:30;Sarah Garcia;Leer de basis van machine learning en algoritmen.;000003
-000007;Cybersecurity Trends en Bedreigingen;2024-07-05;11:00;13:00;David Clark;Een overzicht van de nieuwste trends en bedreigingen op het gebied van cybersecurity.;000004
-000008;Best Practices voor Veilige Softwareontwikkeling;2024-07-05;14:00;16:00;Laura Miller;Ontdek de beste praktijken voor het ontwikkelen van veilige software.;000004
-000009;Cloud Computing Infrastructuur;2024-08-25;11:00;13:00;Kevin Lee;Een introductie tot cloud computing en zijn infrastructuur.;000005
-000010;Serverless Architecturen;2024-08-25;14:00;16:00;Sophia Rodriguez;Leer hoe je serverless architecturen kunt ontwerpen en implementeren.;000005
-000011;Machine Learning in de Praktijk;2024-09-14;10:00;12:00;Alex Turner;Ontdek praktische toepassingen van machine learning in verschillende industrieën.;000006
-000012;Deep Learning Algoritmen;2024-09-14;13:00;15:00;Jessica Martinez;Een diepgaande duik in deep learning algoritmen en technieken.;000006
-000013;Agile Methodologieën;2024-10-08;10:00;12:00;Ryan Adams;Leer hoe je Agile methodologieën kunt implementeren in softwareontwikkelingsprojecten.;000007
-000014;Scrum Framework;2024-10-08;13:00;15:00;Emma Wilson;Een introductie tot het Scrum framework en zijn principes.;000007
-000015;Blockchain Technologieën Explained;2024-11-18;10:00;12:00;Daniel Thompson;Een overzicht van blockchain technologieën en hun toepassingen buiten cryptocurrencies.;000008
-000016;Smart Contracts Development;2024-11-18;13:00;15:00;Olivia Moore;Leer hoe je slimme contracten kunt ontwikkelen en implementeren op blockchain platforms.;000008
-000017;DevOps Cultuur en Praktijken;2024-12-09;10:00;12:00;Michael Johnson;Ontdek hoe DevOps cultuur en praktijken kunnen worden toegepast voor efficiëntere softwareontwikkeling.;000009
-000018;Continuous Integration en Continuous Deployment;2024-12-09;13:00;15:00;Sophie Anderson;Leer hoe je continuous integration en continuous deployment kunt implementeren in softwareontwikkelingspipelines.;000009
-000019;Introductie tot Cryptografie;2025-01-30;10:00;12:00;Lucas Garcia;Een inleiding tot cryptografische concepten en principes.;000010
-000020;Cryptography in Praktijk;2025-01-30;13:00;15:00;Isabella Martinez;Ontdek praktische toepassingen van cryptografie in cybersecurity en gegevensbescherming.;000010
-000021;Introductie tot Internet of Things;2025-02-17;10:00;12:00;David Smith;Een inleiding tot het Internet of Things (IoT) en zijn toepassingen.;000011
-000022;IoT Sensornetwerken;2025-02-17;13:00;15:00;Jennifer Taylor;Leer hoe je sensornetwerken kunt opzetten en beheren voor IoT-toepassingen.;000011
-000023;Software Testing Fundamentals;2025-03-05;10:00;12:00;Daniel Brown;Leer de basisprincipes van software testing en testmethodologieën.;000012
-000024;Testautomatisering;2025-03-05;13:00;15:00;Emily Johnson;Ontdek hoe je testautomatisering kunt implementeren voor efficiëntere softwareontwikkeling.;000012
-000025;Introductie tot Artificial Intelligence;2025-04-18;10:00;12:00;Michael Thompson;Een inleiding tot kunstmatige intelligentie en zijn toepassingen in verschillende domeinen.;000013
-000026;Natural Language Processing;2025-04-18;13:00;15:00;Sophia Wilson;Leer hoe je natuurlijke taalverwerking kunt implementeren met behulp van AI-technieken.;000013
-000027;IT Ethics and Compliance;2025-05-22;10:00;12:00;Lucas Adams;Een discussie over ethische kwesties en nalevingsnormen in de IT-sector.;000014
-000028;Privacy by Design;2025-05-22;13:00;15:00;Isabella Garcia;Ontdek hoe je privacy by design principes kunt toepassen bij het ontwerpen van IT-systemen.;000014
-000029;Cloud Security Best Practices;2025-06-14;10:00;12:00;Ryan Wilson;Leer de beste praktijken voor het beveiligen van cloudgebaseerde infrastructuren en services.;000015
-000030;Identity and Access Management in the Cloud;2025-06-14;13:00;15:00;Emma Martinez;Een overzicht van identity and access management strategieën voor cloudomgevingen.;000015
-000031;Software Architecture Patterns;2025-07-09;10:00;12:00;James Brown;Een diepgaande blik op software-architectuurpatronen en best practices.;000016
-000032;Microservices Architectuur;2025-07-09;13:00;15:00;Sophie Moore;Leer hoe je microservices kunt ontwerpen en implementeren voor schaalbare en flexibele applicaties.;000016
-000033;Blockchain voor Bedrijven;2025-08-05;10:00;12:00;David Taylor;Ontdek hoe blockchain-technologieën kunnen worden toegepast in zakelijke omgevingen voor verbeterde efficiëntie en transparantie.;000017
-000034;Supply Chain Management met Blockchain;2025-08-05;13:00;15:00;Jennifer Anderson;Een overzicht van hoe blockchain de supply chain kan transformeren en optimaliseren.;000017
-000035;DevOps Tools en Technieken;2025-09-22;10:00;12:00;Michael Moore;Ontdek populaire DevOps-tools en technieken voor continue integratie, implementatie en monitoring.;000018
-000036;Containerisatie met Docker;2025-09-22;13:00;15:00;Emily Smith;Leer hoe je containerisatie kunt implementeren met Docker voor schaalbare en draagbare applicatieontwikkeling.;000018
-000037;Artificial Intelligence in Finance;2025-10-11;10:00;12:00;Lucas Wilson;Ontdek hoe AI-technologieën de financiële sector transformeren en optimaliseren.;000019
-000038;Machine Learning in Healthcare;2025-10-11;13:00;15:00;Isabella Johnson;Leer hoe machine learning kan worden toegepast in de gezondheidszorg voor verbeterde diagnose en behandeling.;000019
-000039;Agile Development in Praktijk;2025-11-05;10:00;12:00;Ryan Martinez;Een praktische gids voor het implementeren van Agile methodologieën in softwareontwikkelingsprojecten.;000020
-000040;Continuous Delivery Best Practices;2025-11-05;13:00;15:00;Emma Adams;Ontdek beste praktijken voor het implementeren van continue levering voor snellere en betrouwbaardere softwarelevering.;000020
-
+sessieID;naam;datum;beginUur;eindUur;spreker;korteInhoud;maxAantalInschrijvingen;evenement_evenementID
+000001;Introductie tot Python;2024-04-15;10:00;12:00;John Doe;Leer de basisprincipes van Python programmeren.;20;000001
+000002;Geavanceerde Python Technieken;2024-04-15;13:00;15:00;Jane Smith;Ontdek geavanceerde concepten en toepassingen in Python.;25;000001
+000003;HTML5 en CSS3 Fundamentals;2024-05-10;10:00;12:00;Chris Johnson;Leer de basis van HTML5 en CSS3 voor webontwikkeling.;30;000002
+000004;Responsieve Web Design;2024-05-10;13:00;15:00;Emily Brown;Ontdek hoe je responsieve websites kunt ontwerpen met HTML en CSS.;35;000002
+000005;Introductie tot Data Science;2024-06-20;13:00;15:00;Michael Williams;Een inleiding tot data science en zijn toepassingen in verschillende domeinen.;40;000003
+000006;Machine Learning Fundamentals;2024-06-20;15:30;17:30;Sarah Garcia;Leer de basis van machine learning en algoritmen.;45;000003
+000007;Cybersecurity Trends en Bedreigingen;2024-07-05;11:00;13:00;David Clark;Een overzicht van de nieuwste trends en bedreigingen op het gebied van cybersecurity.;50;000004
+000008;Best Practices voor Veilige Softwareontwikkeling;2024-07-05;14:00;16:00;Laura Miller;Ontdek de beste praktijken voor het ontwikkelen van veilige software.;55;000004
+000009;Cloud Computing Infrastructuur;2024-08-25;11:00;13:00;Kevin Lee;Een introductie tot cloud computing en zijn infrastructuur.;60;000005
+000010;Serverless Architecturen;2024-08-25;14:00;16:00;Sophia Rodriguez;Leer hoe je serverless architecturen kunt ontwerpen en implementeren.;65;000005
+000011;Machine Learning in de Praktijk;2024-09-14;10:00;12:00;Alex Turner;Ontdek praktische toepassingen van machine learning in verschillende industrieën.;70;000006
+000012;Deep Learning Algoritmen;2024-09-14;13:00;15:00;Jessica Martinez;Een diepgaande duik in deep learning algoritmen en technieken.;75;000006
+000013;Agile Methodologieën;2024-10-08;10:00;12:00;Ryan Adams;Leer hoe je Agile methodologieën kunt implementeren in softwareontwikkelingsprojecten.;80;000007
+000014;Scrum Framework;2024-10-08;13:00;15:00;Emma Wilson;Een introductie tot het Scrum framework en zijn principes.;85;000007
+000015;Blockchain Technologieën Explained;2024-11-18;10:00;12:00;Daniel Thompson;Een overzicht van blockchain technologieën en hun toepassingen buiten cryptocurrencies.;90;000008
+000016;Smart Contracts Development;2024-11-18;13:00;15:00;Olivia Moore;Leer hoe je slimme contracten kunt ontwikkelen en implementeren op blockchain platforms.;95;000008
+000017;DevOps Cultuur en Praktijken;2024-12-09;10:00;12:00;Michael Johnson;Ontdek hoe DevOps cultuur en praktijken kunnen worden toegepast voor efficiëntere softwareontwikkeling.;100;000009
+000018;Continuous Integration en Continuous Deployment;2024-12-09;13:00;15:00;Sophie Anderson;Leer hoe je continuous integration en continuous deployment kunt implementeren in softwareontwikkelingspipelines.;20;000009
+000019;Introductie tot Cryptografie;2025-01-30;10:00;12:00;Lucas Garcia;Een inleiding tot cryptografische concepten en principes.;25;000010
+000020;Cryptography in Praktijk;2025-01-30;13:00;15:00;Isabella Martinez;Ontdek praktische toepassingen van cryptografie in cybersecurity en gegevensbescherming.;30;000010
+000021;Introductie tot Internet of Things;2025-02-17;10:00;12:00;David Smith;Een inleiding tot het Internet of Things (IoT) en zijn toepassingen.;35;000011
+000022;IoT Sensornetwerken;2025-02-17;13:00;15:00;Jennifer Taylor;Leer hoe je sensornetwerken kunt opzetten en beheren voor IoT-toepassingen.;40;000011
+000023;Software Testing Fundamentals;2025-03-05;10:00;12:00;Daniel Brown;Leer de basisprincipes van software testing en testmethodologieën.;45;000012
+000024;Testautomatisering;2025-03-05;13:00;15:00;Emily Johnson;Ontdek hoe je testautomatisering kunt implementeren voor efficiëntere softwareontwikkeling.;50;000012
+000025;Introductie tot Artificial Intelligence;2025-04-18;10:00;12:00;Michael Thompson;Een inleiding tot kunstmatige intelligentie en zijn toepassingen in verschillende domeinen.;55;000013
+000026;Natural Language Processing;2025-04-18;13:00;15:00;Sophia Wilson;Leer hoe je natuurlijke taalverwerking kunt implementeren met behulp van AI-technieken.;60;000013
+000027;IT Ethics and Compliance;2025-05-22;10:00;12:00;Lucas Adams;Een discussie over ethische kwesties en nalevingsnormen in de IT-sector.;65;000014
+000028;Privacy by Design;2025-05-22;13:00;15:00;Isabella Garcia;Ontdek hoe je privacy by design principes kunt toepassen bij het ontwerpen van IT-systemen.;70;000014
+000029;Cloud Security Best Practices;2025-06-14;10:00;12:00;Ryan Wilson;Leer de beste praktijken voor het beveiligen van cloudgebaseerde infrastructuren en services.;75;000015
+000030;Identity and Access Management in the Cloud;2025-06-14;13:00;15:00;Emma Martinez;Een overzicht van identity and access management strategieën voor cloudomgevingen.;80;000015
+000031;Software Architecture Patterns;2025-07-09;10:00;12:00;James Brown;Een diepgaande blik op software-architectuurpatronen en best practices.;85;000016
+000032;Microservices Architectuur;2025-07-09;13:00;15:00;Sophie Moore;Leer hoe je microservices kunt ontwerpen en implementeren voor schaalbare en flexibele applicaties.;90;000016
+000033;Blockchain voor Bedrijven;2025-08-05;10:00;12:00;David Taylor;Ontdek hoe blockchain-technologieën kunnen worden toegepast in zakelijke omgevingen voor verbeterde efficiëntie en transparantie.;95;000017
+000034;Supply Chain Management met Blockchain;2025-08-05;13:00;15:00;Jennifer Anderson;Een overzicht van hoe blockchain de supply chain kan transformeren en optimaliseren.;100;000017
+000035;DevOps Tools en Technieken;2025-09-22;10:00;12:00;Michael Moore;Ontdek populaire DevOps-tools en technieken voor continue integratie, implementatie en monitoring.;20;000018
+000036;Containerisatie met Docker;2025-09-22;13:00;15:00;Emily Smith;Leer hoe je containerisatie kunt implementeren met Docker voor schaalbare en draagbare applicatieontwikkeling.;25;000018
+000037;Artificial Intelligence in Finance;2025-10-11;10:00;12:00;Lucas Wilson;Ontdek hoe AI-technologieën de financiële sector transformeren en optimaliseren.;30;000019
+000038;Machine Learning in Healthcare;2025-10-11;13:00;15:00;Isabella Johnson;Leer hoe machine learning kan worden toegepast in de gezondheidszorg voor verbeterde diagnose en behandeling.;35;000019
+000039;Agile Development in Praktijk;2025-11-05;10:00;12:00;Ryan Martinez;Een praktische gids voor het implementeren van Agile methodologieën in softwareontwikkelingsprojecten.;40;000020
+000040;Continuous Delivery Best Practices;2025-11-05;13:00;15:00;Emma Adams;Ontdek beste praktijken voor het implementeren van continue levering voor snellere en betrouwbaardere softwarelevering.;45;000020

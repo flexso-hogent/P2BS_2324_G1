@@ -27,7 +27,6 @@ sap.ui.define(
           eindDatum: null,
           beginUur: "",
           eindUur: "",
-          maxAantalInschrijvingen: null,
           prijs: null,
         };
 

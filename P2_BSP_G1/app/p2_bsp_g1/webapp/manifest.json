@@ -151,11 +151,6 @@
           "target": ["Login"]
         },
         {
-          "name": "ForgotPassword",
-          "pattern": "ForgotPassword",
-          "target": ["ForgotPassword"]
-        },
-        {
           "name": "StartScreen",
           "pattern": "StartScreen",
           "target": ["StartScreen"]
@@ -243,13 +238,6 @@
           "clearControlAggregation": false,
           "viewId": "Login",
           "viewName": "Login"
-        },
-        "ForgotPassword": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "ForgotPassword",
-          "viewName": "ForgotPassword"
         },
         "StartScreen": {
           "viewType": "XML",
