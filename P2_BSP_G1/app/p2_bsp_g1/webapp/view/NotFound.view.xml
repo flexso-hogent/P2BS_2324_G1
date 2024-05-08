@@ -11,9 +11,9 @@
                 <Panel width="40vw" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
-                            <Title level="H3" text="404: Page not found" />
-                            <Text text="Het lijkt erop dat we deze pagina niet kunnen vinden." />
-                            <Button text="Terug naar home" press=".onHome" />
+                            <Title level="H3" text="{i18n>404}" />
+                            <Text text="{i18n>notFoundText}" />
+                            <Button text="{i18n>notFoundButton}" press=".onHome" />
                         </VBox>
                     </content>
                 </Panel>
