@@ -13,10 +13,10 @@
 						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
 					</f:heading>
 					<f:expandedContent>
-						<Label id="expandedLabel" text="Geen filters actief" />
+						<Label id="expandedLabel" text="{i18n>geenFilters}" />
 					</f:expandedContent>
 					<f:snappedContent>
-						<Label id="snappedLabel" text="Geen filters actief" />
+						<Label id="snappedLabel" text="{i18n>geenFilters}" />
 					</f:snappedContent>
 				</f:DynamicPageTitle>
 			</f:title>
@@ -25,22 +25,22 @@
 					<f:content>
 						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
 							<fb:filterGroupItems>
-								<fb:FilterGroupItem name="EventNaam" label="Event naam / nummer" groupName="Group1" visibleInFilterBar="true">
+								<fb:FilterGroupItem name="EventNaam" label="{i18n>eventNaamNummerFilter}" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
-										<SearchField search=".onSearchNaam" width="100%" placeholder="Search for Event naam / nummer" />
+										<SearchField search=".onSearchNaam" width="100%" placeholder="{i18n>eventNaamNummerFilterPlaceholder}" />
 									</fb:control>
 								</fb:FilterGroupItem>
-								<fb:FilterGroupItem name="EventLocation" label="Event locatie" groupName="Group1" visibleInFilterBar="true">
+								<fb:FilterGroupItem name="EventLocation" label="{i18n>eventLocatieFilter}" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
-										<SearchField search=".onSearchLocation" liveChange=".onSearchLocation" width="100%" placeholder="Zoek op Event locatie" />
+										<SearchField search=".onSearchLocation" liveChange=".onSearchLocation" width="100%" placeholder="{i18n>eventLocatieFilterPlaceholder}" />
 									</fb:control>
 								</fb:FilterGroupItem>
-								<fb:FilterGroupItem name="beginDatum" label="beginDatum" groupName="Group1" visibleInFilterBar="true">
+								<fb:FilterGroupItem name="beginDatum" label="{i18n>eventBeginDatumFilter}" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<DatePicker name="beginDatum" showCurrentDateButton="true" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" change=".onSearchBeginDate" />
 									</fb:control>
 								</fb:FilterGroupItem>
-								<fb:FilterGroupItem name="EindDatum" label="Einddatum" groupName="Group1" visibleInFilterBar="true">
+								<fb:FilterGroupItem name="EindDatum" label="{i18n>eventEindDatumFilter}" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<DatePicker name="EindDatum" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" change=".onSearchEndDate" />
 									</fb:control>
@@ -51,7 +51,7 @@
 				</f:DynamicPageHeader>
 			</f:header>
 			<f:content>
-				<Table id="eventsTable" selectionChange=".onSelectionChange" noDataText="Op dit moment zijn er nog geen evenementen waarop u kunt inschrijven. " inset="false" items="{
+				<Table id="eventsTable" selectionChange=".onSelectionChange" noDataText="{i18n>noEventData}" inset="false" items="{
 						path: '/Evenementen'
 					}">
 					<infoToolbar>
@@ -61,25 +61,22 @@
 					</infoToolbar>
 					<columns>
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Event nummer"/>
+							<Text text="{i18n>eventNummer}"/>
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Event naam"/>
+							<Text text="{i18n>eventNaam}"/>
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Locatie"/>
+							<Text text="{i18n>eventLocatie}"/>
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Begin datum"/>
+							<Text text="{i18n>eventStartDatum}"/>
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Eind datum"/>
+							<Text text="{i18n>eventEindDatum}"/>
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Maximum inschrijvingen"/>
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Prijs"/>
+							<Text text="{i18n>eventPrijs}"/>
 						</Column>
 					</columns>
 
@@ -91,7 +88,6 @@
 								<Text text="{locatie}" />
 								<Text text="{beginDatum} {beginUur}" />
 								<Text text="{eindDatum} {eindUur}" />
-								<Text text="{maxAantalInschrijvingen}" />
 								<Text text="€{prijs}" />
 							</cells>
 						</ColumnListItem>
