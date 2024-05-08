@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller"],
+  ["sap/ui/core/mvc/Controller", "sap/ui/model/resource/ResourceModel"],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller) {
+  function (Controller, ResourceModel) {
     "use strict";
 
     var user = JSON.parse(localStorage.getItem("user"));
@@ -76,7 +76,36 @@ sap.ui.define(
 			},
 			onNewSessie: function() {
 				window.location.href = "#/Sessies#/new/1";
-			}
+			},
+      onHandleLanguage: function() {
+        var oResoureceModel = this.getView().getModel("i18n");
+        if (oResoureceModel.sLocale = null){
+          oResoureceModel.sLocale = "nl";
+          sap.ui.getCore().getConfiguration().setLanguage("nl");
+          this.getView().getModel("i18n").refresh();
+        }
+        else if (oResoureceModel.sLocale == "nl") {
+          this.onLanguageSwitchToEnglish();
+        } else {
+          this.onLanguageSwitchToDutch();
+        }
+        console.log(oResoureceModel.sLocale);
+      },
+      onLanguageSwitchToEnglish: function() {
+        var oResoureceModel = this.getView().getModel("i18n");
+        oResoureceModel.sLocale = "en";
+        sap.ui.getCore().getConfiguration().setLanguage("en");
+        this.getView().getModel("i18n").refresh();
+      },
+      onLanguageSwitchToDutch: function() {
+        var oResoureceModel = this.getView().getModel("i18n");
+        oResoureceModel.sLocale = "nl";
+        sap.ui.getCore().getConfiguration().setLanguage("nl");
+        this.getView().getModel("i18n").refresh();
+      },
+      onHandle:function(){
+
+      }
     });
   }
 );
