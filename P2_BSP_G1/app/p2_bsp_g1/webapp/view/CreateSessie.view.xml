@@ -32,12 +32,12 @@
                             <Input id="spreker" class="input" width="100%" value="{form>/spreker}" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" required="true"/>
-                            <TextArea id="korteInhoud" value="{form>/korteInhoud}" class="input" growing="true" showExceededText="true" maxLength="500" width="100%" valueLiveUpdate="false" liveChange="handleLiveChange" />
-                            </l:VerticalLayout>
-                            <l:VerticalLayout class="inputGroup">
                             <Label text="Maximum aantal inschrijvingen" class="input" labelFor="maxAantalInschrijvingen" required="true"/>
                             <Input id="maxAantalInschrijvingen" class="input" width="100%" value="{form>/maxAantalInschrijvingen}"/>
+                            </l:VerticalLayout>
+                            <l:VerticalLayout class="inputGroup">
+                            <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" required="true"/>
+                            <TextArea id="korteInhoud" value="{form>/korteInhoud}" class="input" growing="true" showExceededText="true" maxLength="500" width="100%" valueLiveUpdate="false" liveChange="handleLiveChange" />
                             </l:VerticalLayout>
                         </VBox>
                     </content>

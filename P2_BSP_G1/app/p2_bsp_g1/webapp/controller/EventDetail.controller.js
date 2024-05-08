@@ -32,8 +32,8 @@ sap.ui.define(
           oAv3.setVisible(true);
           oAv4.setVisible(true);
         }
-
-        // this.checkUserSignUp();
+        
+        this.zichtbaarheid = true;        // this.checkUserSignUp();
       },
 
       checkUserSignUp: function () {
@@ -241,10 +241,6 @@ sap.ui.define(
         window.location.href = "#/Feedback/" + evenementID;
       },
 
-      editEvent: function () {
-        // window.location.href = "#/Evenementen#/edit/" + evenementID;
-      },
-
       deleteEvent: function () {
         var odatamodel = this.getView().getModel("v2model");
         var evenementID = this.getView()
@@ -284,15 +280,17 @@ sap.ui.define(
       onDeactivate: function(button) {
         var button = this.getView().byId("av0");
         var beschikbareSessies = this.getView().byId("personalSS1");
-        if (button.getText() === "Deactiveer evenement") {
+        if (this.zichtbaarheid) {
           button.setText("Activeer evenement"); 
           button.setType("Accept");
           beschikbareSessies.setVisible(false);
+          this.zichtbaarheid = false;
         }
         else {
           button.setText("Deactiveer evenement");
           button.setType("Reject");
           beschikbareSessies.setVisible(true);
+          this.zichtbaarheid = true;
         }
       }
     });

@@ -33,13 +33,6 @@
                         </layout:VerticalLayout>
                     </layout:HorizontalLayout>
                     <layout:HorizontalLayout>
-                        <core:Icon src="sap-icon://group" class="size2">
-                            <core:layoutData>
-                                <m:FlexItemData growFactor="1" />
-                            </core:layoutData>
-                        </core:Icon>
-                    </layout:HorizontalLayout>
-                    <layout:HorizontalLayout>
                         <core:Icon src="sap-icon://money-bills" class="size2">
                             <core:layoutData>
                                 <m:FlexItemData growFactor="1" />
