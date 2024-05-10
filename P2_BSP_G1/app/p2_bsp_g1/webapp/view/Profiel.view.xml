@@ -7,7 +7,7 @@
     xmlns:svm="sap.ui.comp.smartvariants"
     xmlns:m="sap.m" height="100%">
 
-    <Page id="Gebruiker" title="Mijn profiel">
+    <Page id="Gebruiker" title="{i18n>titelProfiel}">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
                 <Panel width="40vw" backgroundDesign="Translucent">
@@ -16,33 +16,33 @@
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
                             <Avatar id="avatar" displaySize="L" initials="{= ${voornaam}.charAt(0) + ${achternaam}.charAt(0)}" />
                             <layout:VerticalLayout class="profiel">
-                                <Label text="Voornaam" labelFor="voornaam" required="true" class="input"/>
+                                <Label text="{i18n>voornaam}" labelFor="voornaam" required="true" class="input"/>
                                 <HBox class="input" >
                                     <Input id="voornaam" width="100%" class="input" value="{voornaam}" editable="false" liveChange=".updateModel"/>
                                     <Button icon="sap-icon://edit" press=".onEditVoornaam"/>
                                 </HBox>
-                                <Label text="Achternaam" labelFor="achternaam" required="true" class="input"/>
+                                <Label text="{i18n>achternaam}" labelFor="achternaam" required="true" class="input"/>
                                 <HBox class="input">
                                     <Input id="achternaam" width="100%" class="input" value="{achternaam}" editable="false" liveChange=".updateModel"/>
                                     <Button icon="sap-icon://edit" press=".onEditAchternaam"/>
                                 </HBox>
-                                <Label text="Email" labelFor="email" required="true" class="input"/>
+                                <Label text="{i18n>email}" labelFor="email" required="true" class="input"/>
                                 <HBox class="input" >
                                     <Input id="email" width="100%" class="input" value="{email}" editable="false" liveChange=".updateModel"/>
                                     <Button icon="sap-icon://edit" press=".onEditEmail"/>
                                 </HBox>
-                                <Label text="Geboortedatum" labelFor="geboortedatum" required="true" class="input"/>
+                                <Label text="{i18n>geboortedatum}" labelFor="geboortedatum" required="true" class="input"/>
                                 <HBox class="input">
                                     <DatePicker id="geboortedatum" width="100%" class="input" value="{geboortedatum}" valueFormat="yyyy-MM-dd" editable="false" liveChange=".updateModel"/>
                                     <Button icon="sap-icon://edit" press=".onEditDate"/>
                                 </HBox>
-                                <Label text="Wachtwoord" labelFor="wachtwoord" required="true" class="input" />
+                                <Label text="{i18n>wachtwoord}" labelFor="wachtwoord" required="true" class="input" />
                                 <HBox class="input">
                                     <Input id="wachtwoord" type="Password" width="100%" class="input" value="{wachtwoord}" editable="false" liveChange=".updateModel"/>
                                     <Button icon="sap-icon://show" press=".onSeePassword" />
                                     <Button icon="sap-icon://edit" press=".onEditWW"/>
                                 </HBox>
-                                <Label text="Herhaal wachtwoord" labelFor="herhaalWachtwoord" required="true" class="input"/>
+                                <Label text="{i18n>herhaalWachtwoord}" labelFor="herhaalWachtwoord" required="true" class="input"/>
                                 <HBox class="input">
                                     <Input id="herhaalWW" type="Password" width="100%" class="input" editable="false" liveChange=".updateModel"/>
                                     <Button icon="sap-icon://show" press=".onSeePasswordHerhaal" />
@@ -51,7 +51,7 @@
                             </layout:VerticalLayout>
                             <HBox class="btncreate ">
                                 <Button text="{i18n>terug}" type="Default" press=".onTerug" class="ButtonStyle"/>
-                                <Button text="Opslaan" type="Accept" press=".onOpslaan" class="ButtonStyle" />
+                                <Button text="{i18n>opslaan}" type="Accept" press=".onOpslaan" class="ButtonStyle" />
                             </HBox>
                         </VBox>
                     </content>
