@@ -28,8 +28,20 @@
                             </core:layoutData>
                         </core:Icon>
                         <layout:VerticalLayout>
-                            <m:Label text="{beginDatum} - {beginUur}" class="sapUiSmallMarginBeginEnd" />
-                            <m:Label text="{eindDatum} - {eindUur}" class="sapUiSmallMarginBeginEnd" />
+                            <m:Label text="{
+                                parts: [
+                                    {path: 'beginDatum'},
+                                    {path: 'beginUur', targetType: 'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short' }}
+                                ],
+                                formatter: '.myCustomFormatterFunction'
+                                }" class="sapUiSmallMarginBeginEnd" />
+                            <m:Label text="{
+                                parts: [
+                                    {path: 'eindDatum'},
+                                    {path: 'eindUur', targetType: 'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short' }}
+                                ],
+                                formatter: '.myCustomFormatterFunction'
+                                }" class="sapUiSmallMarginBeginEnd" />
                         </layout:VerticalLayout>
                     </layout:HorizontalLayout>
                     <layout:HorizontalLayout>

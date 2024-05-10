@@ -86,8 +86,20 @@
 								<ObjectIdentifier title="{evenementID}" />
 								<Text text="{naam}" />
 								<Text text="{locatie}" />
-								<Text text="{beginDatum} {beginUur}" />
-								<Text text="{eindDatum} {eindUur}" />
+								<Text text="{
+									parts: [
+										{path: 'beginDatum', type: 'sap.ui.model.odata.type.Date', formatOptions: { pattern: 'yyyy-MM-dd', UTC: true }},
+										{path: 'beginUur', targetType:'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short', UTC: true }}
+									],
+									formatter: '.myCustomFormatterFunction'
+								}" />
+								<Text text="{
+									parts: [
+										{path: 'eindDatum', type: 'sap.ui.model.odata.type.Date', formatOptions: { pattern: 'yyyy-MM-dd', UTC: true }},
+										{path: 'eindUur', targetType:'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short', UTC: true }}
+									],
+									formatter: '.myCustomFormatterFunction'
+								}" />
 								<Text text="€{prijs}" />
 							</cells>
 						</ColumnListItem>

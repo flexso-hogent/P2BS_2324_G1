@@ -292,6 +292,29 @@ sap.ui.define(
           beschikbareSessies.setVisible(true);
           this.zichtbaarheid = true;
         }
+      },
+      myCustomFormatterFunction: function(beginDatum, beginUur) {
+        try {
+          var oDate = new Date(beginDatum);
+          var formattedDate = sap.ui.core.format.DateFormat.getDateInstance({
+            pattern: "yyyy-MM-dd",
+            UTC: true
+          }).format(oDate);
+      
+          if (beginUur) {
+            var aTime = beginUur.split(':');
+            var formattedTime = aTime[0] + ':' + aTime[1];
+      
+            var formattedDateTime = formattedDate + ' ' + formattedTime;
+      
+            return formattedDateTime;
+          } else {
+            return "Invalid time";
+          }
+        } catch (error) {
+          console.error("Error formatting date and time:", error);
+          return "Error formatting date and time";
+        }
       }
     });
   }
