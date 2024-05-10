@@ -28,7 +28,7 @@
                                     <m:FlexItemData growFactor="1" />
                                 </core:layoutData>
                             </core:Icon>
-                            <m:Text text="{datum}" />
+                            <m:Text text="{ path: 'datum', type: 'sap.ui.model.type.Date', formatOptions: { source: { pattern: 'yyyy-MM-ddTHH:mm:ss' }, pattern: 'yyyy-MM-dd' } }"/>
                         </layout:HorizontalLayout>
                         <layout:HorizontalLayout >
                             <core:Icon src="sap-icon://away" class="size2">
@@ -36,7 +36,13 @@
                                     <m:FlexItemData growFactor="1" />
                                 </core:layoutData>
                             </core:Icon>
-                            <m:Text text="{beginUur} - {eindUur}" />
+                                        <m:Text text="{
+                                            parts: [
+                                                {path: 'beginUur', targetType:'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short', UTC: true }},
+                                                {path: 'eindUur', targetType:'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short', UTC: true }}
+                                            ],
+                                            formatter: '.myCustomFormatterFunction2'
+                                        }" />
                         </layout:HorizontalLayout>
                         <layout:HorizontalLayout >
                             <core:Icon src="sap-icon://group" class="size2">
