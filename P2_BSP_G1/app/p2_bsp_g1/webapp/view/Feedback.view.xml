@@ -8,7 +8,7 @@
     <Page id="Feedback">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
-                <Table id="feedbackTable" selectionChange=".onSelectionChange" noDataText="Er is nog geen feedback gegeven op de sessies van dit evenement." inset="false" items="{
+                <Table id="feedbackTable" selectionChange=".onSelectionChange" noDataText="{i18n>noFeedbackData}" inset="false" items="{
 						path: '/Scores',
                         sorter: {
                             path: 'inschrijvingID/sessieID/naam',
@@ -23,16 +23,16 @@
                     </infoToolbar>
                     <columns>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <ObjectIdentifier title="Naam sessie" text="Spreker"/>
+                            <ObjectIdentifier title="{i18n>naamSessie}" text="Spreker"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Naam gebruiker"/>
+                            <Text text="{i18n>naamGebruiker}"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Aantal sterren"/>
+                            <Text text="{i18n>aantalSterren}"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Feedback"/>
+                            <Text text="{i18n>feedback}"/>
                         </Column>
                     </columns>
 
