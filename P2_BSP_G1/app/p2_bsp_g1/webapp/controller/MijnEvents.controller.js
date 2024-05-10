@@ -85,6 +85,27 @@ sap.ui.define(
       //       var oQRCodeContainer = this.getView().byId("qrCodeContainer");
       //       oQRCodeContainer.setContent(svg);
       //   }
+      myCustomFormatterFunction2: function(beginUur, eindUur) {
+        try {
+      
+          if (beginUur && eindUur) {
+            var aTime = beginUur.split(':');
+            var formattedTime = aTime[0] + ':' + aTime[1];
+
+            var bTime = eindUur.split(':');
+            var formattedTime2 = bTime[0] + ':' + bTime[1];
+      
+            var formattedDateTime = formattedTime + ' - ' + formattedTime2;
+      
+            return formattedDateTime;
+          } else {
+            return "Invalid time";
+          }
+        } catch (error) {
+          console.error("Error formatting date and time:", error);
+          return "Error formatting date and time";
+        }
+      },
     });
   }
 );

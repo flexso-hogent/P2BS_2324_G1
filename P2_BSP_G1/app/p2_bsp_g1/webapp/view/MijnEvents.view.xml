@@ -40,8 +40,14 @@
                         <ColumnListItem vAlign="Middle" type="Navigation" press="handleListPress">
                             <cells>
                                 <ObjectIdentifier title="{sessieID/naam}" text="{sessieID/evenement/naam}: {sessieID/evenement/beginDatum} - {sessieID/evenement/eindDatum}" />
-                                <Text text="{sessieID/datum}" />
-                                <Text text="{sessieID/beginUur} - {sessieID/eindUur}" />
+                                <Text text="{ path: 'sessieID/datum', type: 'sap.ui.model.type.Date', formatOptions: { source: { pattern: 'yyyy-MM-ddTHH:mm:ss' }, pattern: 'yyyy-MM-dd' } }"/>
+                                <Text text="{
+                                        parts: [
+                                            {path: 'sessieID/beginUur', targetType:'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short', UTC: true }},
+                                            {path: 'sessieID/eindUur', targetType:'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short', UTC: true }}
+                                        ],
+                                        formatter: '.myCustomFormatterFunction2'
+                                }" />
                                 <Text text="{sessieID/evenement/locatie}" />
                                 <!-- <core:Icon src="sap-icon://qr-code" press="openQR"/> -->
                                 <Button text="Geef feedback" press="geefFeedback" />
