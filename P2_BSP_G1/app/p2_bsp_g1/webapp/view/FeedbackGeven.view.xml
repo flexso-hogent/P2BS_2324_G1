@@ -5,20 +5,20 @@
     xmlns="sap.m"
     displayBlock="true">
 
-    <Page id="FeedbackGeven" title="Geef feedback">
+    <Page id="FeedbackGeven" title="{i18n>feedbackGeven}">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" height="100%" width="100%">
                 <Panel width="40vw" backgroundDesign="Translucent">
                     <content>
                         <VBox alignItems="Center">
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
-                            <Label text="Number of Stars" labelFor="stars" class="input" required="true"/>
+                            <Label text="{i18n>aantalSterren}" labelFor="stars" class="input" required="true"/>
                             <RatingIndicator id="ratingIndicator" value="3" iconSize="32px"/>
-                            <Label text="Feedback" class="input" required="true" />
-                            <TextArea id="feedback" class="input" placeholder="Schrijf hier je feedback." rows="5" height="100%"/>                          
+                            <Label text="{i18n>feedback}" class="input" required="true" />
+                            <TextArea id="feedback" class="input" placeholder="{i18n>feedbackGevenPlaceholder}" rows="5" height="100%"/>                          
                             <HBox >
-                              <Button text="Cancel" type="Transparent" press=".onCancel" class="ButtonStyle"/>
-                              <Button text="Sent Feedback" type="Accept" press=".onSent" class="ButtonStyle"/>
+                              <Button text="{i18n>annuleer}" type="Transparent" press=".onCancel" class="ButtonStyle"/>
+                              <Button text="{i18n>stuurFeedback}" type="Accept" press=".onSent" class="ButtonStyle"/>
                             </HBox>
                         </VBox>
                     </content>
