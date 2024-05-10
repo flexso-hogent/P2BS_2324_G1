@@ -75,3 +75,7 @@
 .buttonWidth Button{
   width: 100%;
 }
+
+.menu{
+  margin-left: 10vw !important;
+}

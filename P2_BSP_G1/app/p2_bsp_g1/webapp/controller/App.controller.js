@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/ui/model/resource/ResourceModel"],
+  ["sap/ui/core/mvc/Controller", "sap/ui/model/resource/ResourceModel", "sap/ui/core/Fragment", "sap/m/MenuItem", "sap/m/MessageToast"],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, ResourceModel) {
+  function (Controller, ResourceModel, Fragment, MenuItem, MessageToast) {
     "use strict";
 
     var user = JSON.parse(localStorage.getItem("user"));
@@ -48,9 +48,6 @@ sap.ui.define(
       onLogoPressed() {
         window.location.href = "#/";
         window.location.reload();
-      },
-      onAvatarPressed: function () {
-        window.location.href = "#/Profiel";
       },
       onLogOut: function () {
         localStorage.removeItem("user");
@@ -107,6 +104,47 @@ sap.ui.define(
         localStorage.setItem("language", "nl");
         this.getView().getModel("i18n").refresh();
       },
+      onPress: function () {
+				var oView = this.getView(),
+					oButton = oView.byId("button");
+
+          console.log(oView.getId());
+
+				if (!this._oMenuFragment) {
+					this._oMenuFragment = Fragment.load({
+						id: oView.getId(),
+						name: "p2bspg1.view.Menu",
+						controller: this
+					}).then(function(oMenu) {
+						oMenu.openBy(oButton);
+						this._oMenuFragment = oMenu;
+						return this._oMenuFragment;
+					}.bind(this));
+				} else {
+					this._oMenuFragment.openBy(oButton);
+				}
+			},
+			onMenuAction: function(oEvent) {
+				var oItem = oEvent.getParameter("item"),
+					sItemPath = "";
+
+				while (oItem instanceof MenuItem) {
+					sItemPath = oItem.getText();
+					oItem = oItem.getParent();
+				}
+        console.log(sItemPath);
+
+
+        switch (sItemPath) {
+          case "English":
+            this.onLanguageSwitchToEnglish();
+            break;
+          case "Dutch":
+            this.onLanguageSwitchToDutch();
+            break;
+        }
+
+			}
     });
   }
 );
