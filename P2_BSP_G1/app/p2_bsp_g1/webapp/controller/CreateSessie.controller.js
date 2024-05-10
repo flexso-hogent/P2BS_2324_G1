@@ -50,11 +50,18 @@ sap.ui.define(
       },
 
       getSessieData: function (sessieID) {
+        var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+        var sButtonText = oResourceBundle.getText("titelBewerkSessie");
+        
         var button = this.byId("creeerEditButton");
-        button.setText("Bewerk sessie");
+        button.setText(sButtonText);
+        
         var title = this.byId("createSessie");
-        title.setTitle("Bewerk evenement");
-        this.getView().byId("createSessie").setTitle("Sessie bewerken");
+        title.setTitle(sButtonText);
+        var sTitleKey = "sessiebewerken"; // Replace with the actual key from your resource bundle
+
+        var title = this.byId("createSessie");
+        title.setTitle(oResourceBundle.getText(sTitleKey));
         // Assuming you have a service to fetch event data
         var odatamodel = this.getView().getModel("v2model");
         var oForm = this.getView().getModel("form").getData();

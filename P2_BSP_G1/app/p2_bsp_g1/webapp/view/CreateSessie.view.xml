@@ -4,7 +4,7 @@
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m" displayBlock="true">
 
-    <Page id="createSessie" title="Nieuwe sessie aanmaken">
+    <Page id="createSessie" title="{i18n>titelCreateSessie}">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%" class="panel">
                 <Panel width="50vw" backgroundDesign="Translucent">
@@ -12,38 +12,38 @@
                         <VBox alignItems="Center">
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="10vw" class="flexsoImg"></Image>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Naam Sessie" class="input" labelFor="naam" required="true"/>
+                            <Label text="{i18n>naamSessie}" class="input" labelFor="naam" required="true"/>
                             <Input id="naam" class="input" width="100%" placeholder="Naam sessie" value="{form>/naam}" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Datum" class="input" labelFor="datum" required="true"/>
+                            <Label text="{i18n>datum}" class="input" labelFor="datum" required="true"/>
                             <DatePicker id="datum" class="input" width="100%" value="{path: 'form>/datum', type: 'sap.ui.model.odata.type.Date', formatOptions: {pattern: 'yyyy-MM-dd'}}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Beginuur" class="input" labelFor="beginUur" required="true"/>
+                            <Label text="{i18n>beginUur}" class="input" labelFor="beginUur" required="true"/>
                             <TimePicker id="beginUur" class="input" width="100%" value="{path: 'form>/beginUur', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm'}}" valueFormat="HH:mm" displayFormat="HH:mm" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
+                            <Label text="{i18n>eindUur}" class="input" labelFor="eindUur" required="true"/>
                             <TimePicker id="eindUur" class="input" width="100%" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm'}}" valueFormat="HH:mm" displayFormat="HH:mm" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Spreker" class="input" labelFor="spreker" required="true" />
+                            <Label text="{i18n>spreker}" class="input" labelFor="spreker" required="true" />
                             <Input id="spreker" class="input" width="100%" value="{form>/spreker}" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Maximum aantal inschrijvingen" class="input" labelFor="maxAantalInschrijvingen" required="true"/>
+                            <Label text="{i18n>maxDeelnemers}" class="input" labelFor="maxAantalInschrijvingen" required="true"/>
                             <Input id="maxAantalInschrijvingen" class="input" width="100%" value="{form>/maxAantalInschrijvingen}"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                            <Label text="Korte beschrijving" class="input" labelFor="korteInhoud" required="true"/>
+                            <Label text="{i18n>korteBeschrijving}" class="input" labelFor="korteInhoud" required="true"/>
                             <TextArea id="korteInhoud" value="{form>/korteInhoud}" class="input" growing="true" showExceededText="true" maxLength="500" width="100%" valueLiveUpdate="false" liveChange="handleLiveChange" />
                             </l:VerticalLayout>
                         </VBox>
                     </content>
                     <l:HorizontalLayout class="btncreate">
-                        <Button text="Annuleer" type="Transparent" press="annuleer" />
-                        <Button id="creeerEditButton" text="Creëer sessie" class="create" type="Emphasized" press="handleEditCreate"/>
+                        <Button text="{i18n>annuleer}" type="Transparent" press="annuleer" />
+                        <Button id="creeerEditButton" text="{i18n>creeerSessie}" class="create" type="Emphasized" press="handleEditCreate"/>
                     </l:HorizontalLayout>
                 </Panel>
             </FlexBox>
