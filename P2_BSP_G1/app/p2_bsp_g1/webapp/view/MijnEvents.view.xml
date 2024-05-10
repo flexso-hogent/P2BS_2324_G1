@@ -3,7 +3,7 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m">
 
-    <Page id="MijnEvents" title="Mijn sessies">
+    <Page id="MijnEvents" title="{i18n>mijnEventsTitel}">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
                 <Table id="InschrijvingTable" selectionChange=".onSelectionChange" inset="false" noDataText="U heeft op dit momement nog geen inschrijvingen." items="{ path: '/Inschrijvingen',
@@ -17,22 +17,22 @@
                     </infoToolbar>
                     <columns>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Naam sessie"/>
+                            <Text text="{i18n>naamSessie}"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Datum"/>
+                            <Text text="{i18n>datum}"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Tijdstip"/>
+                            <Text text="{i18n>tijdstip}"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Locatie"/>
+                            <Text text="{i18n>locatie}"/>
                         </Column>
                         <!-- <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="Open qr code"/>
                         </Column> -->
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Geef feedback" id="feedback" visible="true"/>
+                            <Text text="{i18n>geefFeedback}" id="feedback" visible="true"/>
                         </Column>
                     </columns>
 
@@ -50,7 +50,7 @@
                                 }" />
                                 <Text text="{sessieID/evenement/locatie}" />
                                 <!-- <core:Icon src="sap-icon://qr-code" press="openQR"/> -->
-                                <Button text="Geef feedback" press="geefFeedback" />
+                                <Button text="{i18n>geefFeedback}" press="geefFeedback" />
                             </cells>
                         </ColumnListItem>
                     </items>
