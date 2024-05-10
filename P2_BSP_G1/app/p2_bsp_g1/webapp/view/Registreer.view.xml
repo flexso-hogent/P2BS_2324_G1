@@ -4,7 +4,7 @@
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m" displayBlock="true">
 
-    <Page id="Registreer" title="Registreer">
+    <Page id="Registreer" title="{i18n>registreer}">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%" class="panel">
                 <Panel width="35vw" backgroundDesign="Translucent" >
@@ -12,30 +12,30 @@
                         <VBox alignItems="Center">
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Voornaam" labelFor="voornaam" required="true" class="input"/>
-                                <Input id="voornaam" width="100%" class="input" placeholder="voornaam" value="{form>/voornaam}" />
+                                <Label text="{i18n>voornaam}" labelFor="voornaam" required="true" class="input"/>
+                                <Input id="voornaam" width="100%" class="input" placeholder="{i18n>voornaamPlaceholder}" value="{form>/voornaam}" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Achternaam" labelFor="achternaam" required="true" class="input"/>
-                                <Input id="achternaam" width="100%" class="input" value="{form>/achternaam}" placeholder="achternaam"/>
+                                <Label text="{i18n>achternaam}" labelFor="achternaam" required="true" class="input"/>
+                                <Input id="achternaam" width="100%" class="input" value="{form>/achternaam}" placeholder="{i18n>achternaamPlaceholder}"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Email" labelFor="email" required="true" class="input"/>
-                                <Input id="email" width="100%" class="input" value="{form>/email}" placeholder="bv. example@example.com"/>
+                                <Label text="{i18n>email}" labelFor="email" required="true" class="input"/>
+                                <Input id="email" width="100%" class="input" value="{form>/email}" placeholder="{i18n>emailPlaceholder}"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Geboortedatum" labelFor="geboortedatum" required="true" class="input"/>
-                                <DatePicker id="geboortedatum" width="100%" class="input" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" placeholder="bv. 1995-06-05"/>
+                                <Label text="{i18n>geboortedatum}" labelFor="geboortedatum" required="true" class="input"/>
+                                <DatePicker id="geboortedatum" width="100%" class="input" value="{form>/geboortedatum}" valueFormat="yyyy-MM-dd" placeholder="{i18n>geboortedatumPlaceholder}"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Wachtwoord" labelFor="wachtwoord" required="true" class="input"/>
+                                <Label text="{i18n>wachtwoord}" labelFor="wachtwoord" required="true" class="input"/>
                                 <HBox class="input">
                                     <Input id="wachtwoord" type="Password" width="100%" class="input" value="{form>/wachtwoord}"/>
                                     <Button icon="sap-icon://show" press=".onSeePassword" />
                                 </HBox>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Herhaal wachtwoord" labelFor="herhaalWachtwoord" required="true" class="input"/>
+                                <Label text="{i18n>herhaalWachtwoord}" labelFor="herhaalWachtwoord" required="true" class="input"/>
                                 <HBox class="input">
                                     <Input id="herhaalWachtwoord" type="Password" class="input" width="100%" value="{herhaalWachtwoord}"/>
                                     <Button icon="sap-icon://show" press=".onSeePasswordHerhaal" />
@@ -44,7 +44,7 @@
                            
                         </VBox> <l:HorizontalLayout class="btncreate">
                                 <Button text="{i18n>terug}" type="Default" press=".onTerug" class="btncreate"/>
-                                <Button text="Registreer" type="Accept" press=".onRegister" class="btncreate" />
+                                <Button text="{i18n>registreer}" type="Accept" press=".onRegister" class="btncreate" />
                             </l:HorizontalLayout>
                     </content>
                 </Panel>
