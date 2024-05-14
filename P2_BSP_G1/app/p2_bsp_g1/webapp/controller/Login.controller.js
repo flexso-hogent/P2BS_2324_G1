@@ -24,6 +24,8 @@ sap.ui.define(
       },
 
       onLogin: function () {
+        var odatamodel = this.getView().getModel("v2model");
+        
         var email = this.getView().byId("email").getValue();
         var password = this.getView().byId("wachtwoord").getValue();
         var passwordCorrect = false;
@@ -34,45 +36,38 @@ sap.ui.define(
           return;
         }
 
-        var csvFilePath = "http://localhost:4004/odata/v4/overview/Gebruikers";
+        var filter = new sap.ui.model.Filter({
+          filters: [
+            new sap.ui.model.Filter("email", sap.ui.model.FilterOperator.EQ, email),
+            new sap.ui.model.Filter("wachtwoord", sap.ui.model.FilterOperator.EQ, password)
+          ],
+          and: true,
+        });
 
-        $.ajax({
-          url: csvFilePath,
-          dataType: "json", // We changed the dataType to "json"
-          success: function (data) {
-            console.log(data);
-            console.log("Email: " + email);
-            console.log("Password: " + password);
-
-            // Iterate over the array of users
-            data.value.forEach(function (user) {
-              var storedEmail = user.email; // Get the email field
-              var storedPassword = user.wachtwoord; // Get the password field
-
-              console.log("Stored email: " + storedEmail);
-              console.log("Stored password: " + storedPassword);
-
-              // Check if the entered email and password match
-              if (email === storedEmail && password === storedPassword) {
-                console.log("Login successful.");
+        odatamodel.read("/Gebruikers", {
+          success: function (data, response) {
+            data.results.forEach(function (e) {
+              if (e.email === email && e.wachtwoord === password) {
                 passwordCorrect = true;
+                var user = data.results.map(function (item) {
+                  return {
+                    email: item.email,
+                    wachtwoord: item.wachtwoord,
+                  };
+                });
+                MessageBox.success("Login succesful. Redirecting to home screen.");
                 localStorage.setItem("user", JSON.stringify(user));
-                MessageBox.success(
-                  "Login successful. Redirecting to home screen."
-                );
                 setTimeout(function () {
-                  window.location.href = "#/";
+                  window.location.href = "#/p2_bsp_g1/webapp/index.html";
                   window.location.reload();
-                }, 1000);                  
-                return;
+                }, 2000);
+              }
+              if (!passwordCorrect) {
+                MessageBox.error("Invalid email or password.");
               }
             });
-
-            // If no match found
-            if (!passwordCorrect)
-              MessageBox.error("Invalid email or password.");
-          },
-          error: function () {
+          }.bind(this),
+          error: function (error) {
             MessageBox.error("Failed to read user data.");
           },
         });
