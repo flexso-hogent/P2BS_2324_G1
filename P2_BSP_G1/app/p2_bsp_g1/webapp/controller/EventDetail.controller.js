@@ -265,15 +265,19 @@ sap.ui.define(
         });
       },
       onEventPressEdit: function (EvenementID) {
+        var oRouter = this.getOwnerComponent().getRouter();
         var sHash = window.location.hash;
-
+    
         var aHashParts = sHash.split("/");
         var sEventId = aHashParts[aHashParts.length - 1];
         console.log(sEventId);
-        this.getOwnerComponent().getRouter().navTo("EditEvent", {
-          EvenementID: sEventId,
-        });
+    
+        // Navigate to "EditEvent" route without full page reload
+        oRouter.navTo("EditEvent", {
+            EvenementID: sEventId
+        }, /* bReplace */ true);
       },
+    
       onTerug: function () {
         history.back();
       },
