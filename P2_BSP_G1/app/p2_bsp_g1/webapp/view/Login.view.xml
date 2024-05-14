@@ -14,15 +14,15 @@
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="7.5vw" class="flexsoImg"></Image>
                             <Label text="Email" labelFor="email" class="input" required="true"/>
                             <Input id="email" class="input" value="{form>/email}"/>
-                            <Label text="Wachtwoord" class="input" labelFor="wachtwoord" required="true" />
+                            <Label text="{i18n>wachtwoord}" class="input" labelFor="wachtwoord" required="true" />
                                 <HBox class="input">
                                     <Input id="wachtwoord" type="Password" class="input" value="{form>/wachtwoord}"/>
                                     <Button icon="sap-icon://show" id="icon" press=".onSeePassword" />
                                 </HBox>
                             <Text text=" "/>
-                            <Link text="Geen account? Registreer u hier!" press=".onRegister" />
+                            <Link text="{i18n>nogGeenAccount}" press=".onRegister" />
                             <Text text=" "/>
-                            <Button text="Aanmelden" type="Accept" press=".onLogin" />
+                            <Button text="{i18n>loginKnop}" type="Accept" press=".onLogin" />
                         </VBox>
                     </content>
                 </Panel>
