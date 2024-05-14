@@ -4,7 +4,7 @@
     xmlns:f="sap.ui.layout.form"
     xmlns="sap.m" displayBlock="true">
 
-    <Page id="createEvent" title="Nieuw evenement aanmaken">
+    <Page id="createEvent" title="{i18n>titelCreateEvenement}">
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%" class="panel">
                 <Panel width="50vw" backgroundDesign="Translucent">
@@ -12,38 +12,38 @@
                         <VBox alignItems="Center">
                             <Image src="image/LogoFlexso.jpg" decorative="false" width="10vw" class="flexsoImg"></Image>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Naam evenement" class="input" labelFor="naam" required="true"/>
-                                <Input id="naam" class="input" width="100%" placeholder="Naam event" value="{form>/naam}" />
+                                <Label text="{i18n>evenementNaam}" class="input" labelFor="naam" required="true"/>
+                                <Input id="naam" class="input" width="100%" placeholder="{i18n>evenementNaamPlaceholder}" value="{form>/naam}" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Locatie" class="input" labelFor="locatie" required="true"/>
-                                <Input id="locatie" class="input" width="100%" placeholder="Locatie event" value="{form>/locatie}" />
+                                <Label text="{i18n>evenementLocatie}" class="input" labelFor="locatie" required="true"/>
+                                <Input id="locatie" class="input" width="100%" placeholder="{i18n>evenementLocatiePlaceholder}" value="{form>/locatie}" />
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Startdatum" class="input" labelFor="beginDatum" required="true"/>
-                                <DatePicker id="beginDatum" class="input" width="100%" value="{path: 'form>/beginDatum', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'yyyy-MM-dd'}}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+                                <Label text="{i18n>evenementStartDatum}" class="input" labelFor="beginDatum" required="true"/>
+                                <DatePicker id="beginDatum" class="input" width="100%" placeholder="{i18n>evenementStartDatumPlaceholder}" value="{path: 'form>/beginDatum', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'yyyy-MM-dd'}}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Einddatum" class="input" labelFor="eindDatum" required="true"/>
-                                <DatePicker id="eindDatum" class="input" width="100%" value="{path: 'form>/eindDatum', type: 'sap.ui.model.odata.type.Date', formatOptions: {pattern: 'yyyy-MM-dd'}}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+                                <Label text="{i18n>evenementEindDatum}" class="input" labelFor="eindDatum" required="true"/>
+                                <DatePicker id="eindDatum" class="input" width="100%" placeholder="{i18n>evenementEindDatumPlaceholder}" value="{path: 'form>/eindDatum', type: 'sap.ui.model.odata.type.Date', formatOptions: {pattern: 'yyyy-MM-dd'}}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Startuur" class="input" labelFor="beginUur" required="true"/>
-                                <TimePicker id="beginUur" class="input" width="100%" value="{path: 'form>/beginUur', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm'}}" valueFormat="HH:mm" displayFormat="HH:mm"/>
+                                <Label text="{i18n>evenementStartuur}" class="input" labelFor="beginUur" required="true"/>
+                                <TimePicker id="beginUur" class="input" placeholder="{i18n>evenementStartuurPlaceholder}" width="100%" value="{path: 'form>/beginUur', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm'}}" valueFormat="HH:mm" displayFormat="HH:mm"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Einduur" class="input" labelFor="eindUur" required="true"/>
-                                <TimePicker id="eindUur" class="input" width="100%" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm'}}" valueFormat="HH:mm" displayFormat="HH:mm"/>
+                                <Label text="{i18n>evenementEinduur}" class="input" labelFor="eindUur" required="true"/>
+                                <TimePicker id="eindUur" class="input" width="100%" placeholder="{i18n>evenementEinduurPlaceholder}" value="{path: 'form>/eindUur', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm'}}" valueFormat="HH:mm" displayFormat="HH:mm"/>
                             </l:VerticalLayout>
                             <l:VerticalLayout class="inputGroup">
-                                <Label text="Prijs in €" class="input" labelFor="prijs" required="true"/>
-                                <Input id="prijs" class="input" width="100%" value="{form>/prijs}"/>
+                                <Label text="{i18n>evenementPrijs}" class="input" labelFor="prijs" required="true"/>
+                                <Input id="prijs" class="input" placeholder="{i18n>evenementPrijsPlaceholder}" width="100%" value="{form>/prijs}"/>
                             </l:VerticalLayout>
                         </VBox>
                     </content>
                     <l:HorizontalLayout class="btncreate buttonWidth">
-                        <Button text="Annuleer" type="Transparent" press="annuleer" />
-                        <Button id="createEditButton" text="Creëer evenement" class="create" type="Emphasized" press="handleEvent"/>
+                        <Button text="{i18n>annuleer}" type="Transparent" press="annuleer" />
+                        <Button id="createEditButton" text="{i18n>evenementCreateButton}" class="create" type="Emphasized" press="handleEvent"/>
                     </l:HorizontalLayout>
                 </Panel>
             </FlexBox>

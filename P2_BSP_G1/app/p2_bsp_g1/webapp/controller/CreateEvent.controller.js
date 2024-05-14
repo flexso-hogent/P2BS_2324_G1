@@ -58,11 +58,24 @@ sap.ui.define(
       },
 
       getEventData: function (eventId) {
+        var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+        var sButtonText = oResourceBundle.getText("titelBewerkEvenement");
+        
         var button = this.byId("createEditButton");
-        button.setText("Bewerk evenement");
+        button.setText(sButtonText);
+        
         var title = this.byId("createEvent");
-        title.setTitle("Bewerk evenement");
-        this.getView().byId("createEvent").setTitle("Evenement bewerken");
+        title.setTitle(sButtonText);
+        var sTitleKey = "evenementEditButton"; // Replace with the actual key from your resource bundle
+
+        var title = this.byId("createEvent");
+        title.setTitle(oResourceBundle.getText(sTitleKey));
+        //eeee
+        // var button = this.byId("createEditButton");
+        // button.setText("Bewerk evenement");
+        // var title = this.byId("createEvent");
+        // title.setTitle("Bewerk evenement");
+        // this.getView().byId("createEvent").setTitle("Evenement bewerken");
         // Assuming you have a service to fetch event data
         var odatamodel = this.getView().getModel("v2model");
         var oForm = this.getView().getModel("form").getData();
