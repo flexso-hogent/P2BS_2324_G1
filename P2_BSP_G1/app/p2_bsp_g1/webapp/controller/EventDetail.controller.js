@@ -275,7 +275,7 @@ sap.ui.define(
         // Navigate to "EditEvent" route without full page reload
         oRouter.navTo("EditEvent", {
             EvenementID: sEventId
-        }, /* bReplace */ true);
+        }, /* bReplace */ false);
       },
     
       onTerug: function () {
