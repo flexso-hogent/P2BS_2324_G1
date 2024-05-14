@@ -13,10 +13,17 @@ sap.ui.define(
 
     return Controller.extend("p2bspg1.controller.App", {
       onInit: function () {
-        if (
-          !user ||
-          !user.rol === "admin"
-        ) {
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter
+          .getRoute("EditEvent")
+          .attachPatternMatched(this._onRouteMatched, this);
+        oRouter
+          .getRoute("CreateEvent")
+          .attachPatternMatched(this._onRouteMatched, this);
+      },
+
+      _onRouteMatched: function (oEvent) {
+        if (!user || !user.rol === "admin") {
           this.getOwnerComponent().getRouter().navTo("NotFound");
         }
 
@@ -33,18 +40,13 @@ sap.ui.define(
         var oModel = new JSONModel(oRegistreer);
         this.getView().setModel(oModel, "form");
 
-        var oRouter = this.getOwnerComponent().getRouter();
-        oRouter
-          .getRoute("EditEvent")
-          .attachPatternMatched(this._onRouteMatched, this);
-      },
-
-      _onRouteMatched: function (oEvent) {
         var oArgs = oEvent.getParameter("arguments");
         var oName = oEvent.getParameter("name");
 
-        if ((oName = "EditEvent")) {
+        if (oName == "EditEvent") {
           this.getEventData(oArgs.EvenementID);
+        } else if (oName == "CreateEvent") {
+          this._resetCreate();
         }
       },
 
@@ -57,13 +59,32 @@ sap.ui.define(
         return false;
       },
 
-      getEventData: function (eventId) {
-        var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
-        var sButtonText = oResourceBundle.getText("titelBewerkEvenement");
-        
+      _resetCreate: function () {
+        var oResourceBundle = this.getView()
+          .getModel("i18n")
+          .getResourceBundle();
+        var sButtonText = oResourceBundle.getText("titelCreateEvenement");
+
         var button = this.byId("createEditButton");
         button.setText(sButtonText);
-        
+
+        var title = this.byId("createEvent");
+        title.setTitle(sButtonText);
+        var sTitleKey = "evenementCreateButton"; // Replace with the actual key from your resource bundle
+
+        var title = this.byId("createEvent");
+        title.setTitle(oResourceBundle.getText(sTitleKey));
+      },
+
+      getEventData: function (eventId) {
+        var oResourceBundle = this.getView()
+          .getModel("i18n")
+          .getResourceBundle();
+        var sButtonText = oResourceBundle.getText("titelBewerkEvenement");
+
+        var button = this.byId("createEditButton");
+        button.setText(sButtonText);
+
         var title = this.byId("createEvent");
         title.setTitle(sButtonText);
         var sTitleKey = "evenementEditButton"; // Replace with the actual key from your resource bundle
@@ -77,7 +98,7 @@ sap.ui.define(
           success: function (oData) {
             // Set the retrieved data to the form model
             var oModel = new JSONModel(oData);
-            
+
             this.getView().setModel(oModel, "form");
           }.bind(this),
           error: function (error) {
@@ -176,30 +197,31 @@ sap.ui.define(
           success: function (data, response) {
             MessageBox.success(
               "Event updated successfully! Redirecting to event page."
-            ); 
+            );
             setTimeout(function () {
               window.location.href = "#/Events/" + eventId;
               window.location.reload();
-            }, 1000); 
+            }, 1000);
           },
           error: function (error) {
-            MessageBox.error("Het evenement is niet bijgewerkt. Probeer het opnieuw.");
+            MessageBox.error(
+              "Het evenement is niet bijgewerkt. Probeer het opnieuw."
+            );
           },
         });
       },
       handleEvent() {
         var oForm = this.getView().getModel("form").getData();
 
-        if(oForm.evenementID){
+        if (oForm.evenementID) {
           this.onEditEvent();
-        }
-        else{
+        } else {
           this.createEvent();
         }
       },
       annuleer() {
         history.back();
-      }
+      },
     });
   }
 );
