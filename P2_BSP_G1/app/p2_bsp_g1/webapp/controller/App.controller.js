@@ -6,28 +6,21 @@ sap.ui.define(
   async function (Controller, ResourceModel, Fragment, MenuItem, MessageToast) {
     "use strict";
 
-    console.log("voor");
     var user = await JSON.parse(localStorage.getItem("user"));
-    console.log("user", user);
 
     return Controller.extend("p2bspg1.controller.App", {
       onInit: function () {
-        console.log("allooo");
-
         var oRouter = this.getOwnerComponent().getRouter();
         oRouter
           .attachRouteMatched(this._onRouteMatched, this);
       },
 
       onBeforeRendering: function () {
-        console.log("before rendering");
         this.showCorrectElementsAndLanguage();
       },
 
       _onRouteMatched: function () {
-        console.log("voor");
         var user = JSON.parse(localStorage.getItem("user"));
-        console.log("user", user);
         this.showCorrectElementsAndLanguage();
       },
       onCollapseExpandPress() {
@@ -99,8 +92,6 @@ sap.ui.define(
 				var oView = this.getView(),
 					oButton = oView.byId("button");
 
-          console.log(oView.getId());
-
 				if (!this._oMenuFragment) {
 					this._oMenuFragment = Fragment.load({
 						id: oView.getId(),
@@ -123,7 +114,6 @@ sap.ui.define(
 					sItemPath = oItem.getText();
 					oItem = oItem.getParent();
 				}
-        console.log(sItemPath);
 
 
         switch (sItemPath) {
@@ -143,7 +133,6 @@ sap.ui.define(
           oAv1 = this.byId("av1"),
           oAv4 = this.byId("av4"),
           oLoggedOut = this.byId("loginView");
-        console.log(user);
         if (user == null) {
           oLoggedOut.setVisible(true);
         } else if (user.rol === "admin") {
