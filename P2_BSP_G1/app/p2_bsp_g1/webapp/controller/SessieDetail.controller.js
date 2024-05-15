@@ -113,6 +113,45 @@ sap.ui.define(
             );
           },
         });
+
+        var oFilter2 = new Filter(
+          "sessieID_sessieID",
+          sap.ui.model.FilterOperator.EQ,
+          sessieID
+        );
+        odatamodel.read("/Inschrijvingen", {
+          filters: [oFilter2],
+          success: function (oData) {
+            console.log(oData.results);
+            var registrationCount = oData.results.length;
+            console.log("Number of registrations:", registrationCount);
+    
+            // var maxRegistrations = parseInt(that.byId("maxInschrijvingenText").getText());
+            // var maxRegistrations = this.getView()
+            //   .getBindingContext()
+            //   .getProperty("maxAantalInschrijvingen");
+            var maxRegistrations = that.getView().getBindingContext().getProperty("maxAantalInschrijvingen");
+            console.log("maxRegistrations", maxRegistrations);
+
+            var oResourceBundle = that.getView()
+              .getModel("i18n")
+              .getResourceBundle();
+            var sButtonText = oResourceBundle.getText("inschrijvingen");
+
+            if (maxRegistrations == 0) {
+              that.byId("maxInschrijvingenText").setText(registrationCount + " " + sButtonText);
+            }else{
+              that.byId("maxInschrijvingenText").setText(registrationCount + "/" + maxRegistrations + " " + sButtonText);
+            }
+            
+          },
+          error: function (error) {
+            console.log(error);
+            MessageBox.error(
+              "Er is een fout opgetreden bij het ophalen van het aantal registraties. Laad de pagina opnieuw!"
+            );
+          },
+        });
       },
       myCustomFormatterFunction2: function(beginUur, eindUur) {
         try {
