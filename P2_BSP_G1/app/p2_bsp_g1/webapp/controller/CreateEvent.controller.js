@@ -11,7 +11,7 @@ sap.ui.define(
     "use strict";
     var user = JSON.parse(localStorage.getItem("user"));
 
-    return Controller.extend("p2bspg1.controller.App", {
+    return Controller.extend("p2bspg1.controller.CreateEvent", {
       onInit: function () {
         var oRouter = this.getOwnerComponent().getRouter();
         oRouter
@@ -66,14 +66,19 @@ sap.ui.define(
         var sButtonText = oResourceBundle.getText("titelCreateEvenement");
 
         var button = this.byId("createEditButton");
-        button.setText(sButtonText);
+        if (button != null) {
+          button.setText(sButtonText);
+        }
 
         var title = this.byId("createEvent");
-        title.setTitle(sButtonText);
+        if (title != null) {
+          title.setTitle(sButtonText);
+        }
+        
         var sTitleKey = "evenementCreateButton"; // Replace with the actual key from your resource bundle
-
-        var title = this.byId("createEvent");
-        title.setTitle(oResourceBundle.getText(sTitleKey));
+        if (title != null) {
+          title.setTitle(oResourceBundle.getText(sTitleKey));
+        }
       },
 
       getEventData: function (eventId) {

@@ -3,41 +3,32 @@ sap.ui.define(
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, ResourceModel, Fragment, MenuItem, MessageToast) {
+  async function (Controller, ResourceModel, Fragment, MenuItem, MessageToast) {
     "use strict";
 
-    var user = JSON.parse(localStorage.getItem("user"));
+    console.log("voor");
+    var user = await JSON.parse(localStorage.getItem("user"));
+    console.log("user", user);
 
     return Controller.extend("p2bspg1.controller.App", {
       onInit: function () {
-        var oUv1 = this.byId("uv1"),
-          oUv2 = this.byId("uv2"),
-          oUv3 = this.byId("uv3"),
-          oAv1 = this.byId("av1"),
-          oAv4 = this.byId("av4"),
-          oLoggedOut = this.byId("loginView");
+        console.log("allooo");
 
-        if (user == null) {
-          oLoggedOut.setVisible(true);
-        } else if (user.rol === "admin") {
-          oAv1.setVisible(true);
-          oAv4.setVisible(true);
-          oUv1.setVisible(true);
-          oUv2.setVisible(true);
-          oUv3.setVisible(true);
-        } else if (user.rol === "user") {
-          oUv1.setVisible(true);
-          oUv2.setVisible(true);
-          oUv3.setVisible(true);
-        }
-        var language = localStorage.getItem("language");
-        if (language == null) {
-          this.onLanguageSwitchToDutch();
-        } else if(language == "en") {
-          this.onLanguageSwitchToEnglish();
-        } else {
-          this.onLanguageSwitchToDutch();
-        }
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter
+          .attachRouteMatched(this._onRouteMatched, this);
+      },
+
+      onBeforeRendering: function () {
+        console.log("before rendering");
+        this.showCorrectElementsAndLanguage();
+      },
+
+      _onRouteMatched: function () {
+        console.log("voor");
+        var user = JSON.parse(localStorage.getItem("user"));
+        console.log("user", user);
+        this.showCorrectElementsAndLanguage();
       },
       onCollapseExpandPress() {
         const oSideNavigation = this.byId("sideNavigation"),
@@ -144,7 +135,37 @@ sap.ui.define(
             break;
         }
 
-			}
+			},
+      showCorrectElementsAndLanguage: function(){
+        var oUv1 = this.byId("uv1"),
+          oUv2 = this.byId("uv2"),
+          oUv3 = this.byId("uv3"),
+          oAv1 = this.byId("av1"),
+          oAv4 = this.byId("av4"),
+          oLoggedOut = this.byId("loginView");
+        console.log(user);
+        if (user == null) {
+          oLoggedOut.setVisible(true);
+        } else if (user.rol === "admin") {
+          oAv1.setVisible(true);
+          oAv4.setVisible(true);
+          oUv1.setVisible(true);
+          oUv2.setVisible(true);
+          oUv3.setVisible(true);
+        } else if (user.rol === "user") {
+          oUv1.setVisible(true);
+          oUv2.setVisible(true);
+          oUv3.setVisible(true);
+        }
+        var language = localStorage.getItem("language");
+        if (language == null) {
+          this.onLanguageSwitchToDutch();
+        } else if(language == "en") {
+          this.onLanguageSwitchToEnglish();
+        } else {
+          this.onLanguageSwitchToDutch();
+        }
+      }
     });
   }
 );
