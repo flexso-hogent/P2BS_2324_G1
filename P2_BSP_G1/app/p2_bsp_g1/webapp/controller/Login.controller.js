@@ -56,7 +56,7 @@ sap.ui.define(
                   };
                 });
                 MessageBox.success("Login succesful. Redirecting to home screen.");
-                localStorage.setItem("user", JSON.stringify(user));
+                localStorage.setItem("user", JSON.stringify(e));
                 setTimeout(function () {
                   window.location.href = "#/p2_bsp_g1/webapp/index.html";
                   window.location.reload();
