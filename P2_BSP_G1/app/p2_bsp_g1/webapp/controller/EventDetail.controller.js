@@ -6,7 +6,11 @@ sap.ui.define(
     var user = JSON.parse(localStorage.getItem("user"));
 
     return Controller.extend("p2bspg1.controller.EventDetail", {
+      
+      iAantalInschrijvingen: 0,
+      
       onInit: function () {
+        
         if (!user) {
           MessageBox.error("U moet ingelogd zijn om deze pagina te bekijken", {
             onClose: function () {
@@ -34,6 +38,59 @@ sap.ui.define(
         }
         
         this.zichtbaarheid = true;        // this.checkUserSignUp();
+
+        var odatamodel = this.getView().getModel("v2model");
+        if (!odatamodel) {
+            // Toon een foutmelding of voer andere logica uit als het model niet beschikbaar is
+            console.error("Model 'v2model' is niet beschikbaar!");
+            return;
+        }
+
+        this.fetchMaxAantalInschrijvingen();
+        this.updateAantalInschrijvingen();
+      },
+
+      
+
+      fetchMaxAantalInschrijvingen: function () {
+        var that = this;
+        var eventId = this.getView().getBindingContext().getProperty("evenementID");
+        var odatamodel = this.getView().getModel("v2model");
+
+        odatamodel.read("/Evenementen(" + eventId + ")", {
+          success: function (oData) {
+            that.maxAantalInschrijvingen = oData.maxAantalInschrijvingen;
+            console.log("Maximaal aantal inschrijvingen: ", that.maxAantalInschrijvingen);
+          },
+          error: function (error) {
+            console.error("Fout bij het ophalen van maximale aantal inschrijvingen:", error);
+            MessageBox.error("Fout bij het ophalen van maximale aantal inschrijvingen.");
+          },
+        });
+      },
+
+      updateAantalInschrijvingen: function () {
+        var that = this;
+        var beschikbareSessies = this.getView().byId("personalSS1");
+        var sessionID = 1;
+        var odatamodel = this.getView().getModel("v2model");
+        var filter = new sap.ui.model.Filter(
+          "sessieID_sessieID",
+          sap.ui.model.FilterOperator.EQ,
+          sessionID
+        );
+
+        odatamodel.read("/Inschrijvingen", {
+          filters: [filter],
+          success: function (oData) {
+            that.iAantalInschrijvingen = oData.results.length;
+            console.log("Aantal inschrijvingen:", that.iAantalInschrijvingen);
+          },
+          error: function (error) {
+            console.log("Error fetching inschrijvingen:", error);
+            MessageBox.error("Foutje bij het ophalen van inschrijvingen.");
+          },
+        });
       },
 
       onBeforeRendering: function(){
@@ -110,6 +167,7 @@ sap.ui.define(
         } else {
           this.registerForSession(sessionID, button);
         }
+        this.updateAantalInschrijvingen();
       },
 
       registerForSession: function (sessionID, button) {
@@ -228,6 +286,7 @@ sap.ui.define(
             );
           },
         });
+        this.updateAantalInschrijvingen();
       },
 
       _onRouteMatched: function (oEvent) {
