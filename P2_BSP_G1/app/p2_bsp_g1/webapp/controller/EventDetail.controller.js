@@ -36,52 +36,74 @@ sap.ui.define(
         this.zichtbaarheid = true;        // this.checkUserSignUp();
       },
 
+      onBeforeRendering: function(){
+        this.checkUserSignUp();
+      },
+
       checkUserSignUp: function () {
         var that = this;
-        var sessionID = this.getView().getBindingContext().getProperty("sessieID");
-        var button = this.getView().byId("av0"); // ID van de knop die moet worden gecontroleerd
-    
+        var beschikbareSessies = this.getView().byId("personalSS1");
+        console.log("beschikbareSessies", beschikbareSessies);
+        var sessionID = 1;
+        var button = this.getView().byId("signUpButton"); // ID van de knop die moet worden gecontroleerd
+        button.setText("testerrr")
         var odatamodel = this.getView().getModel("v2model");
     
         // Filter om te controleren of de gebruiker al is ingeschreven voor deze sessie
-        var filter = new sap.ui.model.Filter([
-            new sap.ui.model.Filter(
-                "gebruikerID_gebruikerID",
-                sap.ui.model.FilterOperator.EQ,
-                user.gebruikerID
-            ),
-            new sap.ui.model.Filter(
-                "sessieID_sessieID",
-                sap.ui.model.FilterOperator.EQ,
-                sessionID
-            ),
-        ]);
+        var filter = new sap.ui.model.Filter(
+          "gebruikerID_gebruikerID",
+          sap.ui.model.FilterOperator.EQ,
+          user.gebruikerID
+        );
+        
+        // var sessieFilter = new sap.ui.model.Filter(
+        //     "sessieID_sessieID",
+        //     sap.ui.model.FilterOperator.EQ,
+        //     sessionID
+        // );
+        
+        // var combinedFilter = new sap.ui.model.Filter({
+        //     filters: [gebruikerFilter, sessieFilter],
+        //     and: true // Set to true for "AND" condition
+        // });
     
         odatamodel.read("/Inschrijvingen", {
-            filters: [filter],
-            success: function (oData) {
-                if (oData.results.length > 0) {
-                    // Gebruiker is al ingeschreven, wijzig knopinstellingen
-                    button.setText("Uitschrijven voor deze sessie");
-                    button.setType("Reject");
-                } else {
-                    // Gebruiker is nog niet ingeschreven, houd de knopinstellingen hetzelfde
-                }
-            },
-            error: function (error) {
-                console.log("Error fetching inschrijvingen:", error);
-                MessageBox.error(
-                    "Er is een fout opgetreden bij het controleren van uw inschrijving. Probeer het opnieuw!"
-                );
-            },
+          filters: [filter],
+          success: function (oData) {
+              console.log("checkUserSignUp results", oData.results);
+              var bRegistered = false;
+              oData.results.forEach(function (registration) {
+                  // Check if the user is registered for this session
+                  if (registration.sessieID_sessieID === sessionID) {
+                      bRegistered = true;
+                      return; // Exit the loop early since the user is already registered
+                  }
+              });
+      
+              if (bRegistered) {
+                  // User is already registered for this session
+                  button.setText("Uitschrijven voor deze sessie");
+                  button.setType("Reject");
+              } else {
+                  // User is not registered for this session
+                  // Keep the button settings the same
+              }
+          },
+          error: function (error) {
+              console.log("Error fetching inschrijvingen:", error);
+              MessageBox.error(
+                  "Er is een fout opgetreden bij het controleren van uw inschrijving. Probeer het opnieuw!"
+              );
+          },
         });
       },
+    
 
       signUp: function (evt) {
         var button = evt.getSource();
         var buttonText = button.getText();
         var sessionID = button.getBindingContext().getProperty("sessieID");
-        console.log(sessionID);
+        console.log("signupSessionID", sessionID);
 
         if (buttonText === "Uitschrijven voor deze sessie") {
           this.cancelSignUp(sessionID, button);
@@ -110,7 +132,7 @@ sap.ui.define(
         odatamodel.read("/Inschrijvingen", {
           filters: [filter],
           success: function (oData) {
-            console.log(oData.results);
+            console.log("Inschrijvingen odata results",oData.results);
             oData.results.forEach((e) => {
               if (e.gebruikerID_gebruikerID == user.gebruikerID && e.sessieID_sessieID == sessionID) {
                 alreadysignedup = true;

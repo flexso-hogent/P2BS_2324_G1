@@ -108,7 +108,7 @@
                                             ],
                                             formatter: '.myCustomFormatterFunction2'
                                         }" />
-                                        <m:Button id="_IDGenButton1" text="{i18n>eventDetailRegistreerSessie}" type="Emphasized" press="signUp" />
+                                        <m:Button id="signUpButton" text="{i18n>eventDetailRegistreerSessie}" type="Emphasized" press="signUp" />
                                     </m:cells>
                                 </m:ColumnListItem>
                             </m:items>
