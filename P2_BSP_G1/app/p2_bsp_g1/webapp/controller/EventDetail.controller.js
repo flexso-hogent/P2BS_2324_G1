@@ -41,25 +41,55 @@ sap.ui.define(
         }
 
         var odatamodel = this.getView().getModel("v2model");
+<<<<<<< Updated upstream
         if (!odatamodel) {
           // Toon een foutmelding of voer andere logica uit als het model niet beschikbaar is
           console.error("Model 'v2model' is niet beschikbaar!");
           return;
         }
+=======
+        // if (!odatamodel) {
+        //     // Toon een foutmelding of voer andere logica uit als het model niet beschikbaar is
+        //     console.error("Model 'v2model' is niet beschikbaar!");
+        //     return;
+        // }
 
-        this.fetchMaxAantalInschrijvingen();
+        
+      },
+>>>>>>> Stashed changes
+
+      onAfterRendering: function () {
+        // this.fetchMaxAantalInschrijvingen();
         this.updateAantalInschrijvingen();
       },
 
+<<<<<<< Updated upstream
       fetchMaxAantalInschrijvingen: function () {
         var that = this;
         var eventId = this.getView()
           .getBindingContext()
           .getProperty("evenementID");
+=======
+      
+
+      fetchMaxAantalInschrijvingen: async function () {
+        var that = this;
+        var sHash = window.location.hash;
+    
+        var aHashParts = sHash.split("/");
+        var eventId = aHashParts[aHashParts.length - 1];
+        // var eventId = this.getView()
+        //   .getBindingContext()
+        //   .getProperty("evenementID");
+        // var eventId = await this.getView().getBindingContext().getProperty("evenementID");
+>>>>>>> Stashed changes
         var odatamodel = this.getView().getModel("v2model");
+        console.log("Event ID fetch inschr:", eventId);
 
         odatamodel.read("/Evenementen(" + eventId + ")", {
           success: function (oData) {
+            console.log("Evenement oData:", oData);
+            console.log("Maximaal aantal inschrijvingen oData:", oData.maxAantalInschrijvingen);
             that.maxAantalInschrijvingen = oData.maxAantalInschrijvingen;
             console.log(
               "Maximaal aantal inschrijvingen: ",
@@ -106,13 +136,21 @@ sap.ui.define(
         this.checkUserSignUp();
       },
 
-      checkUserSignUp: function () {
+      checkUserSignUp: function (sessionID) {
+        if (!sessionID) {
+          return;
+        }
         var that = this;
+<<<<<<< Updated upstream
         var beschikbareSessies = this.getView().byId("personalSS1");
         console.log("beschikbareSessies", beschikbareSessies);
         var sessionID = 1;
         var button = this.getView().byId("signUpButton"); // ID van de knop die moet worden gecontroleerd
         button.setText("testerrr");
+=======
+        var button = this.getView().byId("signUpButton"); 
+        console.log(button.getText());
+>>>>>>> Stashed changes
         var odatamodel = this.getView().getModel("v2model");
 
         // Filter om te controleren of de gebruiker al is ingeschreven voor deze sessie
@@ -121,6 +159,7 @@ sap.ui.define(
           sap.ui.model.FilterOperator.EQ,
           user.gebruikerID
         );
+<<<<<<< Updated upstream
 
         // var sessieFilter = new sap.ui.model.Filter(
         //     "sessieID_sessieID",
@@ -143,6 +182,31 @@ sap.ui.define(
               if (registration.sessieID_sessieID === sessionID) {
                 bRegistered = true;
                 return; // Exit the loop early since the user is already registered
+=======
+    
+        odatamodel.read("/Inschrijvingen", {
+          filters: [filter],
+          success: function (oData) {
+              console.log(sessionID);
+              console.log("checkUserSignUp results", oData.results);
+              var bRegistered = false;
+              oData.results.forEach(function (registration) {
+                console.log("registration", registration);
+                  if (registration.sessieID_sessieID === sessionID) {
+                      bRegistered = true;
+                      return;
+                  }
+              });
+      
+              if (bRegistered) {
+                console.log("registered yes");
+                  // User is already registered for this session
+                  button.setText("Uitschrijven voor deze sessie");
+                  console.log(button.getText());
+                  button.setType("Reject");
+              } else {
+                console.log("registered no");
+>>>>>>> Stashed changes
               }
             });
 
@@ -162,6 +226,7 @@ sap.ui.define(
             );
           },
         });
+        
       },
 
       signUp: function (evt) {

@@ -108,7 +108,7 @@
                                             ],
                                             formatter: '.myCustomFormatterFunction2'
                                         }" />
-                                        <m:Button id="signUpButton" text="{i18n>eventDetailRegistreerSessie}" type="Emphasized" press="signUp" />
+                                        <m:Button id="signUpButton" text="test" type="Emphasized" press="signUp" visible="{path:'sessieID', targetType:'any', formatter:'.checkUserSignUp'}" />
                                     </m:cells>
                                 </m:ColumnListItem>
                             </m:items>
