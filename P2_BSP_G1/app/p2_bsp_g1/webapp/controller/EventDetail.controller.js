@@ -1,16 +1,19 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox", "sap/ui/model/Filter"],
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/m/MessageToast",
+    "sap/m/MessageBox",
+    "sap/ui/model/Filter",
+  ],
   function (Controller, MessageToast, MessageBox, Filter) {
     "use strict";
 
     var user = JSON.parse(localStorage.getItem("user"));
 
     return Controller.extend("p2bspg1.controller.EventDetail", {
-      
       iAantalInschrijvingen: 0,
-      
+
       onInit: function () {
-        
         if (!user) {
           MessageBox.error("U moet ingelogd zijn om deze pagina te bekijken", {
             onClose: function () {
@@ -36,35 +39,41 @@ sap.ui.define(
           oAv3.setVisible(true);
           oAv4.setVisible(true);
         }
-        
-        this.zichtbaarheid = true;        // this.checkUserSignUp();
 
         var odatamodel = this.getView().getModel("v2model");
         if (!odatamodel) {
-            // Toon een foutmelding of voer andere logica uit als het model niet beschikbaar is
-            console.error("Model 'v2model' is niet beschikbaar!");
-            return;
+          // Toon een foutmelding of voer andere logica uit als het model niet beschikbaar is
+          console.error("Model 'v2model' is niet beschikbaar!");
+          return;
         }
 
         this.fetchMaxAantalInschrijvingen();
         this.updateAantalInschrijvingen();
       },
 
-      
-
       fetchMaxAantalInschrijvingen: function () {
         var that = this;
-        var eventId = this.getView().getBindingContext().getProperty("evenementID");
+        var eventId = this.getView()
+          .getBindingContext()
+          .getProperty("evenementID");
         var odatamodel = this.getView().getModel("v2model");
 
         odatamodel.read("/Evenementen(" + eventId + ")", {
           success: function (oData) {
             that.maxAantalInschrijvingen = oData.maxAantalInschrijvingen;
-            console.log("Maximaal aantal inschrijvingen: ", that.maxAantalInschrijvingen);
+            console.log(
+              "Maximaal aantal inschrijvingen: ",
+              that.maxAantalInschrijvingen
+            );
           },
           error: function (error) {
-            console.error("Fout bij het ophalen van maximale aantal inschrijvingen:", error);
-            MessageBox.error("Fout bij het ophalen van maximale aantal inschrijvingen.");
+            console.error(
+              "Fout bij het ophalen van maximale aantal inschrijvingen:",
+              error
+            );
+            MessageBox.error(
+              "Fout bij het ophalen van maximale aantal inschrijvingen."
+            );
           },
         });
       },
@@ -93,7 +102,7 @@ sap.ui.define(
         });
       },
 
-      onBeforeRendering: function(){
+      onBeforeRendering: function () {
         this.checkUserSignUp();
       },
 
@@ -103,58 +112,57 @@ sap.ui.define(
         console.log("beschikbareSessies", beschikbareSessies);
         var sessionID = 1;
         var button = this.getView().byId("signUpButton"); // ID van de knop die moet worden gecontroleerd
-        button.setText("testerrr")
+        button.setText("testerrr");
         var odatamodel = this.getView().getModel("v2model");
-    
+
         // Filter om te controleren of de gebruiker al is ingeschreven voor deze sessie
         var filter = new sap.ui.model.Filter(
           "gebruikerID_gebruikerID",
           sap.ui.model.FilterOperator.EQ,
           user.gebruikerID
         );
-        
+
         // var sessieFilter = new sap.ui.model.Filter(
         //     "sessieID_sessieID",
         //     sap.ui.model.FilterOperator.EQ,
         //     sessionID
         // );
-        
+
         // var combinedFilter = new sap.ui.model.Filter({
         //     filters: [gebruikerFilter, sessieFilter],
         //     and: true // Set to true for "AND" condition
         // });
-    
+
         odatamodel.read("/Inschrijvingen", {
           filters: [filter],
           success: function (oData) {
-              console.log("checkUserSignUp results", oData.results);
-              var bRegistered = false;
-              oData.results.forEach(function (registration) {
-                  // Check if the user is registered for this session
-                  if (registration.sessieID_sessieID === sessionID) {
-                      bRegistered = true;
-                      return; // Exit the loop early since the user is already registered
-                  }
-              });
-      
-              if (bRegistered) {
-                  // User is already registered for this session
-                  button.setText("Uitschrijven voor deze sessie");
-                  button.setType("Reject");
-              } else {
-                  // User is not registered for this session
-                  // Keep the button settings the same
+            console.log("checkUserSignUp results", oData.results);
+            var bRegistered = false;
+            oData.results.forEach(function (registration) {
+              // Check if the user is registered for this session
+              if (registration.sessieID_sessieID === sessionID) {
+                bRegistered = true;
+                return; // Exit the loop early since the user is already registered
               }
+            });
+
+            if (bRegistered) {
+              // User is already registered for this session
+              button.setText("Uitschrijven voor deze sessie");
+              button.setType("Reject");
+            } else {
+              // User is not registered for this session
+              // Keep the button settings the same
+            }
           },
           error: function (error) {
-              console.log("Error fetching inschrijvingen:", error);
-              MessageBox.error(
-                  "Er is een fout opgetreden bij het controleren van uw inschrijving. Probeer het opnieuw!"
-              );
+            console.log("Error fetching inschrijvingen:", error);
+            MessageBox.error(
+              "Er is een fout opgetreden bij het controleren van uw inschrijving. Probeer het opnieuw!"
+            );
           },
         });
       },
-    
 
       signUp: function (evt) {
         var button = evt.getSource();
@@ -190,9 +198,12 @@ sap.ui.define(
         odatamodel.read("/Inschrijvingen", {
           filters: [filter],
           success: function (oData) {
-            console.log("Inschrijvingen odata results",oData.results);
+            console.log("Inschrijvingen odata results", oData.results);
             oData.results.forEach((e) => {
-              if (e.gebruikerID_gebruikerID == user.gebruikerID && e.sessieID_sessieID == sessionID) {
+              if (
+                e.gebruikerID_gebruikerID == user.gebruikerID &&
+                e.sessieID_sessieID == sessionID
+              ) {
                 alreadysignedup = true;
               }
             });
@@ -296,6 +307,7 @@ sap.ui.define(
           "/" + "Evenementen(evenementID=" + oArgs.evenementID + ")";
 
         oView.bindElement({ path: urlPath });
+        this.checkActiveEvent(oArgs.evenementID);
       },
 
       handleListItemPress: function (oEvent) {
@@ -348,48 +360,94 @@ sap.ui.define(
       onEventPressEdit: function (EvenementID) {
         var oRouter = this.getOwnerComponent().getRouter();
         var sHash = window.location.hash;
-    
+
         var aHashParts = sHash.split("/");
         var sEventId = aHashParts[aHashParts.length - 1];
         console.log(sEventId);
-    
+
         // Navigate to "EditEvent" route without full page reload
-        oRouter.navTo("EditEvent", {
-            EvenementID: sEventId
-        }, /* bReplace */ false);
+        oRouter.navTo(
+          "EditEvent",
+          {
+            EvenementID: sEventId,
+          },
+          /* bReplace */ false
+        );
       },
-    
+
       onTerug: function () {
         history.back();
       },
-      onDeactivate: function(button) {
+      checkActiveEvent: function (id) {
+        var odatamodel = this.getView().getModel("v2model");
+
+        var that = this;
+        odatamodel.read("/Evenementen(" + id + ")", {
+          success: function (oData) {
+            if (oData.actief) {
+              that.getView().byId("av0").setType("Reject");
+              that.getView().byId("personalSS1").setVisible(true);
+              that.zichtbaarheid = true;
+            } else {
+              that.getView().byId("av0").setType("Accept");
+              that.getView().byId("personalSS1").setVisible(false);
+              that.zichtbaarheid = false;
+            }
+          },
+          error: function (error) {
+            console.error(
+              "Fout bij het ophalen van actieve status van evenement:",
+              error
+            );
+            MessageBox.error(
+              "Fout bij het ophalen van actieve status van evenement."
+            );
+          },
+        });
+      },
+      onDeactivate: function (button) {
         var button = this.getView().byId("av0");
         var beschikbareSessies = this.getView().byId("personalSS1");
+        var odatamodel = this.getView().getModel("v2model");
+        var that = this;
         if (this.zichtbaarheid) {
-          button.setText("Activeer evenement"); 
           button.setType("Accept");
           beschikbareSessies.setVisible(false);
           this.zichtbaarheid = false;
-        }
-        else {
-          button.setText("Deactiveer evenement");
+
+          odatamodel.update(
+            "/Evenementen(" +
+              this.getView().getBindingContext().getProperty("evenementID") +
+              ")",
+            {
+              actief: false,
+            }
+          );
+        } else {
           button.setType("Reject");
           beschikbareSessies.setVisible(true);
           this.zichtbaarheid = true;
+          odatamodel.update(
+            "/Evenementen(" +
+              this.getView().getBindingContext().getProperty("evenementID") +
+              ")",
+            {
+              actief: true,
+            }
+          );
         }
       },
-      myCustomFormatterFunction2: function(beginUur, eindUur) {
+      myCustomFormatterFunction2: function (beginUur, eindUur) {
         try {
-      
           if (beginUur && eindUur) {
-            var aTime = beginUur.split(':');
-            var formattedTime = aTime[0] + ':' + aTime[1];
+            var aTime = beginUur.split(":");
+            var formattedTime = aTime[0] + ":" + aTime[1];
 
-            var bTime = eindUur.split(':');
-            var formattedTime2 = bTime[0] + ':' + bTime[1];
-      
-            var formattedDateTime = formattedTime + ' - ' + formattedTime2;
-      
+            var bTime = eindUur.split(":");
+            var formattedTime2 = bTime[0] + ":" + bTime[1];
+
+            var formattedDateTime = formattedTime + " - " + formattedTime2;
+
             return formattedDateTime;
           } else {
             return "Invalid time";
@@ -399,20 +457,20 @@ sap.ui.define(
           return "Error formatting date and time";
         }
       },
-      myCustomFormatterFunction: function(beginDatum, beginUur) {
+      myCustomFormatterFunction: function (beginDatum, beginUur) {
         try {
           var oDate = new Date(beginDatum);
           var formattedDate = sap.ui.core.format.DateFormat.getDateInstance({
             pattern: "yyyy-MM-dd",
-            UTC: true
+            UTC: true,
           }).format(oDate);
-      
+
           if (beginUur) {
-            var aTime = beginUur.split(':');
-            var formattedTime = aTime[0] + ':' + aTime[1];
-      
-            var formattedDateTime = formattedDate + ' ' + formattedTime;
-      
+            var aTime = beginUur.split(":");
+            var formattedTime = aTime[0] + ":" + aTime[1];
+
+            var formattedDateTime = formattedDate + " " + formattedTime;
+
             return formattedDateTime;
           } else {
             return "Invalid time";
@@ -421,7 +479,7 @@ sap.ui.define(
           console.error("Error formatting date and time:", error);
           return "Error formatting date and time";
         }
-      }
+      },
     });
   }
 );

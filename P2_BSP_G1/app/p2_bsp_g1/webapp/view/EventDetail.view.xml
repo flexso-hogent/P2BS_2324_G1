@@ -69,7 +69,7 @@
         <sections>
             <ObjectPageSection titleUppercase="false" id="personal" title="Session">
                 <subSections>
-                    <ObjectPageSubSection id="personalSS1" title="{i18n>beschikbareSessies}" titleUppercase="false">
+                    <ObjectPageSubSection id="personalSS1" title="{i18n>beschikbareSessies}" titleUppercase="false" visible="false">
                         <m:Table id="sessiestable" selectionChange=".onSelectionChange" noDataText="{i18n>geenSessiesEventDetail}" inset="false" items="{
 			path: 'sessies',
 			sorter: {

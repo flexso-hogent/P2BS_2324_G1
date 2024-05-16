@@ -21,6 +21,7 @@ entity Evenementen {
         eindUur                 : Time;
         locatie                 : String;
         prijs                   : Decimal(5, 2);
+        actief                  : Boolean;
         sessies                 : Association to many Sessies
                                       on sessies.evenement = $self;
 }
