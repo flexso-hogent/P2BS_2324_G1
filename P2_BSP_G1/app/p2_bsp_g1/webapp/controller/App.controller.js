@@ -1,5 +1,11 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/ui/model/resource/ResourceModel", "sap/ui/core/Fragment", "sap/m/MenuItem", "sap/m/MessageToast"],
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/resource/ResourceModel",
+    "sap/ui/core/Fragment",
+    "sap/m/MenuItem",
+    "sap/m/MessageToast",
+  ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
@@ -11,8 +17,7 @@ sap.ui.define(
     return Controller.extend("p2bspg1.controller.App", {
       onInit: function () {
         var oRouter = this.getOwnerComponent().getRouter();
-        oRouter
-          .attachRouteMatched(this._onRouteMatched, this);
+        oRouter.attachRouteMatched(this._onRouteMatched, this);
       },
 
       onBeforeRendering: function () {
@@ -38,35 +43,37 @@ sap.ui.define(
         window.location.href = "#/Login";
         window.location.reload();
       },
-      onEvents: function() {
-				// Redirect to Event page
-				window.location.href = "#/Events/";
-			},
-			onEventsDetails: function() {
-				// Redirect to Event page
-				window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/1";
-			}			,
-			onEventsNew: function() {
-				// Redirect to Event page
-				window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new";
-			},
-			onOpenDialog: function() {
-				MessageBox.success("Op de knop gedrukt");
-			},
-			onHomePress: function() {
+      onEvents: function () {
+        // Redirect to Event page
+        window.location.href = "#/Events/";
+      },
+      onEventsDetails: function () {
+        // Redirect to Event page
+        window.location.href =
+          "http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events/1";
+      },
+      onEventsNew: function () {
+        // Redirect to Event page
+        window.location.href =
+          "http://localhost:4004/p2_bsp_g1/webapp/index.html#/Events#/new";
+      },
+      onOpenDialog: function () {
+        MessageBox.success("Op de knop gedrukt");
+      },
+      onHomePress: function () {
         window.location.href = "#/";
         window.location.reload();
-			},
-			onLogoutPress: function() {
-				window.location.href = "#/Login/"
-			},
-			onMyEvents: function() {
-				window.location.href = "#/MijnEvents/"
-			},
-			onNewSessie: function() {
-				window.location.href = "#/Sessies#/new/1";
-			},
-      onHandleLanguage: function() {
+      },
+      onLogoutPress: function () {
+        window.location.href = "#/Login/";
+      },
+      onMyEvents: function () {
+        window.location.href = "#/MijnEvents/";
+      },
+      onNewSessie: function () {
+        window.location.href = "#/Sessies#/new/1";
+      },
+      onHandleLanguage: function () {
         var oResoureceModel = this.getView().getModel("i18n");
         if (oResoureceModel.sLocale == "nl") {
           this.onLanguageSwitchToEnglish();
@@ -74,14 +81,17 @@ sap.ui.define(
           this.onLanguageSwitchToDutch();
         }
       },
-      onLanguageSwitchToEnglish: function() {
+      onLanguageSwitchToEnglish: function () {
         var oResoureceModel = this.getView().getModel("i18n");
         oResoureceModel.sLocale = "en";
         sap.ui.getCore().getConfiguration().setLanguage("en");
         localStorage.setItem("language", "en");
         this.getView().getModel("i18n").refresh();
+        window.onload = function () {
+          window.location.reload();
+        };
       },
-      onLanguageSwitchToDutch: function() {
+      onLanguageSwitchToDutch: function () {
         var oResoureceModel = this.getView().getModel("i18n");
         oResoureceModel.sLocale = "nl";
         sap.ui.getCore().getConfiguration().setLanguage("nl");
@@ -89,44 +99,48 @@ sap.ui.define(
         this.getView().getModel("i18n").refresh();
       },
       onPress: function () {
-				var oView = this.getView(),
-					oButton = oView.byId("button");
+        var oView = this.getView(),
+          oButton = oView.byId("button");
 
-				if (!this._oMenuFragment) {
-					this._oMenuFragment = Fragment.load({
-						id: oView.getId(),
-						name: "p2bspg1.view.Menu",
-						controller: this
-					}).then(function(oMenu) {
-						oMenu.openBy(oButton);
-						this._oMenuFragment = oMenu;
-						return this._oMenuFragment;
-					}.bind(this));
-				} else {
-					this._oMenuFragment.openBy(oButton);
-				}
-			},
-			onMenuAction: function(oEvent) {
-				var oItem = oEvent.getParameter("item"),
-					sItemPath = "";
+        if (!this._oMenuFragment) {
+          this._oMenuFragment = Fragment.load({
+            id: oView.getId(),
+            name: "p2bspg1.view.Menu",
+            controller: this,
+          }).then(
+            function (oMenu) {
+              oMenu.openBy(oButton);
+              this._oMenuFragment = oMenu;
+              return this._oMenuFragment;
+            }.bind(this)
+          );
+        } else {
+          this._oMenuFragment.openBy(oButton);
+        }
+      },
+      onMenuAction: function (oEvent) {
+        var oItem = oEvent.getParameter("item"),
+          sItemPath = "";
 
-				while (oItem instanceof MenuItem) {
-					sItemPath = oItem.getText();
-					oItem = oItem.getParent();
-				}
-
+        while (oItem instanceof MenuItem) {
+          sItemPath = oItem.getText();
+          oItem = oItem.getParent();
+        }
 
         switch (sItemPath) {
           case "English":
             this.onLanguageSwitchToEnglish();
+            window.location.reload();
+
             break;
           case "Dutch":
             this.onLanguageSwitchToDutch();
+            window.location.reload();
+
             break;
         }
-
-			},
-      showCorrectElementsAndLanguage: function(){
+      },
+      showCorrectElementsAndLanguage: function () {
         var oUv1 = this.byId("uv1"),
           oUv2 = this.byId("uv2"),
           oUv3 = this.byId("uv3"),
@@ -149,12 +163,12 @@ sap.ui.define(
         var language = localStorage.getItem("language");
         if (language == null) {
           this.onLanguageSwitchToDutch();
-        } else if(language == "en") {
+        } else if (language == "en") {
           this.onLanguageSwitchToEnglish();
         } else {
           this.onLanguageSwitchToDutch();
         }
-      }
+      },
     });
   }
 );
