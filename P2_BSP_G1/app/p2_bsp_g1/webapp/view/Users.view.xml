@@ -12,9 +12,9 @@
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
                 <Table id="userTable" selectionChange=".onSelectionChange" noDataText="{i18n>noRegistredUser}" inset="false" items="{
-						path: '/Scores',
+						path: '/Inschrijvingen',
                         sorter: {
-                            path: 'inschrijvingID/sessieID/naam',
+                            path: 'sessieID/evenement_evenementID/naam',
                             descending: false,
                             group: true
                         }
@@ -34,20 +34,15 @@
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="{i18n>emailGebruiker}"/>
                         </Column>
-                        <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="feedback"/>
-                        </Column>
+
                     </columns>
 
                     <items>
                         <ColumnListItem vAlign="Middle" type="Active">
                             <cells>
-                                <ObjectIdentifier title="{inschrijvingID/sessieID/naam}" text="{inschrijvingID/sessieID/spreker}" />
+                                <ObjectIdentifier title="{inschrijvingID/sessieID/evenement_evenementID/naam}" text="{inschrijvingID/sessieID}" />
                                 <Text text="{gebruikerID/voornaam} {gebruikerID/achternaam}" />
-<!--                                 <Text text="{gebruikerID/email}" />
-                                <Text text="{feedback}" /> -->
-                                <Text text="{gebruikerID_gebruikerID}" />
-                                <Text text="{sessieID_sessieID}" />
+                                <Text text="{gebruikerID/email}" />
                             </cells>
                         </ColumnListItem>
                     </items>  
