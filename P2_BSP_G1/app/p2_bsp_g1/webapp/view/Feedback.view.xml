@@ -26,16 +26,13 @@
                     </infoToolbar>
                     <columns>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <ObjectIdentifier title="{i18n>naamSessie}" text="Spreker"/>
+                            <ObjectIdentifier title="{i18n>naamEvent}" text="Spreker"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="{i18n>naamGebruiker}"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="{i18n>aantalSterren}"/>
-                        </Column>
-                        <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="{i18n>feedback}"/>
                         </Column>
                     </columns>
 
@@ -45,7 +42,6 @@
                                 <ObjectIdentifier title="{inschrijvingID/sessieID/naam}" text="{inschrijvingID/sessieID/spreker}" />
                                 <Text text="{gebruikerID/voornaam} {gebruikerID/achternaam}" />
                                 <RatingIndicator value="{aantalSterren}" iconSize="24px" editable="false"/>
-                                <Text text="{feedback}" />
                             </cells>
                         </ColumnListItem>
                     </items>  

@@ -1,57 +1,58 @@
-<mvc:View controllerName="p2bspg1.controller.Users" 
-  xmlns:mvc="sap.ui.core.mvc"
-  xmlns:l="sap.ui.layout"
-  xmlns:f="sap.ui.layout.form"
-  xmlns="sap.m"
-  xmlns:t="sap.ui.table" displayBlock="true">
+<mvc:View controllerName="p2bspg1.controller.Users"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table" displayBlock="true">
 
-  <Page id="Users">
-    <headerContent>
-      <Button text="{i18n>terug}" press=".onTerug" class="ButtonStyle"/>
-    </headerContent>
-    <content>
-      <FlexBox justifyContent="Center" alignItems="Center" width="100%">
-        <Table id="userTable" selectionChange=".onSelectionChange" noDataText="{i18n>noRegistredUser}" inset="false" items="{
-				  path: '/Inschrijvingen',
-				  filters: [{ 
-                      path: 'sessieID/evenement_evenementID',
-                      operator: 'EQ',
-                      value1: '{/evenementID}'
-                  }],
-            sorter: {
-              path: 'sessieID/evenement_evenementID',
-              descending: false,
-              group: true
-            }
+    <Page id="Users" title="{i18n>geregistreerdeUSERS}">
+        <headerContent>
+            <Button text="{i18n>terug}" press=".onTerug" class="ButtonStyle"/>
+        </headerContent>
+        <content>
+            <FlexBox justifyContent="Center" alignItems="Center" width="100%">
+                <Table id="userTable" selectionChange=".onSelectionChange" noDataText="{i18n>noRegistredUser}" inset="false" items="{
+						path: '/Scores',
+                        sorter: {
+                            path: 'inschrijvingID/sessieID/naam',
+                            descending: false,
+                            group: true
+                        }
 					}">
-            <infoToolbar>
-              <OverflowToolbar visible="false" id="idInfoToolbar">
-                <Label id="idFilterLabel" />
-              </OverflowToolbar>
-              </infoToolbar>
-                <columns>
-                  <Column minScreenWidth="Tablet" demandPopin="true">
-                    <ObjectIdentifier title="{i18n>naamEvent}" text="{i18n>naamSessie}"/>
-                  </Column>
-                  <Column minScreenWidth="Tablet" demandPopin="true">
-                    <Text text="{i18n>naamGebruiker}"/>
-                  </Column>
-                  <Column minScreenWidth="Tablet" demandPopin="true">
-                    <Text text="{i18n>emailGebruiker}"/>
-                  </Column>
-                </columns>
+                    <infoToolbar>
+                        <OverflowToolbar visible="false" id="idInfoToolbar">
+                            <Label id="idFilterLabel" />
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <ObjectIdentifier title="{i18n>naamEvent}" text="{i18n>naamSessie}"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>naamGebruiker}"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>emailGebruiker}"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="feedback"/>
+                        </Column>
+                    </columns>
 
-                <items>
-                  <ColumnListItem vAlign="Middle" type="Active">
-                    <cells>
-                      <ObjectIdentifier title="{sessieID/evenement_evenementID}" text="{sessieID/naam}" />
-                        <Text text="{gebruikerID/voornaam} {gebruikerID/achternaam}" />
-                        <Text text="{gebruikerID/email}" />
-                    </cells>
-                  </ColumnListItem>
-                </items>  
-        </Table>
-      </FlexBox>
-    </content>
-  </Page>
+                    <items>
+                        <ColumnListItem vAlign="Middle" type="Active">
+                            <cells>
+                                <ObjectIdentifier title="{inschrijvingID/sessieID/naam}" text="{inschrijvingID/sessieID/spreker}" />
+                                <Text text="{gebruikerID/voornaam} {gebruikerID/achternaam}" />
+<!--                                 <Text text="{gebruikerID/email}" />
+                                <Text text="{feedback}" /> -->
+                                <Text text="{gebruikerID_gebruikerID}" />
+                                <Text text="{sessieID_sessieID}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>  
+                </Table>
+            </FlexBox>
+        </content>
+    </Page>
 </mvc:View>
