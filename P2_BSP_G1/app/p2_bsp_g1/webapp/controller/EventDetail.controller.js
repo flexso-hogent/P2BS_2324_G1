@@ -328,10 +328,21 @@ sap.ui.define(
       },
 
       seeFeedback: function () {
-        var evenementID = this.getView()
+        var oSelectedItem = this.getView().getBindingContext();
+        var evenementID = oSelectedItem.getProperty("evenementID");
+        var currentDate = new Date();
+        var eventDate = new Date(oSelectedItem.getProperty("eindDatum"));
+        var eventDateObj = new Date(eventDate);
+        if (currentDate >= eventDateObj) {
+          var evenementID = this.getView()
           .getBindingContext()
           .getProperty("evenementID");
-        window.location.href = "#/Feedback/" + evenementID;
+          window.location.href = "#/Feedback/" + evenementID;
+        } else {
+          MessageBox.information(
+            "Het is nog niet mogelijk om feedback te zien voor dit evenement. Wacht tot het evenement is afgelopen!"
+          );
+        }    
       },
 
       deleteEvent: function () {
