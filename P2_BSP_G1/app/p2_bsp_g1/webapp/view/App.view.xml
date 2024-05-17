@@ -53,7 +53,7 @@
 						</tnt:NavigationListGroup>
 						<tnt:NavigationListGroup text="{i18n>mijnProfielSidebar}" visible="false" id="uv1">
 							<tnt:NavigationListItem text="{i18n>mijnProfielSidebar}" icon="sap-icon://key-user-settings" href="#/Profiel/{gebruikerID}" />
-							<tnt:NavigationListItem text="{i18n>mijnInschrijvingen}" icon="sap-icon://notes" href="#/MijnEvents" />
+							<tnt:NavigationListItem text="{i18n>mijnEvenementen}" icon="sap-icon://notes" href="#/MijnEvents" />
 							<tnt:NavigationListItem text="{i18n>logout}" icon="sap-icon://log" select="onLogOut" visible="false" id="uv2" class="nav" />
 						</tnt:NavigationListGroup>
 						<tnt:NavigationListItem text="{i18n>login}" icon="sap-icon://log" select="onLogOut" visible="false" id="loginView" />
