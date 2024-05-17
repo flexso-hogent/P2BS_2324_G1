@@ -39,18 +39,24 @@ sap.ui.define(
         // Check if any field is empty
         if (!this.validateForm(oForm)) {
           MessageBox.error("Please fill in all fields");
+          this.getView().byId("wachtwoord").setValue("");
+          this.getView().byId("herhaalWachtwoord").setValue("");
           return;
         }
 
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(oForm.email)) {
           MessageBox.error("Please enter a valid email address. Example: jan@example.com");
+          this.getView().byId("wachtwoord").setValue("");
+          this.getView().byId("herhaalWachtwoord").setValue("");
           return;
         }
 
         // Check if password and repeat password match
         if (oForm.wachtwoord !== sHerhaalWachtwoord) {
           MessageBox.error("Passwords do not match! Please try again.");
+          this.getView().byId("wachtwoord").setValue("");
+          this.getView().byId("herhaalWachtwoord").setValue("");
           return;
         }
 
@@ -58,6 +64,8 @@ sap.ui.define(
         var currentDate = new Date();
         if (birthdate > currentDate) {
             MessageBox.error("Please enter a valid birthdate.");
+            this.getView().byId("wachtwoord").setValue("");
+            this.getView().byId("herhaalWachtwoord").setValue("");
             return;
         }
 
@@ -71,6 +79,16 @@ sap.ui.define(
           "user" 
         ].join(";");
         console.log("Data die gefixt is: ", csvData);
+        var csvArray = csvData.split(";");
+        var userData = {
+          gebruikerID: parseInt(csvArray[0]),
+          voornaam: csvArray[1],
+          achternaam: csvArray[2],
+          email: csvArray[3],
+          wachtwoord: csvArray[4],
+          geboortedatum: csvArray[5],
+          rol: csvArray[6]
+        }
     
         jQuery.ajax({
             url: "http://localhost:4004/odata/v4/overview/Gebruikers",
@@ -78,16 +96,23 @@ sap.ui.define(
             contentType: "application/json",
             data: JSON.stringify(userData),
             success: function(response) {
-                MessageBox.success("User registered successfully!");
+                MessageBox.success("User registered successfully! Redirecting to login page.");
+                setTimeout(function () {
+                  window.location.href = "#/Login";
+                  window.location.reload();
+                }, 2000);
             },
             error: function(xhr, status, error) {
-                MessageBox.error("Failed to register user. Please try again later.");
-            }
+              console.error("Failed to register user. Please try again later.");
+              console.error("Status: " + status);
+              console.error("Error: " + error);
+              console.error("Response: " + xhr.responseText);
+          }
         });
         console.log("melding meegegeven");
       },
       getNextUserID: function() {
-        var lastUserID = "000022";
+        var lastUserID = "000024";
         var nextUserID = parseInt(lastUserID.slice(1)) + 1; 
         return "000" + nextUserID.toString().slice(-5);
       },

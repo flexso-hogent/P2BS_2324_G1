@@ -15,6 +15,8 @@ sap.ui.define(
           localStorage.removeItem("user");
         
         document.addEventListener("keydown", this.onKeyPress.bind(this));
+
+        
       },
 
       onKeyPress: function (event) {
@@ -62,10 +64,11 @@ sap.ui.define(
                   window.location.reload();
                 }, 2000);
               }
-              if (!passwordCorrect) {
-                MessageBox.error("Invalid email or password.");
-              }
             });
+            if (!passwordCorrect) {
+              MessageBox.error("Invalid email or password.");
+              this.getView().byId("wachtwoord").setValue("");
+            }
           }.bind(this),
           error: function (error) {
             MessageBox.error("Failed to read user data.");

@@ -99,7 +99,13 @@ sap.ui.define([
         actions: [MessageBox.Action.YES, MessageBox.Action.NO],
         onClose: function(sAction) {
           if (sAction === MessageBox.Action.YES) {
-            this.oRouter.navTo("WijzigProfiel");
+            MessageBox.success("Uw gegevens zijn gewijzigd.");
+            this.getView().byId("wachtwoord").setValue("");
+            this.getView().byId("herhaalWW").setValue("");
+          } else {
+            MessageBox.error("Uw gegevens zijn niet gewijzigd.");
+            this.getView().byId("wachtwoord").setValue("");
+            this.getView().byId("herhaalWW").setValue("");
           }
         }.bind(this),
       });

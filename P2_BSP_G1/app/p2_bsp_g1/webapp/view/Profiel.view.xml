@@ -38,7 +38,7 @@
                                 </HBox>
                                 <Label text="{i18n>wachtwoord}" labelFor="wachtwoord" required="true" class="input" />
                                 <HBox class="input">
-                                    <Input id="wachtwoord" type="Password" width="100%" class="input" value="{wachtwoord}" editable="false" liveChange=".updateModel"/>
+                                    <Input id="wachtwoord" type="Password" width="100%" class="input" editable="false" liveChange=".updateModel"/>
                                     <Button icon="sap-icon://show" press=".onSeePassword" />
                                     <Button icon="sap-icon://edit" press=".onEditWW"/>
                                 </HBox>
