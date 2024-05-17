@@ -25,7 +25,7 @@ sap.ui.define([
 		},
     onCancel: function() {
       // Redirect to Home page
-      window.location.href = "#/";
+      window.history.back();
     },
 
     onSent: function() {

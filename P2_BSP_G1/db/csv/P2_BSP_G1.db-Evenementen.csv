@@ -19,3 +19,4 @@ evenementID;naam;beginDatum;eindDatum;beginUur;eindUur;locatie;prijs;actief
 000018;Software Engineering Summit;2025-09-22;2025-09-22;09:00;17:00;Engineeringplein 18, Stad;55.00;true
 000019;Virtual Reality Workshop;2025-10-11;2025-10-11;10:00;15:00;VRstraat 6, Stad;40.00;true
 000020;Cyber Forensics Seminar;2025-11-05;2025-11-05;11:00;16:00;Forensicspad 7, Stad;35.00;true
+000021;Workshop SAP;2024-05-24;2024-05-26;18:00;20:00;SAPstraat 1, Stad;25.00;true

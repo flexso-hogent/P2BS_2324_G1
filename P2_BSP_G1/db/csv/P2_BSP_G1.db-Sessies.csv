@@ -39,3 +39,6 @@ sessieID;naam;datum;beginUur;eindUur;spreker;korteInhoud;maxAantalInschrijvingen
 000038;Machine Learning in Healthcare;2025-10-11;13:00;15:00;Isabella Johnson;Leer hoe machine learning kan worden toegepast in de gezondheidszorg voor verbeterde diagnose en behandeling.;35;000019
 000039;Agile Development in Praktijk;2025-11-05;10:00;12:00;Ryan Martinez;Een praktische gids voor het implementeren van Agile methodologieën in softwareontwikkelingsprojecten.;40;000020
 000040;Continuous Delivery Best Practices;2025-11-05;13:00;15:00;Emma Adams;Ontdek beste praktijken voor het implementeren van continue levering voor snellere en betrouwbaardere softwarelevering.;45;000020
+000041;SAP for beginners;2024-05-24;17:00;18:30;Robbe Van Duysen;Leer de basisprincipes van SAP.;50;000021
+000042;SAP for advanced users;2024-05-25;09:00;10:30;Taylon Vandenbroecke;Ontdek geavanceerde concepten en toepassingen in SAP.;50;000021
+000043;SAP for experts;2024-05-25;11:00;12:30;Mats Claerhout;Leer de meest geavanceerde technieken in SAP.;50;000021

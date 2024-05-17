@@ -192,7 +192,7 @@ sap.ui.define(
               "Sessie edited. Redirecting to sessie page."
             );
             setTimeout(function () {
-              window.location.href = "#/";
+              window.location.href = "#/Sessies/" + sessieID;
               window.location.reload();
             }, 1000);                  
             return;

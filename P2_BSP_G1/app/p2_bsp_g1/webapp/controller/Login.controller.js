@@ -16,7 +16,6 @@ sap.ui.define(
         
         document.addEventListener("keydown", this.onKeyPress.bind(this));
 
-        
       },
 
       onKeyPress: function (event) {

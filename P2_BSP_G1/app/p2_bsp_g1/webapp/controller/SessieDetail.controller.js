@@ -68,7 +68,7 @@ sap.ui.define(
         });
       },
       onTerug: function () {
-        history.back();
+        window.history.back();
       },
       setRating: function () {
         var that = this;

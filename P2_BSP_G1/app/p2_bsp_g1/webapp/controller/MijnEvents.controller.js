@@ -55,11 +55,21 @@ sap.ui.define(
 
       geefFeedback: function (oEvent) {
         var oSelectedItem = oEvent.getSource().getBindingContext();
-        var sinschrijvingID = oSelectedItem.getProperty("inschrijvingID");
-        var oRouter = this.getOwnerComponent().getRouter();
-        oRouter.navTo("FeedbackGeven", {
-          inschrijvingID: sinschrijvingID,
-        });
+        var eventDate = oSelectedItem.getProperty("sessieID/evenement/beginDatum");
+        console.log(eventDate);
+        var currentDate = new Date();
+        console.log(currentDate);
+        var eventDateObj = new Date(eventDate);
+        console.log(eventDateObj);
+        if (currentDate >= eventDateObj) {
+          var sinschrijvingID = oSelectedItem.getProperty("inschrijvingID");
+          var oRouter = this.getOwnerComponent().getRouter();
+          oRouter.navTo("FeedbackGeven", {
+            inschrijvingID: sinschrijvingID,
+          });
+        } else {
+          MessageBox.information("U kunt pas feedback geven na de sessie");
+        }
       },
      
 
