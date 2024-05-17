@@ -6,6 +6,9 @@
     xmlns:t="sap.ui.table" displayBlock="true">
 
     <Page id="Feedback">
+        <headerContent>
+            <Button text="{i18n>terug}" press=".onTerug" class="ButtonStyle"/>
+        </headerContent>
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
                 <Table id="feedbackTable" selectionChange=".onSelectionChange" noDataText="{i18n>noFeedbackData}" inset="false" items="{
@@ -47,11 +50,6 @@
                         </ColumnListItem>
                     </items>  
                 </Table>
-            </FlexBox>
-            <FlexBox>
-                <VBox>
-                    <Button text="{i18n>terug}" press=".onTerug" class="ButtonStyle"/>
-                </VBox>
             </FlexBox>
         </content>
     </Page>

@@ -194,6 +194,11 @@
           "name": "NotFound",
           "pattern": "NotFound",
           "target": ["NotFound"]
+        },
+        {
+          "name": "Users",
+          "pattern": "Users/{evenementID}",
+          "target": ["Users"]
         }
       ],
       "targets": {
@@ -295,6 +300,13 @@
           "clearControlAggregation": false,
           "viewId": "NotFound",
           "viewName": "NotFound"
+        },
+        "Users": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Users",
+          "viewName": "Users"
         }
       }
     },

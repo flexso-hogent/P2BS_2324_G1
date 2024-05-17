@@ -31,13 +31,15 @@ sap.ui.define(
           oAv1 = this.byId("av1"),
           oAv2 = this.byId("av2"),
           oAv3 = this.byId("av3"),
-          oAv4 = this.byId("av4");
+          oAv4 = this.byId("av4"),
+          oAv12 = this.byId("av12");
         if (!user == null || user.rol == "admin") {
           oAv0.setVisible(true);
           oAv1.setVisible(true);
           oAv2.setVisible(true);
           oAv3.setVisible(true);
           oAv4.setVisible(true);
+          oAv12.setVisible(true);
         }
 
         var odatamodel = this.getView().getModel("v2model");
@@ -468,6 +470,13 @@ sap.ui.define(
           return "Error formatting date and time";
         }
       },
+      _getEvenementIDFromURL: function() {
+        var oComponent = this.getOwnerComponent();
+        var oRouter = oComponent.getRouter();
+        var oArgs = oRouter.getHashChanger().getHash().split("/");
+        console.log(oArgs);
+        return oArgs[oArgs.length - 1];
+      },
       myCustomFormatterFunction: function (beginDatum, beginUur) {
         try {
           var oDate = new Date(beginDatum);
@@ -491,6 +500,12 @@ sap.ui.define(
           return "Error formatting date and time";
         }
       },
+      seeUsers: function() {
+        //MessageBox.information("Onder constructie! hihi");
+        var evenementIDtje = this._getEvenementIDFromURL();
+        window.location.href = "#/Users/" + evenementIDtje;
+      },
+      
     });
   }
 );

@@ -24,7 +24,7 @@
 				<f:DynamicPageHeader>
 					<f:content>
 						<FlexBox justifyContent="End" alignItems="Center" width="100%">
-								<Button text="{i18n>Terug}" press=".onBack" />
+								<Button text="{i18n>terug}" press=".onBack" />
 						</FlexBox>
 						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
 							<fb:filterGroupItems>

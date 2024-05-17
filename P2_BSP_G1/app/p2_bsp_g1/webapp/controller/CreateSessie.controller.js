@@ -202,7 +202,6 @@ sap.ui.define(
           },
         });
       },
-    
       _getEvenementIDFromURL: function() {
           var oComponent = this.getOwnerComponent();
           var oRouter = oComponent.getRouter();

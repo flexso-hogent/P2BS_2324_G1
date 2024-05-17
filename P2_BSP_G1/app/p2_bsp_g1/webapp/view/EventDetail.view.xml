@@ -56,6 +56,7 @@
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd buttonWidth">
                     <m:Button text="{i18n>terug}" type="Default" press=".onTerug"/>
                     <m:Button text="{i18n>voegSessieToeButton}" type="Emphasized" press="addSessie" visible="false" id="av1" />
+                    <m:Button text="{i18n>gebruikersWeergevenButton}" type="Emphasized" press="seeUsers" visible="false" id="av12" />
                     <m:Button text="{i18n>bekijkFeedbackButton}" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
                 <m:Button text="{i18n>pasEventAanButton}" type="Attention" press="onEventPressEdit" visible="false" id="av3"/>
                     <m:Button text="{i18n>verwijderEventButton}" type="Reject" press="deleteEvent" visible="false" id="av4" />
