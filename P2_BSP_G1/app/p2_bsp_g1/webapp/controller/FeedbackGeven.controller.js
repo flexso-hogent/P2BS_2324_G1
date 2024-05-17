@@ -16,7 +16,8 @@ sap.ui.define([
       if (user == null) {
         this.getOwnerComponent().getRouter().navTo("NotFound");
       }
-      
+      this.getView().byId("feedback").setValue("");
+      this.getView().byId("ratingIndicator").setValue(3);
 		},
 		handleChange: function(oEvent) {
 			var demoToast = this.getView().byId("demoToast");

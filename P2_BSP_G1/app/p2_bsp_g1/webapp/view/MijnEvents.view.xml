@@ -5,7 +5,7 @@
 
     <Page id="MijnEvents" title="{i18n>mijnEventsTitel}">
         <headerContent>
-            <Button text="{i18n>Terug}" press=".onBack" />
+            <Button text="{i18n>terug}" press=".onBack" />
         </headerContent>
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
