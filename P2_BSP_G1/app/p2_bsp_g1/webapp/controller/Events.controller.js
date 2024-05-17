@@ -23,9 +23,30 @@ sap.ui.define(
       refreshPage: function () {
         var oTable = this.byId("eventsTable");
         if (oTable) {
+          this.filterFutureEvents(oTable.getBinding("items"));
           oTable.getBinding("items").refresh();
         }
       },
+
+      filterFutureEvents: function (oTable) {
+        var oTable = this.byId("eventsTable");
+        if (oTable) {
+          var oBinding = oTable.getBinding("items");
+          var currentDate = new Date();
+          
+          // Haal einddatum rechtstreeks op uit de geselecteerde itemcontext
+          var eventDate = new Date(oSelectedItem.getProperty("eindDatum"));
+          var eventDateObj = new Date(eventDate);
+          
+          // Filter voor toekomstige evenementen
+          if (currentDate <= eventDateObj) {
+            var oFilters = new Filter(eventDateObj, FilterOperator.GT, currentDate);
+            oBinding.filter([oFilters]);
+          }
+        }
+        return oTable;
+      },
+      
 
       onSearchNaam: function (oEvent) {
         var sQuery = oEvent.getParameter("query");
@@ -164,7 +185,7 @@ sap.ui.define(
       },
       onBack: function () {
         window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html";
-      },
+      }
     });
   }
 );
