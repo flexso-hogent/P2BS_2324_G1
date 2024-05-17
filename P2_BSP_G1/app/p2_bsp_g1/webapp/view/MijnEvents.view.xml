@@ -4,6 +4,9 @@
     xmlns="sap.m">
 
     <Page id="MijnEvents" title="{i18n>mijnEventsTitel}">
+        <headerContent>
+            <Button text="{i18n>Terug}" press=".onBack" />
+        </headerContent>
         <content>
             <FlexBox justifyContent="Center" alignItems="Center" width="100%">
                 <Table id="InschrijvingTable" selectionChange=".onSelectionChange" inset="false" noDataText="U heeft op dit momement nog geen inschrijvingen." items="{ path: '/Inschrijvingen',

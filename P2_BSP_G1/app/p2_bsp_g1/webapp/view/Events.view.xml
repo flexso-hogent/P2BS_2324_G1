@@ -5,7 +5,7 @@
 	xmlns:f="sap.f"
 	xmlns:fb="sap.ui.comp.filterbar"
 	xmlns:svm="sap.ui.comp.smartvariants">
-	<Page id="Events" title="{i18n>alleEvents}">
+	<Page id="Events" title="{i18n>alleEvents}" >
 		<f:DynamicPage headerExpanded="{/headerExpanded}">
 			<f:title>
 				<f:DynamicPageTitle>
@@ -23,6 +23,9 @@
 			<f:header>
 				<f:DynamicPageHeader>
 					<f:content>
+						<FlexBox justifyContent="End" alignItems="Center" width="100%">
+								<Button text="{i18n>Terug}" press=".onBack" />
+						</FlexBox>
 						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
 							<fb:filterGroupItems>
 								<fb:FilterGroupItem name="EventNaam" label="{i18n>eventNaamNummerFilter}" groupName="Group1" visibleInFilterBar="true">

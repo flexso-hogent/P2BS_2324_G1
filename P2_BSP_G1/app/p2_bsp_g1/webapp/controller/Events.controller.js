@@ -161,7 +161,10 @@ sap.ui.define(
           console.error("Error formatting date and time:", error);
           return "Error formatting date and time";
         }
-      }
+      },
+      onBack: function () {
+        window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html";
+      },
     });
   }
 );
