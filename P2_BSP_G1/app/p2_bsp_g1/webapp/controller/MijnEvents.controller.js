@@ -41,7 +41,6 @@ sap.ui.define(
         oBinding.sort(new Sorter("sessieID/evenement/beginDatum", true, true)); // Sort on 'datum'
 
         console.log(oTable);
-
       },
 
       handleListPress: function (oEvent) {
@@ -55,58 +54,58 @@ sap.ui.define(
 
       geefFeedback: function (oEvent) {
         var oSelectedItem = oEvent.getSource().getBindingContext();
-        var eventDate = oSelectedItem.getProperty("sessieID/evenement/beginDatum");
-        console.log(eventDate);
+        var eventDate = oSelectedItem.getProperty(
+          "sessieID/evenement/beginDatum"
+        );
         var currentDate = new Date();
-        console.log(currentDate);
         var eventDateObj = new Date(eventDate);
-        console.log(eventDateObj);
+        var odatamodel = this.getView().getModel("v2model");
+
         if (currentDate >= eventDateObj) {
           var sinschrijvingID = oSelectedItem.getProperty("inschrijvingID");
-          var oRouter = this.getOwnerComponent().getRouter();
-          oRouter.navTo("FeedbackGeven", {
-            inschrijvingID: sinschrijvingID,
+
+          var filter = new Filter(
+            "inschrijvingID_inschrijvingID",
+            sap.ui.model.FilterOperator.EQ,
+            sinschrijvingID
+          );
+          var filter2 = new Filter(
+            "gebruikerID_gebruikerID",
+            sap.ui.model.FilterOperator.EQ,
+            user.gebruikerID
+          );
+
+          odatamodel.read("/Scores", {
+            filters: [filter, filter2],
+            success: function (oData) {
+              if (oData.results.length > 0) {
+                MessageBox.information("U heeft al feedback gegeven");
+              } else {
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("FeedbackGeven", {
+                  inschrijvingID: sinschrijvingID,
+                });
+              }
+            }.bind(this),
+            error: function (oError) {
+              MessageBox.error("Er is iets fout gegaan");
+            },
           });
         } else {
           MessageBox.information("U kunt pas feedback geven na de sessie");
         }
       },
-     
-
-      //   openQR: function (oEvent) {
-      //       var oSelectedItem = oEvent.getSource().getBindingContext();
-      //       var sInschrijvingsID = oSelectedItem.getProperty("inschrijvingsID");
-      //       var sGebruikerID = oSelectedItem.getProperty("gebruikerID");
-      //       var sSessieID = oSelectedItem.getProperty("sessieID");
-
-      //       var qrData = sInschrijvingsID + '-' + sGebruikerID + '-' + sSessieID;
-      //       var typeNumber = 4; // Change according to your requirement
-      //       var errorCorrectionLevel = 'L'; // Change according to your requirement
-
-      //       // Create QR Code
-      //       var qr = QRCodeGenerator(typeNumber, errorCorrectionLevel);
-      //       qr.addData(qrData);
-      //       qr.make();
-
-      //       // Get QR Code SVG
-      //       var svg = qr.createSvgTag();
-
-      //       // Render QR Code in UI
-      //       var oQRCodeContainer = this.getView().byId("qrCodeContainer");
-      //       oQRCodeContainer.setContent(svg);
-      //   }
-      myCustomFormatterFunction2: function(beginUur, eindUur) {
+      myCustomFormatterFunction2: function (beginUur, eindUur) {
         try {
-      
           if (beginUur && eindUur) {
-            var aTime = beginUur.split(':');
-            var formattedTime = aTime[0] + ':' + aTime[1];
+            var aTime = beginUur.split(":");
+            var formattedTime = aTime[0] + ":" + aTime[1];
 
-            var bTime = eindUur.split(':');
-            var formattedTime2 = bTime[0] + ':' + bTime[1];
-      
-            var formattedDateTime = formattedTime + ' - ' + formattedTime2;
-      
+            var bTime = eindUur.split(":");
+            var formattedTime2 = bTime[0] + ":" + bTime[1];
+
+            var formattedDateTime = formattedTime + " - " + formattedTime2;
+
             return formattedDateTime;
           } else {
             return "Invalid time";
@@ -116,9 +115,10 @@ sap.ui.define(
           return "Error formatting date and time";
         }
       },
-      onBack: function() {
-        window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html";
-      }
+      onBack: function () {
+        window.location.href =
+          "http://localhost:4004/p2_bsp_g1/webapp/index.html";
+      },
     });
   }
 );
