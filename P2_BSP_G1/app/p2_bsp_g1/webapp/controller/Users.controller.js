@@ -20,7 +20,7 @@ sap.ui.define(
       _onRouteMatched: function (oEvent) {
         var oArgs = oEvent.getParameter("arguments");
         var evenementID = oArgs.evenementID;
-        var oFilter = new Filter("inschrijvingID/sessieID/evenement_evenementID", sap.ui.model.FilterOperator.EQ, evenementID);
+        var oFilter = new Filter("sessieID/evenement_evenementID", sap.ui.model.FilterOperator.EQ, evenementID);
         this.getView().byId("userTable").getBinding("items").filter([oFilter]);
       },
       onTerug: function() {

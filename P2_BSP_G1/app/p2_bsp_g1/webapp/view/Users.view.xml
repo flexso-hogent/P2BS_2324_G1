@@ -14,7 +14,7 @@
                 <Table id="userTable" selectionChange=".onSelectionChange" noDataText="{i18n>noRegistredUser}" inset="false" items="{
 						path: '/Inschrijvingen',
                         sorter: {
-                            path: 'sessieID/evenement_evenementID/naam',
+                            path: 'sessieID/naam',
                             descending: false,
                             group: true
                         }
@@ -40,12 +40,12 @@
                     <items>
                         <ColumnListItem vAlign="Middle" type="Active">
                             <cells>
-                                <ObjectIdentifier title="{inschrijvingID/sessieID/evenement_evenementID/naam}" text="{inschrijvingID/sessieID}" />
+                                <ObjectIdentifier title="{sessieID/evenement/naam}" text="{sessieID/naam}" />
                                 <Text text="{gebruikerID/voornaam} {gebruikerID/achternaam}" />
                                 <Text text="{gebruikerID/email}" />
                             </cells>
                         </ColumnListItem>
-                    </items>  
+                    </items>
                 </Table>
             </FlexBox>
         </content>
