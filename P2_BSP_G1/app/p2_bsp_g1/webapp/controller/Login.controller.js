@@ -4,18 +4,16 @@ sap.ui.define(
     "use strict";
 
     // Refreshen van pagina als er naar gegaan wordt
-    window.onload = function() {
+    window.onload = function () {
       window.location.reload();
     };
 
     return Controller.extend("p2bspg1.controller.Login", {
       onInit: function () {
         // Initialization code if needed
-        if(localStorage.getItem("user"))
-          localStorage.removeItem("user");
-        
-        document.addEventListener("keydown", this.onKeyPress.bind(this));
+        if (localStorage.getItem("user")) localStorage.removeItem("user");
 
+        document.addEventListener("keydown", this.onKeyPress.bind(this));
       },
 
       onKeyPress: function (event) {
@@ -25,26 +23,17 @@ sap.ui.define(
       },
 
       onLogin: function () {
-        var odatamodel = this.getView().getModel("v2model");
-        
-        var email = this.getView().byId("email").getValue();
-        var password = this.getView().byId("wachtwoord").getValue();
-        var passwordCorrect = false;
+        var odatamodel = this.getView().getModel("v2model"),
+          oResourceBundle = this.getView().getModel("i18n").getResourceBundle(),
+          email = this.getView().byId("email").getValue(),
+          password = this.getView().byId("wachtwoord").getValue(),
+          passwordCorrect = false;
 
         // Validate email and password
         if (!email || !password) {
-          MessageBox.error("Please enter both email and password.");
+          MessageBox.error(oResourceBundle.getText("nietIngevuld"));
           return;
         }
-
-        var filter = new sap.ui.model.Filter({
-          filters: [
-            new sap.ui.model.Filter("email", sap.ui.model.FilterOperator.EQ, email),
-            new sap.ui.model.Filter("wachtwoord", sap.ui.model.FilterOperator.EQ, password)
-          ],
-          and: true,
-        });
-
         odatamodel.read("/Gebruikers", {
           success: function (data, response) {
             data.results.forEach(function (e) {
@@ -56,10 +45,11 @@ sap.ui.define(
                     wachtwoord: item.wachtwoord,
                   };
                 });
-                MessageBox.success("Login succesful. Redirecting to home screen.");
+                MessageBox.success(oResourceBundle.getText("loginSucces"));
                 localStorage.setItem("user", JSON.stringify(e));
                 setTimeout(function () {
-                  window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html#";
+                  window.location.href =
+                    "http://localhost:4004/p2_bsp_g1/webapp/index.html#";
                   window.location.reload();
                 }, 2000);
               }
@@ -70,7 +60,7 @@ sap.ui.define(
             }
           }.bind(this),
           error: function (error) {
-            MessageBox.error("Failed to read user data.");
+            MessageBox.error(oResourceBundle.getText("loginError"));
           },
         });
       },
@@ -90,7 +80,7 @@ sap.ui.define(
 
       onRegister: function () {
         window.location.href = "#/Registreer/";
-      }
+      },
     });
   }
 );
