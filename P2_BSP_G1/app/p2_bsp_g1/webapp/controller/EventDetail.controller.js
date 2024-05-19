@@ -171,8 +171,13 @@ sap.ui.define(
         var buttonText = button.getText();
         var sessionID = button.getBindingContext().getProperty("sessieID");
         console.log("signupSessionID", sessionID);
+        var oResourceBundle = this
+          .getView()
+          .getModel("i18n")
+          .getResourceBundle();
+        var controleText = oResourceBundle.getText("eventDetailUitschrijvenSessie");
 
-        if (buttonText === "Uitschrijven voor deze sessie") {
+        if (buttonText === controleText) {
           this.cancelSignUp(sessionID, button);
         } else {
           this.registerForSession(sessionID, button);
@@ -183,6 +188,11 @@ sap.ui.define(
       registerForSession: function (sessionID, button) {
         var odatamodel = this.getView().getModel("v2model");
         var alreadysignedup = false;
+        var that = this;
+        var oResourceBundle = that
+          .getView()
+          .getModel("i18n")
+          .getResourceBundle();
 
         var filter = new sap.ui.model.Filter([
           new sap.ui.model.Filter(
@@ -221,36 +231,35 @@ sap.ui.define(
               odatamodel.create("/Inschrijvingen", oData, {
                 success: function (data, response) {
                   console.log("ingeschreven");
-                  MessageBox.success(
-                    "U bent succesvol ingeschreven voor deze sessie!"
+                  MessageBox.success(oResourceBundle.getText("ingeschreven"));
+                  button.setText(
+                    oResourceBundle.getText("eventDetailUitschrijvenSessie")
                   );
-                  button.setText("Uitschrijven voor deze sessie");
                   button.setType("Reject");
                 },
                 error: function (error) {
                   console.log("niet gelukt");
-                  MessageBox.error(
-                    "Het is niet gelukt om u in te schrijven voor deze sessie. Probeer het opnieuw!"
-                  );
+                  MessageBox.error(oResourceBundle.getText("inschrijvenError"));
                 },
               });
             } else {
-              MessageBox.error(
-                "U bent al ingeschreven voor deze sessie. U kunt zich niet nogmaals inschrijven."
+              MessageBox.error(oResourceBundle.getText("reedsIngeschreven"));
+              button.setText(
+                oResourceBundle.getText("eventDetailUitschrijvenSessie")
               );
-              button.setText("Uitschrijven voor deze sessie");
               button.setType("Reject");
             }
           },
           error: function (error) {
             console.log("niet gelukt");
-            MessageBox.error("Niet gelukt om inschrijvingen op te halen.");
+            MessageBox.error(oResourceBundle.getText("errorInschrijven"));
           },
         });
       },
 
       cancelSignUp: function (sessionID, button) {
         var odatamodel = this.getView().getModel("v2model");
+        var that = this;
 
         // Zoek de inschrijving die overeenkomt met de huidige gebruiker en sessie
         var filter = new sap.ui.model.Filter([
@@ -275,28 +284,31 @@ sap.ui.define(
                 inschrijvingID = e.inschrijvingID;
               }
             });
+            var oResourceBundle = that
+              .getView()
+              .getModel("i18n")
+              .getResourceBundle();
             odatamodel.remove("/Inschrijvingen(" + inschrijvingID + ")", {
               success: function (data, response) {
                 console.log("uitgeschreven");
-                MessageBox.success(
-                  "U bent succesvol uitgeschreven voor deze sessie!"
+
+                var sButtonText = oResourceBundle.getText("uitgeschreven");
+                MessageBox.success(sButtonText);
+                button.setText(
+                  oResourceBundle.getText("eventDetailRegistreerSessie")
                 );
-                button.setText("Registreer voor deze sessie");
                 button.setType("Emphasized");
               },
               error: function (error) {
+                uitschrijvenError;
                 console.log("niet gelukt");
-                MessageBox.error(
-                  "Het is niet gelukt om u uit te schrijven voor deze sessie. Probeer het opnieuw!"
-                );
+                MessageBox.error(oResourceBundle.getText("uitschrijvenError"));
               },
             });
           },
           error: function (error) {
             console.log("Error fetching inschrijving:", error);
-            MessageBox.error(
-              "Er is een fout opgetreden bij het ophalen van uw inschrijving. Probeer het opnieuw!"
-            );
+            MessageBox.error(oResourceBundle.getText("errorInschrijven"));
           },
         });
         this.updateAantalInschrijvingen();
@@ -337,14 +349,14 @@ sap.ui.define(
         var eventDateObj = new Date(eventDate);
         if (currentDate >= eventDateObj) {
           var evenementID = this.getView()
-          .getBindingContext()
-          .getProperty("evenementID");
+            .getBindingContext()
+            .getProperty("evenementID");
           window.location.href = "#/Feedback/" + evenementID;
         } else {
           MessageBox.information(
             "Het is nog niet mogelijk om feedback te zien voor dit evenement. Wacht tot het evenement is afgelopen!"
           );
-        }    
+        }
       },
 
       deleteEvent: function () {
@@ -470,7 +482,7 @@ sap.ui.define(
           return "Error formatting date and time";
         }
       },
-      _getEvenementIDFromURL: function() {
+      _getEvenementIDFromURL: function () {
         var oComponent = this.getOwnerComponent();
         var oRouter = oComponent.getRouter();
         var oArgs = oRouter.getHashChanger().getHash().split("/");
@@ -500,12 +512,11 @@ sap.ui.define(
           return "Error formatting date and time";
         }
       },
-      seeUsers: function() {
+      seeUsers: function () {
         //MessageBox.information("Onder constructie! hihi");
         var evenementIDtje = this._getEvenementIDFromURL();
         window.location.href = "#/Users/" + evenementIDtje;
       },
-      
     });
   }
 );

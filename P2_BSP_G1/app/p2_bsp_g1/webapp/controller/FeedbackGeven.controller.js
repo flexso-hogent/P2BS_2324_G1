@@ -1,89 +1,82 @@
-sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel",
-	"sap/ui/webc/main/Toast",
-  "sap/m/MessageBox"
-], function(Controller, JSONModel, Toast, MessageBox) {
-	"use strict";
+sap.ui.define(
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/webc/main/Toast",
+    "sap/m/MessageBox",
+  ],
+  function (Controller, JSONModel, Toast, MessageBox) {
+    "use strict";
 
-  var user = JSON.parse(localStorage.getItem("user"));
+    var user = JSON.parse(localStorage.getItem("user"));
 
-	return Controller.extend("p2bspg1.controller.FeedbackGeven", {
+    return Controller.extend("p2bspg1.controller.FeedbackGeven", {
+      onInit: function () {
+        if (user == null) {
+          this.getOwnerComponent().getRouter().navTo("NotFound");
+        }
+        this.getView().byId("feedback").setValue("");
+        this.getView().byId("ratingIndicator").setValue(3);
+      },
+      onCancel: function () {
+        // Redirect to Home page
+        window.history.back();
+      },
 
-		onInit: function() {
-			var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/products.json"));
-			this.getView().setModel(oModel);
-      if (user == null) {
-        this.getOwnerComponent().getRouter().navTo("NotFound");
-      }
-      this.getView().byId("feedback").setValue("");
-      this.getView().byId("ratingIndicator").setValue(3);
-		},
-		handleChange: function(oEvent) {
-			var demoToast = this.getView().byId("demoToast");
-			demoToast.setText("Event change fired.");
-			demoToast.show();
-		},
-    onCancel: function() {
-      // Redirect to Home page
-      window.history.back();
-    },
-
-    onSent: function() {
-        var feedbackInput = this.getView().byId("feedback");
-        var ratingIndicator = this.getView().byId("ratingIndicator");
+      onSent: function () {
+        var feedbackInput = this.getView().byId("feedback"),
+          ratingIndicator = this.getView().byId("ratingIndicator"),
+          oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
         // Get the values
-        var feedback = feedbackInput.getValue();  
+        var feedback = feedbackInput.getValue();
         var stars = ratingIndicator.getValue();
 
         // Message box page
         if (!feedback) {
-          MessageBox.error("Feedback is niet verzonden. Vul feedback in.");
+          MessageBox.error(
+            oResourceBundle.getText("FeedbackGevenFeedbackEmpy")
+          );
           return;
         } else {
           var odatamodel = this.getView().getModel("v2model");
           var inschrijvingID = this.getInschrijvingsID();
           console.log("inschrijvingID", inschrijvingID);
-          
+
           var oForm = {
-            "gebruikerID_gebruikerID": user.gebruikerID, 
-            "inschrijvingID_inschrijvingID": inschrijvingID,
-            "feedback": feedback,
-            "aantalSterren": stars,
-          }
+            gebruikerID_gebruikerID: user.gebruikerID,
+            inschrijvingID_inschrijvingID: inschrijvingID,
+            feedback: feedback,
+            aantalSterren: stars,
+          };
 
           console.log("oForm", oForm);
 
-        odatamodel.create("/Scores", oForm, {
-          success: function (data, response) {
-            MessageBox.success("Feedback met " + stars + " sterren is verzonden.", {
-              onClose: function () {
-                history.back();
-              },
-            });
-          },
-          error: function (error) {
-            MessageBox.error(
-              "Het is niet gelukt om uw feedback aan te maken, probeer opnieuw!"
-            );
-          },
-        });
-          // MessageBox.success("Feedback met " + stars + " sterren is verzonden.",
-          //   {
-          //     onClose: function () {
-          //       window.location.href = "#/";
-          //     },
-          //   }); 
+          odatamodel.create("/Scores", oForm, {
+            success: function (data, response) {
+              MessageBox.success(
+                oResourceBundle.getText("feedbackGevenSucces"),
+                {
+                  onClose: function () {
+                    history.back();
+                  },
+                }
+              );
+            },
+            error: function (error) {
+              MessageBox.error(oResourceBundle.getText("feedbackGevenError"));
+            },
+          });
         }
-    },
+      },
 
-    getInschrijvingsID: function() {
-      var oComponent = this.getOwnerComponent();
-          var oRouter = oComponent.getRouter();
-          var oArgs = oRouter.getHashChanger().getHash().split("/");
-          console.log(oArgs);
-          return parseInt(oArgs[oArgs.length - 1], 10);
-    }
-	});
-});
+      getInschrijvingsID: function () {
+        var oComponent = this.getOwnerComponent();
+        var oRouter = oComponent.getRouter();
+        var oArgs = oRouter.getHashChanger().getHash().split("/");
+        console.log(oArgs);
+        return parseInt(oArgs[oArgs.length - 1], 10);
+      },
+    });
+  }
+);
