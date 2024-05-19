@@ -30,14 +30,14 @@
                         <layout:VerticalLayout>
                             <m:Label text="{
                                 parts: [
-                                    {path: 'beginDatum'},
+                                    {path: 'beginDatum', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long', source: { pattern: 'yyyy-MM-ddTHH:mm:ss' }}},
                                     {path: 'beginUur', targetType: 'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short' }}
                                 ],
                                 formatter: '.myCustomFormatterFunction'
                                 }" class="sapUiSmallMarginBeginEnd" />
                             <m:Label text="{
                                 parts: [
-                                    {path: 'eindDatum'},
+                                    {path: 'eindDatum', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long', source: { pattern: 'yyyy-MM-ddTHH:mm:ss' }}},
                                     {path: 'eindUur', targetType: 'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short' }}
                                 ],
                                 formatter: '.myCustomFormatterFunction'
@@ -58,7 +58,7 @@
                     <m:Button text="{i18n>voegSessieToeButton}" type="Emphasized" press="addSessie" visible="false" id="av1" />
                     <m:Button text="{i18n>gebruikersWeergevenButton}" type="Emphasized" press="seeUsers" visible="false" id="av12" />
                     <m:Button text="{i18n>bekijkFeedbackButton}" type="Emphasized" press="seeFeedback" visible="false" id="av2" />
-                <m:Button text="{i18n>pasEventAanButton}" type="Attention" press="onEventPressEdit" visible="false" id="av3"/>
+                    <m:Button text="{i18n>pasEventAanButton}" type="Attention" press="onEventPressEdit" visible="false" id="av3"/>
                     <m:Button text="{i18n>verwijderEventButton}" type="Reject" press="deleteEvent" visible="false" id="av4" />
                     <m:Button text="{i18n>deactiveerEventButton}" type="Reject" press=".onDeactivate" visible="false" id="av0" />
                 </layout:VerticalLayout>
@@ -83,9 +83,6 @@
                                     <m:Text text="{i18n>eventDetailNaamSessie}" />
                                 </m:Column>
                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
-                                    <m:Text text="{i18n>eventDetailKorteInhoud}" />
-                                </m:Column>
-                                <m:Column minScreenWidth="Tablet" demandPopin="true">
                                     <m:Text text="{i18n>eventDetailDatum}" />
                                 </m:Column>
                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
@@ -100,8 +97,7 @@
                                 <m:ColumnListItem vAlign="Middle" press="handleListItemPress" type="Navigation">
                                     <m:cells>
                                         <m:ObjectIdentifier title="{naam}" text="{i18n>eventDetailSpreker} {spreker}"/>
-                                        <m:Text text="{korteInhoud}" />
-                                        <m:Text text="{ path: 'datum', type: 'sap.ui.model.type.Date', formatOptions: { source: { pattern: 'yyyy-MM-ddTHH:mm:ss' }, pattern: 'yyyy-MM-dd' } }"/>
+                                        <m:Text text="{ path: 'datum', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long', source: { pattern: 'yyyy-MM-dd' }} }"/>
                                         <m:Text text="{
                                             parts: [
                                                 {path: 'beginUur', targetType:'any', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short', UTC: true }},

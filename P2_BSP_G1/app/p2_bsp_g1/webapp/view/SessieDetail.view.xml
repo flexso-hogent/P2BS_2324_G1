@@ -28,7 +28,7 @@
                                     <m:FlexItemData growFactor="1" />
                                 </core:layoutData>
                             </core:Icon>
-                            <m:Text text="{ path: 'datum', type: 'sap.ui.model.type.Date', formatOptions: { source: { pattern: 'yyyy-MM-ddTHH:mm:ss' }, pattern: 'yyyy-MM-dd' } }"/>
+                            <m:Text text="{ path: 'datum', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long', source: { pattern: 'yyyy-MM-ddTHH:mm:ss' }} }"/>
                         </layout:HorizontalLayout>
                         <layout:HorizontalLayout >
                             <core:Icon src="sap-icon://away" class="size2">
