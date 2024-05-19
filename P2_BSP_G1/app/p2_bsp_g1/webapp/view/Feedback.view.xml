@@ -26,7 +26,7 @@
                     </infoToolbar>
                     <columns>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-                            <ObjectIdentifier title="{i18n>naamEvent}" text="Spreker"/>
+                            <ObjectIdentifier title="{i18n>naamEvent}" text="{i18n>spreker}"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="{i18n>naamGebruiker}"/>

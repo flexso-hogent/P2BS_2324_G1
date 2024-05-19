@@ -93,15 +93,13 @@ sap.ui.define(
           });
         } else {
           var oResourceBundle = this.getView()
-              .getModel("i18n")
-              .getResourceBundle();
-            var sMessageText = oResourceBundle.getText("noFeedback");
+            .getModel("i18n")
+            .getResourceBundle();
+          var sMessageText = oResourceBundle.getText("noFeedback");
           MessageBox.information(sMessageText);
         }
       },
-      showFeedback: function () {
-        
-      },
+      showFeedback: function () {},
       myCustomFormatterFunction2: function (beginUur, eindUur) {
         try {
           if (beginUur && eindUur) {
