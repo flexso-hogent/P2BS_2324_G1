@@ -92,7 +92,11 @@ sap.ui.define(
             },
           });
         } else {
-          MessageBox.information("U kunt pas feedback geven na de sessie");
+          var oResourceBundle = this.getView()
+              .getModel("i18n")
+              .getResourceBundle();
+            var sMessageText = oResourceBundle.getText("noFeedback");
+          MessageBox.information(sMessageText);
         }
       },
       showFeedback: function () {
