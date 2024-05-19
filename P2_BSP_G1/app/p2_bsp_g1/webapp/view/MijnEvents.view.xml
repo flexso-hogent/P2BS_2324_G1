@@ -53,7 +53,8 @@
                                 }" />
                                 <Text text="{sessieID/evenement/locatie}" />
                                 <!-- <core:Icon src="sap-icon://qr-code" press="openQR"/> -->
-                                <Button text="{i18n>geefFeedback}" press="geefFeedback" id="feedbackButton" />
+                                <Button text="{i18n>geefFeedback}" press="geefFeedback" id="feedbackButton" visible="true" />
+                                <Text text="{feedback}" id="feedbackText" visible="false"/>
                             </cells>
                         </ColumnListItem>
                     </items>

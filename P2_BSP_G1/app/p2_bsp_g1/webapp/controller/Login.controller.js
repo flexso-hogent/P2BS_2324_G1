@@ -59,7 +59,7 @@ sap.ui.define(
                 MessageBox.success("Login succesful. Redirecting to home screen.");
                 localStorage.setItem("user", JSON.stringify(e));
                 setTimeout(function () {
-                  window.location.href = "#/p2_bsp_g1/webapp/index.html";
+                  window.location.href = "http://localhost:4004/p2_bsp_g1/webapp/index.html#";
                   window.location.reload();
                 }, 2000);
               }

@@ -95,6 +95,9 @@ sap.ui.define(
           MessageBox.information("U kunt pas feedback geven na de sessie");
         }
       },
+      showFeedback: function () {
+        
+      },
       myCustomFormatterFunction2: function (beginUur, eindUur) {
         try {
           if (beginUur && eindUur) {

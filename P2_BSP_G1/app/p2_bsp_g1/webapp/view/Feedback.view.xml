@@ -32,6 +32,9 @@
                             <Text text="{i18n>naamGebruiker}"/>
                         </Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>feedback}"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="{i18n>aantalSterren}"/>
                         </Column>
                     </columns>
@@ -41,6 +44,7 @@
                             <cells>
                                 <ObjectIdentifier title="{inschrijvingID/sessieID/naam}" text="{inschrijvingID/sessieID/spreker}" />
                                 <Text text="{gebruikerID/voornaam} {gebruikerID/achternaam}" />
+                                <Text text="{feedback}" />
                                 <RatingIndicator value="{aantalSterren}" iconSize="24px" editable="false"/>
                             </cells>
                         </ColumnListItem>

@@ -103,6 +103,27 @@ sap.ui.define(
         return false;
       },
 
+      validateSesssionDateWithinEventRange(evenementID, sessionDate, callback) {
+        var odatamodel = this.getView().getModel("v2model");
+
+        odatamodel.read("/Evenementen(" + evenementID + ")", {
+          success: function(oEventDate) {
+            var eventBeginDate = new Date(oEventDate.beginDatum);
+            var eventEndDate = new Date(oEventDate.eindDatum);
+            var isValid = sessionDate >= eventBeginDate && sessionDate <= eventEndDate;
+            callback(isValid);
+            console.log(eventBeginDate);
+            console.log(eventEndDate);
+            console.log(sessionDate);
+            console.log(isValid);
+          },
+          error: function(error) {
+            console.log("Failed to fetch event data: ", error);
+            callback(false);
+          }
+        });
+      },
+
       createSessie: function () {
         var oForm = this.getView().getModel("form").getData();
     
@@ -135,26 +156,37 @@ sap.ui.define(
           return;
         }
     
-        var odatamodel = this.getView().getModel("v2model");
-    
-        odatamodel.create("/Sessies", oForm, {
-          success: function (data, response) {
-            console.log("gelukt");
-            MessageBox.success("Uw sessie is aangemaakt!", {
-              onClose: function () {
-                window.location.href = "#/Events/" + evenementID;
-              },
-            });
-          },
-          error: function (error) {
-            console.log("niet gelukt");
-            MessageBox.error(
-              "Het is niet gelukt om uw sessie aan te maken, probeer opnieuw!"
-            );
-          },
-        });
-        console.log("done");
+        this.validateSesssionDateWithinEventRange(evenementID, date, function(isValid) {
+          console.log(evenementID);
+          console.log(date);
+          console.log(isValid);
+          if (!isValid) {
+            MessageBox.error("Sessie datum moet binnen evenement datum vallen.");
+            return;
+          }
+        
+
+          var odatamodel = this.getView().getModel("v2model");
+      
+          odatamodel.create("/Sessies", oForm, {
+            success: function (data, response) {
+              console.log("gelukt");
+              MessageBox.success("Uw sessie is aangemaakt!", {
+                onClose: function () {
+                  window.location.href = "#/Events/" + evenementID;
+                },
+              });
+            },
+            error: function (error) {
+              console.log("niet gelukt");
+              MessageBox.error(
+                "Het is niet gelukt om uw sessie aan te maken, probeer opnieuw!"
+              );
+            },
+          });
+        }.bind(this));
       },
+      
 
       editSessie: function () {
         var oForm = this.getView().getModel("form").getData();
