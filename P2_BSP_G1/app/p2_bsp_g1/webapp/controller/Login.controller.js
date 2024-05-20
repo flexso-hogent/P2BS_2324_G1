@@ -55,7 +55,7 @@ sap.ui.define(
               }
             });
             if (!passwordCorrect) {
-              MessageBox.error("Invalid email or password.");
+              MessageBox.error(oResourceBundle.getText("ongeldigeLogin"));
               this.getView().byId("wachtwoord").setValue("");
             }
           }.bind(this),
