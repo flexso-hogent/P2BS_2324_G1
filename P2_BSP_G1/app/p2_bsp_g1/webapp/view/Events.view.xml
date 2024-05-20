@@ -67,9 +67,9 @@
 						</OverflowToolbar>
 					</infoToolbar>
 					<columns>
-						<Column minScreenWidth="Tablet" demandPopin="true">
+						<!-- <Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="{i18n>eventNummer}"/>
-						</Column>
+						</Column> -->
 						<Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="{i18n>eventNaam}"/>
 						</Column>
@@ -90,7 +90,7 @@
 					<items>
 						<ColumnListItem vAlign="Middle" type="Navigation" press="handleListItemPress">
 							<cells>
-								<ObjectIdentifier title="{evenementID}" />
+								<!-- <ObjectIdentifier title="{evenementID}" /> -->
 								<Text text="{naam}" />
 								<Text text="{locatie}" />
 								<Text text="{
