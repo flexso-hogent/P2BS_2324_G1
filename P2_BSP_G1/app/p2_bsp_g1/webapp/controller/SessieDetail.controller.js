@@ -23,7 +23,10 @@ sap.ui.define(
         var oAv3 = this.byId("av3"),
           oAv4 = this.byId("av4");
         if (user === null) {
-          MessageBox.error("U moet ingelogd zijn om deze pagina te bekijken", {
+          var oResourceBundle = this.getView()
+            .getModel("i18n")
+            .getResourceBundle();
+          MessageBox.error(oResourceBundle.getText("inloggenVerplicht"), {
             onClose: function () {
               window.location.href = "#/Login";
             },
@@ -48,22 +51,19 @@ sap.ui.define(
         });
       },
       deleteSessie: function () {
-        var odatamodel = this.getView().getModel("v2model");
+        var odatamodel = this.getView().getModel("v2model"),
+          oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
         odatamodel.remove("/Sessies(" + sessieID + ")", {
           success: function (data, response) {
-            console.log("gelukt");
-            MessageBox.success("De sessie is succesvol verwijderd!", {
+            MessageBox.success(oResourceBundle.getText("sessieRemove"), {
               onClose: function () {
                 history.back();
               },
             });
           },
           error: function (error) {
-            console.log("niet gelukt");
-            MessageBox.error(
-              "Het is niet gelukt om de sessie te verwijderen. Probeer het opnieuw!"
-            );
+            MessageBox.error(oResourceBundle.getText("sessieRemoveError"));
           },
         });
       },
@@ -71,7 +71,8 @@ sap.ui.define(
         window.history.back();
       },
       setRating: function () {
-        var that = this;
+        var that = this,
+          oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
         var odatamodel = this.getView().getModel("v2model");
         var oFilter = new Filter(
           "inschrijvingID/sessieID_sessieID",
@@ -99,18 +100,18 @@ sap.ui.define(
             that
               .byId("rating")
               .setTooltip(
-                "Een gemiddelde rating van " +
+                oResourceBundle.getText("rating") +
                   avrRating +
-                  " op 5 sterren" +
-                  " gebaseerd op " +
+                  " " +
+                  oResourceBundle.getText("rating2") +
+                  " " +
                   length +
-                  " beoordelingen"
+                  " " +
+                  oResourceBundle.getText("rating3")
               );
           },
           error: function (error) {
-            MessageBox.error(
-              "Er is een fout opgetreden bij het ophalen van de recensies. Laad de pagina opnieuw!"
-            );
+            MessageBox.error(oResourceBundle.getText("ratingFetchError"));
           },
         });
 
@@ -122,49 +123,47 @@ sap.ui.define(
         odatamodel.read("/Inschrijvingen", {
           filters: [oFilter2],
           success: function (oData) {
-            console.log(oData.results);
             var registrationCount = oData.results.length;
-            console.log("Number of registrations:", registrationCount);
-    
-            // var maxRegistrations = parseInt(that.byId("maxInschrijvingenText").getText());
-            // var maxRegistrations = this.getView()
-            //   .getBindingContext()
-            //   .getProperty("maxAantalInschrijvingen");
-            var maxRegistrations = that.getView().getBindingContext().getProperty("maxAantalInschrijvingen");
-            console.log("maxRegistrations", maxRegistrations);
+            var maxRegistrations = that
+              .getView()
+              .getBindingContext()
+              .getProperty("maxAantalInschrijvingen");
 
-            var oResourceBundle = that.getView()
+            var oResourceBundle = that
+              .getView()
               .getModel("i18n")
               .getResourceBundle();
             var sButtonText = oResourceBundle.getText("inschrijvingen");
 
             if (maxRegistrations == 0) {
-              that.byId("maxInschrijvingenText").setText(registrationCount + " " + sButtonText);
-            }else{
-              that.byId("maxInschrijvingenText").setText(registrationCount + "/" + maxRegistrations + " " + sButtonText);
+              that
+                .byId("maxInschrijvingenText")
+                .setText(registrationCount + " " + sButtonText);
+            } else {
+              that
+                .byId("maxInschrijvingenText")
+                .setText(
+                  registrationCount + "/" + maxRegistrations + " " + sButtonText
+                );
             }
-            
           },
           error: function (error) {
             console.log(error);
-            MessageBox.error(
-              "Er is een fout opgetreden bij het ophalen van het aantal registraties. Laad de pagina opnieuw!"
-            );
+            MessageBox.error(oResourceBundle.getText("registrationFetchError"));
           },
         });
       },
-      myCustomFormatterFunction2: function(beginUur, eindUur) {
+      myCustomFormatterFunction2: function (beginUur, eindUur) {
         try {
-      
           if (beginUur && eindUur) {
-            var aTime = beginUur.split(':');
-            var formattedTime = aTime[0] + ':' + aTime[1];
+            var aTime = beginUur.split(":");
+            var formattedTime = aTime[0] + ":" + aTime[1];
 
-            var bTime = eindUur.split(':');
-            var formattedTime2 = bTime[0] + ':' + bTime[1];
-      
-            var formattedDateTime = formattedTime + ' - ' + formattedTime2;
-      
+            var bTime = eindUur.split(":");
+            var formattedTime2 = bTime[0] + ":" + bTime[1];
+
+            var formattedDateTime = formattedTime + " - " + formattedTime2;
+
             return formattedDateTime;
           } else {
             return "Invalid time";

@@ -31,9 +31,6 @@
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="{i18n>locatie}"/>
                         </Column>
-                        <!-- <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="Open qr code"/>
-                        </Column> -->
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="{i18n>geefFeedback}" id="feedback" visible="true"/>
                         </Column>
@@ -52,7 +49,6 @@
                                         formatter: '.myCustomFormatterFunction2'
                                 }" />
                                 <Text text="{sessieID/evenement/locatie}" />
-                                <!-- <core:Icon src="sap-icon://qr-code" press="openQR"/> -->
                                 <Button text="{i18n>geefFeedback}" press="geefFeedback" id="feedbackButton" visible="true" />
                                 <Text text="{feedback}" id="feedbackText" visible="false"/>
                             </cells>

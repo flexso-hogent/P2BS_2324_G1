@@ -24,14 +24,10 @@
 						<OverflowToolbarLayoutData priority="Disappear"/>
 					</layoutData>
 				</Title>
-
-				<!-- <Button text="{i18n>languageSwitch}" press="onHandleLanguage" type="Attention"/> -->
 				<ToolbarSpacer />
-
 				<tnt:ToolHeaderUtilitySeparator/>
 				<ToolbarSpacer width="1.125rem"/>
 				<Button icon="sap-icon://world" press="onPress" id="button" ariaHasPopup="Menu"/>
-				
 			</tnt:ToolHeader>
 		</tnt:header>
 		<tnt:sideContent>
@@ -42,7 +38,6 @@
 						<tnt:NavigationListItem text="{i18n>overzichtEvenementenSidebarButton}" icon="sap-icon://legend" href="#/Events"/>
 						<tnt:NavigationListItem text="{i18n>nieuwEvenementSidebarButton}" icon="sap-icon://add-calendar" href="#/Events#/new" visible="false" id="av1" />
 					</tnt:NavigationListGroup>
-
 				</tnt:NavigationList>
 				<tnt:fixedItem >
 					<tnt:NavigationList>
@@ -69,7 +64,6 @@
 							<Panel width="40vw" backgroundDesign="Translucent">
 								<content>
 									<VBox alignItems="Center">
-
 										<FlexBox wrap="Wrap" justifyContent="SpaceAround" alignItems="Start" width="100%">
 											<GenericTile header="{i18n>overzichtEvenementenSidebarButton}" press=".onEvents" class="flexBoxStart">
 												<TileContent footer="">
@@ -86,9 +80,7 @@
 													<ImageContent src="sap-icon://notes"/>
 												</TileContent>
 											</GenericTile>
-
 										</FlexBox>
-
 									</VBox>
 								</content>
 							</Panel>
@@ -96,10 +88,7 @@
 					</content>
 				</Page>
 			</App>
-
 		</tnt:mainContents>
-
 	</tnt:ToolPage>
-
 </mvc:View>
 
