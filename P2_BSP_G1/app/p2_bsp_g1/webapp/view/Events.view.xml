@@ -55,7 +55,11 @@
 			</f:header>
 			<f:content>
 				<Table id="eventsTable" selectionChange=".onSelectionChange" noDataText="{i18n>noEventData}" inset="false" items="{
-						path: '/Evenementen'
+						path: '/Evenementen',
+						sorter: {
+							path: 'beginDatum',
+							descending: true
+						}
 					}">
 					<infoToolbar>
 						<OverflowToolbar visible="false" id="idInfoToolbar">
