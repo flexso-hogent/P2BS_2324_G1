@@ -125,7 +125,8 @@ sap.ui.define(
       },
 
       createSessie: function () {
-        var oForm = this.getView().getModel("form").getData();
+        var oForm = this.getView().getModel("form").getData(),
+        oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
     
         // Retrieve evenementID from URL
         var evenementID = this._getEvenementIDFromURL();
@@ -136,7 +137,7 @@ sap.ui.define(
         console.log(oForm);
     
         if (!this.validateForm(oForm)) {
-          MessageBox.error("Please fill in all fields");
+          MessageBox.error(oResourceBundle.getText("sessieAlleVeldenError"));
           return;
         }
     
@@ -144,7 +145,7 @@ sap.ui.define(
         var currentDate = new Date();
     
         if (date <= currentDate) {
-          MessageBox.error("Datum moeten in de toekomst liggen.");
+          MessageBox.error(oResourceBundle.getText("datumError"));
           return;
         }
     
@@ -152,7 +153,7 @@ sap.ui.define(
         var eindUur = new Date(oForm.eindUur);
     
         if (beginUur >= eindUur) {
-          MessageBox.error("Beginuur moet voor einduur liggen.");
+          MessageBox.error(oResourceBundle.getText("uurError"));
           return;
         }
     
@@ -161,7 +162,7 @@ sap.ui.define(
           console.log(date);
           console.log(isValid);
           if (!isValid) {
-            MessageBox.error("Sessie datum moet binnen evenement datum vallen.");
+            MessageBox.error(oResourceBundle.getText("datumInEventDatumError"));
             return;
           }
         
@@ -171,7 +172,7 @@ sap.ui.define(
           odatamodel.create("/Sessies", oForm, {
             success: function (data, response) {
               console.log("gelukt");
-              MessageBox.success("Uw sessie is aangemaakt!", {
+              MessageBox.success(oResourceBundle.getText("sessieAangemaakt"), {
                 onClose: function () {
                   window.location.href = "#/Events/" + evenementID;
                 },
@@ -180,7 +181,7 @@ sap.ui.define(
             error: function (error) {
               console.log("niet gelukt");
               MessageBox.error(
-                "Het is niet gelukt om uw sessie aan te maken, probeer opnieuw!"
+                oResourceBundle.getText("sessieAanmakenError")
               );
             },
           });
@@ -189,11 +190,12 @@ sap.ui.define(
       
 
       editSessie: function () {
-        var oForm = this.getView().getModel("form").getData();
+        var oForm = this.getView().getModel("form").getData(),
+        oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
         // Validate form data (similar to createEvent validation)
         if (!this.validateForm(oForm)) {
-          MessageBox.error("Please fill in all fields");
+          MessageBox.error(oResourceBundle.getText("sessieAlleVeldenError"));
           return;
         }
 
@@ -201,7 +203,7 @@ sap.ui.define(
         var currentDate = new Date();
     
         if (date <= currentDate) {
-          MessageBox.error("Datum moeten in de toekomst liggen.");
+          MessageBox.error(oResourceBundle.getText("datumError"));
           return;
         }
     
@@ -209,7 +211,7 @@ sap.ui.define(
         var eindUur = new Date(oForm.eindUur);
     
         if (beginUur >= eindUur) {
-          MessageBox.error("Beginuur moet voor einduur liggen.");
+          MessageBox.error(oResourceBundle.getText("uurError"));
           return;
         }
 
@@ -230,7 +232,7 @@ sap.ui.define(
             return;
           },
           error: function (error) {
-            MessageBox.error("De sessie is niet bijgewerkt. Probeer het opnieuw.");
+            MessageBox.error(oResourceBundle.getText("sessieAanpassenError"));
           },
         });
       },
