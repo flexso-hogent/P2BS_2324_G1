@@ -41,7 +41,6 @@ sap.ui.define(
         } else {
           var odatamodel = this.getView().getModel("v2model");
           var inschrijvingID = this.getInschrijvingsID();
-          console.log("inschrijvingID", inschrijvingID);
 
           var oForm = {
             gebruikerID_gebruikerID: user.gebruikerID,
@@ -50,7 +49,6 @@ sap.ui.define(
             aantalSterren: stars,
           };
 
-          console.log("oForm", oForm);
 
           odatamodel.create("/Scores", oForm, {
             success: function (data, response) {
@@ -74,7 +72,6 @@ sap.ui.define(
         var oComponent = this.getOwnerComponent();
         var oRouter = oComponent.getRouter();
         var oArgs = oRouter.getHashChanger().getHash().split("/");
-        console.log(oArgs);
         return parseInt(oArgs[oArgs.length - 1], 10);
       },
     });

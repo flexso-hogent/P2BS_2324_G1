@@ -111,7 +111,6 @@ sap.ui.define(
       checkUserSignUp: function () {
         var that = this;
         var beschikbareSessies = this.getView().byId("personalSS1");
-        console.log("beschikbareSessies", beschikbareSessies);
         var sessionID = 1;
         var button = this.getView().byId("signUpButton"); // ID van de knop die moet worden gecontroleerd
         button.setText("testerrr");
@@ -138,7 +137,6 @@ sap.ui.define(
         odatamodel.read("/Inschrijvingen", {
           filters: [filter],
           success: function (oData) {
-            console.log("checkUserSignUp results", oData.results);
             var bRegistered = false;
             oData.results.forEach(function (registration) {
               // Check if the user is registered for this session
@@ -158,7 +156,7 @@ sap.ui.define(
             }
           },
           error: function (error) {
-            console.log("Error fetching inschrijvingen:", error);
+
             MessageBox.error(
               "Er is een fout opgetreden bij het controleren van uw inschrijving. Probeer het opnieuw!"
             );
@@ -170,7 +168,6 @@ sap.ui.define(
         var button = evt.getSource();
         var buttonText = button.getText();
         var sessionID = button.getBindingContext().getProperty("sessieID");
-        console.log("signupSessionID", sessionID);
         var oResourceBundle = this
           .getView()
           .getModel("i18n")
@@ -210,7 +207,6 @@ sap.ui.define(
         odatamodel.read("/Inschrijvingen", {
           filters: [filter],
           success: function (oData) {
-            console.log("Inschrijvingen odata results", oData.results);
             oData.results.forEach((e) => {
               if (
                 e.gebruikerID_gebruikerID == user.gebruikerID &&
@@ -230,7 +226,6 @@ sap.ui.define(
               };
               odatamodel.create("/Inschrijvingen", oData, {
                 success: function (data, response) {
-                  console.log("ingeschreven");
                   MessageBox.success(oResourceBundle.getText("ingeschreven"));
                   button.setText(
                     oResourceBundle.getText("eventDetailUitschrijvenSessie")
@@ -238,7 +233,6 @@ sap.ui.define(
                   button.setType("Reject");
                 },
                 error: function (error) {
-                  console.log("niet gelukt");
                   MessageBox.error(oResourceBundle.getText("inschrijvenError"));
                 },
               });
@@ -251,7 +245,6 @@ sap.ui.define(
             }
           },
           error: function (error) {
-            console.log("niet gelukt");
             MessageBox.error(oResourceBundle.getText("errorInschrijven"));
           },
         });
@@ -290,7 +283,6 @@ sap.ui.define(
               .getResourceBundle();
             odatamodel.remove("/Inschrijvingen(" + inschrijvingID + ")", {
               success: function (data, response) {
-                console.log("uitgeschreven");
 
                 var sButtonText = oResourceBundle.getText("uitgeschreven");
                 MessageBox.success(sButtonText);
@@ -301,7 +293,6 @@ sap.ui.define(
               },
               error: function (error) {
                 uitschrijvenError;
-                console.log("niet gelukt");
                 MessageBox.error(oResourceBundle.getText("uitschrijvenError"));
               },
             });
@@ -367,7 +358,6 @@ sap.ui.define(
 
         odatamodel.remove("/Evenementen(" + evenementID + ")", {
           success: function (data, response) {
-            console.log("gelukt");
             MessageBox.success("Het evenement is succesvol verwijderd!", {
               onClose: function () {
                 window.location.href = "#/Events";
@@ -375,7 +365,6 @@ sap.ui.define(
             });
           },
           error: function (error) {
-            console.log("niet gelukt");
             MessageBox.error(
               "Het is niet gelukt om het evenement te verwijderen. Probeer het opnieuw!"
             );
@@ -388,7 +377,6 @@ sap.ui.define(
 
         var aHashParts = sHash.split("/");
         var sEventId = aHashParts[aHashParts.length - 1];
-        console.log(sEventId);
 
         // Navigate to "EditEvent" route without full page reload
         oRouter.navTo(
@@ -486,7 +474,6 @@ sap.ui.define(
         var oComponent = this.getOwnerComponent();
         var oRouter = oComponent.getRouter();
         var oArgs = oRouter.getHashChanger().getHash().split("/");
-        console.log(oArgs);
         return oArgs[oArgs.length - 1];
       },
       myCustomFormatterFunction: function (beginDatum, beginUur) {

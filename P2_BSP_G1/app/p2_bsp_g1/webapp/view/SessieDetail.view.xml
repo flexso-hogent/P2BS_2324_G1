@@ -67,10 +67,8 @@
                                 </core:layoutData>
                             </core:Icon>
                             <m:Text text="{i18n>nogGeenRecenties}"/>
-
                         </layout:HorizontalLayout>
                     </layout:VerticalLayout>
-
                 </m:items>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd buttonWidth">
                     <m:Button text="{i18n>terug}" type="Default" press=".onTerug"/>
@@ -79,7 +77,6 @@
                 </layout:VerticalLayout>
             </m:FlexBox>
         </headerContent>
-
         <sections>
             <ObjectPageSection titleUppercase="false" id="personal" title="Session">
                 <subSections>
@@ -87,7 +84,6 @@
                         <blocks>
                             <m:Text text="{korteInhoud}" />
                         </blocks>
-
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>

@@ -19,7 +19,6 @@ sap.ui.define(
         this.oRouter
           .getRoute("Profiel")
           .attachPatternMatched(this._onRouteMatched, this);
-        console.log("gelukt");
 
         var oRegistreer = {
           voornaam: "",
@@ -52,7 +51,6 @@ sap.ui.define(
 
       _onRouteMatched: function (oEvent) {
         var oView = this.getView();
-        console.log("logged in user: ", loggedInUser.gebruikerID);
         var urlPath =
           "/" + "Gebruikers(gebruikerID=" + loggedInUser.gebruikerID + ")";
         oView.bindElement({ path: urlPath });
@@ -77,7 +75,6 @@ sap.ui.define(
         this.updateModel();
         var oForm = this.getView().getModel("form").getData(),
           oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
-        console.log(oForm);
         var sHerhaalWachtwoord = oForm.herhaalWachtwoord;
 
         // Check if any field is empty
@@ -184,7 +181,6 @@ sap.ui.define(
           oPasswordInput.setType("Password");
         }
         var oCurrentIcon = this.getView().byId("icon");
-        console.log(oCurrentIcon);
         var sCurrentIcon = oCurrentIcon.getIcon();
         if (sCurrentIcon === "sap-icon://show") {
           oCurrentIcon.setIcon("sap-icon://hide");
@@ -201,7 +197,6 @@ sap.ui.define(
           oPasswordInput.setType("Password");
         }
         var oCurrentIcon = this.getView().byId("icon2");
-        console.log(oCurrentIcon);
         var sCurrentIcon = oCurrentIcon.getIcon();
         if (sCurrentIcon === "sap-icon://show") {
           oCurrentIcon.setIcon("sap-icon://hide");

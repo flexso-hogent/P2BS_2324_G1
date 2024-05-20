@@ -40,7 +40,6 @@ sap.ui.define(
         var oBinding = oTable.getBinding("items");
         oBinding.sort(new Sorter("sessieID/evenement/beginDatum", true, true)); // Sort on 'datum'
 
-        console.log(oTable);
       },
 
       handleListPress: function (oEvent) {

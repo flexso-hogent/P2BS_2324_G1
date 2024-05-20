@@ -240,7 +240,6 @@ sap.ui.define(
           var oComponent = this.getOwnerComponent();
           var oRouter = oComponent.getRouter();
           var oArgs = oRouter.getHashChanger().getHash().split("/");
-          console.log(oArgs);
           return oArgs[oArgs.length - 1]; // Assuming evenementID is the last segment of the URL
       },
       handleEditCreate: function () {

@@ -35,7 +35,6 @@
                             <Text text="{i18n>geefFeedback}" id="feedback" visible="true"/>
                         </Column>
                     </columns>
-
                     <items>
                         <ColumnListItem vAlign="Middle" type="Navigation" press="handleListPress">
                             <cells>

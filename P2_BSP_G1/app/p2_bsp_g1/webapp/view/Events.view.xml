@@ -109,7 +109,6 @@
 					</items>
 				</Table>
 			</f:content>
-
 		</f:DynamicPage>
 	</Page>
 </mvc:View>

@@ -83,7 +83,6 @@ sap.ui.define(
         odatamodel.read("/Scores", {
           filters: [oFilter],
           success: function (oData) {
-            console.log(oData);
             var avrRating = 0;
             oData.results.forEach((e) => {
               avrRating += parseInt(e.aantalSterren);

@@ -41,7 +41,6 @@
                                     <Button icon="sap-icon://show" press=".onSeePasswordHerhaal" />
                                 </HBox>
                             </l:VerticalLayout>
-                           
                         </VBox> <l:HorizontalLayout class="btncreate">
                                 <Button text="{i18n>terug}" type="Default" press=".onTerug" class="btncreate"/>
                                 <Button text="{i18n>registreer}" type="Accept" press=".onRegister" class="btncreate" />

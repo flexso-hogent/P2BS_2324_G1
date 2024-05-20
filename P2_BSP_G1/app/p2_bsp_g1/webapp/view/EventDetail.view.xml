@@ -90,8 +90,6 @@
                                 </m:Column>
                                 <m:Column demandPopin="true">
                                 </m:Column>
-
-
                             </m:columns>
                             <m:items>
                                 <m:ColumnListItem vAlign="Middle" press="handleListItemPress" type="Navigation">

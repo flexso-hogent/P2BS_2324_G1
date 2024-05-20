@@ -34,9 +34,7 @@
                         <Column minScreenWidth="Tablet" demandPopin="true">
                             <Text text="{i18n>emailGebruiker}"/>
                         </Column>
-
                     </columns>
-
                     <items>
                         <ColumnListItem vAlign="Middle" type="Active">
                             <cells>

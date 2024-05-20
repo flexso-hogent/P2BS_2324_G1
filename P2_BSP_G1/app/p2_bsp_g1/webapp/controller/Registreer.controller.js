@@ -1,5 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/m/MessageBox"],
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageBox",
+  ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
@@ -13,7 +17,7 @@ sap.ui.define(
           email: "",
           geboortedatum: null,
           voornaam: "",
-          wachtwoord: ""
+          wachtwoord: "",
         };
 
         var oModel = new JSONModel(oRegistreer);
@@ -21,7 +25,7 @@ sap.ui.define(
       },
 
       // Function to validate form fields
-      validateForm: function(formData) {
+      validateForm: function (formData) {
         for (var key in formData) {
           if (formData.hasOwnProperty(key)) {
             if (!formData[key] && key !== "herhaalWachtwoord") {
@@ -31,10 +35,12 @@ sap.ui.define(
         }
         return true;
       },
-    
-      onRegister: function() {
+
+      onRegister: function () {
         var oForm = this.getView().getModel("form").getData();
-        var sHerhaalWachtwoord = this.getView().byId("herhaalWachtwoord").getValue();
+        var sHerhaalWachtwoord = this.getView()
+          .byId("herhaalWachtwoord")
+          .getValue();
 
         // Check if any field is empty
         if (!this.validateForm(oForm)) {
@@ -46,7 +52,9 @@ sap.ui.define(
 
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(oForm.email)) {
-          MessageBox.error("Please enter a valid email address. Example: jan@example.com");
+          MessageBox.error(
+            "Please enter a valid email address. Example: jan@example.com"
+          );
           this.getView().byId("wachtwoord").setValue("");
           this.getView().byId("herhaalWachtwoord").setValue("");
           return;
@@ -63,96 +71,67 @@ sap.ui.define(
         var birthdate = new Date(oForm.geboortedatum);
         var currentDate = new Date();
         if (birthdate > currentDate) {
-            MessageBox.error("Please enter a valid birthdate.");
-            this.getView().byId("wachtwoord").setValue("");
-            this.getView().byId("herhaalWachtwoord").setValue("");
-            return;
+          MessageBox.error("Please enter a valid birthdate.");
+          this.getView().byId("wachtwoord").setValue("");
+          this.getView().byId("herhaalWachtwoord").setValue("");
+          return;
         }
+        var odatamodel = this.getView().getModel("v2model"),
+          geboortedatum = new Date(oForm.geboortedatum);
 
-        var csvData = [
-          this.getNextUserID(),
-          oForm.voornaam,
-          oForm.achternaam,
-          oForm.email,
-          oForm.wachtwoord,
-          oForm.geboortedatum,
-          "user" 
-        ].join(";");
-        console.log("Data die gefixt is: ", csvData);
-        var csvArray = csvData.split(";");
-        var userData = {
-          gebruikerID: parseInt(csvArray[0]),
-          voornaam: csvArray[1],
-          achternaam: csvArray[2],
-          email: csvArray[3],
-          wachtwoord: csvArray[4],
-          geboortedatum: csvArray[5],
-          rol: csvArray[6]
-        }
-    
-        jQuery.ajax({
-            url: "http://localhost:4004/odata/v4/overview/Gebruikers",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(userData),
-            success: function(response) {
-                MessageBox.success("User registered successfully! Redirecting to login page.");
-                setTimeout(function () {
-                  window.location.href = "#/Login";
-                  window.location.reload();
-                }, 2000);
-            },
-            error: function(xhr, status, error) {
-              console.error("Failed to register user. Please try again later.");
-              console.error("Status: " + status);
-              console.error("Error: " + error);
-              console.error("Response: " + xhr.responseText);
-          }
+        var oData = {
+            achternaam: oForm.achternaam,
+            email: oForm.email,
+            geboortedatum: geboortedatum,
+            voornaam: oForm.voornaam,
+            wachtwoord: oForm.wachtwoord,
+            rol: "user",
+          },
+          oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+
+        odatamodel.create("/Gebruikers", oData, {
+          success: function () {
+            MessageBox.success(oResourceBundle.getText("registerenSuccess"));
+            window.location.href = "#/Login/";
+          },
         });
-        console.log("melding meegegeven");
-      },
-      getNextUserID: function() {
-        var lastUserID = "000024";
-        var nextUserID = parseInt(lastUserID.slice(1)) + 1; 
-        return "000" + nextUserID.toString().slice(-5);
       },
 
-      onSeePassword: function() {
+      onSeePassword: function () {
         var oPasswordInput = this.getView().byId("wachtwoord");
         var sCurrentType = oPasswordInput.getType();
         if (sCurrentType === "Password") {
-            oPasswordInput.setType("Text");
+          oPasswordInput.setType("Text");
         } else {
-            oPasswordInput.setType("Password");
+          oPasswordInput.setType("Password");
         }
         var oCurrentIcon = this.getView().byId("icon");
-        console.log(oCurrentIcon);
         var sCurrentIcon = oCurrentIcon.getIcon();
         if (sCurrentIcon === "sap-icon://show") {
-            oCurrentIcon.setIcon("sap-icon://hide");
+          oCurrentIcon.setIcon("sap-icon://hide");
         } else {
-            oCurrentIcon.setIcon("sap-icon://show");
+          oCurrentIcon.setIcon("sap-icon://show");
         }
       },
-      onSeePasswordHerhaal: function() {
+      onSeePasswordHerhaal: function () {
         var oPasswordInput = this.getView().byId("herhaalWachtwoord");
         var sCurrentType = oPasswordInput.getType();
         if (sCurrentType === "Password") {
-            oPasswordInput.setType("Text");
+          oPasswordInput.setType("Text");
         } else {
-            oPasswordInput.setType("Password");
+          oPasswordInput.setType("Password");
         }
         var oCurrentIcon = this.getView().byId("icon2");
-        console.log(oCurrentIcon);
         var sCurrentIcon = oCurrentIcon.getIcon();
         if (sCurrentIcon === "sap-icon://show") {
-            oCurrentIcon.setIcon("sap-icon://hide");
+          oCurrentIcon.setIcon("sap-icon://hide");
         } else {
-            oCurrentIcon.setIcon("sap-icon://show");
+          oCurrentIcon.setIcon("sap-icon://show");
         }
       },
-      onTerug: function() {
+      onTerug: function () {
         window.location.href = "#/Login/";
-      }
+      },
     });
-  });
+  }
+);

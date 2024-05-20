@@ -38,7 +38,6 @@
                             <Text text="{i18n>aantalSterren}"/>
                         </Column>
                     </columns>
-
                     <items>
                         <ColumnListItem vAlign="Middle" type="Active">
                             <cells>
