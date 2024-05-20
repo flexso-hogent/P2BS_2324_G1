@@ -75,38 +75,37 @@ sap.ui.define(
 
       onOpslaan: function () {
         this.updateModel();
-        var oForm = this.getView().getModel("form").getData();
+        var oForm = this.getView().getModel("form").getData(),
+          oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
         console.log(oForm);
         var sHerhaalWachtwoord = oForm.herhaalWachtwoord;
 
         // Check if any field is empty
         if (!this.validateForm(oForm)) {
-          MessageBox.error("Please fill in all fields");
+          MessageBox.error(oResourceBundle.getText("alleVeldenError"));
           return;
         }
 
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(oForm.email)) {
-          MessageBox.error(
-            "Please enter a valid email address. Example: jan@example.com"
-          );
+          MessageBox.error(oResourceBundle.getText("emailError"));
           return;
         }
 
         // Check if password and repeat password match
         if (oForm.wachtwoord !== sHerhaalWachtwoord) {
-          MessageBox.error("Passwords do not match! Please try again.");
+          MessageBox.error(oResourceBundle.getText("wachtwoordError"));
           return;
         }
 
         var birthdate = new Date(oForm.geboortedatum);
         var currentDate = new Date();
         if (birthdate > currentDate) {
-          MessageBox.error("Please enter a valid birthdate.");
+          MessageBox.error(oResourceBundle.getText("geboortedatumError"));
           return;
         }
 
-        MessageBox.confirm("Wilt u uw gegevens wijzigen?", {
+        MessageBox.confirm(oResourceBundle.getText("bevestigingWijzigen"), {
           actions: [MessageBox.Action.YES, MessageBox.Action.NO],
           onClose: function (sAction) {
             if (sAction === MessageBox.Action.YES) {
@@ -126,19 +125,19 @@ sap.ui.define(
                 oFormUpdate,
                 {
                   success: function () {
-                    MessageBox.success("Uw gegevens zijn gewijzigd.");
+                    MessageBox.success(
+                      oResourceBundle.getText("wijzigingSucces")
+                    );
                     that.getView().byId("wachtwoord").setValue("");
                     that.getView().byId("herhaalWW").setValue("");
                   },
                   error: function () {
-                    MessageBox.error(
-                      "Er is iets misgegaan. Probeer het later opnieuw."
-                    );
+                    MessageBox.error(oResourceBundle.getText("profielError"));
                   },
                 }
               );
             } else {
-              MessageBox.error("Uw gegevens zijn niet gewijzigd.");
+              MessageBox.error(oResourceBundle.getText("wijzigingAnnuleren"));
               this.getView().byId("wachtwoord").setValue("");
               this.getView().byId("herhaalWW").setValue("");
             }
