@@ -4,9 +4,9 @@ sap.ui.define(
     "use strict";
 
     // Refreshen van pagina als er naar gegaan wordt
-    window.onload = function () {
-      window.location.reload();
-    };
+    //window.onload = function () {
+    //  window.location.reload();
+    //};
 
     return Controller.extend("p2bspg1.controller.Login", {
       onInit: function () {
