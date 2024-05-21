@@ -151,7 +151,6 @@ sap.ui.define(
             }
           },
           error: function (error) {
-
             MessageBox.error(
               "Er is een fout opgetreden bij het controleren van uw inschrijving. Probeer het opnieuw!"
             );
@@ -163,11 +162,12 @@ sap.ui.define(
         var button = evt.getSource();
         var buttonText = button.getText();
         var sessionID = button.getBindingContext().getProperty("sessieID");
-        var oResourceBundle = this
-          .getView()
+        var oResourceBundle = this.getView()
           .getModel("i18n")
           .getResourceBundle();
-        var controleText = oResourceBundle.getText("eventDetailUitschrijvenSessie");
+        var controleText = oResourceBundle.getText(
+          "eventDetailUitschrijvenSessie"
+        );
 
         if (buttonText === controleText) {
           this.cancelSignUp(sessionID, button);
@@ -198,10 +198,25 @@ sap.ui.define(
             sessionID
           ),
         ]);
+        var aantalInschrijvingenSessie,
+          teVeelInschrijvingen = false;
+
+        odatamodel.read("/Sessies(" + sessionID + ")", {
+          success: function (oData) {
+            aantalInschrijvingenSessie = oData.maxAantalInschrijvingen;
+          },
+          error: function (error) {
+            console.error("Error fetching aantal inschrijvingen:", error);
+          },
+        });
 
         odatamodel.read("/Inschrijvingen", {
           filters: [filter],
           success: function (oData) {
+            console.log(oData.results.length);
+            if (aantalInschrijvingenSessie <= oData.results.length) {
+              teVeelInschrijvingen = true;
+            }
             oData.results.forEach((e) => {
               if (
                 e.gebruikerID_gebruikerID == user.gebruikerID &&
@@ -210,6 +225,12 @@ sap.ui.define(
                 alreadysignedup = true;
               }
             });
+
+            if(teVeelInschrijvingen === true){
+              MessageBox.error(oResourceBundle.getText("teVeelInschrijvingen"));
+              return;
+            };
+
             if (alreadysignedup === false) {
               var oData = {
                 gebruikerID: {
@@ -278,7 +299,6 @@ sap.ui.define(
               .getResourceBundle();
             odatamodel.remove("/Inschrijvingen(" + inschrijvingID + ")", {
               success: function (data, response) {
-
                 var sButtonText = oResourceBundle.getText("uitgeschreven");
                 MessageBox.success(sButtonText);
                 button.setText(
