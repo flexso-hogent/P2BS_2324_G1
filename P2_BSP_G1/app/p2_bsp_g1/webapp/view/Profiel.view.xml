@@ -39,13 +39,13 @@
                                 <Label text="{i18n>wachtwoord}" labelFor="wachtwoord" required="true" class="input" />
                                 <HBox class="input">
                                     <Input id="wachtwoord" type="Password" width="100%" class="input" editable="false" liveChange=".updateModel"/>
-                                    <Button icon="sap-icon://show" press=".onSeePassword" />
+                                    <Button icon="sap-icon://show" press=".onSeePassword" id="icon"/>
                                     <Button icon="sap-icon://edit" press=".onEditWW"/>
                                 </HBox>
                                 <Label text="{i18n>herhaalWachtwoord}" labelFor="herhaalWachtwoord" required="true" class="input"/>
                                 <HBox class="input">
                                     <Input id="herhaalWW" type="Password" width="100%" class="input" editable="false" liveChange=".updateModel"/>
-                                    <Button icon="sap-icon://show" press=".onSeePasswordHerhaal" />
+                                    <Button icon="sap-icon://show" press=".onSeePasswordHerhaal" id="icon2"/>
                                     <Button icon="sap-icon://edit" press=".onEditHerhaalWW"/>
                                 </HBox>
                             </layout:VerticalLayout>
