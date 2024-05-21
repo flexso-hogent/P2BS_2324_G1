@@ -152,13 +152,11 @@ sap.ui.define(
         //to avoid an invalid URL
 
         var sEventID = oSelectedItem.getProperty("evenementID");
-        console.log(sEventID);
 
         var oRouter = this.getOwnerComponent().getRouter();
         oRouter.navTo("EventDetail", {
           evenementID: sEventID,
         });
-        console.log("Done");
       },
       myCustomFormatterFunction: function(beginDatum, beginUur) {
         try {

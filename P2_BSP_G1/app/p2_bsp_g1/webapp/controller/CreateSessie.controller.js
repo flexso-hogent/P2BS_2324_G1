@@ -112,10 +112,6 @@ sap.ui.define(
             var eventEndDate = new Date(oEventDate.eindDatum);
             var isValid = sessionDate >= eventBeginDate && sessionDate <= eventEndDate;
             callback(isValid);
-            console.log(eventBeginDate);
-            console.log(eventEndDate);
-            console.log(sessionDate);
-            console.log(isValid);
           },
           error: function(error) {
             console.log("Failed to fetch event data: ", error);
@@ -133,8 +129,6 @@ sap.ui.define(
     
         // Add evenementID to form data
         oForm.evenement.evenementID = evenementID;
-    
-        console.log(oForm);
     
         if (!this.validateForm(oForm)) {
           MessageBox.error(oResourceBundle.getText("sessieAlleVeldenError"));
@@ -158,9 +152,6 @@ sap.ui.define(
         }
     
         this.validateSesssionDateWithinEventRange(evenementID, date, function(isValid) {
-          console.log(evenementID);
-          console.log(date);
-          console.log(isValid);
           if (!isValid) {
             MessageBox.error(oResourceBundle.getText("datumInEventDatumError"));
             return;
@@ -171,7 +162,6 @@ sap.ui.define(
       
           odatamodel.create("/Sessies", oForm, {
             success: function (data, response) {
-              console.log("gelukt");
               MessageBox.success(oResourceBundle.getText("sessieAangemaakt"), {
                 onClose: function () {
                   window.location.href = "#/Events/" + evenementID;
@@ -179,7 +169,6 @@ sap.ui.define(
               });
             },
             error: function (error) {
-              console.log("niet gelukt");
               MessageBox.error(
                 oResourceBundle.getText("sessieAanmakenError")
               );

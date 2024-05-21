@@ -63,10 +63,6 @@ sap.ui.define(
         odatamodel.read("/Evenementen(" + eventId + ")", {
           success: function (oData) {
             that.maxAantalInschrijvingen = oData.maxAantalInschrijvingen;
-            console.log(
-              "Maximaal aantal inschrijvingen: ",
-              that.maxAantalInschrijvingen
-            );
           },
           error: function (error) {
             console.error(
@@ -95,7 +91,6 @@ sap.ui.define(
           filters: [filter],
           success: function (oData) {
             that.iAantalInschrijvingen = oData.results.length;
-            console.log("Aantal inschrijvingen:", that.iAantalInschrijvingen);
           },
           error: function (error) {
             console.log("Error fetching inschrijvingen:", error);
