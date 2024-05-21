@@ -61,6 +61,7 @@ sap.ui.define(
       },
       onLogoutPress: function () {
         window.location.href = "#/Login/";
+        window.location.reload();
       },
       onMyEvents: function () {
         window.location.href = "#/MijnEvents/";
